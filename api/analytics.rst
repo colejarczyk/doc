@@ -6,7 +6,7 @@ These endpoints will allow you to easily analyze your data in the Open Loyalty.
 Getting number of registered customers
 --------------------------------------
 
-To retrieve number of registered customers in the loyalty program you will need to call the ``/api/admin/analytics/customer`` endpoint with the ``GET`` method.
+To retrieve number of registered customers in the loyalty program you need to call the ``/api/admin/analytics/customer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -32,7 +32,12 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -48,7 +53,7 @@ Exemplary Response
 Getting number of spent and transferred points
 ----------------------------------------------
 
-To retrieve a number of spent and transferred points you will need to call the ``/api/admin/analytics/points`` endpoint with the ``GET`` method.
+To retrieve a number of spent and transferred points you need to call the ``/api/admin/analytics/points`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -73,8 +78,13 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        
+.. note::
 
-Exemplary Response
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -91,7 +101,7 @@ Exemplary Response
 Getting an information about referrals
 --------------------------------------
 
-To retrieve the details of referrals you will need to call the ``/api/admin/analytics/referrals`` endpoint with the ``GET`` method.
+To retrieve the details of referrals you need to call the ``/api/admin/analytics/referrals`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -117,7 +127,12 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -135,7 +150,7 @@ Exemplary Response
 Getting an information about transactions
 -----------------------------------------
 
-To retrieve an information about transactions you will need to call the ``/api/admin/analytics/transactions`` endpoint with the ``GET`` method.
+To retrieve an information about transactions you need to call the ``/api/admin/analytics/transactions`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -161,7 +176,12 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text

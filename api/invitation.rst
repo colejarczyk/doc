@@ -7,7 +7,7 @@ These endpoints will allow you to easily manage Invitations.
 Get a complete list of invitations
 ----------------------------------
 
-To retrieve a paginated list of invitations you will need to call the ``/api/invitations`` endpoint with the ``GET`` method.
+To retrieve a paginated list of invitations you need to call the ``/api/invitations`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -39,7 +39,6 @@ Definition
 |                                     |                | Made purchase, Registered                         |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-
 Example
 ^^^^^^^
 
@@ -53,11 +52,10 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -113,10 +111,11 @@ Exemplary Response
     }
 
 
+
 Send invitation to customer
 ---------------------------
 
-To send invitation to recipient you will need to call the ``/api/invitation/invite`` endpoint with the ``POST`` method.
+To send invitation to recipient you need to call the ``/api/invitation/invite`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -125,17 +124,17 @@ Definition
 
     POST /api/invitation/invite
 
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| Parameter                                      | Parameter type |  Description                                                               |
-+================================================+================+============================================================================+
-| Authorization                                  | header         | Token received during authentication                                       |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| invitation[type]                               | query          | Recipient type (mobile, email)                                             |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| invitation[recipientPhone]                     | query          | Required if type is mobile                                                 |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| invitation[recipientEmail]                     | query          | Required if type is email                                                  |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
++----------------------------+----------------+------------------------------------------------------------------------+
+| Parameter                  | Parameter type |  Description                                                           |
++============================+================+========================================================================+
+| Authorization              | header         | Token received during authentication                                   |
++----------------------------+----------------+------------------------------------------------------------------------+
+| invitation[type]           | query          | Recipient type (mobile, email)                                         |
++----------------------------+----------------+------------------------------------------------------------------------+
+| invitation[recipientPhone] | query          | Required if type is mobile                                             |
++----------------------------+----------------+------------------------------------------------------------------------+
+| invitation[recipientEmail] | query          | Required if type is email                                              |
++----------------------------+----------------+------------------------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -150,7 +149,12 @@ Example
         -d "translation[type]=email" \
         -d "translation[recipientEmail]=smith@example.com"
 
-Exemplary Response
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text

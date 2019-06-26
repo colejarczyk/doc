@@ -11,9 +11,12 @@ Introduction
 
        create_a_new_bundle
        create_a_new_api_endpoint
+       create_a_new_command_and_handler
        how_to_change_domain
-       translatable_field
        how_to_backup_elasticsearch
+       how_to_change_main_language
+       how_to_work_with_queues
+       translatable_field
        FAQ
 
 .. include:: /cookbook/map.rst.inc

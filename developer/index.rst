@@ -43,3 +43,13 @@ Configuration
    configuration/index
 
 .. include:: /developer/configuration/map.rst.inc
+
+Local environment
+-------------
+
+.. toctree::
+   :hidden:
+
+   environment/index
+
+.. include:: /developer/environment/map.rst.inc

@@ -45,6 +45,11 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
 Example Response
 ^^^^^^^^^^^^^^^^
 
@@ -242,6 +247,11 @@ Example
 
 .. note::
 
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
     To create OR condition, add another ``SegmentPart`` element in ``segment[parts]`` array.
     To create AND condition, add another ``Criterion`` element in ``segment[parts][<part_element>][criteria]`` array.
 
@@ -293,6 +303,11 @@ Example
 
 .. note::
 
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
     The *f9a64320-0e93-42b9-882c-43cd477156cf* segment ID is an example value.
     Your value can be different. Check in the list of all segments if you are not sure which id should be used.
 
@@ -301,11 +316,7 @@ Example Response
 
 .. code-block:: text
 
-    STATUS: 204 OK
-
-.. code-block:: json
-
-    No Content
+    STATUS: 204 No Content
 
 
 
@@ -341,6 +352,11 @@ To see the details of the customer user with ``segment = 00000000-0000-0000-0000
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -489,7 +505,7 @@ To update the details of a segment with ``segment = 17347292-0aaf-4c25-9118-17eb
 .. code-block:: bash
 
     curl http://localhost:8181/api/segment/17347292-0aaf-4c25-9118-17eb2c55b58b \
-        -X "POST" \
+        -X "PUT" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
         -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
@@ -499,6 +515,11 @@ To update the details of a segment with ``segment = 17347292-0aaf-4c25-9118-17eb
         -d "segment[parts][0][criteria][0][type]=anniversary" \
         -d "segment[parts][0][criteria][0][days]=2" \
         -d "segment[parts][0][criteria][0][anniversaryType]=birthday"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -549,18 +570,19 @@ Example
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
-        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-    STATUS: 204 OK
-
-.. code-block:: json
-
-    No Content
+    STATUS: 204 No Content
 
 
 
@@ -613,6 +635,11 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -703,15 +730,16 @@ Example
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
-        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-    STATUS: 204 OK
-
-.. code-block:: json
-
-    No Content
+    STATUS: 204 No Content

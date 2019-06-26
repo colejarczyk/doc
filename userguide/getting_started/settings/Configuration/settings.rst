@@ -1,5 +1,5 @@
 .. index::
-   single: settings2 
+   single: settings
 
 Settings
 ========
@@ -87,7 +87,7 @@ In the **Settings** section, do the following:
 .. image:: /userguide/_images/webhook_notification.png
    :alt:   Webhook notification option – points expiration
 
-.. note:: 
+.. tip::
 
     **For example** 
     when you enter 10, it means that every day Open Loyalty will be checking if there is any customer who has points which will expire       in 10 days. 
@@ -101,14 +101,27 @@ In the **Settings** section, do the following:
 .. image:: /userguide/_images/webhook_notification2.png
    :alt:   Webhook notification option – coupons expiration 
 
-.. note:: 
+.. tip::
 
     **For example** 
     when you enter 10, it means that every day Open Loyalty will be checking if there is any coupon which will expire in 10 days. 
     
     If **yes** webhook event will be sent (on the URL address provided by you in Webhooks section) with information about: customer,         coupon code which will expire in 10 days, expiration date and coupon status (status is calculated based on days inactive and days       valid defined during reward campaign creation). 
 
-14. Set the Levels will be calculated with a field to one of the following:
+14. If you want to get a webhook notification about the customer level which he will receive after the recalculation (at the current state of points) you can define in **Days before level recalculation to notify user** field number of days when notification will be sent. 
+   For proper operation, it **is necessary to activate the webhook** and provide the URL address to which the information will be sent (more in :doc:`Webhook section </userguide/getting_started/settings/Configuration/webhooks>`)
+
+.. image:: /userguide/_images/webhook_notification3.PNG
+   :alt:   Webhook notification option – level recalculation 
+
+.. tip::
+
+    **For example** 
+    when you enter 10, it means that every day Open Loyalty will be checking if there is any customer which level will be recalculated       in 10 days. 
+    
+    If **yes** webhook event will be sent (on the URL address provided by you in Webhooks section) with information about: customer,         current level which will be recalculated in 10 days and new level, which he will receive after the recalculation if his loyalty         points balance doesn't change  
+
+15. Set the Levels will be calculated with a field to one of the following:
 
    - **Points** 
       current level assignment will be calculated on the basis of the sum of points earned from transactions (with use of earning rules)
@@ -117,12 +130,12 @@ In the **Settings** section, do the following:
 
    When **Points** is selected additional section appears below. Please see :doc:`Level downgrade settings </userguide/getting_started/settings/Configuration/level_downgrade_settings>` to learn how to configure reset points after a selected time period and level expiration
 
-15. When **Delivery costs** checkbox is selected then delivery cost will not be included in order value used for earned points calculation
+16. When **Delivery costs** checkbox is selected then delivery cost will not be included in order value used for earned points calculation
 
-16. **Excluded SKUs of delivery cost** field is available and required only when **Delivery costs** checkbox is selected. 
+17. **Excluded SKUs of delivery cost** field is available and required only when **Delivery costs** checkbox is selected.
   SKU's provided in this field will be excluded from the calculation of earned points
 
-17. In the **SKUs excluded from levels** enter SKUs that will not be included in order value used for earned points calculation
+18. In the **SKUs excluded from levels** enter SKUs that will not be included in order value used for earned points calculation
 
 
 When complete, tap ``SAVE``

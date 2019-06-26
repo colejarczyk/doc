@@ -3,6 +3,4 @@
 * :doc:`/userguide/customers/account/xml_customer`
 * :doc:`/userguide/customers/account/account_updating`
 * :doc:`/userguide/customers/account/account_deactivate`
-
-
-
+* :doc:`/userguide/customers/account/level_assigned`

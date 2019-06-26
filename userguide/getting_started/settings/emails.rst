@@ -4,11 +4,11 @@
 Emails
 ======
 
-Email templates define the layout, content, and formatting of automated messages sent from Open Loyalty. 
+Email templates define the layout, content, and formatting of automated messages sent from Open Loyalty.
 
 Open Loyalty includes a set of responsive email templates that are triggered by a variety of events that take place during the operation of your Loyalty Program. You will find a variety of prepared email templates related to customer activities, admin actions, and system messages that you can customize.
 
-.. image:: /userguide/_images/emails.png
+.. image:: /userguide/_images/emails2.PNG
    :alt:   Email Templates
 
 
@@ -19,26 +19,26 @@ Open Loyalty includes a default email template for the body section of each mess
 
 .. image:: /userguide/_images/email_preview.png
    :alt:   Preview of New Points Email
-   
+
 To edit an email template:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Emails**. 
+1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Emails**.
 
 .. |settings| image:: /userguide/_images/icon.png
 
-2. In the **Emails list**, find the record to be edited and click **Edit** icon |edit|  in the Action column to open the record in edit mode	
+2. In the **Emails list**, find the record to be edited and click **Edit** icon |edit|  in the Action column to open the record in edit mode
 
 .. |edit| image:: /userguide/_images/edit.png
 
 .. image:: /userguide/_images/edit_email.png
    :alt:   Template Information
 
-3. Make any necessary changes to the following:	
+3. Make any necessary changes to the following:
 
-  - Enter new **Subject** of the email message which will be displayed when the recipient gets an email. 
-  
-    For example OpenLoyalty – new points. The Template Subject appears also in the Subject column in **Emails list** grid 
+  - Enter new **Subject** of the email message which will be displayed when the recipient gets an email.
+
+    For example OpenLoyalty – new points. The Template Subject appears also in the Subject column in **Emails list** grid
   - In **Sender** name field enter the name which will be displayed when the recipient opens an email in the external email system, as the reference so that your recipient knows it was you who sent the message
   - In **Sender email** field  provide an email address which will be displayed when the recipient opens an email in the external system
   - Every template has predefined variables added to content in **Variables** field. The selection of available variables depends on the template and can not be changed
@@ -48,17 +48,24 @@ To edit an email template:
 
     **When working in the template code, be careful not to overwrite anything that is enclosed in double braces**
 
-4. When you are ready to review your work, tap ``Preview``. Then, make adjustments to the template as needed
+4. If you want to edit **Reward Redeemed**, additional fields to be filled in appear.
 
-5. When complete, tap ``SAVE``
+  - In **Receiver email** field provide an email address or addresses (after *comma* ",") on which notification about *used gift reward* will be sent.
 
-	
-	 
+.. image:: /userguide/_images/gift_email.png
+   :alt:   Reward Redeemed template
+
+5. When you are ready to review your work, tap ``Preview``. Then, make adjustments to the template as needed
+
+6. When complete, tap ``SAVE``
+
+
+
 Email templates
 ***************
 
 +----------------------------------------------+------------------------------------------------------------+
-| Event                                        | Description                                                | 
+| Event                                        | Description                                                |
 +==============================================+============================================================+
 |  **Account created**                                                                                      |
 +----------------------------------------------+------------------------------------------------------------+
@@ -68,31 +75,37 @@ Email templates
 +----------------------------------------------+------------------------------------------------------------+
 |  **Account created**                                                                                      |
 +----------------------------------------------+------------------------------------------------------------+
-| | E-mail send after registering new Customer | | It contains temporary password to activate an account    | 
+| | E-mail send after registering new Customer | | It contains temporary password to activate an account    |
 | | Account using Admin Cocpit, POS Cockpit    | | and link to download Terms & Conditions file (.PDF)      |
 | | and API                                    |                                                            |
 +----------------------------------------------+------------------------------------------------------------+
 |  **Password reset requested**                                                                             |
 +----------------------------------------------+------------------------------------------------------------+
-| | Send when user click on Forgot password    | | E-mail with reset password link                          |  
+| | Send when user click on Forgot password    | | E-mail with reset password link                          |
 | | and provide email address                  |                                                            |
 +----------------------------------------------+------------------------------------------------------------+
 |  **New reward**                                                                                           |
 +----------------------------------------------+------------------------------------------------------------+
-| | Send after Customer reward redemption      | | It contains coupon code and reward campaign name         |  
+| | Send after Customer reward redemption      | | It contains coupon code and reward campaign name         |
 +----------------------------------------------+------------------------------------------------------------+
 |  **New points**                                                                                           |
 +----------------------------------------------+------------------------------------------------------------+
-| | Send after Customer earn points            | | It contains new points value and current amount of       | 
+| | Send after Customer earn points            | | It contains new points value and current amount of       |
 |                                              | | all active points                                        |
 +----------------------------------------------+------------------------------------------------------------+
 |  **New level**                                                                                            |
 +----------------------------------------------+------------------------------------------------------------+
-| | Send after Customer reach next level       | | It contains information about customer new level and     |  
+| | Send after Customer reach next level       | | It contains information about customer new level and     |
 |                                              | | new discount                                             |
 +----------------------------------------------+------------------------------------------------------------+
 |  **Invitation**                                                                                           |
 +----------------------------------------------+------------------------------------------------------------+
 | | Send after Customer invite his friend to   | | It contains referrer customer name and registration      |
 | | loyalty program (refer a friend)           | | link for his friend                                      |
++----------------------------------------------+------------------------------------------------------------+
+|  **Reward Redeemed**                                                                                      |
++----------------------------------------------+------------------------------------------------------------+
+| | Send after gift reward is marked as used   | | It contains basic information of the reward and customer |
+|                                              | | who used it and address assigned to his account to which |
+|                                              | | the prize is to be sent                                  |
 +----------------------------------------------+------------------------------------------------------------+

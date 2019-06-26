@@ -4,7 +4,7 @@
 Download the customers list
 ===========================
 
-There is also possibility to download a list of customers to a CSV file. 
+You can download the list of customers as a CSV file.
 
 To download the list of customers:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

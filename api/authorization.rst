@@ -57,7 +57,7 @@ Example
         -H 'Accept: application/json, text/plain, */*'
         --data-binary '{"_username":"admin","_password":"open"}'
 
-Exemplary Response
+Example Response
 ''''''''''''''''''
 
 .. code-block:: json
@@ -155,14 +155,14 @@ Example
         -d "admin[apiKey]=customPermanentToken" \
         -d "admin[isActive]=1"
 
-Exemplary Response
+Example Response
 ''''''''''''''''''
 
 .. code-block:: text
 
     STATUS: 200 OK
 
-Exemplary Fail Response
+Example Fail Response
 '''''''''''''''''''''''
 
 .. code-block:: text

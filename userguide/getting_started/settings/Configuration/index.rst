@@ -9,6 +9,7 @@ CONFIGURATION
    identification_factors
    level_downgrade_settings
    marketing_automation
+   pushy
    settings
    template
    webhooks

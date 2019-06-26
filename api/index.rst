@@ -14,6 +14,7 @@ The REST API Reference
    customer
    customer_campaign
    customer_earning_rule
+   customer_level
    customer_points_transfers
    earning_rule
    invitation

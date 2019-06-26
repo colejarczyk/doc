@@ -1,4 +1,4 @@
- Reward Campaigns API
+Reward Campaigns API
 ====================
 
 These endpoints will allow you to easily manage Reward Campaigns.
@@ -7,10 +7,135 @@ These endpoints will allow you to easily manage Reward Campaigns.
 
     Each role in the Open Loyalty has individual endpoints to manage reward campaigns.
 
+
+
+Reedem cashback
+---------------
+
+To reedem cashback you need to call the ``/api/admin/campaign/cashback/redeem`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/admin/campaign/cashback/redeem
+
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| Parameter                                         | Parameter type |  Description                                                                 |
++===================================================+================+==============================================================================+
+| Authorization                                     | header         | Token received during authentication                                         |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| customerId                                        | request        |  Customer ID                                                                 |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| pointsAmount                                      | request        |  Points amount to spend                                                      |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| pointValue                                        | request        |  Monetary value of the points to define the number of points that can be     |
+|                                                   |                |  applied as a refund towards the amount of order                             |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| rewardAmount                                      | request        |  Reward amount                                                               |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/admin/campaign/cashback/redeem \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "customerId=6102cef9-d263-46de-974d-ad2e89f6e81d" \
+		-d "pointsAmount=5" \
+		-d "rewardAmount=10" \
+		-d "pointValue=100" 
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+        "customerId": "6102cef9-d263-46de-974d-ad2e89f6e81d",
+        "pointsAmount": 5,
+        "pointValue": 10,
+        "rewardAmount": 100
+    }
+
+
+
+Simulate cashback
+-----------------
+
+To simulate cashback you need to call the ``/api/admin/campaign/cashback/simulate`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/admin/campaign/cashback/simulate
+	
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| Parameter                                         | Parameter type |  Description                                                                 |
++===================================================+================+==============================================================================+
+| Authorization                                     | header         | Token received during authentication                                         |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| customerId                                        | request        |  Customer ID                                                                 |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| pointsAmount                                      | request        |  Points amount to spend                                                      |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/admin/campaign/cashback/simulate \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "customerId=5bfded09-0931-4eac-baad-0d663cfd8976" \
+		-d "pointsAmount=5" 
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+        "customerId": "5bfded09-0931-4eac-baad-0d663cfd8976",
+        "pointsAmount": 10,
+        "pointValue": "3.00",
+        "rewardAmount": 30
+    }
+
+
+
 Create a new campaign
 ---------------------
 
-To create a new campaign you will need to call the ``/api/campaign`` endpoint with the ``POST`` method.
+To create a new campaign you need to call the ``/api/campaign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -21,7 +146,7 @@ Definition
 
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | Parameter                                         | Parameter type |  Description                                                                 |
-+===================================================+================+============================================================================+
++===================================================+================+==============================================================================+
 | Authorization                                     | header         | Token received during authentication                                         |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[reward]                                  | request        |  Campaign type. Possible types:                                              |
@@ -81,7 +206,7 @@ Definition
 | campaign[daysInactive]                            | request        |  Number of days, while coupon will not be active after purchase              |
 |                                                   |                |  0 means "active immediately"                                                |
 |                                                   |                |  Required for all rewards besides cashback                                   |
-+---------------------------------------------------+----------------+-------------------------------------------------------------------------------+
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[daysValid]                               | request        |  Number of days, while coupon will be valid, after activation                |
 |                                                   |                |  0 means "valid forever"                                                     |
 |                                                   |                |  Required for all rewards besides cashback                                   |
@@ -126,24 +251,24 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *e82c96cf-32a3-43bd-9034-4df343e5fd94* or *000096cf-32a3-43bd-9034-4df343e5fd94* id are an exemplary values.
+    The *e82c96cf-32a3-43bd-9034-4df343e5fd94* or *000096cf-32a3-43bd-9034-4df343e5fd94* id are example values.
     Your value can be different. Check in the list of all levels if you are not sure which id should be used.
 
 .. note::
 
-    The *testCoupon* or *DiscountCoupon* are an exemplary values. You can name code coupons as you like.
+    The *testCoupon* or *DiscountCoupon* are example values. You can name code coupons as you like.
 
 .. attention::
 
-    If you would like to add a photos (one or many ) to the campaign you will need to call the ``/api/campaign/<campaign>/photo`` endpoint with the ``POST`` method.
-    More details you can find in Add a photo to the campaign section.
+    If you would like to add a photos (one or many) to the campaign you need to call the ``/api/campaign/<campaign>/photo`` endpoint with the ``POST`` method.
+    You can find more details in *Add a photo to the campaign* section.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -169,10 +294,10 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -242,10 +367,12 @@ Exemplary Response
       "errors": []
     }
 
-Get the collection of campaigns
--------------------------------
 
-To retrieve a paginated list of campaigns you will need to call the ``/api/campaign`` endpoint with the ``GET`` method.
+
+Get a collection of campaigns
+-----------------------------
+
+To retrieve a paginated list of campaigns you need to call the ``/api/campaign`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -278,7 +405,7 @@ Definition
 | categoryId[]                        | query          | *(optional)* Array of category Ids                 |
 +-------------------------------------+----------------+----------------------------------------------------+
 
-To see the first page of all campaigns use the below method:
+To see the first page of all campaigns use the method below:
 
 Example
 ^^^^^^^
@@ -292,8 +419,8 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
 .. note::
@@ -312,7 +439,7 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -514,10 +641,543 @@ Exemplary Response
       "total": 3
     }
 
+
+
+Get a collection of active campaigns
+------------------------------------
+
+To retrieve a paginated list of active campaigns you need to call the ``/api/campaign/active`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/campaign/active	
+	
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| Parameter                                         | Parameter type |  Description                                                                 |
++===================================================+================+==============================================================================+
+| Authorization                                     | header         | Token received during authentication                                         |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| format                                            | query          |  If set to html, the descriptions will be in HTML format                     |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+To see the first page of all campaigns use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/campaign/active \
+        -X "GET" \
+	-H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+    
+   	{
+    "campaigns": [
+    {
+      "id": "000096cf-6361-4d70-e169-676e00000001",
+      "name": "Test configured campaign"
+    },
+    {
+      "id": "000096cf-6361-4d70-e169-676e00000003",
+      "name": "Test reward campaign"
+    },
+    {
+      "id": "000096cf-6361-4d70-e169-676e11111111",
+      "name": "cashback"
+    },
+    {
+      "id": "000096cf-6361-4d70-e169-676e22222222",
+      "name": "Percentage discount code"
+    },
+    {
+      "id": "000096cf-6361-4d70-e169-676e55555555",
+      "name": "Percentage discount code"
+    },
+    {
+      "id": "000096cf-6361-4d70-e169-676e66666666",
+      "name": "Percentage discount code"
+    },
+    {
+      "id": "000096cf-6361-4d70-e169-676e44444444",
+      "name": "GEO custom campaign"
+    },
+    {
+      "id": "fce61034-a48e-39f5-af3b-c8aa294601f9"
+    },
+    {
+      "id": "a58388e4-bf99-34d7-9d4a-848efd5b6687",
+      "name": "2"
+    },
+    {
+      "id": "8500766f-1aa3-3117-9423-70c6851294c7",
+      "name": "4"
+    },
+    {
+      "id": "9ea077ae-6d9f-3547-b43f-cb89471ce4d3",
+      "name": "6"
+    },
+    {
+      "id": "0c1f68bc-529f-39b5-99df-b5740048a84a",
+      "name": "8"
+    },
+    {
+      "id": "1942beff-5375-3455-ad1d-f608c18b0707",
+      "name": "10"
+    },
+    {
+      "id": "2bca67fd-2ece-47ea-a556-2ec0b3faeba3",
+      "name": "tertrt"
+    },
+    {
+      "id": "5413dff3-47ba-4342-a669-cc9bb54ea1fa",
+      "name": "dddddd"
+    },
+    {
+      "id": "4cd1415d-6c20-4642-a2eb-cd985c1f88aa",
+      "name": "testowe"
+    },
+    {
+      "id": "40d4b8c5-3be4-4f76-8804-d1dc3c9a9732",
+      "name": "test"
+    },
+    {
+      "id": "110d39ce-47ab-4c2c-b0f8-a71c95e0520a",
+      "name": "cashback"
+    }
+    ]}
+
+
+
+Get a collection of bought campaigns
+------------------------------------
+
+To retrieve a paginated list of bought campaigns you need to call the ``/api/campaign/bought`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/campaign/bought
+	
++-------------------------------------+----------------+----------------------------------------------------+
+| Parameter                           | Parameter type | Description                                        |
++=====================================+================+====================================================+
+| Authorization                       | header         | Token received during authentication               |
++-------------------------------------+----------------+----------------------------------------------------+
+| used                                | request        | *(optional)* Possible values : true/false          |
++-------------------------------------+----------------+----------------------------------------------------+
+| page                                | query          | *(optional)* Start from page, by default 1         |
++-------------------------------------+----------------+----------------------------------------------------+
+| perPage                             | query          | *(optional)* Number of items to display per page,  |
+|                                     |                | by default = 10                                    |
++-------------------------------------+----------------+----------------------------------------------------+
+| sort                                | query          | *(optional)* Sort by column name                   |
++-------------------------------------+----------------+----------------------------------------------------+
+| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],     |
+|                                     |                | by default = ASC                                   |
++-------------------------------------+----------------+----------------------------------------------------+
+| purchasedAtFrom                     | query          | *(optional)* Purchase date from filter             |
++-------------------------------------+----------------+----------------------------------------------------+
+| purchasedAtTo                       | query          | *(optional)* Purchase date to filter               |
++-------------------------------------+----------------+----------------------------------------------------+
+| usageDateFrom                       | query          | *(optional)* Usage date from filter                |
++-------------------------------------+----------------+----------------------------------------------------+
+| usageDateTo                         | query          | *(optional)* Usage date to filter                  |
++-------------------------------------+----------------+----------------------------------------------------+
+| activeSinceFrom                     | query          | *(optional)* Active since date from filter         |
++-------------------------------------+----------------+----------------------------------------------------+
+| activeToFrom                        | query          | *(optional)* Active since date to filter           |
++-------------------------------------+----------------+----------------------------------------------------+
+| activeToTo                          | query          | *(optional)* Active to date to filter              |
++-------------------------------------+----------------+----------------------------------------------------+
+| deliveryStatus                      | query          | *(optional)* Delivery status filter                |
+|                                     |                |  Possible values: ordered, canceled, shipped,      |   
+|                                     |                |  delivered                                         |
++-------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+To see the first page of all bought campaigns use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/campaign/bought \
+        -X "GET" \
+	-H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+    "boughtCampaigns": [
+    {
+      "canBeUsed": true,
+      "rewardCampaignId": "000096cf-6361-4d70-e169-676e22222222",
+      "campaignId": "000096cf-6361-4d70-e169-676e22222222",
+      "customerId": "7ae0712b-f029-4839-9c53-278c37c6fd35",
+      "purchasedAt": "2019-03-14T10:29:05+0100",
+      "coupon": {
+        "code": "10",
+        "id": "d481c4f2-fa88-476a-9e12-a39f728d94d8"
+      },
+      "campaignType": "percentage_discount_code",
+      "campaignName": "Percentage discount code",
+      "customerEmail": "maxnowacki690711@test.pl",
+      "customerName": "Max",
+      "customerLastname": "Nowacki",
+      "campaignShippingAddress": {},
+      "costInPoints": 0,
+      "currentPointsAmount": 100,
+      "used": false,
+      "status": "active",
+      "transactionId": {
+        "transactionId": "33fbedb5-ff71-4a18-9711-4352d3b9e317"
+      },
+      "returnedAmount": 0,
+      "deliveryStatus": {
+        "status": ""
+      }
+    },
+	{
+      "canBeUsed": true,
+      "rewardCampaignId": "000096cf-6361-4d70-e169-676e11111111",
+      "campaignId": "000096cf-6361-4d70-e169-676e11111111",
+      "customerId": "6102cef9-d263-46de-974d-ad2e89f6e81d",
+      "purchasedAt": "2019-03-14T13:45:21+0100",
+      "coupon": {
+        "code": "",
+        "id": "6797ed0a-65eb-4a75-b1a2-500b18077dc3"
+      },
+      "campaignType": "cashback",
+      "campaignName": "cashback",
+      "customerEmail": "maxnowacki209528@test.pl",
+      "customerName": "Max",
+      "customerLastname": "Nowacki",
+      "campaignShippingAddress": {},
+      "costInPoints": 0,
+      "currentPointsAmount": 100,
+      "used": false,
+      "status": "active",
+      "returnedAmount": 0,
+      "deliveryStatus": {
+        "status": ""
+      }
+    },
+    {
+      "canBeUsed": true,
+      "rewardCampaignId": "000096cf-6361-4d70-e169-676e22222222",
+      "campaignId": "000096cf-6361-4d70-e169-676e22222222",
+      "customerId": "79b5c229-5f9a-4c4b-9acc-7620fb95b38a",
+      "purchasedAt": "2019-03-14T13:48:11+0100",
+      "coupon": {
+        "code": "40",
+        "id": "1a4d7e14-fffc-4049-be41-60e824b5102e"
+      },
+      "campaignType": "percentage_discount_code",
+      "campaignName": "Percentage discount code",
+      "customerEmail": "test@test.pl",
+      "customerName": "alajna",
+      "customerLastname": "user",
+      "campaignShippingAddress": {},
+      "costInPoints": 0,
+      "currentPointsAmount": 100,
+      "used": false,
+      "status": "active",
+      "transactionId": {
+        "transactionId": "98b15ef5-94ad-43ef-9984-0d41197d14e6"
+      },
+      "returnedAmount": 0,
+      "deliveryStatus": {
+        "status": ""
+      }
+    }
+    ],
+    "total": 3
+    }
+
+
+
+Get a collection of campaigns exported to a CSV file
+----------------------------------------------------
+
+To retrieve a paginated list of campaigns exported to a CSV file you need to call the ``/api/campaign/bought/export/csv`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/campaign/bought/export/csv
+	
++-------------------------------------+----------------+----------------------------------------------------+
+| Parameter                           | Parameter type | Description                                        |
++=====================================+================+====================================================+
+| Authorization                       | header         | Token received during authentication               |
++-------------------------------------+----------------+----------------------------------------------------+
+| purchasedAtFrom                     | query          | *(optional)* Purchase date from filter             |
++-------------------------------------+----------------+----------------------------------------------------+
+| purchasedAtTo                       | query          | *(optional)* Purchase date to filter               |
++-------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+To see the first page of all campaigns in CSV file format, use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/campaign/bought/export/csv \
+        -X "GET" \
+	-H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+   
+   0.Name,1.Date,2.Cost,"3.Tax value",4.email,5.phone,6.Firstname,7.Surname,"8.Points balance","9.Is used"
+   "Percentage discount code","2019-03-14 10:29:05",0,,maxnowacki690711@test.pl,,Max,Nowacki,100,
+   "Percentage discount code","2019-03-14 10:30:18",0,,maxnowacki974845@test.pl,,Max,Nowacki,340,
+   "Percentage discount code","2019-03-14 10:20:01",0,,test@test.pl,,alajna,user,100,
+   "Percentage discount code","2019-03-14 10:29:32",0,,maxnowacki856039@test.pl,,Max,Nowacki,340,
+    gift123,"2019-03-15 08:40:24",3,,maxnowacki209528@test.pl,,Max,Nowacki,95,1
+    test,"2019-03-15 08:15:14",10,,maxnowacki160093@test.pl,,Max,Nowacki,290,
+    testowe,"2019-03-14 10:28:20",10,,maxnowacki160093@test.pl,,Max,Nowacki,300,
+    "Percentage discount code","2019-03-14 09:29:50",0,,user-return@oloy.com,,TestUser,ForCouponTest,2410,
+    cashback,"2019-03-14 13:45:21",0,,maxnowacki209528@test.pl,,Max,Nowacki,100,
+   "Percentage discount code","2019-03-14 13:48:11",0,,test@test.pl,,alajna,user,100,
+
+
+
+Get a collection of publicly available campaigns
+------------------------------------------------
+
+To retrieve a paginated list of campaigns that are publicly available you need to call the ``/api/campaign/public/available`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/campaign/public/available
+
++-------------------------------------+----------------+----------------------------------------------------+
+| Parameter                           | Parameter type | Description                                        |
++=====================================+================+====================================================+
+| Authorization                       | header         | Token received during authentication               |
++-------------------------------------+----------------+----------------------------------------------------+
+| labels                              | request        | *(optional)* Filter by labels                      |
++-------------------------------------+----------------+----------------------------------------------------+
+| isFeatured                          | request        | *(optional)* Filter by featured tag                |
++-------------------------------------+----------------+----------------------------------------------------+
+| campaignType                        | request        | *(optional)* Filter by campaign type               |
++-------------------------------------+----------------+----------------------------------------------------+
+| name                                | request        | *(optional)* Filter by campaign name               |
++-------------------------------------+----------------+----------------------------------------------------+
+| page                                | query          | *(optional)* Start from page, by default 1         |
++-------------------------------------+----------------+----------------------------------------------------+
+| perPage                             | query          | *(optional)* Number of items to display per page,  |
+|                                     |                | by default = 10                                    |
++-------------------------------------+----------------+----------------------------------------------------+
+| sort                                | query          | *(optional)* Sort by column name                   |
++-------------------------------------+----------------+----------------------------------------------------+
+| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],     |
+|                                     |                | by default = ASC                                   |
++-------------------------------------+----------------+----------------------------------------------------+
+| categoryId[]                        | query          | *(optional)* Array of category Ids                 |
++-------------------------------------+----------------+----------------------------------------------------+
+| format                              | query          | *(optional)* Format of descriptions [html].        |
+|                                     |                | Default is RAW.                                    |
++-------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+To see the first page of all publicly available campaigns use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/campaign/public/available \
+        -X "GET" \
+	-H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+   	{
+     "campaigns": [
+     {
+      "name": "testowe",
+      "brandIcon": false,
+      "rewardCampaignId": "4cd1415d-6c20-4642-a2eb-cd985c1f88aa",
+      "campaignId": "4cd1415d-6c20-4642-a2eb-cd985c1f88aa",
+      "reward": "gift_code",
+      "active": true,
+      "costInPoints": 10,
+      "singleCoupon": false,
+      "unlimited": true,
+      "campaignActivity": {
+        "allTimeActive": true
+      },
+      "campaignVisibility": {
+        "allTimeVisible": true
+      },
+      "labels": [],
+      "daysInactive": 28,
+      "daysValid": 90,
+      "featured": false,
+      "photos": [],
+      "public": true,
+      "fulfillmentTracking": false,
+      "createdAt": "2019-03-14T10:27:38+0100",
+      "translations": [
+        {
+          "name": "testowe",
+          "id": 42,
+          "locale": "en"
+        }
+      ],
+      "segmentNames": {},
+      "levelNames": {
+        "e82c96cf-32a3-43bd-9034-4df343e50000": "level0"
+      },
+      "categoryNames": [],
+      "usageLeft": 0,
+      "visibleForCustomersCount": 12,
+      "usersWhoUsedThisCampaignCount": 1,
+      "brandDescription": null,
+      "shortDescription": null,
+      "conditionsDescription": null,
+      "usageInstruction": null
+    },
+	{
+      "name": "Test reward campaign",
+      "brandIcon": false,
+      "rewardCampaignId": "000096cf-6361-4d70-e169-676e00000003",
+      "campaignId": "000096cf-6361-4d70-e169-676e00000003",
+      "reward": "discount_code",
+      "active": true,
+      "costInPoints": 5,
+      "singleCoupon": false,
+      "unlimited": false,
+      "limit": 10,
+      "limitPerUser": 2,
+      "campaignActivity": {
+        "allTimeActive": false,
+        "activeFrom": "2016-01-01T00:00:00+0100",
+        "activeTo": "2037-01-01T00:00:00+0100"
+      },
+      "campaignVisibility": {
+        "allTimeVisible": false,
+        "visibleFrom": "2016-01-01T00:00:00+0100",
+        "visibleTo": "2037-01-01T00:00:00+0100"
+      },
+      "labels": [
+        {
+          "key": "type",
+          "value": "test"
+        }
+      ],
+      "daysInactive": 10,
+      "daysValid": 20,
+      "featured": false,
+      "photos": [],
+      "public": true,
+      "fulfillmentTracking": false,
+      "createdAt": "2019-03-14T08:29:42+0100",
+      "translations": [
+        {
+          "name": "Test reward campaign",
+          "id": 5,
+          "locale": "en"
+        },
+        {
+          "name": "Testowa kampania z nagrodą",
+          "id": 6,
+          "locale": "pl"
+        }
+      ],
+      "segmentNames": {
+        "00000000-0000-0000-0000-000000000011": "customer list with label",
+        "873407dd-c434-4b6a-aa8c-a9418ce68abf": "anniversary_testowe"
+      },
+      "levelNames": {},
+      "categoryNames": [],
+      "usageLeft": 3,
+      "visibleForCustomersCount": 1,
+      "usersWhoUsedThisCampaignCount": 0,
+      "brandDescription": null,
+      "shortDescription": null,
+      "conditionsDescription": null,
+      "usageInstruction": null
+    }
+    ],
+    "total": 2
+    }  
+
+
+
 Update a campaign
 -----------------
 
-To fully update a campaign you will need to call the ``/api/campaign/<campaign>`` endpoint with the ``PUT`` method.
+To fully update a campaign you need to call the ``/api/campaign/<campaign>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -601,7 +1261,7 @@ Definition
 Example
 ^^^^^^^
 
- To fully update a campaign with ``id = 3062c881-93f3-496b-9669-4238c0a62be8`` use the below method:
+ To fully update a campaign with ``id = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
 
 .. code-block:: bash
 
@@ -645,19 +1305,19 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *e82c96cf-32a3-43bd-9034-4df343e5fd94* or *000096cf-32a3-43bd-9034-4df343e5fd94* id are an exemplary values.
+    The *e82c96cf-32a3-43bd-9034-4df343e5fd94* or *000096cf-32a3-43bd-9034-4df343e5fd94* id are example values.
     Your value can be different. Check in the list of all levels if you are not sure which id should be used.
 
 .. note::
 
-    The *testCoupon* or *DiscountCoupon* are an exemplary values. You can name code coupons as you like.
+    The *testCoupon* or *DiscountCoupon* are example values. You can name code coupons as you like.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -670,10 +1330,172 @@ Exemplary Response
         "campaignId": "3062c881-93f3-496b-9669-4238c0a62be8"
     }
 
+
+
+Remove campaign's brand icon
+----------------------------
+
+To remove campaign's brand icon to the campaign you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``DELETE`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    DELETE /api/campaign/<campaign>/brand_icon
+
++-----------------+----------------+--------------------------------------+
+| Parameter       | Parameter type | Description                          |
++=================+================+======================================+
+| Authorization   | header         | Token received during authentication |
++-----------------+----------------+--------------------------------------+
+| <campaign>      | query          | Campaign ID                          |
++-----------------+----------------+--------------------------------------+
+
+Example
+^^^^^^^
+
+To remove an brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/brand_icon \
+        -X "DELETE" \
+        -H "Accept: application/json" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
+    Check in the list of all campaigns if you are not sure which id should be used.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+
+
+
+Get campaign's brand icon
+-------------------------
+
+To get campaign's brand icon to the campaign you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/campaign/<campaign>/brand_icon
+
++-----------------+----------------+--------------------------------------+
+| Parameter       | Parameter type | Description                          |
++=================+================+======================================+
+| Authorization   | header         | Token received during authentication |
++-----------------+----------------+--------------------------------------+
+| <campaign>      | query          | Campaign ID                          |
++-----------------+----------------+--------------------------------------+
+
+Example
+^^^^^^^
+
+To get a brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/brand_icon \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
+    Check in the list of all campaigns if you are not sure which id should be used.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+
+
+Add a brand icon to the campaign
+---------------------------------
+
+To add an brand icon to the campaign you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/campaign/<campaign>/brand_icon
+
++-----------------+----------------+--------------------------------------+
+| Parameter       | Parameter type | Description                          |
++=================+================+======================================+
+| Authorization   | header         | Token received during authentication |
++-----------------+----------------+--------------------------------------+
+| <campaign>      | query          | Campaign ID                          |
++-----------------+----------------+--------------------------------------+
+| brand_icon[file]| request        | Absolute path to the photo           |
++-----------------+----------------+--------------------------------------+
+
+Example
+^^^^^^^
+
+To add an brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/brand_icon \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "brand_icon[file]=C:\fakepath\Photo.png"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
+    Check in the list of all campaigns if you are not sure which id should be used.
+
+.. note::
+
+    The *brand_icon[file]=C:\fakepath\Photo.png* is an example value. Your value can be different.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+
+
+
 Get campaign details
 --------------------
 
-To retrieve the details of a campaign you will need to call the ``/api/campaign/{campaign}`` endpoint with the ``GET`` method.
+To retrieve the details of a campaign you need to call the ``/api/campaign/{campaign}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -696,19 +1518,20 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8`` use the below method:
+To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
 
 .. code-block:: bash
 
     curl http://localhost:8181/api/campaign/3062c881-93f3-496b-9669-4238c0a62be8 \
-        -X "GET" -H "Accept: application/json" \
+        -X "GET" \ 
+	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -716,10 +1539,10 @@ To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4
 
 .. note::
 
-    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an exemplary value. Your value can be different.
+    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an example value. Your value can be different.
     Check in the list of all admin users if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -801,10 +1624,12 @@ Exemplary Response
        ]
     }
 
+
+
 Get available campaign for a customer
 -------------------------------------
 
-To check which campaigns are available for a specific customer you will need to call the ``/api/admin/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
+To check which campaigns are available for a specific customer you need to call the ``/api/admin/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -843,7 +1668,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the list of campaigns for a customer with ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2`` use the below method:
+To see the list of campaigns for a customer with ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2`` use the method below:
 
 
 .. code-block:: bash
@@ -856,15 +1681,15 @@ To see the list of campaigns for a customer with ID ``customer = 00000000-0000-4
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e2* id is an exemplary value. Your value can be different.
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
     Check in the list of all customers if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -929,10 +1754,12 @@ Exemplary Response
       "total": 1
     }
 
+
+
 Buy reward campaign for a specific customer
 -------------------------------------------
 
-To buy reward campaign for a specific customer you will need to cal the ``/api/admin/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
+To buy reward campaign for a specific customer you need to call the ``/api/admin/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -963,7 +1790,7 @@ Example
 ^^^^^^^
 
 To buy reward campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` for the customer ``customer = 00000000-0000-474c-b092-b0dd880c07e2``
-use the below method:
+use the method below:
 
 .. code-block:: bash
 
@@ -975,20 +1802,20 @@ use the below method:
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
+    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
     Check in the list of all campaigns if you are not sure which id should be used.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e2* id is an exemplary value. Your value can be different.
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
     Check in the list of all customers if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1002,6 +1829,8 @@ Exemplary Response
         "code": "123"
       }]
     }
+
+
 
 Mark logged in customer coupons as used
 ---------------------------------------
@@ -1039,7 +1868,8 @@ Example
 .. code-block:: bash
 
     curl http://localhost:8181/api/admin/customer/campaign/coupons/mark_as_used \
-        -X "GET" -H "Accept: application/json" \
+        -X "POST" \
+	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "coupons[0][campaignId]=00000000-0000-0000-0000-000000000001" \
@@ -1052,7 +1882,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -1089,7 +1919,7 @@ Example Response
 Example Error Response
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If there is no more coupons left, you'll receive follow responses.
+If there is no more coupons left, you will receive following responses.
 
 .. code-block:: text
 
@@ -1104,10 +1934,12 @@ If there is no more coupons left, you'll receive follow responses.
       }
     }
 
+
+
 Check campaign visibility for the customers
 -------------------------------------------
 
-To check reward campaign visibility for the customers you will need to cal the ``/api/campaign/<campaign>/customers/visible`` endpoint with the ``GET`` method.
+To check reward campaign visibility for the customers you need to call the ``/api/campaign/<campaign>/customers/visible`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1127,7 +1959,7 @@ Definition
 Example
 ^^^^^^^
 
-To check reward campaign visibility for the customers ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
+To check reward campaign visibility for the customers ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
 
 .. code-block:: bash
 
@@ -1139,15 +1971,15 @@ To check reward campaign visibility for the customers ``campaign = 000096cf-32a3
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
     Check in the list of all campaigns if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1236,17 +2068,19 @@ Exemplary Response
       "total": 2
     }
 
+
+
 Get campaign's photo
 --------------------
 
-To get campaign's photo you will need to cal the ``/api/campaign/<campaign>/photo`` endpoint with the ``GET`` method.
+To get campaign's photo you need to call the ``/api/campaign/<campaign>/photo/{photoId}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/campaign/<campaign>/photo
+    GET /api/campaign/<campaign>/photo/<photoId>
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
@@ -1255,15 +2089,17 @@ Definition
 +---------------+----------------+--------------------------------------+
 | <campaign>    | query          | Campaign ID                          |
 +---------------+----------------+--------------------------------------+
+| <photoId>     | query          | Photo ID                             |
++---------------+----------------+--------------------------------------+
 
 Example
 ^^^^^^^
 
-To get campaign's photo ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
+To get photo ``photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5`` for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/photo \
+    curl http://localhost:8181/api/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/photo/08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1271,15 +2107,15 @@ To get campaign's photo ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use 
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id and *photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5* are example values. Your values can be different.
     Check in the list of all campaigns if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1291,7 +2127,7 @@ Exemplary Response
     In the response you will get raw file content with a proper ``Content-Type`` header, for example:
     ``Content-Type: image/jpeg``.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 The campaign may not have photo at all and you will receive a below response.
@@ -1309,17 +2145,19 @@ The campaign may not have photo at all and you will receive a below response.
       }
     }
 
+
+
 Remove campaign's photo
 -----------------------
 
-To remove campaign's photo you will need to cal the ``/api/campaign/<campaign>/photo`` endpoint with the ``DELETE`` method.
+To remove campaign's photo you need to call the ``/api/campaign/<campaign>/photo/{photoId}`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/campaign/<campaign>/photo
+    DELETE /api/campaign/<campaign>/photo/<photoId>
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
@@ -1328,15 +2166,17 @@ Definition
 +---------------+----------------+--------------------------------------+
 | <campaign>    | query          | Campaign ID                          |
 +---------------+----------------+--------------------------------------+
+| <photoId>     | query          | Photo ID                             |
++---------------+----------------+--------------------------------------+
 
 Example
 ^^^^^^^
 
-To remove campaign's photo ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
+To remove photo ``photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5`` for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/photo \
+    curl http://localhost:8181/api/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/photo/08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5 \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1344,25 +2184,27 @@ To remove campaign's photo ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` u
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id and *photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5* are the example values. Your values can be different.
     Check in the list of all campaigns if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-    STATUS: 200 OK
+    STATUS: 204 No Content
+
+
 
 Add a photo to the campaign
 ---------------------------
 
-To add a photo to the campaign you will need to cal the ``/api/campaign/<campaign>/photo`` endpoint with the ``POST`` method.
+To add a photo to the campaign you need to call the ``/api/campaign/<campaign>/photo`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1384,7 +2226,7 @@ Definition
 Example
 ^^^^^^^
 
-To get campaign's photo ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
+To add a photo to the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
 
 .. code-block:: bash
 
@@ -1396,36 +2238,38 @@ To get campaign's photo ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use 
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
     Check in the list of all campaigns if you are not sure which id should be used.
 
 .. note::
 
-    The *photo[file]=C:\fakepath\Photo.png* is an exemplary value. Your value can be different.
+    The *photo[file]=C:\fakepath\Photo.png* is an example value. Your value can be different.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
     STATUS: 200 OK
 
-Change campaign's status
-------------------------
 
-To make campaign active or inactive you will need to cal the ``/api/campaign/<campaign>/<status>`` endpoint with the ``POST`` method.
+
+Change campaign's state
+-----------------------
+
+To make a campaign active or inactive you need to call the ``/api/campaign/<campaign>/<status>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/campaign/<campaign>/<status>
+    POST /api/campaign/<campaign>/<state>
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
@@ -1434,13 +2278,13 @@ Definition
 +---------------+----------------+--------------------------------------+
 | <campaign>    | query          | Campaign ID                          |
 +---------------+----------------+--------------------------------------+
-| <status>      | query          | Possible values: active, inactive    |
+| <state>       | query          | Possible values: active, inactive    |
 +---------------+----------------+--------------------------------------+
 
 Example
 ^^^^^^^
 
-To make campaign active ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
+To make campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` active use the method below:
 
 .. code-block:: bash
 
@@ -1451,15 +2295,15 @@ To make campaign active ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use 
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
     Check in the list of all campaigns if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1475,7 +2319,7 @@ Exemplary Response
 Example
 ^^^^^^^
 
-To make campaign inactive ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
+To make campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` inactive use the method below:
 
 .. code-block:: bash
 
@@ -1486,15 +2330,15 @@ To make campaign inactive ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` us
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
     Check in the list of all campaigns if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1507,7 +2351,7 @@ Exemplary Response
       "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93"
     }
 
-Exemplary Not Found Response
+Example Not Found Response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1523,10 +2367,12 @@ Exemplary Not Found Response
       }
     }
 
+
+
 Get campaign collection (seller)
 --------------------------------
 
-To retrieve a paginated list of campaigns you will need to call the ``/api/seller/campaign`` endpoint with the ``GET`` method.
+To retrieve a paginated list of campaigns you need to call the ``/api/seller/campaign`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1551,7 +2397,7 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the first page of all campaigns use the below method:
+To see the first page of all campaigns use the method below:
 
 Example
 ^^^^^^^
@@ -1565,7 +2411,7 @@ Example
 
 .. note::
 
-    When you will use endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
 
 .. note::
 
@@ -1573,10 +2419,10 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1675,10 +2521,12 @@ Exemplary Response
       "total": 2
     }
 
+
+
 Get campaign details (seller)
 -----------------------------
 
-To retrieve the details of a campaign you will need to call the ``/api/seller/campaign/{campaign}`` endpoint with the ``GET`` method.
+To retrieve the details of a campaign you need to call the ``/api/seller/campaign/{campaign}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1698,30 +2546,31 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8`` use the below method:
+To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
 
 .. code-block:: bash
 
     curl http://localhost:8181/api/seller/campaign/3062c881-93f3-496b-9669-4238c0a62be8 \
-        -X "GET" -H "Accept: application/json" \
+        -X "GET" \
+	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
 .. note::
 
-    When you will use endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an exemplary value. Your value can be different.
+    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an example value. Your value can be different.
     Check in the list of all admin users if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1778,10 +2627,12 @@ Exemplary Response
       "usersWhoUsedThisCampaignCount": 0
     }
 
+
+
 Get available campaigns for a customer (seller)
 -----------------------------------------------
 
-To check which campaigns are available for a specific customer you will need to call the ``/api/seller/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
+To check which campaigns are available for a specific customer you need to call the ``/api/seller/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1820,8 +2671,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the list of campaigns for a customer with ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2`` use the below method:
-
+To see the list of campaigns for a customer with ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2`` use the method below:
 
 .. code-block:: bash
 
@@ -1833,19 +2683,19 @@ To see the list of campaigns for a customer with ID ``customer = 00000000-0000-4
 
 .. note::
 
-    When you will use endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e2* id is an exemplary value. Your value can be different.
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
     Check in the list of all customers if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1907,10 +2757,12 @@ Exemplary Response
       "total": 1
     }
 
+
+
 Buy reward campaign for a specific customer (seller)
 ----------------------------------------------------
 
-To buy reward campaign for a specific customer you will need to cal the ``/api/seller/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
+To buy a reward campaign for a specific customer you need to call the ``/api/seller/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1937,36 +2789,36 @@ Example
 ^^^^^^^
 
 To buy reward campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` for the customer ``customer = 00000000-0000-474c-b092-b0dd880c07e2``
-use the below method:
+use the method below:
 
 .. code-block:: bash
 
     curl http://localhost:8181/api/seller/customer/00000000-0000-474c-b092-b0dd880c07e2/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/buy
-        -X "POST"
-        -H "Accept: application/json"
-        -H "Content-type: application/x-www-form-urlencoded"
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
 .. note::
 
-    When you will use endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
+    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
     Check in the list of all campaigns if you are not sure which id should be used.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e2* id is an exemplary value. Your value can be different.
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
     Check in the list of all customers if you are not sure which id should be used.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -1981,17 +2833,19 @@ Exemplary Response
       }]
     }
 
-Get all campaigns available for logged in customer.
-----------------------------------------------------
 
-To get all campaigns available you will need to cal the ``/api/customer/campaign/available`` endpoint with the ``GET`` method.
+
+Get all campaigns available for logged in customer
+--------------------------------------------------
+
+To get all campaigns available you need to call the ``/api/customer/campaign/available`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/campaign/available
+    GET /api/customer/campaign/available
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
@@ -2020,65 +2874,82 @@ Get all campaigns available for logged in customer.
 .. code-block:: bash
 
     curl http://localhost:8181/api/customer/campaign/available
-        -X "POST"
-        -H "Accept: application/json"
-        -H "Content-type: application/x-www-form-urlencoded"
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
 .. note::
 
-    When you will use endpoints starting with ``/api/customer/campaign/available`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/customer`` you need to authorize using customer account credentials.
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
-Change delivery status in bought campaign by customer.
-----------------------------------------------------
+Change delivery status in bought campaign by customer
+-----------------------------------------------------
 
-To change delivery status ``/api/admin/customer/{customerId}/bought/coupon/{couponId}/changeDeliveryStatus`` endpoint with the ``PUT`` method.
+To change delivery status, use the ``/api/admin/customer/{customer}/bought/coupon/{coupon}/changeDeliveryStatus`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/customer/{customerId}/bought/coupon/{couponId}/changeDeliveryStatus
+    PUT /api/admin/customer/{customer}/bought/coupon/{coupon}/changeDeliveryStatus
 
 +---------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                 | Parameter type | Description                                                                |
 +===========================+================+============================================================================+
 | Authorization             | header         | Token received during authentication                                       |
 +---------------------------+----------------+----------------------------------------------------------------------------+
+| <customer>                | query          | Customer ID                                                                |
++---------------------------+----------------+----------------------------------------------------------------------------+
+| <coupon>                  | query          | Coupon ID                                                                  |
++---------------------------+----------------+----------------------------------------------------------------------------+
 | deliveryStatus[status]    | query          | Available statuses: ["canceled","delivered","ordered","shipped"] (required)|
-+---------------+----------------+----------------------------------------------------------------------------------------+
++---------------------------+----------------+----------------------------------------------------------------------------+
 
 
 Example
 ^^^^^^^
 
-To change delivery status for customer ID
+To change delivery status for customer with ``id = 5bdab759-5b31-48d6-a38b-ba4628ca1a91`` and coupon with ``id = 42d74422-ca0b-46f4-8871-be26f5a0497e`` use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer/00000000-0000-474c-b092-b0dd880c07e2/bought/coupon/00000000-0000-0000-0000-b0dd880c07e2/changeDeliveryStatus
-        -X "POST"
-        -H "Accept: application/json"
-        -H "Content-type: application/x-www-form-urlencoded"
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+    curl http://localhost:8181/api/admin/customer/5bdab759-5b31-48d6-a38b-ba4628ca1a91/bought/coupon/42d74422-ca0b-46f4-8871-be26f5a0497e/changeDeliveryStatus
+        -X "PUT" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "deliveryStatus[status]=canceled"
 
 .. note::
 
-    You can get all avialable statuses via settings choice request ``/api/settings/choices/deliveryStatus``
+    You can get all available statuses via settings choice request ``/api/settings/choices/deliveryStatus``
 
 .. note::
 
-    When you will use endpoints starting with ``/api/admin/customer/{customerId}/bought/coupon/{couponId}/changeDeliveryStatus`` you need to authorize using admin account credentials.
+    When using endpoints starting with ``/api/admin/customer/{customer}/bought/coupon/{couponId}/changeDeliveryStatus`` you need to authorize using admin account credentials.
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+        "success": "Delivery status changed!"
+    }

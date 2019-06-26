@@ -37,9 +37,9 @@ To add new Customer referral rule:
 3. In **Type details** section set rule **type** as Customer referral and complete details as follow:
 
  - In **Event name** field select an event for which the customer will receive points. Options include:
-    - Every purchase 
+    - Every purchase after the first
     - First purchase
-    - Register
+    - After registration and activation
     
  - In **Reward** field select who should receive points for this action. Options include:
     - Referred

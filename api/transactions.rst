@@ -4,10 +4,82 @@ Transactions
 These endpoints will allow you to easily manage transactions.
 
 
-Assign customer to specific transaction
----------------------------------------
 
-To assign customer to specific transaction you will need to call the ``/api/admin/transaction/customer/assign`` endpoint with the ``POST`` method.
+Import transactions
+-------------------
+
+To import an XML file with transactions you need to call the ``/api/admin/transaction/import`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/admin/transaction/import
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| file[file]                          | query          | XML file with transactions                        |
++-------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/admin/transaction/import \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "file[file]=C:\\fakepath\\transaction.xml"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "items": [
+        {
+          "status": "error",
+          "message": "Convert exception: Value \"00000000-0000-474c-1111-b0dd880c07e\" is not a valid UUID.",
+          "identifier": "0001_pos2_zzleID"
+        },
+        {
+          "status": "success",
+          "processImportResult": {
+            "object": {
+              "transactionId": "98b15ef5-94ad-43ef-9984-0d41197d14e6"
+            }
+          },
+          "identifier": "id_bez_tymrazem"
+        }
+      ],
+      "totalProcessed": 2,
+      "totalSuccess": 1,
+      "totalFailed": 1
+    }
+
+
+
+Assign a customer to a specific transaction (admin)
+---------------------------------------------------
+
+To assign a customer to a specific transaction
+you need to call the ``/api/admin/transaction/customer/assign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -47,11 +119,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -63,8 +135,8 @@ Exemplary Response
       "transactionId": "00000000-0000-1111-0000-000000000002"
     }
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Error Response
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -89,17 +161,77 @@ Exemplary Response
     }
 
 
-Assign customer to specific transaction (seller)
-------------------------------------------------
 
-To assign customer to specific transaction you will need to call the ``/api/seller/transaction/customer/assign`` endpoint with the ``POST`` method.
+Assign a customer to a specific transaction (customer)
+------------------------------------------------------
+
+To assign the logged in customer to a specific transaction,
+you need to call the ``/api/customer/transaction/customer/assign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/transaction/customer/assign
+    POST /api/customer/transaction/customer/assign
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| assign[transactionDocumentNumber]   | query          | Transaction Document Number                       |
++-------------------------------------+----------------+---------------------------------------------------+
+
+.. note::
+
+    If you are using the auto-generated docs, you may see there are other fields in assign[] object.
+    They are ignored in this endpoint. Do not use them in your application, as they will be removed in a future version.
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/customer/transaction/customer/assign \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        -d "assign[transactionDocumentNumber]=888"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "transactionId": "9f805211-9326-4b47-b5a6-8155d6ae9d2c"
+    }
+
+
+
+Assign a customer to specific transaction (seller)
+--------------------------------------------------
+
+To assign a customer to a specific transaction
+you need to call the ``/api/pos/transaction/customer/assign`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/pos/transaction/customer/assign
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
@@ -120,7 +252,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/transaction/customer/assign \
+    curl http://localhost:8181/api/pos/transaction/customer/assign \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -132,10 +264,10 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -149,10 +281,12 @@ Exemplary Response
     }
 
 
-Get complete list of all transactions (customer)
-------------------------------------------------
 
-To return complete list of all transactions you will need to call the ``/api/customer/transaction`` endpoint with the ``GET`` method.
+Get a list of transactions (customer)
+-------------------------------------
+
+To retrieve a complete or filtered list of all transactions a customer has access to,
+you need to call the ``/api/customer/transaction`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -166,15 +300,7 @@ Definition
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
 +-------------------------------------+----------------+---------------------------------------------------+
-| customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
-+-------------------------------------+----------------+---------------------------------------------------+
 | documentType                        | query          | *(optional)* Document Type                        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerData_name                   | query          | *(optional)* Customer Name                        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerData_email                  | query          | *(optional)* Customer Email                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerData_phone                  | query          | *(optional)* Customer Phone                       |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerId                          | query          | *(optional)* Customer ID                          |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -193,6 +319,11 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
+.. note::
+
+    If you are using the auto-generated docs, you may see there are other params, named ``customerData_*``.
+    They are not used in this endpoint. Do not use them in your application, as they will be removed in a future version.
+
 Example
 ^^^^^^^
 
@@ -206,12 +337,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -355,10 +485,12 @@ Exemplary Response
       "total": 2
     }
 
-Get transaction details
------------------------
 
-To return transaction details you will need to call the ``/api/customer/transaction/<transaction>`` endpoint with the ``GET`` method.
+
+Get transaction details (customer)
+----------------------------------
+
+To retrieve transaction details you need to call the ``/api/customer/transaction/<transaction>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -388,12 +520,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -468,10 +599,12 @@ Exemplary Response
     }
 
 
-Get complete list of all transactions (seller)
-----------------------------------------------
 
-To get complete list of all transactions you will need to call the ``/api/seller/transaction`` endpoint with the ``GET`` method.
+Get a list of transactions (seller)
+-----------------------------------
+
+To get a complete or filtered list of transactions
+you need to call the ``/api/seller/transaction`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -525,12 +658,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -673,10 +805,13 @@ Exemplary Response
       "total": 2
     }
 
-Get logged in customer transactions (seller)
---------------------------------------------
 
-To return logged in customer transactions you will need to call the ``/api/seller/transaction/customer/<customer>`` endpoint with the ``GET`` method.
+
+Get customer's transactions (seller)
+------------------------------------
+
+To retrieve a list of customer transactions
+you need to call the ``/api/seller/transaction/customer/<customer>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -692,7 +827,7 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | <customer>                          | query          | Customer ID                                       |
 +-------------------------------------+----------------+---------------------------------------------------+
-| documentNumber                      | query          | *(optional)* Document Number                      |
+| documentNumber                      | query          | *(optional)* Filter by Document Number            |
 +-------------------------------------+----------------+---------------------------------------------------+
 | page                                | query          | *(optional)* Start from page, by default 1        |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -718,11 +853,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -789,11 +924,11 @@ Exemplary Response
 
 
 
-
 Get transactions with provided document number (seller)
 -------------------------------------------------------
 
-To return transactions with provided document number you will need to call the ``/api/seller/transaction/<documentNumber>`` endpoint with the ``GET`` method.
+To retrieve a list of transactions with provided document number
+you need to call the ``/api/seller/transaction/<documentNumber>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -810,7 +945,6 @@ Definition
 | <documentNumber>                    | query          | Document Number ID                                |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-
 Example
 ^^^^^^^
 
@@ -824,11 +958,16 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+.. note::
+
+    This endpoint uses *documentNumber*, your *internal* identifier of a transaction.
+    This is not the same as *transactionId* and should be easier to find for the merchant.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -895,12 +1034,11 @@ Exemplary Response
 
 
 
+Get a list of transactions
+--------------------------
 
-
-Get complete list of all transactions
--------------------------------------
-
-To return complete list of all transactions you will need to call the ``/api/transaction`` endpoint with the ``GET`` method.
+To retrieve a complete or filtered list of transactions
+you need to call the ``/api/transaction`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -959,12 +1097,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -1109,10 +1246,11 @@ Exemplary Response
     }
 
 
-Register new transaction
-------------------------
 
-To register new transaction you will need to call the ``/api/transaction`` endpoint with the ``POST`` method.
+Register a new transaction
+--------------------------
+
+To register a new transaction you need to call the ``/api/transaction`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1139,21 +1277,21 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][quantity]               | query          | Quantity                                          |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[items][][grossValue]               | query          | Gross value                                       |
+| transaction[items][][grossValue]             | query          | Gross value                                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][category]               | query          | Category Name                                     |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[items][][maker]                   | query          | Brand name                                        |
+| transaction[items][][maker]                  | query          | Brand name                                        |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][labels][][key]          | query          | Label key                                         |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][labels][][value]        | query          | Label value                                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[customerData][name]               | query          | Customer name                                     |
+| transaction[customerData][name]              | query          | Customer name                                     |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[customerData][email]               | query          | *(optional)* Customer email                       |
+| transaction[customerData][email]             | query          | *(optional)* Customer email                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[customerData][phone]               | query          | *(optional)* Customer phone                       |
+| transaction[customerData][phone]             | query          | *(optional)* Customer phone                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[customerData][loyaltyCardNumber] | query          | *(optional)* Customer Loyalty card number         |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1165,7 +1303,7 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[customerData][address][postal]   | query          | *(optional)* Postal code                          |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[customerData][address][city]       | query          | *(optional)* City                                 |
+| transaction[customerData][address][city]     | query          | *(optional)* City                                 |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[customerData][address][province] | query          | *(optional)* Province                             |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1179,6 +1317,14 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[labels][1][value]                | query          | *(optional)* Second label value                   |
 +----------------------------------------------+----------------+---------------------------------------------------+
+
+.. note::
+
+    You need to provide one of the following:
+    transaction[customerData][email],
+    transaction[customerData][phone],
+    transaction[customerData][loyaltyCardNumber],
+    to match a customer with a transaction.
 
 Example
 ^^^^^^^
@@ -1210,31 +1356,33 @@ Example
         -d "transaction[customerData][address][province]=Dolnoslaskie" \
         -d "transaction[customerData][address][country]=PL" \
         -d "transaction[transactionData][documentNumber]=214124124125" \
-        -d "transaction[transactionData][purchaseDate]=2017-08-22" \
+        -d "transaction[transactionData][purchaseDate]=2019-02-20 09:28" \
         -d "transaction[transactionData][documentType]=return"
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
     STATUS: 200 OK
 
 .. code-block:: json
+
     {
       "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433"
     }
 
+
+
 Update transaction labels
 -------------------------
 
-To update transaction labels you will need to log in as admin and call the ``/api/admin/transaction/labels`` endpoint with the ``POST`` method.
+To update transaction labels you need to log in as admin and call the ``/api/admin/transaction/labels`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1264,7 +1412,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/transaction \
+    curl http://localhost:8181/api/admin/transaction/labels \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1275,34 +1423,36 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
     STATUS: 200 OK
 
 .. code-block:: json
+
     {
       "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433"
     }
 
+
+
 Add new transaction labels as customer
 --------------------------------------
 
-To update transaction labels you will need to log in as customer and call the ``/api/customer/transaction/labels/append`` endpoint with the ``PUT`` method.
-Customer can only add new labels to transaction which is assigned to him.
+To update transaction labels you need to log in as customer and call the ``/api/customer/transaction/labels/append`` endpoint with the ``PUT`` method.
+Customer can only add new labels to transactions which are assigned to them.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST  /api/customer/transaction/labels/append
+    PUT  /api/customer/transaction/labels/append
 
 +----------------------------------------------+----------------+---------------------------------------------------+
 | Parameter                                    | Parameter type | Description                                       |
@@ -1325,8 +1475,8 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/transaction \
-        -X "POST" \
+    curl http://localhost:8181/api/customer/transaction/labels/append \
+        -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
@@ -1336,26 +1486,28 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
     STATUS: 200 OK
 
 .. code-block:: json
+
     {
       "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433"
     }
 
+
+
 Get available item labels
 -------------------------
 
-To return available labels you will need to call the ``/api/transaction/item/labels`` endpoint with the ``GET`` method.
+To retrieve available labels you need to call the ``/api/transaction/item/labels`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1383,15 +1535,15 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *label* or *label2* are an exemplary values. You can name labels as you like.
+    The *label* and *label2* are example values. You can name labels as you like.
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -1409,10 +1561,12 @@ Exemplary Response
     }
 
 
-Number of points which can be obtained after registering such transaction
--------------------------------------------------------------------------
 
-To return number of points which can be obtained after registering such transaction you will need to call the ``/api/transaction/simulate`` endpoint with the ``POST`` method.
+Number of points which can be obtained after registering given transaction
+--------------------------------------------------------------------------
+
+To retrieve the number of points which can be obtained after registering given transaction,
+you need to call the ``/api/transaction/simulate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1426,27 +1580,49 @@ Definition
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction                                  | query          | Transaction ID                                    |
-+----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][sku][code]              | query          | SKU code                                          |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[items][][name]                     | query          | Product name                                      |
+| transaction[items][][name]                   | query          | Product name                                      |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[items][][quantity]                  | query          | Quantity                                          |
+| transaction[items][][quantity]               | query          | Quantity                                          |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[items][][grossValue]              | query          | Gross value                                       |
+| transaction[items][][grossValue]             | query          | Gross value                                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][category]               | query          | Category name                                     |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[items][][maker]                   | query          | Brand name                                        |
+| transaction[items][][maker]                  | query          | Brand name                                        |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][labels][][key]          | query          | Label key                                         |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][labels][][value]        | query          | Label value                                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[purchaseDate]                      | query          | Purchase date                                     |
+| transaction[purchaseDate]                    | query          | Purchase date                                     |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][name]              | query          | Customer name                                     |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][email]             | query          | *(optional, see below)* Customer email            |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][phone]             | query          | *(optional, see below)* Customer phone            |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][loyaltyCardNumber] | query          | *(optional, see below)* Loyalty card number       |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][nip]               | query          | *(optional)* Customer NIP                         |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][address][street]   | query          | *(optional)* Street                               |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][address][address1] | query          | *(optional)* Customer address1                    |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][address][postal]   | query          | *(optional)* Postal code                          |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][address][city]     | query          | *(optional)* City                                 |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][address][province] | query          | *(optional)* Province                             |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[customerData][address][country]  | query          | *(optional)* Country                              |
 +----------------------------------------------+----------------+---------------------------------------------------+
 
+**Heads up!** One of the following: email, phone, loyaltyCardNumber is required along with the name to find
+the user for the simulation to be performed.
 
 Example
 ^^^^^^^
@@ -1472,12 +1648,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -1490,10 +1665,11 @@ Exemplary Response
     }
 
 
-Get transaction details
------------------------
 
-To get transaction details you will need to call the ``/api/transaction/<transaction>`` endpoint with the ``GET`` method.
+Get transaction details (admin)
+-------------------------------
+
+To get transaction details you need to call the ``/api/transaction/<transaction>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1507,13 +1683,13 @@ Definition
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| <transaction>                                 | query          | Transaction ID                                    |
+| <transaction>                                | query          | Transaction ID                                    |
 +----------------------------------------------+----------------+---------------------------------------------------+
 
 Example
 ^^^^^^^
 
- To see details of ``transaction = 00000000-0000-1111-0000-000000000005``email use the below method:
+ To see details of a transaction with ID ``00000000-0000-1111-0000-000000000005`` use the below method:
 
 .. code-block:: bash
 
@@ -1525,12 +1701,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 

@@ -9,8 +9,5 @@ Transactions Menu
    transaction_details
    transaction_labels
    returns
-  
-   
+
 .. include:: /userguide/transactions/menu/map.rst.inc
-
-

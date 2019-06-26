@@ -3,11 +3,12 @@ Utility API
 
 These endpoints will allow you to see the csv taken in the Open Loyalty.
 
-Get csv with customers assigned to specific level
+
+
+Get CSV of customers assigned to a specific level
 -------------------------------------------------
 
-To retrieve a csv with customers assigned to level you will need to call the ``/api/csv/level/<level>`` endpoint with the ``GET`` method.
-
+To retrieve CSV of customers assigned to a level you need to call the ``/api/csv/level/<level>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -16,13 +17,13 @@ Definition
 
     GET /api/csv/level/<level>
 
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| Parameter                                      | Parameter type |  Description                                                               |
-+================================================+================+============================================================================+
-| Authorization                                  | header         | Token received during authentication                                       |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| <level>                                        | query          |  Level ID                                                                  |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
++----------------------------------+----------------+------------------------------------------------------------------+
+| Parameter                        | Parameter type |  Description                                                     |
++==================================+================+==================================================================+
+| Authorization                    | header         | Token received during authentication                             |
++----------------------------------+----------------+------------------------------------------------------------------+
+| <level>                          | query          |  Level ID                                                        |
++----------------------------------+----------------+------------------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -35,8 +36,8 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -51,12 +52,17 @@ Exemplary Response
     Tomasz,Test7,tomasztest7@wp.pl,,,,,"2018-02-20 08:21:39",1,,
     user,user,user@user.pl,male,123456789876543,,"2018-02-23 00:00:00","2018-02-23 13:29:11",1,,
 
+.. note::
 
-Get csv with customers assigned to specific segment
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+
+
+Get CSV of customers assigned to a specific segment
 ---------------------------------------------------
 
-To retrieve a csv with customers assigned to segment you will need to call the ``/api/csv/segment/<segment>`` endpoint with the ``GET`` method.
-
+To retrieve CSV of customers assigned to a segment you need to call the ``/api/csv/segment/<segment>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -85,8 +91,8 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -95,3 +101,8 @@ Exemplary Response
 .. code-block:: json
 
     "First name","Last name","E-mail address",Gender,Telephone,"Loyalty card number",Birthdate,"Created at","Legal agreement","Marketing agreement","Data processing agreement"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.

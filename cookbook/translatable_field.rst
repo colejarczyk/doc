@@ -1,7 +1,9 @@
 How to create a translatable field
 ==================================
 
-Let’s say you want to add translatable field with named brand name. To form add translatable field type:
+Translatable fields let you store objects' data in several languages. If you have a translatable field and want to retrieve the data you saved in a given language you have to pass a request parameter named _locale to the API endpoint, with locale code given defined in the admin panel.
+
+Let’s say you want to add a translatable field containing a brand name to the API. To do that, add a translatable field type to the form:
 
 .. code-block:: php
 
@@ -16,11 +18,11 @@ Let’s say you want to add translatable field with named brand name. To form ad
         ]);
 
 
-Next we need to create an mapping for entity translation. Because brandName is depend to campaign so we crete CampaignTranslation entity.
+Next, we need to create a mapping for entity translation. Because brandName is a field of Campaign objects, we create a CampaignTranslation entity. Here is a Doctrine definition:
 
 .. code-block:: yaml
 
-    OpenLoyalty\Component\Campaign\Domain\CampaignTranslation:
+    OpenLoyalty\Domain\Campaign\CampaignTranslation:
       type: entity
       fields:
         brandName:
@@ -28,7 +30,7 @@ Next we need to create an mapping for entity translation. Because brandName is d
           nullable: true
           column: brand_name
 
-and entity class:
+and entity class body with FallbackTranslation trait:
 
 .. code-block:: php
     <?php
@@ -36,6 +38,7 @@ and entity class:
     class CampaignTranslation
     {
         use FallbackTranslation;
+
         /**
          * @var string|null
          */
@@ -58,7 +61,15 @@ and entity class:
         }
     }
 
-Next in \OpenLoyalty\Component\Campaign\Domain\Campaign class we need to modify setFromArray method
+Next we need to add FallbackTranslatable trait in the \OpenLoyalty\Domain\Campaign\Campaign class
+
+.. code-block:: php
+    class Campaign
+    {
+        use FallbackTranslatable;
+    ...
+
+and modify setFromArray method if it exists:
 
 .. code-block:: php
     if (array_key_exists('translations', $data)) {
@@ -75,7 +86,7 @@ Next in \OpenLoyalty\Component\Campaign\Domain\Campaign class we need to modify 
         }
     }
 
-and add translation too set/get method
+You also need to add translation setters and getters, which will be responsible for modifying and returning the translated data
 
 .. code-block:: php
 

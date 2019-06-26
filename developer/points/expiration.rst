@@ -18,6 +18,6 @@ Scenario 2: From which transfer the system will subtract points if there is more
 The system will create a new transfer with *subtract* type. OL only modifies Point Transfers when its status needs a change. In cases like adding or subtracting points from the Customer's Account, the system will create a new Point Transfer.
 
 The subtracting action starts in :doc:`Spend customer points </api/settings>` action.
-OL dispatches :code:`\OpenLoyalty\Component\Account\Domain\Command\SpendPoints` command along with :code:`\OpenLoyalty\Component\Account\Domain\Event\PointsWereSpent` event.
+OL dispatches :code:`\OpenLoyalty\Domain\Account\Command\SpendPoints` command along with :code:`\OpenLoyalty\Domain\Account\Event\PointsWereSpent` event.
 
 OL looks for points that are active on Customer's Account to sum them up and resolve total account points. If the amount is greater or equal the amount of subtracting points transfer, it proceeds further with logic.

@@ -45,7 +45,7 @@ To change the domain, just copy below docker-compose configuration and paste it 
         command: bash -c "sed -i -e 's@"http://openloyalty.localhost/api"@'\"http://openloyalty.dev/api\"'@g' /var/www/openloyalty/front/config.js && nginx -g 'daemon off;'"
       elk:
         container_name: openloyalty_elk
-        image: elasticsearch:2.2
+        image: elasticsearch:6.7.0
       db:
         container_name: openloyalty_db
         image: postgres:9
@@ -205,17 +205,11 @@ This content will be used in the deployment file to replace existing files with 
             ecommerce_address: 'http://ecommerce.local'
             es_max_result_window_size: 2000000
             fallback_frontend_translations_file: english.json
-            campaign_photos_adapter: campaign_photos_local
-            campaign_photos_adapter_env: CAMPAIGN_PHOTOS_ADAPTER
-            level_photos_adapter: level_photos_local
-            level_photos_adapter_env: LEVEL_PHOTOS_ADAPTER
-            earning_rule_photos_adapter: earning_rule_photos_local
-            earning_rule_photos_adapter_env: EARNING_RULE_PHOTOS_ADAPTER
         ---
 
 Now we can create a deployment for PHP container. Most of the configuration is related to run image as a container and k8s
-polices but take a look at volumeMounts and volumes. volumneMounts is where we mount volume named "parameters" to the
-specific file in the container. In the volumne section, volume name "parameters" is defined and it's content is
+polices but take a look at volumeMounts and volumes. volumeMounts is where we mount volume named "parameters" to the
+specific file in the container. In the volume section, volume name "parameters" is defined and it's content is
 get from ConfigMap at key "parameters.yml".
 
 We change Open Loyalty configuration using our own configuration defined in ConfigMap and just replace file at the
