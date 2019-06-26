@@ -1,2 +1,0 @@
-open_loyalty_core:
-    resource: "@OpenLoyaltyCoreBundle/Resources/config/routing.yml"

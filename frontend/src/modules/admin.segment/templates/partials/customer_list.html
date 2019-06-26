@@ -1,9 +1,0 @@
-<div class="row">
-    <div class="small-3 columns">
-        <label>{{ "segment.partials.customers" | translate }} <span class="required">*</span></label>
-    </div>
-    <div class="small-9 columns" form-validation="validate.parts[parentIndex].criteria[segmentIndex].customers.errors">
-        <selectize ng-init="" config="customerListConfig" options="$parent.$parent.$parent.$parent.segmentModel.segmentedCustomers" ng-model="$parent.$parent.$parent.$parent.segmentModel.customers"></selectize>
-        <span class="prompt">{{ "segment.partials.customers_prompt" | translate }} </span>
-    </div>
-</div>
