@@ -1459,7 +1459,7 @@ Definition
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| append[transactionDocumentNumber]            | query          | Transaction ID                                    |
+| append[transactionDocumentNumber]            | query          | Transaction document number                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | append[labels][0][key]                       | query          | *(optional)* First label key                      |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1480,7 +1480,7 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "append[transactionDocumentNumebr]=123" \
+        -d "append[transactionDocumentNumber]=123" \
         -d "append[label][0][key]=some label" \
         -d "append[label][0][value]=some value"
 
