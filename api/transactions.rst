@@ -1481,8 +1481,8 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "append[transactionDocumentNumber]=123" \
-        -d "append[label][0][key]=some label" \
-        -d "append[label][0][value]=some value"
+        -d "append[labels][0][key]=some label" \
+        -d "append[labels][0][value]=some value"
 
 .. note::
 
