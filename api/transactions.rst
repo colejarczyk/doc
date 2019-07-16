@@ -1418,8 +1418,8 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "transaction_labels[transactionId]=00000000-0000-1111-0000-000000000000" \
-        -d "transaction_labels[label][0][key]=some label" \
-        -d "transaction_labels[label][0][value]=some value"
+        -d "transaction_labels[labels][0][key]=some label" \
+        -d "transaction_labels[labels][0][value]=some value"
 
 .. note::
 
