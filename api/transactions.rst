@@ -182,6 +182,12 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | assign[transactionDocumentNumber]   | query          | Transaction Document Number                       |
 +-------------------------------------+----------------+---------------------------------------------------+
+| assign[customerId]                  | query          | Customer ID                                       |
++-------------------------------------+----------------+---------------------------------------------------+
+| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                           |
++-------------------------------------+----------------+---------------------------------------------------+
+| assign[customerPhoneNumber]         | query          | Customer Phone Number                             |
++-------------------------------------+----------------+---------------------------------------------------+
 
 .. note::
 
@@ -198,7 +204,10 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-        -d "assign[transactionDocumentNumber]=888"
+        -d "assign[transactionDocumentNumber]=888" \
+        -d "assign[customerId]=57524216-c059-405a-b951-3ab5c49bae14" \
+        -d "assign[customerLoyaltyCardNumber]=333" \
+        -d "assign[customerPhoneNumber]=333333"
 
 .. note::
 
