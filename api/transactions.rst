@@ -182,12 +182,6 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | assign[transactionDocumentNumber]   | query          | Transaction Document Number                       |
 +-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerId]                  | query          | Customer ID                                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                           |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerPhoneNumber]         | query          | Customer Phone Number                             |
-+-------------------------------------+----------------+---------------------------------------------------+
 
 .. note::
 
@@ -204,10 +198,7 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-        -d "assign[transactionDocumentNumber]=888" \
-        -d "assign[customerId]=57524216-c059-405a-b951-3ab5c49bae14" \
-        -d "assign[customerLoyaltyCardNumber]=333" \
-        -d "assign[customerPhoneNumber]=333333"
+        -d "assign[transactionDocumentNumber]=888"
 
 .. note::
 
@@ -1427,8 +1418,8 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "transaction_labels[transactionId]=00000000-0000-1111-0000-000000000000" \
-        -d "transaction_labels[labels][0][key]=some label" \
-        -d "transaction_labels[labels][0][value]=some value"
+        -d "transaction_labels[label][0][key]=some label" \
+        -d "transaction_labels[label][0][value]=some value"
 
 .. note::
 
@@ -1468,7 +1459,7 @@ Definition
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| append[transactionDocumentNumber]            | query          | Transaction document number                       |
+| append[transactionDocumentNumber]            | query          | Transaction ID                                    |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | append[labels][0][key]                       | query          | *(optional)* First label key                      |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1489,9 +1480,9 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "append[transactionDocumentNumber]=123" \
-        -d "append[labels][0][key]=some label" \
-        -d "append[labels][0][value]=some value"
+        -d "append[transactionDocumentNumebr]=123" \
+        -d "append[label][0][key]=some label" \
+        -d "append[label][0][value]=some value"
 
 .. note::
 

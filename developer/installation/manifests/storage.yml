@@ -1,0 +1,91 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: database-volume
+  namespace: openloyalty
+  labels:
+    storage-tier: database
+spec:
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: elasticsearch-volume
+  namespace: openloyalty
+  labels:
+    storage-tier: elasticsearch
+spec:
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 25Gi
+  accessModes:
+    - ReadWriteOnce
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: cache-volume
+  namespace: openloyalty
+  labels:
+    storage-tier: cache
+spec:
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: logs-volume
+  namespace: openloyalty
+  labels:
+    storage-tier: logs
+spec:
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jwt-volume
+  namespace: openloyalty
+  labels:
+    storage-tier: jwt
+spec:
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: uploads-volume
+  namespace: openloyalty
+  labels:
+    storage-tier: uploads
+spec:
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 200Mi
+  accessModes:
+    - ReadWriteMany
+---
+

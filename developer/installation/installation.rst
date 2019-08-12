@@ -36,7 +36,7 @@ After starting Open Loyalty in developer mode it's exposes services under slight
 ``http://openloyalty.localhost:8081/client - the customer panel``
 ``http://openloyalty.localhost:8081/pos - the merchant panel``
 ``http://openloyalty.localhost - RESTful API port``
-``http://openloyalty.localhost/app_dev.php/doc - swagger-like API doc``
+``http://openloyalty.localhost/doc - swagger-like API doc``
 ``http://openloyalty.localhost:8086/ - the MailHog that cachets all e-mails``
 
 .. note::
@@ -90,7 +90,7 @@ After starting Open Loyalty it's exposes services under following URLs:
 Kubernetes
 ----------
 
-Not described yet.
+More details available `here <./kubernetes.rst>`_.
 
 Quick install with Vagrant
 --------------------------

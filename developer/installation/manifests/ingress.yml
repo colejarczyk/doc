@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: openloyalty-ingress
+  namespace: openloyalty
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: admin.example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: web-admin
+              servicePort: 3001
+    - host: client.example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: pwacc
+              servicePort: 3004
+    - host: pos.example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: web-pos
+              servicePort: 3003
+    - host: api.example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: varnish
+              servicePort: 8081

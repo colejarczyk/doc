@@ -142,7 +142,7 @@ Using k8s cluster
 We recommend to use k8s for real production usage. The idea behind k8s is that it allows to mount a single file which
 docker and docker-compose doesn't.
 
-Here is an example of config.yml file which has ConfigMap with content of config.js and parameters.yml file.
+Here is an example of config.yml file which has ConfigMap with content of config.js and Symfony config files.
 This content will be used in the deployment file to replace existing files with configuration from ConfigMap.
 
 .. code-block::
@@ -204,7 +204,6 @@ This content will be used in the deployment file to replace existing files with 
             env(frontend_customer_panel_url): 'http://example.com:8182/'
             ecommerce_address: 'http://ecommerce.local'
             es_max_result_window_size: 2000000
-            fallback_frontend_translations_file: english.json
         ---
 
 Now we can create a deployment for PHP container. Most of the configuration is related to run image as a container and k8s

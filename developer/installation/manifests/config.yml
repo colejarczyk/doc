@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app
+  namespace: openloyalty
+data:
+  config.js: |-
+    const config = {
+        "apiUrl": "http://api.example.com/api",
+        "dateFormat": "YYYY-MM-DD",
+        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+        "perPage": 20,
+        "debug": false,
+        "modules": []
+    };
+    window.OpenLoyaltyConfig = {
+        "apiUrl": "http://api.example.com/api",
+        "dateFormat": "YYYY-MM-DD",
+        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+        "perPage": 20,
+        "debug": false,
+        "modules": []
+    };
+  .env.prod: |
+    APP_ENV=prod
+    APP_SECRET=__REPLACE_IT__
+    RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
+    DATABASE_URL=pgsql://openloyalty:openloyalty@db:5432/openloyalty
+    MAILER_URL=smtp://mail:1025
+    GELF_SERVER=logstash
+    GELF_PORT=12201
+    ELK_HOST=elk:9200
+    VARNISH_HOST=varnish
+    VARNISH_CACHE_BASE_URL=localhost
+    REDIS_HOST=redis
+    REDIS_PORT=5379
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: php
+  namespace: openloyalty
+data:
+  www.conf: |
+    [www]
+    user = www-data
+    group = www-data
+    listen = 127.0.0.1:9000
+    pm = dynamic
+    pm.max_children = 80
+    pm.start_servers = 15
+    pm.min_spare_servers = 15
+    pm.max_spare_servers = 30

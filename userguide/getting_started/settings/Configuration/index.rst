@@ -5,7 +5,6 @@ CONFIGURATION
    :hidden:
 
    account_activation
-   customer_statuses
    identification_factors
    level_downgrade_settings
    marketing_automation

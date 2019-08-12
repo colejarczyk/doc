@@ -3,63 +3,6 @@ Settings API
 
 These endpoints will allow you to see the list of settings taken in the Open Loyalty.
 
-
-
-Get list of available customer statuses
----------------------------------------
-
-To retrieve a list of available customer statuses you need to call the ``/api/admin/customer-statuses`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET /api/admin/customer-statuses
-
-+---------------------------------+----------------+-------------------------------------------------------------------+
-| Parameter                       | Parameter type | Description                                                       |
-+=================================+================+===================================================================+
-| Authorization                   | header         | Token received during authentication                              |
-+---------------------------------+----------------+-------------------------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/admin/customer-statuses \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "statuses": [
-        "new",
-        "active",
-        "blocked",
-        "deleted"
-      ],
-      "total": 4
-    }
-
-
-
 Get list of translations
 ------------------------
 
@@ -375,12 +318,6 @@ Example Response
         "excludedLevelCategories": [
           "category_excluded_from_level"
         ],
-        "customerStatusesEarning": [
-          "active"
-        ],
-        "customerStatusesSpending": [
-          "active"
-        ],
         "returns": true,
         "pointsDaysActive": 30,
         "pointsDaysLocked": 3,
@@ -434,10 +371,6 @@ Definition
 | Authorization                                         | header         | Token received during authentication                                       |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[currency]                                    | request        | Currency: {"PLN":"pln","USD":"usd","EUR":"eur","HKD":"hkd","PESO":"cop"}   |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[customerStatusesEarning][]                   | request        | Options:    "new","active","blocked","deleted"                             |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[customerStatusesSpending][]                  | request        | Options:    "new","active","blocked","deleted"                             |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[timezone]                                    | request        | Timezone                                                                   |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -515,8 +448,6 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "settings[currency]=PLN" \
-        -d "settings[customerStatusesEarning][0]=active" \
-        -d "settings[customerStatusesSpending][0]=active" \
         -d "settings[timezone]=Europe/Warsaw" \
         -d "settings[programName]=Loyalty+Program" \
         -d "settings[programPointsSingular]=point" \
@@ -565,7 +496,7 @@ Definition
 | Authorization          | header         | Token received during authentication                                       |
 +------------------------+----------------+----------------------------------------------------------------------------+
 | <type>                 | query          | Allowed types: timezone, language, country, availableFrontendTranslations, |
-|                        |                | earningRuleLimitPeriod, availableCustomerStatuses                          |
+|                        |                | earningRuleLimitPeriod                          |
 +------------------------+----------------+----------------------------------------------------------------------------+
 
 Example

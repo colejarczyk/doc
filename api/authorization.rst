@@ -101,7 +101,7 @@ is not related to real user and is stored in configuration.
 Creating a permanent token in configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to activate configuration access token you need to add to parameters.yml value
+In order to activate configuration access token you need to add to Symfony config value
 
 .. code-block:: text
 

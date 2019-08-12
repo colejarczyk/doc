@@ -1789,14 +1789,14 @@ Example Response
 Customer status (customer)
 --------------------------
 
-To retrieve a status of a customer you need to call the ``/api/customer/{customer}/status`` endpoint with the ``GET`` method.
+To retrieve a status of a customer you need to call the ``/api/customer/customer/{customer}/status`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/<customer>/status
+    GET /api/customer/customer/<customer>/status
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
@@ -1811,7 +1811,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/00000000-0000-474c-b092-b0dd880c07e1/status \
+    curl http://localhost:8181/api/customer/customer/00000000-0000-474c-b092-b0dd880c07e1/status \
         -X "GET" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \

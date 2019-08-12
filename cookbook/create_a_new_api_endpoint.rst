@@ -126,4 +126,4 @@ That’s it. Now you have a new API endpoint registered in Open Loyalty. You can
 By default, all our ``/api`` endpoints are behind a firewall. So if you want to use ``/api`` endpoints, you need to
 be logged in as an administrator and use authorization token.
 
-To see how Symfony firewall is configured check ``app/config/security.yml``
+To see how Symfony firewall is configured check ``config/packages/security.yaml``

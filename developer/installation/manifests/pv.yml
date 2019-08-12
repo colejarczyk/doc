@@ -1,0 +1,89 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+    name: database-pv
+    namespace: openloyalty
+spec:
+    storageClassName: manual
+    capacity:
+        storage: 20Gi
+    accessModes:
+        - ReadWriteOnce
+    hostPath:
+        path: "/data/openloyalty/database"
+        type: DirectoryOrCreate
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+    name: elasticsearch-pv
+    namespace: openloyalty
+spec:
+    storageClassName: manual
+    capacity:
+        storage: 25Gi
+    accessModes:
+        - ReadWriteOnce
+    hostPath:
+        path: "/data/openloyalty/elasticsearch"
+        type: DirectoryOrCreate
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+    name: cache-pv
+    namespace: openloyalty
+spec:
+    storageClassName: manual
+    capacity:
+        storage: 5Gi
+    accessModes:
+        - ReadWriteMany
+    hostPath:
+        path: "/data/openloyalty/cache"
+        type: DirectoryOrCreate
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+    name: logs-pv
+    namespace: openloyalty
+spec:
+    storageClassName: manual
+    capacity:
+        storage: 5Gi
+    accessModes:
+        - ReadWriteMany
+    hostPath:
+        path: "/data/openloyalty/logs"
+        type: DirectoryOrCreate
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+    name: jwt-pv
+    namespace: openloyalty
+spec:
+    storageClassName: manual
+    capacity:
+        storage: 5Gi
+    accessModes:
+        - ReadWriteMany
+    hostPath:
+        path: "/data/openloyalty/jwt"
+        type: DirectoryOrCreate
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+    name: uploads-pv
+    namespace: openloyalty
+spec:
+    storageClassName: manual
+    capacity:
+        storage: 200Mi
+    accessModes:
+        - ReadWriteMany
+    hostPath:
+        path: "/data/openloyalty/uploads"
+        type: DirectoryOrCreate
