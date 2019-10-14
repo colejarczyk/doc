@@ -1,3 +1,6 @@
+.. index::
+   single: Merchants
+
 Merchants
 =========
 

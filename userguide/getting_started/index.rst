@@ -1,3 +1,6 @@
+.. index::
+   single: Getting started
+
 Getting started
 ===============
 

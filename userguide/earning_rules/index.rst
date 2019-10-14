@@ -1,3 +1,6 @@
+.. index::
+   single: Earning rules
+
 Earning rules
 =============
 

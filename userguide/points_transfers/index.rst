@@ -1,3 +1,6 @@
+.. index::
+   single: Points transfers
+
 Points transfers
 ================
 
