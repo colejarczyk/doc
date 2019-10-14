@@ -19,16 +19,16 @@ Revel Systems offers businesses the ability to customize their loyalty and rewar
 .. toctree::
    :hidden:
 
-   userguide/getting_started/index
-   userguide/customers/index
-   userguide/levels/index
-   userguide/points_transfers/index
-   userguide/transactions/index
-   userguide/earning_rules/index
-   userguide/pos/index
-   userguide/merchants/index
-   userguide/segments/index
-   userguide/reward_campaigns/index
+   getting_started
+   customers
+   levels
+   points_transfers
+   transactions
+   earning_rules
+   pos
+   merchants
+   segments
+   reward_campaigns
 
 Getting started
 ---------------
