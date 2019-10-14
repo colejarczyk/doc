@@ -113,9 +113,9 @@ In :doc:`the Reward campaigns </userguide/reward_campaigns/index>` section of th
 
    userguide/reward_campaigns/index
 
-
-
 Indices and tables
 ==================
 
 * :ref:`genindex`
+
+.. include:: map.rst.inc
