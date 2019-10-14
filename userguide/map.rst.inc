@@ -1,0 +1,10 @@
+* :doc:`/userguide/getting_started/index`
+* :doc:`/userguide/customers/index`
+* :doc:`/userguide/levels/index`
+* :doc:`/userguide/points_transfers/index`
+* :doc:`/userguide/transactions/index`
+* :doc:`/userguide/earning_rules/index`
+* :doc:`/userguide/pos/index`
+* :doc:`/userguide/merchants/index`
+* :doc:`/userguide/segments/index`
+* :doc:`/userguide/reward_campaigns/index`
