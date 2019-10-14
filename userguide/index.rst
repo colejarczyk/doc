@@ -30,6 +30,8 @@ Revel Systems offers businesses the ability to customize their loyalty and rewar
    segments
    reward_campaigns
 
+.. include:: map.rst.inc
+
 Getting started
 ===============
 :doc:`The Getting started </userguide/getting_started/index>` section introduces your Loyalty Platform Admin, and walks you through the basic configuration settings. You’ll get an overview of the resources that are available to you as an Admin of the Open Loyalty and how to log into your Admin account. Finally, you’ll learn the concepts of loyalty platform and configuration scope, and establish best practices for project standards and requirements.
