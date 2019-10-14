@@ -17,6 +17,7 @@ This guide answers the "why, where, and how" questions that most users have when
 Revel Systems offers businesses the ability to customize their loyalty and rewards programs. This feature gives businesses the power to create engaging programs that generate customer loyalty and increase sales. Through this Platform, you can easily manage the rewards and loyalty points to be provided to your customers. Thereafter, the customers can earn or redeem the points as per the rules defined by you.
 
 Getting started
+^^^^^^^^^^^^^^^
 
 :doc:`The Getting started </userguide/getting_started/index>` section introduces your Loyalty Platform Admin, and walks you through the basic configuration settings. You’ll get an overview of the resources that are available to you as an Admin of the Open Loyalty and how to log into your Admin account. Finally, you’ll learn the concepts of loyalty platform and configuration scope, and establish best practices for project standards and requirements.
 
