@@ -117,5 +117,3 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-
-.. include:: map.rst.inc
