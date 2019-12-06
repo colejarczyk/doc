@@ -14,9 +14,11 @@ To activate customer account using link:
 
 1. Click ``Activate account`` in the email message 
 
-2. Customer account will be activate instantly. Customer will be redirect automatically to login page to enter login credentials
+2. Customer account will be activated instantly. Customer will be redirected automatically to login page to enter login credentials
 
+.. warning::
+    This email activation feature can be disabled in the Admin Cockpit in Email Settings.
 
 | If for some reason customer will lost this email/link his account can be activated manually by Admin. 
 
-| To learn more about manually customer account activation please see :doc:`Deactivate a customer’s account </userguide/customers/account/account_deactivate>`
+| To learn more about manual customer account activation please see :doc:`Deactivate a customer’s account </userguide/customers/account/account_deactivate>`

@@ -336,7 +336,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/00000000-0000-474c-b092-b0dd880c0725 \
+    curl http://localhost:8181/api/seller/earningRule/00000000-0000-474c-b092-b0dd880c0725 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \

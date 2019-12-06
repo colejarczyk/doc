@@ -82,7 +82,7 @@ Example Response
                 "customerFirstName": "John",
                 "customerLastName": "Doe",
                 "customerLoyaltyCardNumber": "47834433524",
-                "customerEmail": "user@oloy.com",
+                "customerEmail": "user@example.com",
                 "customerPhone": "+48234234000",
                 "createdAt": "2018-09-13T16:37:33+0200",
                 "expiresAt": "2018-10-13T16:37:33+0200",
@@ -99,7 +99,7 @@ Example Response
                 "customerFirstName": "John",
                 "customerLastName": "Doe",
                 "customerLoyaltyCardNumber": "47834433524",
-                "customerEmail": "user@oloy.com",
+                "customerEmail": "user@example.com",
                 "customerPhone": "+48234234000",
                 "createdAt": "2018-09-13T16:37:33+0200",
                 "expiresAt": "2018-10-13T16:37:33+0200",
@@ -232,7 +232,7 @@ Example Response
                 "customerFirstName": "John",
                 "customerLastName": "Doe",
                 "customerLoyaltyCardNumber": "47834433524",
-                "customerEmail": "user@oloy.com",
+                "customerEmail": "user@example.com",
                 "customerPhone": "+48234234000",
                 "createdAt": "2018-09-13T16:37:33+0200",
                 "expiresAt": "2018-10-13T16:37:33+0200",
@@ -289,7 +289,7 @@ Example Response
                 "customerFirstName": "Jane",
                 "customerLastName": "Doe",
                 "customerLoyaltyCardNumber": "0000",
-                "customerEmail": "user-temp@oloy.com",
+                "customerEmail": "user-temp@example.com",
                 "customerPhone": "+48345345000",
                 "createdAt": "2018-09-13T16:37:35+0200",
                 "expiresAt": "2018-09-13T16:37:35+0200",
@@ -372,7 +372,7 @@ Example Response
                 "customerFirstName": "John",
                 "customerLastName": "Doe",
                 "customerLoyaltyCardNumber": "47834433524",
-                "customerEmail": "user@oloy.com",
+                "customerEmail": "user@example.com",
                 "customerPhone": "+48234234000",
                 "createdAt": "2018-09-13T16:37:33+0200",
                 "expiresAt": "2018-10-13T16:37:33+0200",
@@ -389,7 +389,7 @@ Example Response
                 "customerFirstName": "John",
                 "customerLastName": "Doe",
                 "customerLoyaltyCardNumber": "47834433524",
-                "customerEmail": "user@oloy.com",
+                "customerEmail": "user@example.com",
                 "customerPhone": "+48234234000",
                 "createdAt": "2018-09-13T16:37:33+0200",
                 "expiresAt": "2018-10-13T16:37:33+0200",
@@ -468,8 +468,7 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[comment]                   | query          | *(optional)* Comment                              |
 +-------------------------------------+----------------+---------------------------------------------------+
-| transfer                            | query          | *(optional)* Points transfer ID                   |
-+-------------------------------------+----------------+---------------------------------------------------+
+
 
 Example
 ^^^^^^^
@@ -481,7 +480,6 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "transfer=8947546c-c2a4-4ef2-9271-47b3fc28f663" \
         -d "transfer[customer]=b9af6a8c-9cc5-4924-989c-e4af614ab2a3" \
         -d "transfer[points]=9"
 
@@ -528,8 +526,7 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[comment]                   | query          | *(optional)* Comment                              |
 +-------------------------------------+----------------+---------------------------------------------------+
-| transfer                            | query          | *(optional)* Points transfer ID                   |
-+-------------------------------------+----------------+---------------------------------------------------+
+
 
 Example
 ^^^^^^^
@@ -541,7 +538,6 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "transfer=8947546c-c2a4-4ef2-9271-47b3fc28f663" \
         -d "transfer[customer]=b9af6a8c-9cc5-4924-989c-e4af614ab2a3" \
         -d "transfer[points]=1"
 
@@ -568,14 +564,14 @@ Example Response
 Transfer points between customers (admin)
 -----------------------------------------
 
-To transfer points between customers you need to call the ``/api/admin/p2p-points-tranfer`` endpoint with the ``POST`` method.
+To transfer points between customers you need to call the ``/api/admin/p2p-points-transfer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/p2p-points-tranfer
+    POST /api/admin/p2p-points-transfer
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
@@ -596,7 +592,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/p2p-points-tranfer \
+    curl http://localhost:8181/api/admin/p2p-points-transfer \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -657,7 +653,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/p2p-points-tranfer \
+    curl http://localhost:8181/api/customer/points/p2p-transfer \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -887,8 +883,6 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[comment]                   | query          | *(optional)* Comment                              |
 +-------------------------------------+----------------+---------------------------------------------------+
-| transfer                            | query          | *(optional)* Points transfer ID                   |
-+-------------------------------------+----------------+---------------------------------------------------+
 | transfer[validityDuration]          | query          | *(optional)* Validity of points given in days     |
 +-------------------------------------+----------------+---------------------------------------------------+
 
@@ -921,4 +915,91 @@ Example Response
 
     {
       "pointsTransferId": "ff4698aa-5d3b-4b58-952e-90d08fe94e30"
+    }
+
+Points transfers histogram
+--------------------------
+
+To get information about points transfers histogram you need to call the
+``/api/points/transfers`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/points/transfers
+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type |  Description                                                   |
++====================================+================+================================================================+
+| Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <interval>                         | request        | Group result by (day|month|year)                               |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <lastDays>                         | request        | Display data in last days                                      |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <futureDays>                       | request        | Display data to X future days                                  |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | request        | Filter result by given store                                   |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <pointType>                        | request        | Type of point (earned, spent, expired, pending)                |
++------------------------------------+----------------+----------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/points/transfers \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "2018-01-06": 0,
+      "2018-01-07": 0,
+      "2018-01-08": 0,
+      "2018-01-09": 5,
+      "2018-01-10": 0,
+      "2018-01-11": 5,
+      "2018-01-12": 4,
+      "2018-01-13": 3,
+      "2018-01-14": 0,
+      "2018-01-15": 0,
+      "2018-01-16": 3,
+      "2018-01-17": 0,
+      "2018-01-18": 5,
+      "2018-01-19": 0,
+      "2018-01-20": 6,
+      "2018-01-21": 5,
+      "2018-01-22": 0,
+      "2018-01-23": 6,
+      "2018-01-24": 0,
+      "2018-01-25": 0,
+      "2018-01-26": 0,
+      "2018-01-27": 0,
+      "2018-01-28": 5,
+      "2018-01-29": 0,
+      "2018-01-30": 0,
+      "2018-01-31": 0,
+      "2018-02-01": 0,
+      "2018-02-02": 5,
+      "2018-02-03": 0,
+      "2018-02-04": 0
     }

@@ -107,7 +107,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/campaignCategories \
+    curl http://localhost:8181/api/campaignCategory \
         -X "GET" \
 	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \

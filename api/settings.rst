@@ -314,41 +314,97 @@ Example Response
 .. code-block:: json
 
     {
-      "settings": {
+    "settings": {
+        "logo": {
+            "path": "logo/logo.png",
+            "mime": "image/png",
+            "sizes": []
+        },
+        "small-logo": {
+            "path": "logo/small-logo.png",
+            "mime": "image/png",
+            "sizes": []
+        },
+        "hero-image": {
+            "path": "logo/hero-image.png",
+            "mime": "image/png",
+            "sizes": []
+        },
+        "admin-cockpit-logo": {
+            "path": "logo/admin-cockpit-logo.png",
+            "mime": "image/png",
+            "sizes": []
+        },
+        "client-cockpit-logo-big": {
+            "path": "logo/client-cockpit-logo-big.png",
+            "mime": "image/png",
+            "sizes": []
+        },
+        "client-cockpit-logo-small": {
+            "path": "logo/client-cockpit-logo-small.png",
+            "mime": "image/png",
+            "sizes": []
+        },
+        "client-cockpit-hero-image": {
+            "path": "logo/client-cockpit-hero-image.png",
+            "mime": "image/png",
+            "sizes": []
+        },
         "excludedLevelCategories": [
-          "category_excluded_from_level"
+            "category_excluded_from_level"
+        ],
+        "customersIdentificationPriority": [
+            {
+                "priority": 1,
+                "field": "email"
+            },
+            {
+                "priority": 2,
+                "field": "loyaltyCardNumber"
+            },
+            {
+                "priority": 3,
+                "field": "phone"
+            }
+        ],
+        "excludedDeliverySKUs": [],
+        "excludedLevelSKUs": [
+            "s"
         ],
         "returns": true,
-        "pointsDaysActive": 30,
-        "pointsDaysLocked": 3,
-        "levelDowngradeMode": "none",
-        "currency": "eur",
+        "allowCustomersProfileEdits": true,
+        "allTimeNotLocked": true,
+        "levelResetPointsOnDowngrade": false,
+        "webhooks": false,
+        "excludeDeliveryCostsFromTierAssignment": false,
+        "pointsDaysActiveCount": 30,
+        "expirePointsNotificationDays": 10,
+        "expireCouponsNotificationDays": 10,
+        "expireLevelsNotificationDays": 10,
+        "currency": "EUR",
         "timezone": "Europe/Warsaw",
         "programName": "Loyalty Program",
         "programPointsSingular": "Point",
         "programPointsPlural": "Points",
+        "pointsDaysExpiryAfter": "after_x_days",
         "tierAssignType": "transactions",
-        "excludedDeliverySKUs": [],
-        "excludedLevelSKUs": [],
-        "allTimeActive": false,
-        "excludeDeliveryCostsFromTierAssignment": false,
+        "levelDowngradeMode": "none",
+        "levelDowngradeBase": "none",
+        "accountActivationMethod": "email",
         "marketingVendorsValue": "none",
-        "customersIdentificationPriority": [
-          {
-            "priority": 1,
-            "field": "email"
-          },
-          {
-            "priority": 2,
-            "field": "loyaltyCardNumber"
-          }
-        ],
-        "logo": {
-          "path": "logo/045a0a8e8d02c32427f7f1e6734f4eec.html",
-          "originalName": "logo.svg",
-          "mime": "image/svg+xml"
-        }
-      }
+        "pushySecretKey": "",
+        "maxPointsRedeemed": "500",
+        "transactionTriggeredSmsContent": "",
+        "programConditionsUrl": "",
+        "programFaqUrl": "",
+        "programUrl": "",
+        "helpEmailAddress": "kkk",
+        "uriWebhooks": "",
+        "webhookHeaderName": "",
+        "webhookHeaderValue": "",
+        "accentColor": "",
+        "cssTemplate": ""
+    }
     }
 
 
@@ -370,31 +426,38 @@ Definition
 +=======================================================+================+============================================================================+
 | Authorization                                         | header         | Token received during authentication                                       |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[currency]                                    | request        | Currency: {"PLN":"pln","USD":"usd","EUR":"eur","HKD":"hkd","PESO":"cop"}   |
+| settings[currency]                                    | request        | Currency: {"PLN":"pln","USD":"usd","EUR":"eur","HKD":"hkd","PESO":"cop",   |
+|                                                       |                |     "INR": "inr","VND":"vnd"}                                              |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[timezone]                                    | request        | Timezone                                                                   |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[programName]                                 | request        | Program name                                                               |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[programConditionsUrl]                        | request        | *(optional)*    TO DO                                                      |
+| settings[programConditionsUrl]                        | request        | *(optional)*    Program conditions URL                                     |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[programFaqUrl]                               | request        | *(optional)*    TO DO                                                      |
+| settings[programFaqUrl]                               | request        | *(optional)*    Program FAQ URL                                            |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[programUrl]                                  | request        | *(optional)*    TO DO                                                      |
+| settings[programUrl]                                  | request        | *(optional)*    Program URL                                                |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[programPointsSingular]                       | request        | TO DO                                                                      |
+| settings[programPointsSingular]                       | request        | Points singular                                                            |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[programPointsPlural]                         | request        | TO DO                                                                      |
+| settings[programPointsPlural]                         | request        | Points plural                                                              |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[helpEmailAddress]                            | request        | *(optional)*    TO DO                                                      |
+| settings[helpEmailAddress]                            | request        | *(optional)*    Help e-mail                                                |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[returns]                                     | request        | *(optional)*    TO DO                                                      |
+| settings[returns]                                     | request        | *(optional)*    Returns                                                    |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[pointsDaysActive]                            | request        | Required when allTimeActive=false. Points will expire after [days]         |
+| settings[pointsDaysActiveCount]                       | request        | Required when allTimeActive=false. Points will expire after [days]         |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[allTimeActive]                               | request        | *(optional)* Is always active: true/false                                  |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[pointsDaysLocked]                            | request        | Points will be locked for N days. Required when allTimeNotLocked=false.    |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[expireCouponsNotificationDays]               | request        | Days before expiring coupons to notify user                                |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[expireLevelsNotificationDays]                | request        | Days before level recalculation to notify user                             |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[expirePointsNotificationDays]                | request        | Days before expiring points to notify user                                 |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[allTimeNotLocked]                            | request        | *(optional)* Is always not locked: true/false                              |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -405,11 +468,22 @@ Definition
 | settings[levelDowngradeBase]                          | request        | active_points | earned_points | earned_points_since_last_level_change      |
 |                                                       |                | required when mode is "after_x_days"                                       |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[customersIdentificationPriority][]           | request        | TO DO                                                                      |
+| settings[levelResetPointsOnDowngrade]                 | request        | *(optional)* Reset points option in the case of level downgrade based on   | 
+|                                                       |                | the active points. Possible values : true/false                            |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[customersIdentificationPriority][][priority] | request        | TO DO                                                                      |
+| settings[accentColor]                                 | request        | Accent color                                                               |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[customersIdentificationPriority][][field]    | request        | TO DO                                                                      |
+| settings[cssTemplate]                                 | request        | Css template                                                               |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[pushySecretKey]                              | request        | Pushy API secret key                                                       |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[maxPointsRedeemed]                           | request        | Cashback limit in points per day per customer                              |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[transactionTriggeredSmsContent]              | request        | SMS message sent to the customer after realizing a transaction             |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[customersIdentificationPriority][][priority] | request        | Priority to define matching transaction with customer                      |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[customersIdentificationPriority][][field]    | request        | Field to define matching transaction with customer                         |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[tierAssignType]                              | request        | Levels will be calculated with: transactions/points                        |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -419,7 +493,7 @@ Definition
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[excludedLevelSKUs][]                         | request        | *(optional)* SKUs excluded from levels ...                                 |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[excludedLevelCategories][]                   | request        | TO DO                                                                      |
+| settings[excludedLevelCategories][]                   | request        | *(optional)* Categories excluded from levels ...                           |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[logo]                                        | request        | Absolute path to the photo                                                 |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -436,6 +510,15 @@ Definition
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[sales_manago][email]                         | request        | *(optional)* Required if Sales Manago integration enabled.                 |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[webhooks]                                    | request        | *(optional)* To enable/disable webhooks. Possible values : true/false      |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[uriWebhooks]                                 | request        | *(optional)* URL where the webhooks will be sent                           |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[webhookHeaderName]                           | request        | Request header name                                                        |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[webhookHeaderValue]                          | request        | Request header value                                                       |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+
 
 Example
 ^^^^^^^
@@ -496,7 +579,7 @@ Definition
 | Authorization          | header         | Token received during authentication                                       |
 +------------------------+----------------+----------------------------------------------------------------------------+
 | <type>                 | query          | Allowed types: timezone, language, country, availableFrontendTranslations, |
-|                        |                | earningRuleLimitPeriod                          |
+|                        |                | earningRuleLimitPeriod                                                     |
 +------------------------+----------------+----------------------------------------------------------------------------+
 
 Example
@@ -601,8 +684,9 @@ Example Response
           "key": "OpenLoyaltyUserBundle:email:registration.html.twig",
           "subject": "Account created",
           "content": "Email content",
-          "sender_name": "open@oloy.com",
-          "sender_email": "open@oloy.com",
+          "sender_name": "open@example.com",
+          "sender_email": "open@example.com",
+          "enabled": true,
           "updatedAt": "2018-02-19T09:45:00+0100"
         },
          {
@@ -610,8 +694,9 @@ Example Response
           "key": "OpenLoyaltyUserBundle:email:registration_with_temporary_password.html.twig",
           "subject": "Account created",
           "content": "Email content",
-          "sender_name": "open@oloy.com",
-          "sender_email": "open@oloy.com",
+          "sender_name": "open@example.com",
+          "sender_email": "open@example.com",
+          "enabled": true,
           "updatedAt": "2018-02-19T09:45:00+0100"
         },
         {
@@ -619,8 +704,9 @@ Example Response
           "key": "OpenLoyaltyUserBundle:email:password_reset.html.twig",
           "subject": "Password reset requested",
           "content": "Email content",
-          "sender_name": "open@oloy.com",
-          "sender_email": "open@oloy.com",
+          "sender_name": "open@example.com",
+          "sender_email": "open@example.com",
+          "enabled": true,
           "updatedAt": "2018-02-19T09:45:00+0100"
         },
         {
@@ -628,8 +714,9 @@ Example Response
           "key": "OpenLoyaltyUserBundle:email:customer_reward_bought.html.twig",
           "subject": "{{ program_name }} - new reward",
           "content": "Email content",
-          "sender_name": "open@oloy.com",
-          "sender_email": "open@oloy.com",
+          "sender_name": "open@example.com",
+          "sender_email": "open@example.com",
+          "enabled": true,
           "updatedAt": "2018-02-19T09:45:00+0100"
         },
         {
@@ -637,8 +724,9 @@ Example Response
           "key": "OpenLoyaltyUserBundle:email:new_points.html.twig",
           "subject": "{{ program_name }} - new points",
           "content": "Email content",
-          "sender_name": "open@oloy.com",
-          "sender_email": "open@oloy.com",
+          "sender_name": "open@example.com",
+          "sender_email": "open@example.com",
+          "enabled": true,
           "updatedAt": "2018-02-19T09:45:00+0100"
         },
         {
@@ -646,8 +734,9 @@ Example Response
           "key": "OpenLoyaltyUserBundle:email:new_level.html.twig",
           "subject": "{{ program_name }} - new level",
           "content": "Email content",
-          "sender_name": "open@oloy.com",
-          "sender_email": "open@oloy.com",
+          "sender_name": "open@example.com",
+          "sender_email": "open@example.com",
+          "enabled": true,
           "updatedAt": "2018-02-19T09:45:00+0100"
         }
         ],
@@ -705,8 +794,9 @@ Example Response
         "key": "OpenLoyaltyUserBundle:email:registration.html.twig",
         "subject": "Account created",
         "content": "Email content",
-        "sender_name": "open@oloy.com",
-        "sender_email": "open@oloy.com",
+        "sender_name": "open@example.com",
+        "sender_email": "open@example.com",
+        "enabled": true,
         "updatedAt": "2018-02-19T09:45:00+0100"
       },
       "additional": {
@@ -748,6 +838,9 @@ Definition
 +------------------------------------------------+----------------+----------------------------------------------------+
 | email[sender_email]                            | request        | Sender email                                       |
 +------------------------------------------------+----------------+----------------------------------------------------+
+| email[enabled]                                 | request        | If the emails generated from this template should  |
+|                                                |                | be sent or not.                                    |
++------------------------------------------------+----------------+----------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -764,6 +857,7 @@ Example
         -d "email[content]=test" \
         -d "email[sender_name]=testol@divante.pl" \
         -d "email[sender_email]=testol@divante.pl" \
+        -d "email[enabled]=1"
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -871,19 +965,19 @@ Example Response
 Get logo
 --------
 
-To retrieve the site logo you need to call the ``/api/settings/logo`` endpoint with the ``GET`` method.
+To retrieve the logo you need to call the ``/api/settings/logo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/logo/{size}
+    GET /api/settings/logo
 
 +----------------------------+----------------+------------------------------------------------------------------------+
 | Parameter                  | Parameter type | Description                                                            |
 +============================+================+========================================================================+
-| <size>                     | query          | *(optional)* Allowed sizes: 192x192, 512x512 (by default from config)  |
+| Authorization              | header         | Token received during authentication                                   |
 +----------------------------+----------------+------------------------------------------------------------------------+
 
 Example
@@ -958,19 +1052,19 @@ Example Response
 Get a small logo
 ----------------
 
-To retrieve a small version of the site logo you need to call the ``/api/settings/small-logo`` endpoint with the ``GET`` method.
+To retrieve a small logo you need to call the ``/api/settings/small-logo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/small-logo/{size}
+    GET /api/settings/small-logo
 
 +---------------------------+----------------+-------------------------------------------------------------------------+
 | Parameter                 | Parameter type | Description                                                             |
 +===========================+================+=========================================================================+
-| <size>                    | query          | *(optional)* Allowed sizes: 192x192, 512x512 (by default from config)   |
+| Authorization             | header         |  Token received during authentication                                   |
 +---------------------------+----------------+-------------------------------------------------------------------------+
 
 Example
@@ -1006,13 +1100,11 @@ Definition
 
 .. code-block:: text
 
-    GET /api/settings/photo/{name}/{size}
+    GET /api/settings/photo/{name}
 
 +-------------+----------------+---------------------------------------------------------------------------------------+
 | Parameter   | Parameter type | Description                                                                           |
 +=============+================+=======================================================================================+
-| <size>      | path           | *(optional)* Allowed sizes: 192x192, 512x512 (by default from config)                 |
-+-------------+----------------+---------------------------------------------------------------------------------------+
 | <name>      | path           | *(required)* photo name  (logo, small-logo, hero-image, admin-cockpit-logo,           |
 |             |                | client-cockpit-logo-big, client-cockpit-logo-small, client-cockpit-hero-image)        |
 +-------------+----------------+---------------------------------------------------------------------------------------+
@@ -1022,7 +1114,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/photo/{name} \
+    curl http://localhost:8181/api/settings/photo/small-logo \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1069,7 +1161,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/photo/{name} \
+    curl http://localhost:8181/api/settings/photo/small-logo \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1115,7 +1207,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/photo/{name} \
+    curl http://localhost:8181/api/settings/photo/small-logo \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1144,12 +1236,12 @@ Definition
 
 .. code-block:: text
 
-    GET /api/settings/hero-image/{size}
+    GET /api/settings/hero-image
 
 +---------------------------+----------------+-------------------------------------------------------------------------+
 | Parameter                 | Parameter type | Description                                                             |
 +===========================+================+=========================================================================+
-| <size>                    | query          | *(optional)* Allowed sizes: 192x192, 512x512 (by default from config)   |
+| Authorization             | header         | Token received during authentication                                    |
 +---------------------------+----------------+-------------------------------------------------------------------------+
 
 Example
@@ -1199,7 +1291,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/logo \
+    curl http://localhost:8181/api/settings/hero-image \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1219,9 +1311,9 @@ Example Response
 
 
 Get conditions terms file
---------
+-------------------------
 
-To retrieve a logo you need to call the ``/terms-conditions`` endpoint with the ``GET`` method.
+To retrieve a conditions terms file you need to call the ``/terms-conditions`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1229,6 +1321,12 @@ Definition
 .. code-block:: text
 
     GET /terms-conditions
+	
++---------------------------------+----------------+-------------------------------------------------------------------+
+| Parameter                       | Parameter type | Description                                                       |
++=================================+================+===================================================================+
+| Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
 
 
 Example
@@ -1273,7 +1371,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/logo \
+    curl http://localhost:8181/api/settings/conditions-file \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1408,6 +1506,12 @@ Definition
 .. code-block:: text
 
     GET /api/settings/css
+
++---------------------------------+----------------+-------------------------------------------------------------------+
+| Parameter                       | Parameter type | Description                                                       |
++=================================+================+===================================================================+
+| Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
 ^^^^^^^

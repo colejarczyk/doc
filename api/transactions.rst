@@ -73,6 +73,85 @@ Example Response
       "totalFailed": 1
     }
 
+Match transactions with the customers by importing a XML file
+-------------------------------------------------------------
+
+In order to match many transactions to many customers using XML file you need to call the ``/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /admin/transaction/customer/assign/import
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| file[file]                          | query          | XML file with transactions                        |
++-------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/admin/transaction/customer/assign/import \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "file[file]=C:\\fakepath\\match-customer.xml"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example XML
+^^^^^^^^^^^
+
+.. code-block:: xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <matchCustomers>
+        <matchCustomer>
+           <customerId>00000000-0000-474c-b092-b0dd880c07e2</customerId>
+           <customerEmail>john.doe@example.com</customerEmail>
+           <customerPhoneNumber>+48888888888</customerPhoneNumber>
+           <customerLoyaltyCardNumber>936592735</customerLoyaltyCardNumber>
+           <transactionDocumentNumber>123</transactionDocumentNumber>
+        </matchCustomer>
+    </matchCustomers>
+
+.. note::
+
+    Only one customer* field is required (customerId, customerEmail, customerPhoneNumber, customerLoyaltyCardNumber).
+    If more fields
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+        "items": [
+            {
+                "status": "error",
+                "message": "(match_customer-2019-11-08_1005-5dc52fe92bc59.xml) Processing exception: Customer is already assigned to this transaction",
+                "identifier": "123"
+            }
+        ],
+        "totalProcessed": 1,
+        "totalSuccess": 0,
+        "totalFailed": 1
+    }
+
 
 
 Assign a customer to a specific transaction (admin)
@@ -149,7 +228,7 @@ Example Error Response
         "children": {
           "transactionDocumentNumber": {
             "errors": [
-              "Customer is already assign to this transaction"
+              "Customer is already assigned to this transaction"
             ]
           },
           "customerId": {},
@@ -360,7 +439,7 @@ Example Response
           "documentType": "sell",
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "customerData": {
-            "email": "user@oloy.com",
+            "email": "user@example.com",
             "name": "Jan Nowak",
             "nip": "aaa",
             "phone": "123",
@@ -541,7 +620,7 @@ Example Response
       "documentType": "sell",
       "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
       "customerData": {
-        "email": "user@oloy.com",
+        "email": "user@example.com",
         "name": "Jan Nowak",
         "nip": "aaa",
         "phone": "123",
@@ -620,8 +699,6 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
 +-------------------------------------+----------------+---------------------------------------------------+
-| documentType                        | query          | *(optional)* Document Type                        |
-+-------------------------------------+----------------+---------------------------------------------------+
 | customerData_name                   | query          | *(optional)* Customer Name                        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_email                  | query          | *(optional)* Customer Email                       |
@@ -630,9 +707,19 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerId                          | query          | *(optional)* Customer ID                          |
 +-------------------------------------+----------------+---------------------------------------------------+
+| documentType                        | query          | *(optional)* Document Type                        |
++-------------------------------------+----------------+---------------------------------------------------+
 | documentNumber                      | query          | *(optional)* Document Number                      |
 +-------------------------------------+----------------+---------------------------------------------------+
 | posId                               | query          | *(optional)* POS ID                               |
++-------------------------------------+----------------+---------------------------------------------------+
+| purchaseDateFrom                    | query          | *(optional)* purchase date's lower limit          |
++-------------------------------------+----------------+---------------------------------------------------+
+| purchaseDateTo                      | query          | *(optional)* purchase date's upper limit          |
++-------------------------------------+----------------+---------------------------------------------------+
+| grossValueFrom                      | query          | *(optional)* transaction gross value lower limit  |
++-------------------------------------+----------------+---------------------------------------------------+
+| grossValueTo                        | query          | *(optional)* transaction gross value upper limit  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | page                                | query          | *(optional)* Start from page, by default 1        |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -681,7 +768,7 @@ Example Response
       "documentType": "sell",
       "customerId": "00000000-0000-474c-b092-b0dd880c07e2",
       "customerData": {
-        "email": "user-temp@oloy.com",
+        "email": "user-temp@example.com",
         "name": "Jan Nowak",
         "nip": "aaa",
         "phone": "123",
@@ -745,7 +832,7 @@ Example Response
       "documentType": "sell",
       "customerId": "57524216-c059-405a-b951-3ab5c49bae14",
       "customerData": {
-        "email": "open@oloy.com",
+        "email": "open@example.com",
         "name": "Jan Nowak",
         "nip": "aaa",
         "phone": "123",
@@ -1054,8 +1141,6 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
 +-------------------------------------+----------------+---------------------------------------------------+
-| documentType                        | query          | *(optional)* Document Type                        |
-+-------------------------------------+----------------+---------------------------------------------------+
 | customerData_name                   | query          | *(optional)* Customer Name                        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_email                  | query          | *(optional)* Customer Email                       |
@@ -1064,9 +1149,19 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerId                          | query          | *(optional)* Customer ID                          |
 +-------------------------------------+----------------+---------------------------------------------------+
+| documentType                        | query          | *(optional)* Document Type                        |
++-------------------------------------+----------------+---------------------------------------------------+
 | documentNumber                      | query          | *(optional)* Document Number                      |
 +-------------------------------------+----------------+---------------------------------------------------+
 | posId                               | query          | *(optional)* POS ID                               |
++-------------------------------------+----------------+---------------------------------------------------+
+| purchaseDateFrom                    | query          | *(optional)* purchase date's lower limit          |
++-------------------------------------+----------------+---------------------------------------------------+
+| purchaseDateTo                      | query          | *(optional)* purchase date's upper limit          |
++-------------------------------------+----------------+---------------------------------------------------+
+| grossValueFrom                      | query          | *(optional)* transaction gross value lower limit  |
++-------------------------------------+----------------+---------------------------------------------------+
+| grossValueTo                        | query          | *(optional)* transaction gross value upper limit  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | page                                | query          | *(optional)* Start from page, by default 1        |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -1120,7 +1215,7 @@ Example Response
           "documentType": "sell",
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "customerData": {
-            "email": "user@oloy.com",
+            "email": "user@example.com",
             "name": "Jan Nowak",
             "nip": "aaa",
             "phone": "123",
@@ -1269,6 +1364,10 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[transactionData][documentNumber] | query          | Document number                                   |
 +----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[revisedDocument]                 | query          | Sales document number                             |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[storeCode]                       | query          | Store code                                        |
++----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[transactionData][purchaseDate]   | query          | *(optional)* Purchase date                        |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][sku][code]              | query          | SKU Code                                          |
@@ -1357,7 +1456,7 @@ Example
         -d "transaction[customerData][address][country]=PL" \
         -d "transaction[transactionData][documentNumber]=214124124125" \
         -d "transaction[transactionData][purchaseDate]=2019-02-20 09:28" \
-        -d "transaction[transactionData][documentType]=return"
+        -d "transaction[transactionData][documentType]=sell"
 
 .. note::
 
@@ -1459,7 +1558,7 @@ Definition
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| append[transactionDocumentNumber]            | query          | Transaction ID                                    |
+| append[transactionDocumentNumber]            | query          | Transaction document number                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | append[labels][0][key]                       | query          | *(optional)* First label key                      |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1481,8 +1580,8 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "append[transactionDocumentNumebr]=123" \
-        -d "append[label][0][key]=some label" \
-        -d "append[label][0][value]=some value"
+        -d "append[labels][0][key]=some label" \
+        -d "append[labels][0][value]=some value"
 
 .. note::
 
@@ -1620,6 +1719,8 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[customerData][address][country]  | query          | *(optional)* Country                              |
 +----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[storeCode]                       | query          | *(optional)* Store code                           |
++----------------------------------------------+----------------+---------------------------------------------------+
 
 **Heads up!** One of the following: email, phone, loyaltyCardNumber is required along with the name to find
 the user for the simulation to be performed.
@@ -1634,7 +1735,6 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "transaction=00000000-0000-1111-0000-000000000099" \
         -d "transaction[items][0][sku][code]=SKU1" \
         -d "transaction[items][0][name]=item+8" \
         -d "transaction[items][0][quantity]=1" \

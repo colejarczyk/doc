@@ -36,7 +36,7 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "username=user@oloy.com"
+        -d "username=user@example.com"
 
 .. note::
 

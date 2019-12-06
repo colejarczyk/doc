@@ -159,7 +159,7 @@ Example Response
       "username": "admin",
       "isActive": true,
       "createAt": "2017-09-21T13:54:04+0200",
-      "email": "admin@oloy.com",
+      "email": "admin@example.com",
       "external": false,
       "dtype": "admin"
     }
@@ -250,7 +250,7 @@ Example Response
           "username": "admin",
           "isActive": true,
           "createAt": "2017-09-21T13:54:04+0200",
-          "email": "admin@oloy.com",
+          "email": "admin@example.com",
           "external": false,
           "dtype": "admin",
           "roles": [

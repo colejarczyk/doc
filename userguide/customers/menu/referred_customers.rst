@@ -9,7 +9,7 @@ Referral (refer a friend, member get member) functionality allow to reward Custo
 Administrator can view all invitations sent by customer with current status: 
 
 - **Invited**  
-   invitation was sent by referrer to the recipient on his email address 
+   invitation was sent by referrer to the recipient on their email address (Heads up: OL can be configured not to send invitation emails)
 
 - **Registered** 
    referred customer (recipient) register new account in Open Loyalty

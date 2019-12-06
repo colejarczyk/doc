@@ -40,10 +40,10 @@ To create a new role use the method below:
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "role[name]=Super admin" \
-        -d "role[permissions][0]['resource']=LEVEL" \
-        -d "role[permissions][0]['access']=MODIFY" \
-        -d "role[permissions][1]['resource']=EARNING_RULE" \
-        -d "role[permissions][1]['access']=MODIFY"
+        -d "role[permissions][0][resource]=LEVEL" \
+        -d "role[permissions][0][access]=MODIFY" \
+        -d "role[permissions][1][resource]=EARNING_RULE" \
+        -d "role[permissions][1][access]=MODIFY"
 
 .. note::
 
@@ -251,10 +251,10 @@ Example
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -X "PUT" \
         -d "role[name]=Super admin" \
-        -d "role[permissions][0]['resource']=LEVEL" \
-        -d "role[permissions][0]['access']=MODIFY" \
-        -d "role[permissions][1]['resource']=EARNING_RULE" \
-        -d "role[permissions][1]['access']=MODIFY" \
+        -d "role[permissions][0][resource]=LEVEL" \
+        -d "role[permissions][0][access]=MODIFY" \
+        -d "role[permissions][1][resource]=EARNING_RULE" \
+        -d "role[permissions][1][access]=MODIFY" \
 
 Example Response
 ^^^^^^^^^^^^^^^^^^

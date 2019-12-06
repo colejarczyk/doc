@@ -229,15 +229,21 @@ Definition
 +------------------------------------+----------------+------------------------------------------------------------------------+
 | loyaltyCardNumber                  | request        | *(optional)* Customer's loyalty card number                            |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsAmount                 | request        | *(optional)* Customer's transactions amount                            |
+| transactionsAmountFrom             | request        | *(optional)* Customer's transactions amount lower limit                |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| averageTransactionAmount           | request        | *(optional)* Customer's average transaction amount                     |
+| transactionsAmountTo               | request        | *(optional)* Customer's transactions amount upper limit                |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsCount                  | request        | *(optional)* Customer's transactions count                             |
+| averageTransactionAmountFrom       | request        | *(optional)* Customer's average transaction amount lower limit         |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| daysFromLastTransaction            | request        | *(optional)* Customers days from last transaction                      |
+| averageTransactionAmountTo         | request        | *(optional)* Customer's average transaction amount upper limit         |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| hoursFromLastUpdate                | request        | *(optional)* Customer's hours from last update                         |
+| transactionsCountFrom              | request        | *(optional)* Customer's transactions count lower limit                 |
++------------------------------------+----------------+------------------------------------------------------------------------+
+| transactionsCountTo                | request        | *(optional)* Customer's transactions count upper limit                 |
++------------------------------------+----------------+------------------------------------------------------------------------+
+| daysFromLastTransactionTo          | request        | *(optional)* Customers days from last transaction upper limit          |
++------------------------------------+----------------+------------------------------------------------------------------------+
+| hoursFromLastUpdateTo              | request        | *(optional)* Customer's hours from last update upper limit             |
 +------------------------------------+----------------+------------------------------------------------------------------------+
 | strict                             | query          | *(optional)* If true, search for exact value, otherwise like value     |
 |                                    |                | For example ``1``, by default = 0                                      |
@@ -247,7 +253,10 @@ Definition
 | perPage                            | query          | *(optional)* Number of items to display per page,                      |
 |                                    |                | by default = 10                                                        |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| sort                               | query          | *(optional)* Sort by column name                                       |
+| sort                               | query          | *(optional)* Sort by column name.                                      |
+|                                    |                | Note: column names corresponding to parameters ending in ``From`` or   |
+|                                    |                | ``To`` do not have this suffix, eg. ``transactionCount``,              |
+|                                    |                | ``averageTransactionAmount``.                                          |
 +------------------------------------+----------------+------------------------------------------------------------------------+
 | direction                          | query          | *(optional)* Direction of sorting [ASC, DESC]                          |
 +------------------------------------+----------------+------------------------------------------------------------------------+
@@ -339,7 +348,7 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-        -d "email=oloy.com" \
+        -d "email=example.com" \
         -d "strict=0" \
         -d "page=1" \
         -d "perPage=2" \
@@ -368,7 +377,7 @@ Example Response
           "firstName": "Jane",
           "lastName": "Doe",
           "gender": "male",
-          "email": "user-temp@oloy.com",
+          "email": "user-temp@example.com",
           "phone": "111112222",
           "birthDate": "1990-09-11T02:00:00+0200",
           "address": {
@@ -402,7 +411,7 @@ Example Response
           "firstName": "John",
           "lastName": "Doe",
           "gender": "male",
-          "email": "user@oloy.com",
+          "email": "user@example.com",
           "phone": "11111",
           "birthDate": "1990-09-11T02:00:00+0200",
           "createdAt": "2016-08-08T10:53:14+0200",
@@ -435,7 +444,7 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-        -d "email=oloy.com" \
+        -d "email=example.com" \
         -d "strict=1" \
         -d "page=1" \
         -d "perPage=2" \
@@ -490,15 +499,21 @@ Definition
 +------------------------------------+----------------+------------------------------------------------------------------------+
 | loyaltyCardNumber                  | request        | *(optional)* Customer's loyalty card number                            |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsAmount                 | request        | *(optional)* Customer's transactions amount                            |
+| transactionsAmountFrom             | request        | *(optional)* Customer's transactions amount lower limit                |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| averageTransactionAmount           | request        | *(optional)* Customer's average transaction amount                     |
+| transactionsAmountTo               | request        | *(optional)* Customer's transactions amount upper limit                |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsCount                  | request        | *(optional)* Customer's transactions count                             |
+| averageTransactionAmountFrom       | request        | *(optional)* Customer's average transaction amount lower limit         |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| daysFromLastTransaction            | request        | *(optional)* Customers days from last transaction                      |
+| averageTransactionAmountTo         | request        | *(optional)* Customer's average transaction amount upper limit         |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| hoursFromLastUpdate                | request        | *(optional)* Customer's hours from last update                         |
+| transactionsCountFrom              | request        | *(optional)* Customer's transactions count lower limit                 |
++------------------------------------+----------------+------------------------------------------------------------------------+
+| transactionsCountTo                | request        | *(optional)* Customer's transactions count upper limit                 |
++------------------------------------+----------------+------------------------------------------------------------------------+
+| daysFromLastTransactionTo          | request        | *(optional)* Customers days from last transaction upper limit          |
++------------------------------------+----------------+------------------------------------------------------------------------+
+| hoursFromLastUpdateTo              | request        | *(optional)* Customer's hours from last update upper limit             |
 +------------------------------------+----------------+------------------------------------------------------------------------+
 | strict                             | query          | *(optional)* If true, search for exact value, otherwise like value     |
 |                                    |                | For example ``1``, by default = 0                                      |
@@ -508,7 +523,10 @@ Definition
 | perPage                            | query          | *(optional)* Number of items to display per page,                      |
 |                                    |                | by default = 10                                                        |
 +------------------------------------+----------------+------------------------------------------------------------------------+
-| sort                               | query          | *(optional)* Sort by column name                                       |
+| sort                               | query          | *(optional)* Sort by column name.                                      |
+|                                    |                | Note: column names corresponding to parameters ending in ``From`` or   |
+|                                    |                | ``To`` do not have this suffix, eg. ``transactionCount``,              |
+|                                    |                | ``averageTransactionAmount``.                                          |
 +------------------------------------+----------------+------------------------------------------------------------------------+
 | direction                          | query          | *(optional)* Direction of sorting [ASC, DESC]                          |
 +------------------------------------+----------------+------------------------------------------------------------------------+
@@ -525,7 +543,7 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "email=oloy.com" \
+        -d "email=example.com" \
         -d "strict=0" \
         -d "page=1" \
         -d "perPage=2" \
@@ -815,6 +833,8 @@ Definition
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                             |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
+| customer[storeCode]                | request        |  *(optional)* Store code                                                                      |
++------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[agreement1]               | request        |  First agreement. Set 1 if true, otherwise 0                                                  |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[agreement2]               | request        |  *(optional)* Second agreement. Set 1 if true, otherwise 0                                    |
@@ -1024,7 +1044,7 @@ Example Response
       "firstName": "John",
       "lastName": "Doe",
       "gender": "male",
-      "email": "user@oloy.com",
+      "email": "user@example.com",
       "phone": "+48234234000",
       "birthDate": "1990-09-11T02:00:00+0200",
       "lastLevelRecalculation": "2019-03-19T12:00:09+0100",
@@ -1269,23 +1289,29 @@ Example Response
 
 
 
-Customer registrations in last 30 days
---------------------------------------
+Customer registrations
+----------------------
 
-To get information about customer registrations per day in last thirty days you need to call the
-``/api/customer/registrations/daily`` endpoint with the ``GET`` method.
+To get information about customer registrations you need to call the
+``/api/customer/registrations`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/registrations/daily
+    GET /api/customer/registrations
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
-| Authorization                      | header         |  Token received during authentication                          |
+| Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <interval>                         | request        | Group result by (day|month|year)                               |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <lastDays>                         | request        | Display data in last days                                      |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | request        | Filter result by given store                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
@@ -1293,7 +1319,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/registrations/daily \
+    curl http://localhost:8181/api/customer/registrations \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -2434,7 +2460,7 @@ Example Response
           "firstName": "John",
           "lastName": "Doe",
           "gender": "male",
-          "email": "user@oloy.com",
+          "email": "user@example.com",
           "phone": "+48234234000",
           "birthDate": "1990-09-11T02:00:00+0200",
           "lastLevelRecalculation": "2019-03-15T13:00:05+0100",
@@ -2522,7 +2548,7 @@ Example Response
           "firstName": "John1",
           "lastName": "Doe1",
           "gender": "male",
-          "email": "user-1@oloy.com",
+          "email": "user-1@example.com",
           "phone": "+48456456000",
           "birthDate": "1990-09-11T02:00:00+0200",
           "lastLevelRecalculation": "2019-03-15T13:00:05+0100",
@@ -2769,6 +2795,8 @@ Definition
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                           |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[storeCode]                | request        |  *(optional)* Store code                                                                      |
++------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[agreement1]               | request        | First agreement. Set 1 if true, otherwise 0                                                 |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[agreement2]               | request        | *(optional)* Second agreement. Set 1 if true, otherwise 0                                   |

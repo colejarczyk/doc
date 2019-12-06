@@ -18,6 +18,7 @@
 * :doc:`/api/seller`
 * :doc:`/api/segment`
 * :doc:`/api/settings`
+* :doc:`/api/store`
 * :doc:`/api/transactions`
 * :doc:`/api/utility`
 * :doc:`/api/campaign_category`

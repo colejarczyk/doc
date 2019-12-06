@@ -154,6 +154,8 @@ Definition
 +--------------------------------------+----------------+--------------------------------------------------------------+
 | level[translations][en][description] | request        | *(optional)* Level description in given locale.              |
 +--------------------------------------+----------------+--------------------------------------------------------------+
+| level[storeCode]                     | request        | *(optional)* Store code                                      |
++--------------------------------------+----------------+--------------------------------------------------------------+
 | level[active]                        | request        | *(optional)* Set 1 if active, otherwise 0                    |
 +--------------------------------------+----------------+--------------------------------------------------------------+
 | level[conditionValue]                | request        | Condition value                                              |
@@ -251,7 +253,7 @@ Definition
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
 +---------------+----------------+--------------------------------------+
-| <level>       | query          | Id of the level                      |
+| <level>       | query          | Level ID                             |
 +---------------+----------------+--------------------------------------+
 
 Example
@@ -487,7 +489,7 @@ Definition
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
 +---------------+----------------+--------------------------------------+
-| <level>       | query          | Id of the level                      |
+| <level>       | query          | Level ID                             |
 +---------------+----------------+--------------------------------------+
 
 Example
@@ -535,13 +537,13 @@ Example Response
           "customerId": "00000000-0000-474c-b092-b0dd880c07e2",
           "firstName": "Jane",
           "lastName": "Doe",
-          "email": "user-temp@oloy.com"
+          "email": "user-temp@example.com"
         },
         {
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "firstName": "John",
           "lastName": "Doe",
-          "email": "user@oloy.com"
+          "email": "user@example.com"
         }
       ],
       "total": 4
@@ -709,7 +711,7 @@ Definition
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
 +---------------+----------------+--------------------------------------+
-| <level>       | query          | Id of the level                      |
+| <level>       | query          | Level ID                             |
 +---------------+----------------+--------------------------------------+
 
 Example
@@ -814,7 +816,7 @@ Definition
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
 +---------------+----------------+--------------------------------------+
-| <level>       | query          | level ID                             |
+| <level>       | query          | Level ID                             |
 +---------------+----------------+--------------------------------------+
 
 Example
@@ -889,7 +891,7 @@ Definition
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
 +---------------+----------------+--------------------------------------+
-| <level>       | query          | level ID                             |
+| <level>       | query          | Level ID                             |
 +---------------+----------------+--------------------------------------+
 
 Example
@@ -941,7 +943,7 @@ Definition
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
 +---------------+----------------+--------------------------------------+
-| <level>       | query          | level ID                             |
+| <level>       | query          | Level ID                             |
 +---------------+----------------+--------------------------------------+
 | photo[file]   | request        | Absolute path to the photo           |
 +---------------+----------------+--------------------------------------+

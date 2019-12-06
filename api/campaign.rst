@@ -9,8 +9,8 @@ These endpoints will allow you to easily manage Reward Campaigns.
 
 
 
-Reedem cashback
----------------
+Reedem cashback (admin)
+-----------------------
 
 To reedem cashback you need to call the ``/api/admin/campaign/cashback/redeem`` endpoint with the ``POST`` method.
 
@@ -30,11 +30,10 @@ Definition
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | pointsAmount                                      | request        |  Points amount to spend                                                      |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| pointValue                                        | request        |  Monetary value of the points to define the number of points that can be     |
-|                                                   |                |  applied as a refund towards the amount of order                             |
+| cashbackId                                        | request        |  *(optional)* Cashback id                                                    |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| rewardAmount                                      | request        |  Reward amount                                                               |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+
+
 
 Example
 ^^^^^^^
@@ -47,9 +46,7 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "customerId=6102cef9-d263-46de-974d-ad2e89f6e81d" \
-		-d "pointsAmount=5" \
-		-d "rewardAmount=10" \
-		-d "pointValue=100" 
+		-d "pointsAmount=5" 
 
 .. note::
 
@@ -70,6 +67,67 @@ Example Response
         "pointsAmount": 5,
         "pointValue": 10,
         "rewardAmount": 100
+    }
+
+
+
+Reedem cashback (customer)
+--------------------------
+
+To reedem cashback you need to call the ``/api/customer/campaign/cashback/redeem`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/customer/campaign/cashback/redeem
+
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| Parameter                                         | Parameter type |  Description                                                                 |
++===================================================+================+==============================================================================+
+| Authorization                                     | header         | Token received during authentication                                         |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| pointsAmount                                      | request        |  Points amount to spend                                                      |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| cashbackId                                        | request        |  Cashback id                                                                 |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+
+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/customer/campaign/cashback/redeem \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "cashbackId=972012b8-633d-41e8-be5a-5125c1a5be63" \
+		-d "pointsAmount=5" 
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+        "customerId": "6102cef9-d263-46de-974d-ad2e89f6e81d",
+        "pointsAmount": 5,
+        "pointValue": 10,
+        "rewardAmount": 50,
+		"cashbackId" : "972012b8-633d-41e8-be5a-5125c1a5be63"
     }
 
 
@@ -107,7 +165,7 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "customerId=5bfded09-0931-4eac-baad-0d663cfd8976" \
-		-d "pointsAmount=5" 
+		-d "pointsAmount=10" 
 
 .. note::
 
@@ -130,6 +188,68 @@ Example Response
         "rewardAmount": 30
     }
 
+
+
+Cashback provider callback
+--------------------------
+
+To run cashback provider callback you need to call the ``/api/campaign/cashback/callback/{provider}`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/campaign/cashback/callback/{provider}
+	
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| Parameter                                         | Parameter type |  Description                                                                 |
++===================================================+================+==============================================================================+
+| Authorization                                     | header         | Token received during authentication                                         |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| <provider>                                        | request        |  Provider, possible value: paytm                                             |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/campaign/cashback/callback/paytm \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+		-H "Content: {"type":null,"requestGuid":null,"orderId":"f0b9914e-cd54-4a85-bc3f-d36e0c37edaa_1c50ef53-ab5b-4d24-9d03-f93c7ec042fe","status":null,"statusCode":"ACCEPTED","statusMessage":"ACCEPTED","response":null,"metadata":null}" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." 
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The data in the Content is an example value and depends on the [Cashback][PayTM] Requested PayTM cashback message after cashback reedem.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+        "couponId": "1c50ef53-ab5b-4d24-9d03-f93c7ec042fe",
+        "id": "f0b9914e-cd54-4a85-bc3f-d36e0c37edaa_1c50ef53-ab5b-4d24-9d03-f93c7ec042fe",
+        "customerId": "f0b9914e-cd54-4a85-bc3f-d36e0c37edaa",
+        "code": "ACCEPTED",
+        "message": "ACCEPTED",
+        "provider": "paytm",
+        "failed": false
+    }
 
 
 Create a new campaign
@@ -165,6 +285,13 @@ Definition
 | campaign[active]                                  | request        |  Set 1 if active, otherwise 0                                                |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[categories]                              | request        | *(optional)* Array of category IDs.                                          |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| campaign[pushNotificationText]                    | request        | Push message sent to a customer on this campaign becoming available to them  |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| campaign[pointValue]                              | request        | Each point will be exchanged for provided value (in current currency) for    |
+|                                                   |                | cashback                                                                     |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| campaign[cashbackProvider]                        | request        | Cashback campaigns can automatically send funds using the listed APIs.       |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[costInPoints]                            | request        |  How many points it costs                                                    |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
@@ -672,7 +799,7 @@ To see the first page of all campaigns use the method below:
 
     curl http://localhost:8181/api/campaign/active \
         -X "GET" \
-	-H "Accept: application/json" \
+	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
@@ -988,7 +1115,7 @@ Example Response
     gift123,"2019-03-15 08:40:24",3,,maxnowacki209528@test.pl,,Max,Nowacki,95,1
     test,"2019-03-15 08:15:14",10,,maxnowacki160093@test.pl,,Max,Nowacki,290,
     testowe,"2019-03-14 10:28:20",10,,maxnowacki160093@test.pl,,Max,Nowacki,300,
-    "Percentage discount code","2019-03-14 09:29:50",0,,user-return@oloy.com,,TestUser,ForCouponTest,2410,
+    "Percentage discount code","2019-03-14 09:29:50",0,,user-return@example.com,,TestUser,ForCouponTest,2410,
     cashback,"2019-03-14 13:45:21",0,,maxnowacki209528@test.pl,,Max,Nowacki,100,
    "Percentage discount code","2019-03-14 13:48:11",0,,test@test.pl,,alajna,user,100,
 
@@ -1509,7 +1636,7 @@ Definition
 +===============+================+====================================================+
 | Authorization | header         | Token received during authentication               |
 +---------------+----------------+----------------------------------------------------+
-| <campaign>    | query          | Id of the campaign                                 |
+| <campaign>    | query          | Campaign ID                                        |
 +---------------+----------------+----------------------------------------------------+
 | format        | query          | *(optional)* Format of descriptions [html].        |
 |               |                | Default is RAW.                                    |
@@ -1842,7 +1969,7 @@ Definition
 
 .. code-block:: text
 
-    POST /api/customer/campaign/coupons/mark_as_used
+    POST /api/admin/customer/campaign/coupons/mark_as_used
 
 +---------------------------+----------------+-------------------------------------------------------------+
 | Parameter                 | Parameter type |  Description                                                |
@@ -1996,7 +2123,7 @@ Example Response
           "firstName": "John",
           "lastName": "Doe",
           "gender": "male",
-          "email": "user@oloy.com",
+          "email": "user@example.com",
           "phone": "11111",
           "birthDate": "1990-09-11T02:00:00+0200",
           "createdAt": "2016-08-08T10:53:14+0200",
@@ -2021,7 +2148,7 @@ Example Response
           "firstName": "Jane",
           "lastName": "Doe",
           "gender": "male",
-          "email": "user-temp@oloy.com",
+          "email": "user-temp@example.com",
           "phone": "111112222",
           "birthDate": "1990-09-11T00:00:00+0200",
           "address": {
@@ -2262,14 +2389,14 @@ Example Response
 Change campaign's state
 -----------------------
 
-To make a campaign active or inactive you need to call the ``/api/campaign/<campaign>/<status>`` endpoint with the ``POST`` method.
+To make a campaign active or inactive you need to call the ``/api/campaign/<campaign>/<active>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/campaign/<campaign>/<state>
+    POST /api/campaign/<campaign>/<active>
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
@@ -2278,7 +2405,7 @@ Definition
 +---------------+----------------+--------------------------------------+
 | <campaign>    | query          | Campaign ID                          |
 +---------------+----------------+--------------------------------------+
-| <state>       | query          | Possible values: active, inactive    |
+| <active>      | query          | Possible values: active, inactive    |
 +---------------+----------------+--------------------------------------+
 
 Example
@@ -2540,7 +2667,7 @@ Definition
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
 +---------------+----------------+--------------------------------------+
-| <campaign>    | query          | Id of the campaign                   |
+| <campaign>    | query          | Campaign ID                          |
 +---------------+----------------+--------------------------------------+
 
 Example

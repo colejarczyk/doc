@@ -46,8 +46,8 @@ Example Response
 .. code-block:: json
 
     "First name","Last name","E-mail address",Gender,Telephone,"Loyalty card number",Birthdate,"Created at","Legal agreement","Marketing agreement","Data processing agreement"
-    John,Doe,user@oloy.com,male,11111,,"1990-09-11 02:00:00","2016-08-08 10:53:14",,,
-    Jane,Doe,user-temp@oloy.com,male,111112222,0000,"1990-09-11 02:00:00","2016-08-08 10:53:14",,,
+    John,Doe,user@example.com,male,11111,,"1990-09-11 02:00:00","2016-08-08 10:53:14",,,
+    Jane,Doe,user-temp@example.com,male,111112222,0000,"1990-09-11 02:00:00","2016-08-08 10:53:14",,,
     alina,test,qwe@test.pl,male,1212121212,,"2018-03-19 00:00:00","2018-02-19 14:24:18",1,,
     Tomasz,Test7,tomasztest7@wp.pl,,,,,"2018-02-20 08:21:39",1,,
     user,user,user@user.pl,male,123456789876543,,"2018-02-23 00:00:00","2018-02-23 13:29:11",1,,

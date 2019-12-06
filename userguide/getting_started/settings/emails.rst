@@ -60,9 +60,27 @@ To edit an email template:
 6. When complete, tap ``SAVE``
 
 
+To stop/restart sending emails generated with a given template:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Email templates
-***************
+1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Emails**.
+
+.. |settings| image:: /userguide/_images/icon.png
+
+2. In the **Emails list**, find the record to be disabled/enabled and click **Edit** icon |edit|  in the Action column to open the record in edit mode
+
+.. |edit| image:: /userguide/_images/edit.png
+
+.. image:: /userguide/_images/edit_email.png
+   :alt:   Template Information
+
+3. Uncheck or check the **Enabled** box.
+
+4. Tap ``SAVE``.
+
+
+Email templates list
+^^^^^^^^^^^^^^^^^^^^
 
 +----------------------------------------------+------------------------------------------------------------+
 | Event                                        | Description                                                |

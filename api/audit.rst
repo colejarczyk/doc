@@ -102,7 +102,7 @@ Example Response
             "lastName": "Doe",
             "gender": "male",
             "phone": "11111",
-            "email": "user@oloy.com",
+            "email": "user@example.com",
             "birthDate": 653011200,
             "createdAt": 1470646394,
             "company": {

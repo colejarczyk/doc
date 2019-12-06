@@ -23,8 +23,11 @@ In the **Settings** section, do the following:
 
   - EUR
   - HKD
+  - INR
+  - PESO (COP)
   - PLN
   - USD
+  - VND
 
 2. Select your **Timezone** from the list. Time zone is used for date time calculation 
 

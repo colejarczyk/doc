@@ -70,9 +70,9 @@ Example Response
           "referrerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "recipientId": "",
           "invitationId": "22200000-0000-474c-b092-b0dd880c07e2",
-          "referrerEmail": "user@oloy.com",
+          "referrerEmail": "user@example.com",
           "referrerName": "John Doe",
-          "recipientEmail": "test2@oloy.com",
+          "recipientEmail": "test2@example.com",
           "status": "invited",
           "token": "8e3889f08265ec0c81e511e23cab94200a7d18b7"
         },
@@ -80,9 +80,9 @@ Example Response
           "referrerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "recipientId": "",
           "invitationId": "22200000-0000-474c-b092-b0dd880c07e3",
-          "referrerEmail": "user@oloy.com",
+          "referrerEmail": "user@example.com",
           "referrerName": "John Doe",
-          "recipientEmail": "test3@oloy.com",
+          "recipientEmail": "test3@example.com",
           "status": "invited",
           "token": "575c0f0435d0970853b25b967378c4155c8c0843"
         },
@@ -90,9 +90,9 @@ Example Response
           "referrerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "recipientId": "",
           "invitationId": "22200000-0000-474c-b092-b0dd880c07e1",
-          "referrerEmail": "user@oloy.com",
+          "referrerEmail": "user@example.com",
           "referrerName": "John Doe",
-          "recipientEmail": "test1@oloy.com",
+          "recipientEmail": "test1@example.com",
           "status": "invited",
           "token": "ebea0309e2ca40f45b11537694270df8fc7161b7"
         },
@@ -100,9 +100,9 @@ Example Response
           "referrerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "recipientId": "",
           "invitationId": "22200000-0000-474c-b092-b0dd880c07e4",
-          "referrerEmail": "user@oloy.com",
+          "referrerEmail": "user@example.com",
           "referrerName": "John Doe",
-          "recipientEmail": "test4@oloy.com",
+          "recipientEmail": "test4@example.com",
           "status": "invited",
           "token": "1042654f4acd5099f54286acbb10d668173a95d0"
         }

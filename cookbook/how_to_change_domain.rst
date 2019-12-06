@@ -194,8 +194,8 @@ This content will be used in the deployment file to replace existing files with 
             mailer_password: null
             mailer_port: 25
             mailer_encryption: null
-            mailer_from_address: open@oloy.com
-            mailer_from_name: open@oloy.com
+            mailer_from_address: open@example.com
+            mailer_from_name: open@example.com
             frontend_password_reset_url: '%env(frontend_password_reset_url)%'
             frontend_activate_account_url: '%env(frontend_activate_account_url)%'
             frontend_customer_panel_url: '%env(frontend_customer_panel_url)%'

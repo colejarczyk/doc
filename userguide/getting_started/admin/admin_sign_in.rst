@@ -41,8 +41,13 @@ To reset your password:
 
 .. note::
 
-    Your Admin password must be eight or more characters long, and contains at least one upper case letters, one numeric character and 
-    one special character
+    Your Admin password must be eight or more characters long, and contain at least one upper case letter, one numeric character and
+    one special character.
+
+.. note::
+
+    OL can be configured not to send password recovery emails for Customers and Sellers, but Admin password recovery
+    should work anyway. If the email does not arrive, please check your email configuration.
 
 
 To sign out of the Admin:

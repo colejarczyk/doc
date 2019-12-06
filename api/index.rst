@@ -20,6 +20,7 @@ The REST API Reference
    invitation
    points_transfers
    security
+   store
    transactions
    acl
 
