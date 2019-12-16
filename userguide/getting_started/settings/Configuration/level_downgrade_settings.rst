@@ -76,7 +76,7 @@ To configure level downgrade options:
 | | Active points          | | Calculate a customer current level based on only his active points pool                   |
 +--------------------------+---------------------------------------------------------------------------------------------+
 | | Earned points within   | | Calculate a customer current level based on his earned points since last                  |
-| | last X days            | | level recalculation date (registration date/last level recalulaction).                    |
+| | last X days            | | level recalculation date (registration date/las level recalulaction).                     |
 |			   | 												 |
 |                          | | It sums up added (Active) points. Used points won't affect on earned points.              | 
 |                          | | Locked points are also excluded from earned points and will be added after unlocking them.|
@@ -84,22 +84,20 @@ To configure level downgrade options:
 |                          | | Currently earned points from last downgrade date are displaying in **Customer Loyalty**   |
 |                          | | balance as a **Total points earned since last level recalculation**.                      |
 |			   |											         |
-|                          | | At the of every defined period amount of Total points earned since last level             |
-|              |           | | recalculation is reset                |                                                   |
+|                          | | At the of every defined period amount of collected within points is reset                 |
 +--------------------------+---------------------------------------------------------------------------------------------+
 | | Earned points since    | | Calculate a customer current level based on his earned points since last                  |
-| | last level change      | | level change date (based on his activity within loyalty program).                         |
+| | last level change      | | level change date (base on his activity within loyalty program).                          |
 |			   |												 |
-|                          | | **For example**, customer is assigned to the basic level after registration. Days, from 
-|                          | | the registration date till level recalculation, are counted. If in the middle time, 	     |
-|                          | | customer earns points that implicate promotion to the next level, days will be counted    |
-|                          | | from the beginning, starting from the date of promotion.                                  |
+|                          | | **For example**, after registration customer is assigned to the basic level and from the  |
+|                          | | registration date, days till level recalculation is counted. If in the middle time, 	 |
+|                          | | customer will earn points that implicate promotion to the next level days are             |
+|                          | | counted from the beginning starting from the date of promotion.                           |
 |			   |												 |
 |                          | | Currently earned points from last change are displaying in **Customer Loyalty**           |
 |                          | | points balance as a **Total points earned since last level recalculation**.               |
 |			   | 												 |
-|                          | | At the end of every defined period, amount of Total points earned since last level        |
-|              |           | | recalculation is reset            |                                                       |
+|                          | | At the end of every defined period, amount of collected within points is reset            |
 +--------------------------+---------------------------------------------------------------------------------------------+
 
 
@@ -125,24 +123,24 @@ When complete, tap ``SAVE``
 	 Points are reset after specified time period, counting from registration date, without customer level change.
    
 
-Example of customer level downgrade based on earned points within last X days
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Example of customer level downgrade base on earned points within last X days
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Your customer **points credentials to level promotion**: 
     
- - Level 0 - if a customer has no points 
- - Level 1 – if a customer has 10  Total points earned since last level recalculation 
- - Level 2 – if a customer has 30  Total points earned since last level recalculation
- - Level 3 – if a customer has 100 Total points earned since last level recalculation 
+ - Level O - if a customer has no points 
+ - Level 1 – if a customer has 10 points 
+ - Level 2 – if customer has 30 points
+ - Level 3 – if customer has 100 points 
       
-You decided to *recalculate level every year* (365 days) since the customer registration date and to use for these Total points earned since last level recalculation, which *will be reset* at the end of the year (after level recalculation). 
+You decided to *recalculate level every year* (365 days) since the customer registration date and to use for this Active points, which *will be reset* at the end of the year (after level recalculation). 
     
-**Customer made a two transactions and got 10 points and 20 points**. 
+**Customer made a two transactions and get 10 points and 20 points**. 
     
-Customer got 10 points, and then customer leveled up to 1st level. Customer got another 20 points, and then customer leveled up to 2nd level.
+After getting 10 points a customer leveled up to 1st level, after getting another 20 points a customer leveled up to 2nd level.
    
 If at the end of year a customer:
    
- - has only **5 Total points earned since last level recalculation**, he will be *downgraded* to the **Level 0**, and all his Total points earned since last level recalculation are reset
- - has **10 Total points earned since last level recalculation**, he will be *downgraded* to the **Level 1**, and all his Total points earned since last level recalculation are reset
- - has **30 Total points earned since last level recalculation**, he will stay in the same **Level 2**, and all his Total points earned since last level recalculation are reset
+ - has only **5 active points** then he is *downgraded* to the **Level 0**, and all his points are reset
+ - has **10 active points** the he is *downgraded* to the **Level 1**, and all his points are reset
+ - has **30 active points** the he stays in the same **Level 2**, and all his points are reset

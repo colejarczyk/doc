@@ -22,7 +22,7 @@ To set up account activation method:
 3. Set the **Account activation method** field to one of the following: 
 
   - **email**  
-      an account will be activated after clicking on the activation link sent to the email address. WARNING: remember to check if activation emails sending is enabled in Email settings!
+      an account will be activated after clicking on the activation link sent to the email address
   - **SMS**  
       an account will be activated after entering a verification code sent to the phone number. The Verification PIN is valid for 30 minutes
 

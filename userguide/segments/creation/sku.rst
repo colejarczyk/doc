@@ -8,12 +8,6 @@ Segment of customers who bought specific products (on the basis of selected SKU)
 
 **For example**, you can create segment of customers who bought products of specific SKU "123ABC" or "X1Y8Z0"
 
-.. tip::
-
-    **SKUs can contain spaces or any other special characters, but remember that "SKU 123." is not equal to "sku 123."**
-
-
-
 To create only Bought specific SKU type segment:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

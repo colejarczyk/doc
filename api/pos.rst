@@ -3,12 +3,10 @@ POS API
 
 These endpoints will allow you to see the list of POS taken in the Open Loyalty.
 
-
-
 Get the complete list of POS
 ----------------------------
 
-To retrieve a complete list of POS you need to call the ``/api/pos`` endpoint with the ``GET`` method.
+To retrieve a complete list of POS you will need to call the ``/api/pos`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -46,13 +44,8 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -108,12 +101,10 @@ Example Response
       "total": 2
     }
 
+Create new POS
+--------------
 
-
-Create a new POS
-----------------
-
-To create a new POS you need to call the ``/api/pos`` endpoint with the ``POST`` method.
+To create a new POS you will need to call the ``/api/pos`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -122,35 +113,36 @@ Definition
 
     POST /api/pos
 
-+----------------------------------------------+----------------+------------------------------------------------------+
-| Parameter                                    | Parameter type |  Description                                         |
-+==============================================+================+======================================================+
-| Authorization                                | header         |  Token received during authentication                |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[name]                                    | request        |  POS name                                            |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[identifier]                              | request        |  POS Identifier                                      |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[description]                             | request        |  *(optional)* A short description                    |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][street]                        | request        |  Street for POS Location                             |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][address1]                      | request        |  Address1 for POS Location                           |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][address2]                      | request        |  *(optional)* Address2 for POS Location              |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][postal]                        | request        |  Post code for POS Location                          |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][city]                          | request        |  City for POS Location                               |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][province]                      | request        |  Province for POS Location                           |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][country]                       | request        |  Country for POS Location                            |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][lat]                           | request        |  *(optional)* Latitude for POS Location              |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][long]                          | request        |  *(optional)* Longitude for POS Location             |
-+----------------------------------------------+----------------+------------------------------------------------------+
+
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| Parameter                                      | Parameter type |  Description                                                               |
++================================================+================+============================================================================+
+| Authorization                                  | header         |  Token received during authentication                                      |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[name]                                      | request        |  POS name                                                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[identifier]                                | request        |  POS Identifier                                                            |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[description]                               | request        |  *(optional)* A short description                                          |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][street]                          | request        |  Street for POS Location                                                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][address1]                        | request        |  Address1 for POS Location                                                 |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][address2]                        | request        |  *(optional)* Address2 for POS Location                                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][postal]                          | request        |  Post code for POS Location                                                |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][city]                            | request        |  City for POS Location                                                     |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][province]                        | request        |  Province for POS Location                                                 |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][country]                         | request        |  Country for POS Location                                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][lat]                             | request        |  *(optional)* Latitude for POS Location                                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][long]                            | request        |  *(optional)* Longitude for POS Location                                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -175,12 +167,7 @@ Example
         -d "pos[location][lat]=latitude" \
         -d "pos[location][long]=longitude"
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -194,11 +181,10 @@ Example Response
     }
 
 
-
 Get POS details
 ---------------
 
-To retrieve the POS details you need to call the ``/api/pos/identifier/{pos}`` endpoint with the ``GET`` method.
+To retrieve the POS details you will need to call the ``/api/pos/identifier/{pos}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -218,23 +204,17 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the POS with id ``pos = testid9`` use the method below:
+To see the details of the admin user with ``pos = testid9`` use the below method:
 
 .. code-block:: bash
 
     curl http://localhost:8181/api/identifier/testid9 \
-        -X "GET" \
-        -H "Accept: application/json" \
+        -X "GET" -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -266,7 +246,7 @@ Example Response
 Get POS details
 ---------------
 
-To retrieve the POS details you need to call the ``/api/pos/{pos}`` endpoint with the ``GET`` method.
+To retrieve the POS details you will need to call the ``/api/pos/{pos}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -286,22 +266,16 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the POS with ``pos = 00000000-0000-474c-1111-b0dd880c07e3`` use the method below:
+To see the details of the admin user with ``pos = 00000000-0000-474c-1111-b0dd880c07e3`` use the below method:
 
 .. code-block:: bash
 
     curl http://localhost:8181/api/pos/00000000-0000-474c-1111-b0dd880c07e3 \
-        -X "GET" \
-        -H "Accept: application/json" \
+        -X "GET" -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -337,7 +311,7 @@ Example Response
 Update POS data
 ---------------
 
-To update the POS data you need to call the ``/api/pos/<pos>`` endpoint with the ``PUT`` method.
+To update the POS data you will need to call the ``/api/pos/<pos>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -346,43 +320,43 @@ Definition
 
     PUT /api/pos/<pos>
 
-+----------------------------------------------+----------------+------------------------------------------------------+
-| Parameter                                    | Parameter type |  Description                                         |
-+==============================================+================+======================================================+
-| Authorization                                | header         |  Token received during authentication                |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| <pos>                                        | query          |  POS ID                                              |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[name]                                    | request        |  POS name                                            |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[identifier]                              | request        |  POS Identifier                                      |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[description]                             | request        |  *(optional)* A short description                    |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][street]                        | request        |  Street for POS Location                             |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][address1]                      | request        |  Building name for POS Location                      |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][address2]                      | request        |  *(optional)* Flat/Unit name for POS Location        |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][postal]                        | request        |  Post code for POS Location                          |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][city]                          | request        |  City for POS Location                               |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][province]                      | request        |  Province for POS Location                           |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][country]                       | request        |  Country for POS Location                            |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][lat]                           | request        |  *(optional)* Latitude for POS Location              |
-+----------------------------------------------+----------------+------------------------------------------------------+
-| pos[location][long]                          | request        |  *(optional)* Longitude for POS Location             |
-+----------------------------------------------+----------------+------------------------------------------------------+
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| Parameter                                      | Parameter type |  Description                                                               |
++================================================+================+============================================================================+
+| Authorization                                  | header         |  Token received during authentication                                      |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <pos>                                          | query          |  POS ID                                                                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[name]                                      | request        |  POS name                                                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[identifier]                                | request        |  POS Identifier                                                            |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[description]                               | request        |  *(optional)* A short description                                          |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][street]                          | request        |  Street for POS Location                                                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][address1]                        | request        |  Building name for POS Location                                            |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][address2]                        | request        |  *(optional)* Flat/Unit name for POS Location                              |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][postal]                          | request        |  Post code for POS Location                                                |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][city]                            | request        |  City for POS Location                                                     |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][province]                        | request        |  Province for POS Location                                                 |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][country]                         | request        |  Country for POS Location                                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][lat]                             | request        |  *(optional)* Latitude for POS Location                                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| pos[location][long]                            | request        |  *(optional)* Longitude for POS Location                                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
 
 Example
 ^^^^^^^
-
-To fully update POS with ``id = 857b2a26-b490-4356-8828-e138deaf7912`` use the method below:
-
+ 
+ To fully update POS with ``id = 857b2a26-b490-4356-8828-e138deaf7912`` use the below method:
+ 
 .. code-block:: bash
 
     curl http://localhost:8181/api/pos/857b2a26-b490-4356-8828-e138deaf7912 \
@@ -403,13 +377,9 @@ To fully update POS with ``id = 857b2a26-b490-4356-8828-e138deaf7912`` use the m
         -d "pos[location][lat]=latitude8" \
         -d "pos[location][long]=longitude8"
 
-.. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -422,11 +392,10 @@ Example Response
     }
 
 
+Get complete list of POS
+------------------------
 
-Get a list of POS (seller)
---------------------------
-
-To retrieve a complete list of POS you need to call the ``/api/seller/pos`` endpoint with the ``GET`` method.
+To retrieve the complete list of POS you will need to call the ``/api/seller/pos`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -434,6 +403,7 @@ Definition
 .. code-block:: text
 
     GET /api/seller/pos
+
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
@@ -457,19 +427,16 @@ Example
 
 .. code-block:: bash
 
+
     curl http://localhost:8181/api/seller/pos \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-.. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -527,12 +494,10 @@ Example Response
       "total": 2
     }
 
+Get POS details
+---------------
 
-
-Get POS details (seller)
-------------------------
-
-To retrieve POS details you need to call the ``/api/seller/pos/<pos>`` endpoint with the ``GET`` method.
+To retrieve POS details you will need to call the ``/api/seller/pos/<pos>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -552,7 +517,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the POS with id ``pos = 857b2a26-b490-4356-8828-e138deaf7912`` use the method below:
+To see the details of the customer user with ``pos = 857b2a26-b490-4356-8828-e138deaf7912`` use the below method:
 
 .. code-block:: bash
 
@@ -562,13 +527,9 @@ To see the details of the POS with id ``pos = 857b2a26-b490-4356-8828-e138deaf79
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-.. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 

@@ -1,14 +1,13 @@
 Earning Rule
 ============
 
-These endpoints will allow you to easily manage Earning Rules.
-
+These endpoints will allow you to easily manage Earning Rule.
 
 
 Get a complete list of earning rules
 ------------------------------------
 
-To retrieve a paginated list of earning rules you need to call the ``/api/earningRule`` endpoint with the ``GET`` method.
+To retrieve a paginated list of earning rules you will need to call the ``/api/earningRule`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -35,7 +34,7 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the first page of all earning rules use the method below:
+To see the first page of all earning rules use the below method:
 
 Example
 ^^^^^^^
@@ -50,11 +49,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -120,7 +119,7 @@ Example Response
 Get earning rule details
 ------------------------
 
-To retrieve a specific earning rule's details you need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``GET`` method.
+To retrieve a page of earning rule details you will need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -140,7 +139,7 @@ Definition
 Example
 ^^^^^^^
 
- To see details of earning rule with id ``earningRule = 00000000-0000-474c-b092-b0dd880c0121`` use the method below:
+ To see details of ``earningRule = 00000000-0000-474c-b092-b0dd880c0121``email use the below method:
 
 .. code-block:: bash
 
@@ -152,16 +151,16 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *earningRule = 00000000-0000-474c-b092-b0dd880c0121* id is an example value. Your value can be different.
+    The *earningRule = 00000000-0000-474c-b092-b0dd880c0121* id is an exemplary value. Your value can be different.
     Check in the list of all earning rules if you are not sure which id should be used.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -196,10 +195,11 @@ Example Response
 
 
 
+
 Get a complete list of earning rules (seller)
 ---------------------------------------------
 
-To retrieve a paginated list of earning rules you need to call the ``/api/seller/earningRule`` endpoint with the ``GET`` method.
+To retrieve a paginated list of earning rules you will need to call the ``/api/seller/earningRule`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -226,7 +226,7 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the first page of all earning rules use the method below:
+To see the first page of all earning rules use the below method:
 
 Example
 ^^^^^^^
@@ -241,15 +241,15 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When you will use endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -312,7 +312,7 @@ Example Response
 Get earning rule details (seller)
 ---------------------------------
 
-To retrieve a page of earning rule details you need to call the ``/api/seller/earningRule/<earningRule>`` endpoint with the ``GET`` method.
+To retrieve a page of earning rule details you will need to call the ``/api/seller/earningRule/<earningRule>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -332,28 +332,28 @@ Definition
 Example
 ^^^^^^^
 
- To see earning rule with ``earningRule = 00000000-0000-474c-b092-b0dd880c0725`` use the method below:
+ To see earning rule with ``earningRule = 00000000-0000-474c-b092-b0dd880c0725`` use the below method:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/earningRule/00000000-0000-474c-b092-b0dd880c0725 \
-        -X "GET" \
+    curl http://localhost:8181/api/earningRule/00000000-0000-474c-b092-b0dd880c0725 \
+        -X "GET" \ 
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *earningRule = 00000000-0000-474c-b092-b0dd880c0725* id is an example value. Your value can be different.
+    The *earningRule = 00000000-0000-474c-b092-b0dd880c0725* id is an exemplary value. Your value can be different.
     Check in the list of all earning rules if you are not sure which id should be used.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -388,7 +388,7 @@ Example Response
 Create a new earning rule
 -------------------------
 
-To create a new earning rule you need to call the ``/api/earningRule`` endpoint with the ``POST`` method.
+To create a new earning rule you will need to call the ``/api/earningRule`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -397,74 +397,76 @@ Definition
 
     POST /api/earningRule
 
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| Parameter                        | Parameter type | Description                                                              |
-+==================================+================+==========================================================================+
-| Authorization                    | header         | Token received during authentication                                     |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[type]                | request        | The type of earning points. Possible types: Custom event rule, Customer  |
-|                                  |                | Referral, Event Rule, General spending rule, Multiple earned points,     |
-|                                  |                | Product Purchase, Multiple by product labels                             |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[rewardType]          | request        | Who will be rewarded. Possible types:                                    |
-|                                  |                | referred,referrer, both                                                  |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[name]                | request        | EarningRule name                                                         |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[description]         | request        | A short description                                                      |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[endAt]               | request        | earningRule visible to YYYY-MM-DD HH:mm, e.g.: ``2019-10-05 10:59``.     |
-|                                  |                | *(required only if ``allTimeActive=0``)*                                 |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[startAt]             | request        | earningRule visible from YYYY-MM-DD HH:mm, e.g.: ``2017-10-05 10:59``.   |
-|                                  |                | *(required only if ``allTimeActive=0``)*                                 |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[active]              | request        | Set 1 if active, otherwise 0                                             |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[pointsAmount]        | request        | How many points customer can earn                                        |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[target]              | request        | Set ``level`` to choose target from defined levels.                      |
-|                                  |                | Set ``segment`` to choose target from defined segments                   |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[levels]              | request        | Array of level IDs. *(required only if ``target=level``)*                |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[segments]            | request        | Array of segment IDs. *(required only if ``target=segment``)*            |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[limit][active]       | request        | Set 1 if usage limit active, otherwise 0                                 |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[limit][period]       | request        | Period usage limit. *(required only if ``[limit][active]=1``)*           |
-|                                  |                | Possible parameters: day,week,month,3months,6months,year,forever         |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[limit][limit]        | request        | Usage limit. *(required only if ``[limit][active]=1``)*                  |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[eventName]           | request        | Custom Event name                                                        |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[allTimeActive]       | request        | Set 1 if always visible, otherwise 0                                     |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[excludeDeliveryCost] | request        | Points will not be calculated for delivery cost. Set 1 to active,        |
-|                                  |                | otherwise 0                                                              |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[excludedSKUs]        | request        | Excluding products with the given SKU                                    |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[minOrderValue]       | request        | Points will not be calculated for whole purchase if its value will be    |
-|                                  |                | below value                                                              |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[inclusionType]       | request        | Accepted values: [include_labels, exclude_labels]. If include_labels is  |
-|                                  |                | set - includedLabels will be used.                                       |
-|                                  |                | if exclude_labels is set - excludedLabels will be used.                  |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[excludedLabels]      | request        | Points will not be calculated for the purchase of products with defined  |
-|                                  |                | labels                                                                   |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[includedLabels]      | request        | Points will be calculated only for the purchase of products with defined |
-|                                  |                | labels                                                                   |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[multiplier]          | request        | Points gained for purchase product will be multiplied by this factor     |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[labelMultipliers]    | request        | Points gained for purchase product by labels will be multiplied          |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[skuIds][0]           | request        | Refers to products with the given SKU                                    |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| Parameter                                      | Parameter type |  Description                                                               |
++================================================+================+============================================================================+
+| Authorization                                  | header         |  Token received during authentication                                      |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[type]                              | request        |  The type of earning points. Possible types: Custom event rule, Customer   |
+|                                                |                |     Referral, Event Rule, General spending rule, Multiple earned points,   |
+|                                                |                |  Product Purchase, Multiple by product labels                              |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[rewardType]                        | request        |  Who will be rewarded. Possible types:                                     |
+|                                                |                |  referred,referrer, both                                                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[name]                              | request        |  EarningRule name                                                          |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[description]                       | request        |  A short description                                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[endAt]                             | request        |  earningRule visible to YYYY-MM-DD HH:mm, e.g.: ``2019-10-05 10:59``.      |
+|                                                |                |  *(required only if ``allTimeActive=0``)*                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[startAt]                           | request        |  earningRule visible from YYYY-MM-DD HH:mm, e.g.: ``2017-10-05 10:59``.    |
+|                                                |                |  *(required only if ``allTimeActive=0``)*                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[active]                            | request        |  Set 1 if active, otherwise 0                                              |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[pointsAmount]                      | request        |  How many points customer can earn                                         |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[target]                            | request        |  Set ``level`` to choose target from defined levels.                       |
+|                                                |                |  Set ``segment`` to choose target from defined segments                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[levels]                            | request        |  Array of level IDs. *(required only if ``target=level``)*                 |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[segments]                          | request        |  Array of segment IDs. *(required only if ``target=segment``)*             |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[limit][active]                     | request        |  Set 1 if usage limit active, otherwise 0                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[limit][period]                     | request        |  Period usage limit. *(required only if ``[limit][active]=1``)*            |
+|                                                |                |  Possible parameters: day,week,month,3months,6months,year,forever          |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[limit][limit]                      | request        |  Usage limit. *(required only if ``[limit][active]=1``)*                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[eventName]                         | request        |  Custom Event name                                                         |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[allTimeActive]                     | request        |  Set 1 if always visible, otherwise 0                                      |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[excludeDeliveryCost]               | request        |  Points will not be calculated for delivery cost. Set 1 to active,         |
+|                                                |                |  otherwise 0                                                               |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[excludedSKUs]                      | request        |  Excluding products with the given SKU                                     |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[minOrderValue]                     | request        |  Points will not be calculated for whole purchase if its value will be     |
+|                                                |                |  below value                                                               |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[inclusionType]                     | request        |  Accepted values: [include_labels, exclude_labels]. If include_labels is   |
+|                                                |                |  set - includedLabels will be used.                                        |
+|                                                |                |  if exclude_labels is set - excludedLabels will be used.                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[excludedLabels]                    | request        |  Points will not be calculated for the purchase of products with defined   |
+|                                                |                |  labels                                                                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[includedLabels]                    | request        |  Points will be calculated only for the purchase of products with defined  |
+|                                                |                |  labels                                                                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[multiplier]                        | request        |  Points gained for purchase product will be multiplied by this factor      |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[labelMultipliers]                  | request        |  Points gained for purchase product by labels will be multiplied           |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[skuIds][0]                         | request        |  Refers to products with the given SKU                                     |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+
+
 
 Example
 ^^^^^^^
@@ -500,17 +502,18 @@ Example
         -d "earningRule[multiplier]=2" \
         -d "earningRule[skuIds][0]=SKU123"
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *000096cf-32a3-43bd-9034-4df343e5fd93* or *00000000-0000-474c-b092-b0dd880c0121* id are example values.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+
+.. note::
+
+    The *000096cf-32a3-43bd-9034-4df343e5fd93* or *00000000-0000-474c-b092-b0dd880c0121* id are an exemplary values.
     Your value can be different. Check in the list of all levels if you are not sure which id should be used.
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -525,7 +528,7 @@ Example Response
 Edit existing earning rule
 --------------------------
 
-To edit existing earning rule you need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``PUT`` method.
+To edit existing earning rule you will need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -534,80 +537,81 @@ Definition
 
     PUT  /api/earningRule/<earningRule>
 
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| Parameter                        | Parameter type | Description                                                              |
-+==================================+================+==========================================================================+
-| Authorization                    | header         | Token received during authentication                                     |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| <earningRule>                    | query          | EarningRule ID                                                           |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[type]                | request        | The type of earning points. Possible types: Custom event rule, Customer  |
-|                                  |                | Referral, Event Rule, General spending rule, Multiple earned points,     |
-|                                  |                | Product Purchase, Multiple by product labels                             |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[rewardType]          | request        | Who will be rewarded. Possible types:                                    |
-|                                  |                | referred,referrer, both                                                  |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[name]                | request        | Earning Rule name                                                        |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[description]         | request        | A short description                                                      |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[endAt]               | request        | earningRule visible to YYYY-MM-DD HH:mm, e.g.: ``2019-10-05 10:59``.     |
-|                                  |                | *(required only if ``allTimeActive=0``)*                                 |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[startAt]             | request        | earningRule visible from YYYY-MM-DD HH:mm, e.g.: ``2017-10-05 10:59``.   |
-|                                  |                | *(required only if ``allTimeActive=0``)*                                 |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[active]              | request        | Set 1 if active, otherwise 0                                             |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[pointsAmount]        | request        | How many points customer can earn                                        |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[target]              | request        | Set ``level`` to choose target from defined levels.                      |
-|                                  |                | Set ``segment`` to choose target from defined segments                   |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[levels]              | request        | Array of level IDs. *(required only if ``target=level``)*                |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[segments]            | request        | Array of segment IDs. *(required only if ``target=segment``)*            |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[limit][active]       | request        | Set 1 if usage limit active, otherwise 0                                 |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[limit][period]       | request        | Period usage limit. *(required only if ``[limit][active]=1``)*           |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[limit][limit]        | request        | Usage limit. *(required only if ``[limit][active]=1``)*                  |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[eventName]           | request        | Custom Event name                                                        |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[allTimeActive]       | request        | Set 1 if always visible, otherwise 0                                     |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[excludeDeliveryCost] | request        | Points will not be calculated for delivery cost. Set 1 to active,        |
-|                                  |                | otherwise 0                                                              |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[excludedSKUs]        | request        | Excluding products with the given SKU                                    |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[minOrderValue]       | request        | Points will not be calculated for whole purchase if its value will be    |
-|                                  |                | below value                                                              |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[inclusionType]       | request        | Accepted values: [include_labels, exclude_labels]. If include_labels is  |
-|                                  |                | set - includedLabels will be used.                                       |
-|                                  |                | if exclude_labels is set - excludedLabels will be used.                  |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[excludedLabels]      | request        | Points will not be calculated for the purchase of products with defined  |
-|                                  |                | labels                                                                   |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[includedLabels]      | request        | Points will be calculated only for the purchase of products with defined |
-|                                  |                | labels                                                                   |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[multiplier]          | request        | Points gained for purchase product will be multiplied by this factor     |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[labelMultipliers]    | request        | Points gained for purchase product by labels will be multiplied          |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[skuIds][0]           | request        | Refers to products with the given SKU                                    |
-+----------------------------------+----------------+--------------------------------------------------------------------------+
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| Parameter                                      | Parameter type |  Description                                                               |
++================================================+================+============================================================================+
+| Authorization                                  | header         |  Token received during authentication                                      |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <earningRule>                                  | query          |  EarningRule ID                                                            |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[type]                              | request        |  The type of earning points. Possible types: Custom event rule, Customer   |
+|                                                |                |     Referral, Event Rule, General spending rule, Multiple earned points,      |
+|                                                |                |  Product Purchase, Multiple by product labels                              |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[rewardType]                        | request        |  Who will be rewarded. Possible types:                                     |
+|                                                |                |  referred,referrer, both                                                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[name]                              | request        |  Earning Rule name                                                         |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[description]                       | request        |  A short description                                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[endAt]                             | request        |  earningRule visible to YYYY-MM-DD HH:mm, e.g.: ``2019-10-05 10:59``.      |
+|                                                |                |  *(required only if ``allTimeActive=0``)*                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[startAt]                           | request        |  earningRule visible from YYYY-MM-DD HH:mm, e.g.: ``2017-10-05 10:59``.    |
+|                                                |                |  *(required only if ``allTimeActive=0``)*                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[active]                            | request        |  Set 1 if active, otherwise 0                                              |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[pointsAmount]                      | request        |  How many points customer can earn                                         |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[target]                            | request        |  Set ``level`` to choose target from defined levels.                       |
+|                                                |                |  Set ``segment`` to choose target from defined segments                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[levels]                            | request        |  Array of level IDs. *(required only if ``target=level``)*                 |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[segments]                          | request        |  Array of segment IDs. *(required only if ``target=segment``)*             |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[limit][active]                     | request        |  Set 1 if usage limit active, otherwise 0                                  |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[limit][period]                     | request        |  Period usage limit. *(required only if ``[limit][active]=1``)*            |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[limit][limit]                      | request        |  Usage limit. *(required only if ``[limit][active]=1``)*                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[eventName]                         | request        |  Custom Event name                                                         |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[allTimeActive]                     | request        |  Set 1 if always visible, otherwise 0                                      |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[excludeDeliveryCost]               | request        |  Points will not be calculated for delivery cost. Set 1 to active,         |
+|                                                |                |  otherwise 0                                                               |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[excludedSKUs]                      | request        |  Excluding products with the given SKU                                     |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[minOrderValue]                     | request        |  Points will not be calculated for whole purchase if its value will be     |
+|                                                |                |  below value                                                               |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[inclusionType]                     | request        |  Accepted values: [include_labels, exclude_labels]. If include_labels is   |
+|                                                |                |  set - includedLabels will be used.                                        |
+|                                                |                |  if exclude_labels is set - excludedLabels will be used.                   |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[excludedLabels]                    | request        |  Points will not be calculated for the purchase of products with defined   |
+|                                                |                |  labels                                                                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[includedLabels]                    | request        |  Points will be calculated only for the purchase of products with defined  |
+|                                                |                |  labels                                                                    |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[multiplier]                        | request        |  Points gained for purchase product will be multiplied by this factor      |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[labelMultipliers]                  | request        |  Points gained for purchase product by labels will be multiplied           |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| earningRule[skuIds][0]                         | request        |  Refers to products with the given SKU                                     |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+
 
 Example
 ^^^^^^^
 
-To fully update an earning rule with ``earningRule = 00000000-0000-474c-b092-b0dd880c0121`` use the method below:
+To fully update a earningRule with ``earningRule = 00000000-0000-474c-b092-b0dd880c0121`` use the below method:
 
 .. code-block:: bash
 
@@ -647,15 +651,16 @@ To fully update an earning rule with ``earningRule = 00000000-0000-474c-b092-b0d
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *000096cf-32a3-43bd-9034-4df343e5fd93* or *00000000-0000-474c-b092-b0dd880c0121* id are example values.
+    The *000096cf-32a3-43bd-9034-4df343e5fd93* or *00000000-0000-474c-b092-b0dd880c0121* id are an exemplary values.
     Your value can be different. Check in the list of all levels if you are not sure which id should be used.
 
-Example Response
+
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -668,12 +673,10 @@ Example Response
       "earningRuleId": "00000000-0000-474c-b092-b0dd880c0121"
     }
 
-
-
 Change earning rule status
 --------------------------
 
-To make earning rule active or inactive you need to call the ``/api/earningRule/<earningRule>/activate`` endpoint with the ``POST`` method.
+To make earning rule active or inactive you will need to call the ``/api/earningRule/<earningRule>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -689,13 +692,14 @@ Definition
 +---------------+----------------+--------------------------------------+
 | <earningRule> | query          | earningRule ID                       |
 +---------------+----------------+--------------------------------------+
-| active        | request        | Possible values: active, inactive    |
+| active        | query          | Possible values: active, inactive    |
 +---------------+----------------+--------------------------------------+
+
 
 Example
 ^^^^^^^
 
-To make earning rule active ``earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8`` use the method below:
+To make earning rule active ``earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8`` use the below method:
 
 .. code-block:: bash
 
@@ -707,27 +711,31 @@ To make earning rule active ``earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8* id is an example value. Your value can be different.
+    The *earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8* id is an exemplary value. Your value can be different.
     Check in the list of all earningRules if you are not sure which id should be used.
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
     STATUS: 204 No Content
 
+.. code-block:: json
+
+    active=1
+
 
 
 Use a custom event earning rule
 -------------------------------
 
-To use a custom event earning rule for a specific customer you need to call the ``/api/<version>/earnRule/<eventName>/customer/<customer>`` endpoint with the ``POST`` method.
+To use a custom event earning rule for a specific customer you will need to call the ``/api/<version>/earnRule/<eventName>/customer/<customer>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -748,6 +756,7 @@ Definition
 | <version>                           | query          | api version, v1 required                          |
 +-------------------------------------+----------------+---------------------------------------------------+
 
+
 Example
 ^^^^^^^
 
@@ -760,17 +769,18 @@ Example
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "event_name=event"
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *57524216-c059-405a-b951-3ab5c49bae14* id is an example value. Your value can be different.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+
+.. note::
+
+    The *57524216-c059-405a-b951-3ab5c49bae14* id is an exemplary value. Your value can be different.
     Check in the list of all customers if you are not sure which id should be used.
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -783,12 +793,10 @@ Example Response
       "points": 1
     }
 
-
-
 Get earning rule's photo
 --------------------
 
-To get earning rule's photo you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``GET`` method.
+To get earning rule's photo you will need to cal the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -808,7 +816,7 @@ Definition
 Example
 ^^^^^^^
 
-To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
 
 .. code-block:: bash
 
@@ -820,15 +828,15 @@ To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
+    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
     Check in the list of all earning rules if you are not sure which id should be used.
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -840,7 +848,7 @@ Example Response
     In the response you will get raw file content with a proper ``Content-Type`` header, for example:
     ``Content-Type: image/jpeg``.
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 The earning rule may not have photo at all and you will receive a below response.
@@ -858,12 +866,10 @@ The earning rule may not have photo at all and you will receive a below response
       }
     }
 
-
-
 Remove earning rule's photo
 -----------------------
 
-To remove earning rule's photo you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``DELETE`` method.
+To remove earning rule's photo you will need to cal the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -883,7 +889,7 @@ Definition
 Example
 ^^^^^^^
 
-To remove earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To remove earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
 
 .. code-block:: bash
 
@@ -895,27 +901,25 @@ To remove earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5f
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
+    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
     Check in the list of all earning rules if you are not sure which id should be used.
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
     STATUS: 200 OK
 
-
-
 Add a photo to the earning rule
 ---------------------------
 
-To add a photo to the earning rule you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``POST`` method.
+To add a photo to the earning rule you will need to cal the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -937,7 +941,7 @@ Definition
 Example
 ^^^^^^^
 
-To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the below method:
 
 .. code-block:: bash
 
@@ -949,90 +953,29 @@ To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
+    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an exemplary value. Your value can be different.
     Check in the list of all earning rules if you are not sure which id should be used.
 
 .. note::
 
-    The *photo[file]=C:\fakepath\Photo.png* is an example value. Your value can be different.
+    The *photo[file]=C:\fakepath\Photo.png* is an exemplary value. Your value can be different.
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
     STATUS: 200 OK
-
-
-
-QR code
---------
-
-This method allows calculating points using QR codes.
-You need to call the ``/api/earningRule/qrcode/customer/<customer>`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/earningRule/qrcode/customer/<customer>
-
-+----------------------------+----------------+------------------------------------------------------------------------+
-| Parameter                  | Parameter type | Description                                                            |
-+============================+================+========================================================================+
-| Authorization              | header         | Token received during authentication                                   |
-+----------------------------+----------------+------------------------------------------------------------------------+
-| <customer>                 | query          | Customer ID                                                            |
-+----------------------------+----------------+------------------------------------------------------------------------+
-| earningRule[code]          | request        | QR code                                                                |
-+----------------------------+----------------+------------------------------------------------------------------------+
-| earningRule[earningRuleId] | request        | *(optional)* UUID of the earning rule. If specified, only this one     |
-|                            |                | rule will be executed.                                                 |
-|                            |                | If omitted, all rules applicable to the customer will be executed      |
-+----------------------------+----------------+------------------------------------------------------------------------+
-
-Example Response
-^^^^^^^^^^^^^^^^^^
-.. code-block:: bash
-
-    curl http://localhost:8181/api/earningRule/qrcode/customer/00000000-0000-474c-b092-b0dd880c07e1 \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "earningRule[code]=abccode" \
-        -d "earningRule[earningRuleId]=e378c813-2116-448a-b125-564cef15f932"
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-.. note::
-
-    The *00000000-0000-474c-b092-b0dd880c07e1* customer UUID, *e378c813-2116-448a-b125-564cef15f932* earning rule UUID, *abccode* qr code are example values.
-    Your values can be different.
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "points": 10
-    }
-
-
 
 Geolocation
------------
+-------------------------------
 
-This method allows calculating points using geolocation you need to call the ``/api/earningRule/geolocation/customer/<customer>`` endpoint with the ``POST`` method.
+This method allows calculating points using geolocation you will need to call the ``/api/earningRule/geolocation/customer/<customer>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1041,24 +984,21 @@ Definition
 
     POST /api/earningRule/geolocation/customer/<customer>
 
-+----------------------------+----------------+------------------------------------------------------------------------+
-| Parameter                  | Parameter type | Description                                                            |
-+============================+================+========================================================================+
-| Authorization              | header         | Token received during authentication                                   |
-+----------------------------+----------------+------------------------------------------------------------------------+
-| <customer>                 | query          | Customer ID                                                            |
-+----------------------------+----------------+------------------------------------------------------------------------+
-| earningRule[latitude]      | body           | Current customer's latitude. Positive and negative values can be used. |
-+----------------------------+----------------+------------------------------------------------------------------------+
-| earningRule[longitude]     | body           | Current customer's latitude. Positive and negative values can be used. |
-+----------------------------+----------------+------------------------------------------------------------------------+
-| earningRule[earningRuleId] | query          | *(optional)* UUID of the earning rule. If specified, only this one     |
-|                            |                | geo rule will be executed.                                             |
-|                            |                | If comitted, all rules applicable to the customer will be executed     |
-+----------------------------+----------------+------------------------------------------------------------------------+
++-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Parameter                           | Parameter type | Description                                                                                                                                                     |
++=====================================+================+=================================================================================================================================================================+
+| Authorization                       | header         | Token received during authentication                                                                                                                            |
++-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <customer>                          | query          | Customer ID                                                                                                                                                     |
++-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| earningRule[latitude]               | body           | Current customer's latitude. Positive and negative values can be used.                                                                                                                                     |
++-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| earningRule[longitude]              | body           | Current customer's longitude. Positive and negative values can be used.                                                                                                                                    |
++-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| earningRule[earningRuleId]          | body           | *(optional)* UUID of the earning rule. If specified, only this one geo rule will be executed. If omitted, all rules applicable to the customer will be executed |
++-------------------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 .. code-block:: bash
 
@@ -1072,12 +1012,11 @@ Example Response
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e1* customer UUID, *83fe084b-3682-4ddb-bc10-c3c2373dfbcc* earning rule UUID,
-    *52.052240, -21.046587* coordinates are example values.
+    The *00000000-0000-474c-b092-b0dd880c07e1* customer UUID, *83fe084b-3682-4ddb-bc10-c3c2373dfbcc* earning rule UUID, *52.052240, -21.046587* coordinates are example values.
     Your values can be different.
 
 .. code-block:: text

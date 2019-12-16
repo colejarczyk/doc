@@ -6,7 +6,7 @@ These endpoints will allow you to see the list of actions taken in the Open Loya
 Getting log
 -----------
 
-To retrieve action log you need to call the ``/api/audit/log`` endpoint with the ``GET`` method.
+To retrieve action log you will need to call the ``/api/audit/log`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -59,12 +59,7 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-    
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -102,7 +97,7 @@ Example Response
             "lastName": "Doe",
             "gender": "male",
             "phone": "11111",
-            "email": "user@example.com",
+            "email": "user@oloy.com",
             "birthDate": 653011200,
             "createdAt": 1470646394,
             "company": {
@@ -141,7 +136,7 @@ Example
         -d "sort=username" \
         -d "direction=DESC"
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text

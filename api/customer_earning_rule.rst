@@ -8,11 +8,12 @@ These endpoints will allow you to easily viewing active earning rules.
     Each role in the Open Loyalty has individual endpoints to viewing active earning rules.
 
 
+Method will return all active earning rules.
+--------------------------------------------
 
-Return all active earning rules
--------------------------------
+To viewing active earning rules you will need to call the ``/api/customer/earningRule`` endpoint with the ``GET`` method.
 
-To view active earning rules you need to call the ``/api/customer/earningRule`` endpoint with the ``GET`` method.
+
 
 Definition
 ^^^^^^^^^^
@@ -21,11 +22,13 @@ Definition
 
     GET  /api/customer/earningRule
 
-+------------------------------------+----------------+----------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                   |
-+====================================+================+================================================================+
-| Authorization                      | header         |  Token received during authentication                          |
-+------------------------------------+----------------+----------------------------------------------------------------+
++------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
+| Parameter                          | Parameter type |  Description                                                                                  |
++====================================+================+===============================================================================================+
+| Authorization                      | header         |  Token received during authentication                                                         |
++------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
+
+
 
 Example
 ^^^^^^^
@@ -36,15 +39,15 @@ Example
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9..."
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9..."        
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9...* authorization token is an exemplary value.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
-Example Response
-^^^^^^^^^^^^^^^^
+Exemplary Response
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -125,57 +128,4 @@ Example Response
         }
       ],
       "currency": "eur"
-    }
-
-
-
-Use a custom event earning rule
--------------------------------
-
-To trigger custom event earning rules you need to call the ``/api/customer/earningRule/<eventName>`` endpoint with the ``POST`` method.
-
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST  /api/customer/earningRule/<eventName>
-
-+------------------------------------+----------------+----------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                   |
-+====================================+================+================================================================+
-| Authorization                      | header         |  Token received during authentication                          |
-+------------------------------------+----------------+----------------------------------------------------------------+
-| eventName                          | string         |  Name of custom event                                          |
-+------------------------------------+----------------+----------------------------------------------------------------+
-
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/customer/earningRule/customerAttendedEvent \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-     "points": 12
     }

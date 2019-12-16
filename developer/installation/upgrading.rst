@@ -4,12 +4,12 @@ Upgrading
 Each new release has a `CHANGELOG.md <https://github.com/DivanteLtd/open-loyalty/blob/master/CHANGELOG.md>`_ and sometimes, when
 upgrading may be difficult it has a file `UPGRADE.md <https://github.com/DivanteLtd/open-loyalty/blob/master/UPGRADE-2.2.md>`_.
 
-To update your project you need to update ``divante-ltd/open-loyalty-framework`` library in ``composer.json`` file
+To update your project you need to update ``divante-lts/open-loyalty-framework`` library in ``composer.json`` file
 
 .. code-block:: yaml
 
     "require": {
-        "divante-ltd/open-loyalty-framework": "^4.0"
+        "divante-ltd/open-loyalty-framework": "^2.6"
     }
 
 Then run command ``composer update``
@@ -18,14 +18,15 @@ Then run command ``composer update``
 
     $ composer update divante-ltd/open-loyalty-framework
 
+
 If this results in a dependency error, it may mean that other dependencies also have to be upgraded.
 Using this command may help you upgrade dependencies.
 
 .. code-block:: bash
 
-    $ composer update divante-ltd/open-loyalty-framework --with-dependencies
+    $ composer update divante-ltd/open-loyalty-framework –with-dependencies
 
-You should run the following commands:
+You should run follow commands:
 
 .. code-block:: bash
 
@@ -37,13 +38,13 @@ It clears cache
 
     $ bin/console doctrine:schema:update --force
 
-It's a command to update schema in PostgreSQL without losing data.
+It's a command to update scheme in PostgreSQL without losing data.
 
 .. code-block:: bash
 
     $ bin/console oloy:user:projections:index:create --drop-old -n
 
-It deletes all indexes in ElasticSearch and creates new ones.
+It deletes all indexes in ElasticSearch and creates a new one.
 
 .. code-block:: bash
 
@@ -51,11 +52,23 @@ It deletes all indexes in ElasticSearch and creates new ones.
 
 It recreates all data from event store to ElasticSearch, so the read model is up-to-date.
 
+If you have a lot of events in the event store (more than 50k), you can recreate index in batches.
+You can call the command with parameters: FROM and TO are numbers of events to process and PACKAGE_SIZE
+is the size of the batch.
+
+
+.. code-block:: bash
+    $ bin/console oloy:utility:read-models:recreate FROM TO PACKAGE_SIZE
+
+Script located in backend/bin/rd-recreate.sh can be helpful to speed up recreating process.
+
+
 If you don't want to focus on details you can use phing task to upgrade Open Loyalty:
 
 .. code-block:: bash
 
     $ phing migrate
 
-Now you should have all required updates to run a new version of Open Loyalty.
-Sometimes we release a new version with backwards compatibility breaks so please look at the ``UPGRADE-..md`` files.
+
+Now you should have all required updates to run a new version in Open Loyalty.
+Sometimes we release a new version with BC breaks so please look at the ``UPGRADE-..md`` files.

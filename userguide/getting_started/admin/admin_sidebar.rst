@@ -14,16 +14,16 @@ Dashboard
 .. image:: /userguide/_images/dashboard.png
    :alt:   Dashboard
 
-
+   
 Customers
 '''''''''
 
 *The Customers menu is where you can manage customer registered in your loyalty programs, and see referred customers list*
 
-.. image:: /userguide/_images/all_customers.png
+.. image:: /userguide/_images/customers.png
    :alt:   Customers
 
-
+   
 Levels
 ''''''
 
@@ -32,7 +32,7 @@ Levels
 .. image:: /userguide/_images/levels.png
    :alt:   Levels
 
-
+   
 Points Transfers
 ''''''''''''''''
 
@@ -42,7 +42,7 @@ Points Transfers
 .. image:: /userguide/_images/transfer.png
    :alt:   transfers
 
-
+   
 Transactions
 ''''''''''''
 
@@ -50,8 +50,8 @@ Transactions
 
 .. image:: /userguide/_images/transactions.png
    :alt:   Transactions
-
-
+   
+   
 Earning Rules
 '''''''''''''
 
@@ -59,8 +59,8 @@ Earning Rules
 
 .. image:: /userguide/_images/rules.png
    :alt:   Earning rules
-
-
+   
+   
 POS
 '''
 
@@ -68,7 +68,7 @@ POS
 
 .. image:: /userguide/_images/all_pos.png
    :alt:   POS
-
+   
 
 Merchants
 '''''''''
@@ -77,7 +77,7 @@ Merchants
 
 .. image:: /userguide/_images/merchant.png
    :alt:   Merchants
-
+   
 
 Segments
 ''''''''
@@ -86,12 +86,12 @@ Segments
 
 .. image:: /userguide/_images/segment.png
    :alt:   Segment
-
-
+   
+   
 Reward Campaigns
 ''''''''''''''''
 
 *The Reward Campaign menu is where you manage rewards available in your loyalty application, decide who can redeem rewards, and when*
 
-.. image:: /userguide/_images/reward3.PNG
+.. image:: /userguide/_images/reward.png
    :alt:   Rewards

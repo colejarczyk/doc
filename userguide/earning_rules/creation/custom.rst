@@ -35,14 +35,10 @@ To add new Custom event rule:
  - You can limit how many times customer could be rewarded for the same action with the specified period of time. Mark **Usage limit active** checkbox to limit repeatability. Leave it blank to reward customer for this rule without limits.
  - **Period** field is visible and required if *Usage limit active* is marked.
    
-   It defines period of time within customer can be rewarded for this rule. Options include:
-    - 1 day
+   It defines period of time within customer can be rewarded for this rule. Option include: 
+    - 1 day 
     - 1 week
     - 1 month
-    - 3 months
-    - 6 months
-    - 1 year
-    - Forever
  - **Limit** field is visible and required if *Usage limit active* is marked. 
 
    Provided number defines how many times customer could be rewarded for this rule in specified period of time. 
@@ -87,6 +83,8 @@ To add new Custom event rule:
 
 8. When complete, tap ``SAVE``
 
+
 .. note:: 
 
     Image size is limited to 2MB. Image dimensions could not be smaller than 600 x 600 px. Allowed file formats: png, gif, jpg.
+

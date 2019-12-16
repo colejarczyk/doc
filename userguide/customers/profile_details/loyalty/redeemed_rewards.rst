@@ -4,28 +4,20 @@
 Redeemed rewards
 ================
 
-**Redeemed rewards** tab provides information about rewards (Reward Campaigns) that customer has redeemed, divided into used and delivered.
+**Redeemed rewards** tab provide information about rewards (Reward Campaigns) that customer has redeemed, divided into used and delivered.
 
 .. image:: /userguide/_images/redeemed_rewards.png
    :alt:   Redeemed Rewards
 
-All rewards that customer redeemed appear in this tab as "**delivered**".
+All rewards that customer redeemed appears in this tab as a "**delivered**". 
 
-When reward coupon days inactive parameter will pass, an empty checkbox appears, to be marked when customer redeems coupon.
+When reward coupon days inactive parameter will pass an empty checkbox appears, to be marked when customer use already redeemed coupon.
 
-Only when a customer uses the reward/discount code during a purchase, reward is treated as "**used**".
+Only when customer uses the reward/discount code during the purchase, reward is treated as "**used**". 
 
 On the Redeemed rewards list, **Used** rewards will have a marked checkbox in the column Use of coupon count, unlike to those **Delivered**, which will have an empty checkbox.
 
-From the Admin Panel you can mark selected redeemed reward record as Used when customer used their coupon code during purchase, or you sent gift which customer selected from his cockpit etc.
-
-.. note::
-
-    You can mark selected reward/coupon record as used or unused only if its status is **Active**
-
-    When coupon status changed to **Expired** none of the above operations is possible.
-
-
+From the Admin you can mark selected redeemed reward record as a Used, when customer used coupon code during purchase, you sent gift which customer selected from his cockpit etc. 
 
 To mark coupon as used:
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -46,8 +38,8 @@ To learn more about rewards, see :doc:`Redeemed rewards </userguide/reward_campa
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Cost in points    | | Define how much points customer spent to redeem reward                                                                    |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Status            | | Reward campaign coupon status                                                                                             |
-|                   | | **Option include: Active/Inactive/Expired**                                                                               |
+| Status            | | Reward campaign status.                                                                                                   |
+|                   | | **Option include: Active/Inactive**                                                                                       |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Active from       | | Reward campaign start date from which customer can used reward, define during reward campaign creation in Activity section|
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+

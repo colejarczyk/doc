@@ -5,157 +5,8 @@ These endpoints will allow you to easily manage transactions.
 
 
 
-Import transactions
--------------------
-
-To import an XML file with transactions you need to call the ``/api/admin/transaction/import`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/admin/transaction/import
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| file[file]                          | query          | XML file with transactions                        |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/admin/transaction/import \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "file[file]=C:\\fakepath\\transaction.xml"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "items": [
-        {
-          "status": "error",
-          "message": "Convert exception: Value \"00000000-0000-474c-1111-b0dd880c07e\" is not a valid UUID.",
-          "identifier": "0001_pos2_zzleID"
-        },
-        {
-          "status": "success",
-          "processImportResult": {
-            "object": {
-              "transactionId": "98b15ef5-94ad-43ef-9984-0d41197d14e6"
-            }
-          },
-          "identifier": "id_bez_tymrazem"
-        }
-      ],
-      "totalProcessed": 2,
-      "totalSuccess": 1,
-      "totalFailed": 1
-    }
-
-Match transactions with the customers by importing a XML file
--------------------------------------------------------------
-
-In order to match many transactions to many customers using XML file you need to call the ``/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /admin/transaction/customer/assign/import
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| file[file]                          | query          | XML file with transactions                        |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/admin/transaction/customer/assign/import \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "file[file]=C:\\fakepath\\match-customer.xml"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example XML
-^^^^^^^^^^^
-
-.. code-block:: xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <matchCustomers>
-        <matchCustomer>
-           <customerId>00000000-0000-474c-b092-b0dd880c07e2</customerId>
-           <customerEmail>john.doe@example.com</customerEmail>
-           <customerPhoneNumber>+48888888888</customerPhoneNumber>
-           <customerLoyaltyCardNumber>936592735</customerLoyaltyCardNumber>
-           <transactionDocumentNumber>123</transactionDocumentNumber>
-        </matchCustomer>
-    </matchCustomers>
-
-.. note::
-
-    Only one customer* field is required (customerId, customerEmail, customerPhoneNumber, customerLoyaltyCardNumber).
-    If more fields
-
-Example Response
-^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-        "items": [
-            {
-                "status": "error",
-                "message": "(match_customer-2019-11-08_1005-5dc52fe92bc59.xml) Processing exception: Customer is already assigned to this transaction",
-                "identifier": "123"
-            }
-        ],
-        "totalProcessed": 1,
-        "totalSuccess": 0,
-        "totalFailed": 1
-    }
-
-
-
-Assign a customer to a specific transaction (admin)
----------------------------------------------------
+Assign a customer to a specific transaction
+-------------------------------------------
 
 To assign a customer to a specific transaction
 you need to call the ``/api/admin/transaction/customer/assign`` endpoint with the ``POST`` method.
@@ -199,7 +50,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -214,8 +65,8 @@ Example Response
       "transactionId": "00000000-0000-1111-0000-000000000002"
     }
 
-Example Error Response
-^^^^^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -228,7 +79,7 @@ Example Error Response
         "children": {
           "transactionDocumentNumber": {
             "errors": [
-              "Customer is already assigned to this transaction"
+              "Customer is already assign to this transaction"
             ]
           },
           "customerId": {},
@@ -241,76 +92,18 @@ Example Error Response
 
 
 
-Assign a customer to a specific transaction (customer)
-------------------------------------------------------
-
-To assign the logged in customer to a specific transaction,
-you need to call the ``/api/customer/transaction/customer/assign`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/customer/transaction/customer/assign
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[transactionDocumentNumber]   | query          | Transaction Document Number                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-.. note::
-
-    If you are using the auto-generated docs, you may see there are other fields in assign[] object.
-    They are ignored in this endpoint. Do not use them in your application, as they will be removed in a future version.
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/customer/transaction/customer/assign \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-        -d "assign[transactionDocumentNumber]=888"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "transactionId": "9f805211-9326-4b47-b5a6-8155d6ae9d2c"
-    }
-
-
-
-Assign a customer to specific transaction (seller)
---------------------------------------------------
+Assign a customer to a specific transaction (seller)
+----------------------------------------------------
 
 To assign a customer to a specific transaction
-you need to call the ``/api/pos/transaction/customer/assign`` endpoint with the ``POST`` method.
+you need to call the ``/api/seller/transaction/customer/assign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/pos/transaction/customer/assign
+    POST /api/seller/transaction/customer/assign
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
@@ -331,7 +124,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/pos/transaction/customer/assign \
+    curl http://localhost:8181/api/seller/transaction/customer/assign \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -344,10 +137,10 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -379,7 +172,15 @@ Definition
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
 +-------------------------------------+----------------+---------------------------------------------------+
+| customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
++-------------------------------------+----------------+---------------------------------------------------+
 | documentType                        | query          | *(optional)* Document Type                        |
++-------------------------------------+----------------+---------------------------------------------------+
+| customerData_name                   | query          | *(optional)* Customer Name                        |
++-------------------------------------+----------------+---------------------------------------------------+
+| customerData_email                  | query          | *(optional)* Customer Email                       |
++-------------------------------------+----------------+---------------------------------------------------+
+| customerData_phone                  | query          | *(optional)* Customer Phone                       |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerId                          | query          | *(optional)* Customer ID                          |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -398,11 +199,6 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-.. note::
-
-    If you are using the auto-generated docs, you may see there are other params, named ``customerData_*``.
-    They are not used in this endpoint. Do not use them in your application, as they will be removed in a future version.
-
 Example
 ^^^^^^^
 
@@ -417,7 +213,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -439,7 +235,7 @@ Example Response
           "documentType": "sell",
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "customerData": {
-            "email": "user@example.com",
+            "email": "user@oloy.com",
             "name": "Jan Nowak",
             "nip": "aaa",
             "phone": "123",
@@ -600,7 +396,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -620,7 +416,7 @@ Example Response
       "documentType": "sell",
       "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
       "customerData": {
-        "email": "user@example.com",
+        "email": "user@oloy.com",
         "name": "Jan Nowak",
         "nip": "aaa",
         "phone": "123",
@@ -699,6 +495,8 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
 +-------------------------------------+----------------+---------------------------------------------------+
+| documentType                        | query          | *(optional)* Document Type                        |
++-------------------------------------+----------------+---------------------------------------------------+
 | customerData_name                   | query          | *(optional)* Customer Name                        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_email                  | query          | *(optional)* Customer Email                       |
@@ -707,19 +505,9 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerId                          | query          | *(optional)* Customer ID                          |
 +-------------------------------------+----------------+---------------------------------------------------+
-| documentType                        | query          | *(optional)* Document Type                        |
-+-------------------------------------+----------------+---------------------------------------------------+
 | documentNumber                      | query          | *(optional)* Document Number                      |
 +-------------------------------------+----------------+---------------------------------------------------+
 | posId                               | query          | *(optional)* POS ID                               |
-+-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDateFrom                    | query          | *(optional)* purchase date's lower limit          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDateTo                      | query          | *(optional)* purchase date's upper limit          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| grossValueFrom                      | query          | *(optional)* transaction gross value lower limit  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| grossValueTo                        | query          | *(optional)* transaction gross value upper limit  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | page                                | query          | *(optional)* Start from page, by default 1        |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -746,7 +534,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -768,7 +556,7 @@ Example Response
       "documentType": "sell",
       "customerId": "00000000-0000-474c-b092-b0dd880c07e2",
       "customerData": {
-        "email": "user-temp@example.com",
+        "email": "user-temp@oloy.com",
         "name": "Jan Nowak",
         "nip": "aaa",
         "phone": "123",
@@ -832,7 +620,7 @@ Example Response
       "documentType": "sell",
       "customerId": "57524216-c059-405a-b951-3ab5c49bae14",
       "customerData": {
-        "email": "open@example.com",
+        "email": "open@oloy.com",
         "name": "Jan Nowak",
         "nip": "aaa",
         "phone": "123",
@@ -941,7 +729,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1046,7 +834,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
@@ -1141,6 +929,8 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
 +-------------------------------------+----------------+---------------------------------------------------+
+| documentType                        | query          | *(optional)* Document Type                        |
++-------------------------------------+----------------+---------------------------------------------------+
 | customerData_name                   | query          | *(optional)* Customer Name                        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_email                  | query          | *(optional)* Customer Email                       |
@@ -1149,19 +939,9 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerId                          | query          | *(optional)* Customer ID                          |
 +-------------------------------------+----------------+---------------------------------------------------+
-| documentType                        | query          | *(optional)* Document Type                        |
-+-------------------------------------+----------------+---------------------------------------------------+
 | documentNumber                      | query          | *(optional)* Document Number                      |
 +-------------------------------------+----------------+---------------------------------------------------+
 | posId                               | query          | *(optional)* POS ID                               |
-+-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDateFrom                    | query          | *(optional)* purchase date's lower limit          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDateTo                      | query          | *(optional)* purchase date's upper limit          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| grossValueFrom                      | query          | *(optional)* transaction gross value lower limit  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| grossValueTo                        | query          | *(optional)* transaction gross value upper limit  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | page                                | query          | *(optional)* Start from page, by default 1        |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -1193,7 +973,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1215,7 +995,7 @@ Example Response
           "documentType": "sell",
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "customerData": {
-            "email": "user@example.com",
+            "email": "user@oloy.com",
             "name": "Jan Nowak",
             "nip": "aaa",
             "phone": "123",
@@ -1364,10 +1144,6 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[transactionData][documentNumber] | query          | Document number                                   |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[revisedDocument]                 | query          | Sales document number                             |
-+----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[storeCode]                       | query          | Store code                                        |
-+----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[transactionData][purchaseDate]   | query          | *(optional)* Purchase date                        |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][sku][code]              | query          | SKU Code                                          |
@@ -1455,13 +1231,13 @@ Example
         -d "transaction[customerData][address][province]=Dolnoslaskie" \
         -d "transaction[customerData][address][country]=PL" \
         -d "transaction[transactionData][documentNumber]=214124124125" \
-        -d "transaction[transactionData][purchaseDate]=2019-02-20 09:28" \
-        -d "transaction[transactionData][documentType]=sell"
+        -d "transaction[transactionData][purchaseDate]=2017-08-22" \
+        -d "transaction[transactionData][documentType]=return"
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1471,7 +1247,6 @@ Example Response
     STATUS: 200 OK
 
 .. code-block:: json
-
     {
       "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433"
     }
@@ -1523,7 +1298,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1533,7 +1308,6 @@ Example Response
     STATUS: 200 OK
 
 .. code-block:: json
-
     {
       "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433"
     }
@@ -1551,14 +1325,14 @@ Definition
 
 .. code-block:: text
 
-    PUT  /api/customer/transaction/labels/append
+    POST  /api/customer/transaction/labels/append
 
 +----------------------------------------------+----------------+---------------------------------------------------+
 | Parameter                                    | Parameter type | Description                                       |
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| append[transactionDocumentNumber]            | query          | Transaction document number                       |
+| append[transactionDocumentNumber]            | query          | Transaction ID                                    |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | append[labels][0][key]                       | query          | *(optional)* First label key                      |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1575,18 +1349,18 @@ Example
 .. code-block:: bash
 
     curl http://localhost:8181/api/customer/transaction/labels/append \
-        -X "PUT" \
+        -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "append[transactionDocumentNumebr]=123" \
-        -d "append[labels][0][key]=some label" \
-        -d "append[labels][0][value]=some value"
+        -d "append[label][0][key]=some label" \
+        -d "append[label][0][value]=some value"
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1596,7 +1370,6 @@ Example Response
     STATUS: 200 OK
 
 .. code-block:: json
-
     {
       "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433"
     }
@@ -1635,7 +1408,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 .. note::
 
@@ -1719,8 +1492,6 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[customerData][address][country]  | query          | *(optional)* Country                              |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[storeCode]                       | query          | *(optional)* Store code                           |
-+----------------------------------------------+----------------+---------------------------------------------------+
 
 **Heads up!** One of the following: email, phone, loyaltyCardNumber is required along with the name to find
 the user for the simulation to be performed.
@@ -1735,6 +1506,7 @@ Example
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "transaction=00000000-0000-1111-0000-000000000099" \
         -d "transaction[items][0][sku][code]=SKU1" \
         -d "transaction[items][0][name]=item+8" \
         -d "transaction[items][0][quantity]=1" \
@@ -1749,7 +1521,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1802,7 +1574,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^

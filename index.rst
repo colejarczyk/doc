@@ -1,6 +1,9 @@
 Open Loyalty Documentation
 ==========================
 
+.. image:: /_images/logo.png
+   :alt:   Open Loyalty Documentation
+
 `Open Loyalty`_ is technology for loyalty solutions for starting new loyalty projects
 based on the `Symfony Framework`_.
 

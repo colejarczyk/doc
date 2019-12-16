@@ -18,13 +18,15 @@ To sign in to the Admin:
 
   The default **Admin URL** look as follow:
 
-.. code-block:: text
+    .. code-block:: text
 
-   https://www.domain.com/admin
+       https://www.domain.com/admin
 
-#. Enter your Admin **Login** and **Password**
+   
+
+2. Enter your Admin **Login** and **Password**     
 #. If you want to log in automatically every time you open the website without needing to enter your login and password mark ``Keep me logged in`` checkbox
-#. Tap ``SIGN IN``
+#. Tap  ``SIGN IN``
 
 
 To reset your password:
@@ -41,13 +43,8 @@ To reset your password:
 
 .. note::
 
-    Your Admin password must be eight or more characters long, and contain at least one upper case letter, one numeric character and
-    one special character.
-
-.. note::
-
-    OL can be configured not to send password recovery emails for Customers and Sellers, but Admin password recovery
-    should work anyway. If the email does not arrive, please check your email configuration.
+    Your Admin password must be eight or more characters long, and contains at least one upper case letters, one numeric character and 
+    one special character
 
 
 To sign out of the Admin:
@@ -59,3 +56,5 @@ In the upper-right corner, tab the **Account** icon. Then on the menu, choose ``
    :alt:   Logout
 
 When you logout, the Sign-In page returns.
+
+
