@@ -7,9 +7,11 @@ Open Loyalty Settings
    introduction
    configuration/index
    users
+   acl
+   role_resources
    translations
    emails
-   System logs
+   system_logs
   
    
 .. include:: /userguide/getting_started/settings/configuration/map.rst.inc

@@ -6,9 +6,9 @@ XML file structure
 
 .. tip:: 
 
-    If you don’t have or don’t want to import all this data, **remove all code line/section instead leave it blank**. 
+    If you don’t have or don’t want to import all this data, **remove all code lines/section instead leave it blank**. 
    
-    For example, if you don’t want to include province remove all line from the code - don’t leave it with no value as below
+    For example, if you don’t want to include province remove all lines from the code - don’t leave it with no value as below
     
     **Remember that some of them are required, so if you remove it Import will not be possible**
 
@@ -21,7 +21,7 @@ XML file structure
      <province></province>
 
 
-Example of complete Customer XML file structure below
+Example of completed Customer XML file structure below
 
 .. code-block:: json
 

@@ -6,7 +6,7 @@ Introduction
 
 Levels are used to categorize customers based on the value of their transactions (orders) - The higher value/amount of transaction, the more points they will get and the higher level they'll reach. 
 
-Customer is assigned to only one level at a time. **Customers are placed into a levels based either on their total amount of transaction or points they have earned**. If customer has spent enough money or earned enough points to move up a level, his level will automatically move up and he will be informed about it via email.
+Customer is assigned to only one level at a time. **Customers are placed into levels based either on their total amount of transactions or points they have earned**. If customer has spent enough money or earned enough points to move up a level, their level will automatically move up and they will be informed about it via email (unless OL was configured not to send one).
 
 Depending on the Configuration, customer can also return to previous level e.g. when order, which caused this promotion, will be returned by him or his accumulated points will be not enough to stay at the current level at the end of specified period. 
 
@@ -23,7 +23,7 @@ Each level can provide fixed discounts and also have exclusive rewards that can 
 
 To display the Levels menu:
 ---------------------------
-On the Admin sidebar, tap ``Levels``, then choose **All levels**
+Tap ``Levels`` on the Admin sidebar and choose **All levels**
 
 
 Menu options:

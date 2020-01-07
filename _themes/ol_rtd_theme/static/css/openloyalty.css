@@ -16,13 +16,13 @@
 }
 .wy-menu-vertical li.current > a {
     color: #fff;
-    background: rgba(87,214,141,1);
+    background: rgba(71,56,140,1);
     border-top: 0;
     border-bottom: 0;
 }
 .wy-menu-vertical li.current > a:hover {
     color: #fff;
-    background: rgba(87,214,141,1);
+    background: rgba(71,56,140,1);
     border-top: 0;
     border-bottom: 0;
 }
@@ -30,11 +30,11 @@
     padding: 20px;
     background-color: #fff;
     text-align: center;
-    background: rgba(87,214,141,1);
+    background: rgba(71,56,140,1);
 }
 .wy-side-nav-search {
     margin-bottom: 30px;
-    background: rgba(87,214,141,1);
+    background: rgba(71,56,140,1);
 }
 .wy-side-nav-search input[type=text] {
     border-color: #eee;

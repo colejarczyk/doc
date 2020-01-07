@@ -3,11 +3,12 @@ Seller API
 
 These endpoints will allow you to see the list of sellers taken in the Open Loyalty.
 
+
+
 Get list of sellers
 -------------------
 
-To retrieve a paginated list of sellers you will need to call the ``/api/seller`` endpoint with the ``GET`` method.
-
+To retrieve a paginated list of sellers you need to call the ``/api/seller`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -52,8 +53,13 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -98,7 +104,7 @@ Exemplary Response
 Register new seller
 -------------------
 
-To register a new seller you will need to call the ``/api/seller/register`` endpoint with the ``POST`` method.
+To register a new seller you need to call the ``/api/seller/register`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -106,7 +112,6 @@ Definition
 .. code-block:: text
 
     POST /api/seller/register
-
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
@@ -146,8 +151,13 @@ Example
         -d "seller[posId]=00000000-0000-474c-1111-b0dd880c07e3" \
         -d "seller[plainPassword]=admin123"
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -162,10 +172,11 @@ Exemplary Response
     }
 
 
+
 Get seller details
 ------------------
 
-To retrieve seller details you will need to call the ``/api/seller/<seller>`` endpoint with the ``GET`` method.
+To retrieve seller details you need to call the ``/api/seller/<seller>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -186,7 +197,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the customer user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the below method:
+To see the details of the seller user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the method below:
 
 .. code-block:: bash
 
@@ -197,8 +208,13 @@ To see the details of the customer user with ``seller = 00000000-0000-474c-b092-
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -222,11 +238,10 @@ Exemplary Response
 
 
 
-
 Update seller details
 ---------------------
 
-To fully update seller details for user you will need to call the ``/api/seller/<seller>`` endpoint with the ``PUT`` method.
+To fully update seller details for user you need to call the ``/api/seller/<seller>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -234,7 +249,6 @@ Definition
 .. code-block:: text
 
     PUT /api/seller/<seller>
-
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
@@ -276,9 +290,13 @@ Example
         -d "seller[posId]=00000000-0000-474c-1111-b0dd880c07e2" \
         -d "seller[plainPassword]=admin"
 
+.. note::
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -291,10 +309,11 @@ Exemplary Response
     }
 
 
+
 Activate seller
 ---------------
 
-To activate seller you will need to call the ``/api/seller/<seller>/activate`` endpoint with the ``POST`` method.
+To activate seller you need to call the ``/api/seller/<seller>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -314,7 +333,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the deactivated user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the below method:
+To activate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the method below:
 
 
 .. code-block:: bash
@@ -325,8 +344,13 @@ To see the deactivated user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4
         -H "Content-type:\ application/x-www-form-urlencoded" \
         -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -334,13 +358,14 @@ Exemplary Response
 
 .. code-block:: json
 
-    No Content
+    (no content)
+
 
 
 Deactivate seller
 -----------------
 
-To deactivate seller you will need to call the ``/api/seller/<seller>/deactivate`` endpoint with the ``POST`` method.
+To deactivate seller you need to call the ``/api/seller/<seller>/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -360,7 +385,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the deactivated user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the below method:
+To deactivate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the method below:
 
 
 .. code-block:: bash
@@ -369,10 +394,15 @@ To see the deactivated user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
-        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -380,13 +410,13 @@ Exemplary Response
 
 .. code-block:: json
 
-    No Content
+    (no content)
 
 
 Delete seller
 -------------
 
-To delete seller you will need to call the ``/api/seller/<seller>/delete`` endpoint with the ``POST`` method.
+To delete seller you need to call the ``/api/seller/<seller>/delete`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -406,7 +436,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the deactivated user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the below method:
+To delete a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the method below:
 
 .. code-block:: bash
 
@@ -416,8 +446,13 @@ To see the deactivated user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4
         -H "Content-type:\ application/x-www-form-urlencoded" \
         -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -425,4 +460,4 @@ Exemplary Response
 
 .. code-block:: json
 
-    No Content
+    (no content)

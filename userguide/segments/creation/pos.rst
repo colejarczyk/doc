@@ -11,7 +11,7 @@ Segment of customers who have made purchase (at least one) in selected POS.
 To create only Bought in specific POS type segment:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Segments**. Then, choose **Add segment**. You can also add rule directly from **All segments** list by clicking ``Add segment`` at the top of the page 
+1. Tap **Segments** on the Admin sidebar and choose **Add segment**. You can also add rule directly from **All segments** list by clicking ``Add segment`` at the top of the page 
 
 .. image:: /userguide/_images/add_segment_button.png
    :alt:   Add Segment Options  
@@ -31,7 +31,7 @@ To create only Bought in specific POS type segment:
 
    During creation, you need to specify list of one or more stores (POS) that will be included. You create the list by drag the selected POS name from left column to the right one. 
    
-   First column list all available POS within your Loyalty Program. Second column list all selected POS which transaction will be included. 
+   First column lists all available POS within your Loyalty Program. Second column lists all selected POS which transactions will be included. 
 
    **To choose POS drag the POS name to the second column**
    
@@ -62,7 +62,7 @@ To learn more about conditions type, see :doc:`Segment parts types </userguide/s
 
 .. |bin| image:: /userguide/_images/bin.png
 
-5. When complete, tap ``SAVE``  
+5. When it is done, tap ``SAVE``  
  
    
    

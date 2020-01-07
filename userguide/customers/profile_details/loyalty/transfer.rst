@@ -4,7 +4,7 @@
 Points transfers
 ================
 
-**Points transfers** tab provide a view of latest points which customer gain or spend. Moreover, list contains information whether points are the result of Earning Rules (system) or they have been manually set by the Admin user (admin) and date until they will be locked.
+**Points transfers** tab provides a view of latest points which customer gained or spent. Moreover, list contains information whether points are the result of Earning Rules (system) or they have been manually set by the Admin user (admin) and date until they will be locked.
 
 .. image:: /userguide/_images/customer_transfer.png
    :alt:   Points Transfers Lists
@@ -16,7 +16,7 @@ To cancel points transfer click **Remove** icon |remove| in the Action column. S
 .. image:: /userguide/_images/remove_ok.png
    :alt:   Removing Transfer Action
 
-After canceling, no action to canceled transfer record will be longer available and the **Remove** icon background change color to blue. The same situation deal with Points transfers with "spending" type. 
+After canceling, no action to canceled transfer record will be longer available and the **Remove** icon background changes color to blue. The same situation deals with Points transfers with "spending" type. 
 
 To see the list of all your customer points transfers (not only the latest)  click ``All Points Transfer`` below the tab.
 
@@ -30,7 +30,7 @@ Field description
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Field             | Description                                                                                                                 |
 +===================+=============================================================================================================================+
-| Issuer            | | Define who create Transfer operation.                                                                                     |
+| Issuer            | | Define who creates Transfer operation.                                                                                     |
 |                   | | **Options include: system/admin**                                                                                         |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | State             | | Transferred points state:                                                                                                 |

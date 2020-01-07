@@ -9,7 +9,7 @@ Customers through theirs account can view all their activity within Loyalty Prog
 Home
 ^^^^
 
-*The customer’s Home page provides them the ability to view current level and assigned to this level reward, active points balance, points missing to next level and links to other areas of loyalty activities: redeem rewards, get more points, edit profile, check transaction, invite friend etc.*
+*The customer’s Home page provides them the ability to view current level and assign to this level reward, active points balance, points missing to next level and links to other areas of loyalty activities: redeem rewards, get more points, edit profile, check transaction, invite friend etc.*
 
 .. image:: /userguide/_images/home.png
    :alt:   Client Home page
@@ -25,7 +25,7 @@ My Rewards
 My Points
 ^^^^^^^^^
 
-*Displays a loyalty points balance and levels details. Menu gives him also ability to track all points transfers with detail information regarding the date, point’s state and type and reward (in case of transfers with “spending” type)*
+*Displays a loyalty points balance and levels details. Menu gives him also ability to track all points transfers with detail information regarding the date, points state and type and reward (in case of transfers with “spending” type)*
     
 .. image:: /userguide/_images/my_points.png
    :alt:   Client My points

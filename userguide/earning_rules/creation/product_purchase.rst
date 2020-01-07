@@ -9,7 +9,7 @@ Reward customer with defined amount of points for purchase specified products. R
 To add new Product purchase rule:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Earning rules**. Then, choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
+1. Tap **Earning rules** on the Admin sidebar and choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
 
 .. image:: /userguide/_images/add_rule_button.png
    :alt:   Add Rule Options  
@@ -74,7 +74,7 @@ To add new Product purchase rule:
 .. image:: /userguide/_images/rule_photo.png
    :alt:   Earning rule photo option
 
-8. When complete, tap ``SAVE``
+8. When it is done, tap ``SAVE``
 
 
 .. note:: 
@@ -90,7 +90,7 @@ Exceptional case of stoppable flag
 
 All Product purchase rules have the same priority. It means, that to points calculation the most "current" rule is used. In that case, "current" means edited as the last one. 
 
-So, if you add a "stoppable" flag to 1st rule and before points calculation you will also edited 2nd and 3rd (name, description, activity etc.), Open Loyalty recognize the 2nd and 3rd as the more "current" and use them before the rule with stoppable flag.  
+So, if you add a "stoppable" flag to 1st rule and before points calculation you will also edited 2nd and 3rd (name, description, activity etc.), Open Loyalty recognizes the 2nd and 3rd as the more "current" and use them before the rule with stoppable flag.  
 
 .. note:: 
 

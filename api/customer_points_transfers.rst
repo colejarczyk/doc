@@ -49,12 +49,11 @@ Example
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an exemplary value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
-
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -70,7 +69,7 @@ Exemplary Response
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "customerFirstName": "John",
           "customerLastName": "Doe",
-          "customerEmail": "user@oloy.com",
+          "customerEmail": "user@example.com",
           "customerPhone": "11111",
           "createdAt": "2018-01-21T09:45:05+0100",
           "value": 100,
@@ -85,7 +84,7 @@ Exemplary Response
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
           "customerFirstName": "John",
           "customerLastName": "Doe",
-          "customerEmail": "user@oloy.com",
+          "customerEmail": "user@example.com",
           "customerPhone": "11111",
           "createdAt": "2018-02-19T09:45:05+0100",
           "value": 6.9,
@@ -100,4 +99,59 @@ Exemplary Response
         }
       ],
       "total": 2
+    }
+
+
+Transfer points between customers
+---------------------------------
+
+To transfer points owned by a specific customer to another customer use ``/api/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST  /api/customer/points/p2p-transfer
+
++----------------------+----------------+--------------------------------------------------------+
+| Parameter            | Parameter type |  Description                                           |
++======================+================+========================================================+
+| Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| transfer[receiver]   | string         | Customer ID                                            |
++----------------------+----------------+--------------------------------------------------------+
+| transfer[points]     | float          | Number of point                                        |
++----------------------+----------------+--------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/customer/points/p2p-transfer \
+        -X "POST" \
+        -H "Accept:application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization:\ Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+		-d "transfer[receiver]=00000000-0000-474c-b092-b0dd880c07f5" \
+		-d "transfer[points]=11"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. RRead more about Authorization :doc:`here </api/authorization>`.
+
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+     "pointsTransferId": "5db67ae4-ddc8-4590-ac2d-0b3e0b8f4c7e"
     }

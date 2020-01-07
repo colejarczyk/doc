@@ -35,7 +35,7 @@ During creation you can specify for each reward e.g.:
 
 To display the Reward campaigns menu:
 -------------------------------------
-On the Admin sidebar, tap ``Reward campaigns``, then choose **All reward campaigns**
+Tap ``Reward campaigns`` on the Admin sidebar and choose **All reward campaigns**
 
 
 Menu options:

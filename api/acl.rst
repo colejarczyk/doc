@@ -6,7 +6,7 @@ These endpoints will allow you to easily manage ACL for administrator.
 Creating an role
 ----------------
 
-To create a new role you will need to call the ``/api/admin/acl/role`` endpoint with the ``POST`` method.
+To create a new role you need to call the ``/api/admin/acl/role`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -30,7 +30,7 @@ Definition
 Example
 ^^^^^^^
 
-To create a new role use the below method:
+To create a new role use the method below:
 
 .. code-block:: bash
 
@@ -40,29 +40,36 @@ To create a new role use the below method:
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "role[name]=Super admin" \
-        -d "role[permissions][0]['resource']=LEVEL" \
-        -d "role[permissions][0]['access']=MODIFY" \
-        -d "role[permissions][1]['resource']=EARNING_RULE" \
-        -d "role[permissions][1]['access']=MODIFY" \
+        -d "role[permissions][0][resource]=LEVEL" \
+        -d "role[permissions][0][access]=MODIFY" \
+        -d "role[permissions][1][resource]=EARNING_RULE" \
+        -d "role[permissions][1][access]=MODIFY"
 
-Exemplary Response
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-    STATUS: 204 OK
+    STATUS: 204 No Content
+
+
 
 Getting a single role
 ---------------------
 
-To retrieve the details of a role you will need to call the ``/api/admin/acl/role/{role}`` endpoint with the ``GET`` method.
+To retrieve the details of a role you need to call the ``/api/admin/acl/role/{role}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/admin/data/<admin>
+    GET /api/admin/acl/role/<role>
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
@@ -75,7 +82,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the admin user with ``role = 37`` use the below method:
+To see the details of the admin user with ``role = 37`` use the method below:
 
 .. code-block:: bash
 
@@ -84,7 +91,12 @@ To see the details of the admin user with ``role = 37`` use the below method:
         -H "Content-type: application/x-www-form-urlencoded"
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -94,7 +106,7 @@ Exemplary Response
 .. code-block:: json
 
     {
-        "id": 38,
+        "id": 37,
         "name": "Reporter admin",
         "role": "ROLE_ADMIN",
         "master": false,
@@ -119,12 +131,12 @@ Exemplary Response
 
 .. note::
 
-    The *37* id is an exemplary value. Your value can be different.
+    The *37* id is an example value. Your value can be different.
 
 Collection of available roles
 -----------------------------
 
-To retrieve a list of roles you will need to call the ``/api/admin/acl/role`` endpoint with the ``GET`` method.
+To retrieve a list of roles you need to call the ``/api/admin/acl/role`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -139,7 +151,7 @@ Definition
 | Authorization                       | header         | Token received during authentication              |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the list of available roles use the below method:
+To see the list of available roles use the method below:
 
 Example
 ^^^^^^^
@@ -150,8 +162,14 @@ Example
         -X "GET" -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        
+.. note::
 
-Exemplary Response
+   The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+   Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    
+
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -199,7 +217,7 @@ Exemplary Response
 Updating a role
 ---------------
 
-To update a role you will need to call the ``/api/admin/acl/role/<role>`` endpoint with the ``PUT`` method.
+To update a role you need to call the ``/api/admin/acl/role/<role>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -223,7 +241,7 @@ Definition
 Example
 ^^^^^^^
 
- To update the role with ``id = 37`` use the below method:
+ To update the role with ``id = 37`` use the method below:
 
 .. code-block:: bash
 
@@ -233,22 +251,24 @@ Example
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -X "PUT" \
         -d "role[name]=Super admin" \
-        -d "role[permissions][0]['resource']=LEVEL" \
-        -d "role[permissions][0]['access']=MODIFY" \
-        -d "role[permissions][1]['resource']=EARNING_RULE" \
-        -d "role[permissions][1]['access']=MODIFY" \
+        -d "role[permissions][0][resource]=LEVEL" \
+        -d "role[permissions][0][access]=MODIFY" \
+        -d "role[permissions][1][resource]=EARNING_RULE" \
+        -d "role[permissions][1][access]=MODIFY" \
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-    STATUS: 204 OK
+    STATUS: 204 No Content
+
+
 
 Collection of available resources
 ---------------------------------
 
-To retrieve a list of available resources you will need to call the ``/api/admin/acl/resources`` endpoint with the ``GET`` method.
+To retrieve a list of available resources you need to call the ``/api/admin/acl/resources`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -263,7 +283,7 @@ Definition
 | Authorization                       | header         | Token received during authentication              |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the list of available resources use the below method:
+To see the list of available resources use the method below:
 
 Example
 ^^^^^^^
@@ -275,7 +295,7 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -305,7 +325,7 @@ Exemplary Response
 Collection of available accesses
 --------------------------------
 
-To retrieve a list of available accesses types you will need to call the ``/api/admin/acl/accesses`` endpoint with the ``GET`` method.
+To retrieve a list of available accesses types you need to call the ``/api/admin/acl/accesses`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -320,19 +340,19 @@ Definition
 | Authorization                       | header         | Token received during authentication              |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the list of available accesses use the below method:
+To see the list of available accesses use the method below:
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/acl/resources \
+    curl http://localhost:8181/api/admin/acl/accesses \
         -X "GET" -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Exemplary Response
+Example Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -354,3 +374,45 @@ Exemplary Response
       ],
       "total": 2
     }
+    
+  
+Deleting a single role
+----------------------
+
+To delete specific role you need to call the ``/api/admin/acl/role/{role}`` endpoint with the ``DELETE`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    DELETE /api/admin/acl/role/{role}
+
++---------------+----------------+--------------------------------------+
+| Parameter     | Parameter type | Description                          |
++===============+================+======================================+
+| Authorization | header         | Token received during authentication |
++---------------+----------------+--------------------------------------+
+| <role>        | query          | Id of the role                       |
++---------------+----------------+--------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/admin/acl/role/37
+        -X "DELETE" -H "Accept: application/json"
+        -H "Content-type: application/x-www-form-urlencoded"
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    204 No Content
+
+.. note::
+
+    The *37* id is an example value. Your value can be different.

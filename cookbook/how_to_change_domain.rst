@@ -142,7 +142,7 @@ Using k8s cluster
 We recommend to use k8s for real production usage. The idea behind k8s is that it allows to mount a single file which
 docker and docker-compose doesn't.
 
-Here is an example of config.yml file which has ConfigMap with content of config.js and parameters.yml file.
+Here is an example of config.yml file which has ConfigMap with content of config.js and Symfony config files.
 This content will be used in the deployment file to replace existing files with configuration from ConfigMap.
 
 .. code-block::
@@ -194,8 +194,8 @@ This content will be used in the deployment file to replace existing files with 
             mailer_password: null
             mailer_port: 25
             mailer_encryption: null
-            mailer_from_address: open@oloy.com
-            mailer_from_name: open@oloy.com
+            mailer_from_address: open@example.com
+            mailer_from_name: open@example.com
             frontend_password_reset_url: '%env(frontend_password_reset_url)%'
             frontend_activate_account_url: '%env(frontend_activate_account_url)%'
             frontend_customer_panel_url: '%env(frontend_customer_panel_url)%'
@@ -204,12 +204,11 @@ This content will be used in the deployment file to replace existing files with 
             env(frontend_customer_panel_url): 'http://example.com:8182/'
             ecommerce_address: 'http://ecommerce.local'
             es_max_result_window_size: 2000000
-            fallback_frontend_translations_file: english.json
         ---
 
 Now we can create a deployment for PHP container. Most of the configuration is related to run image as a container and k8s
-polices but take a look at volumeMounts and volumes. volumneMounts is where we mount volume named "parameters" to the
-specific file in the container. In the volumne section, volume name "parameters" is defined and it's content is
+polices but take a look at volumeMounts and volumes. volumeMounts is where we mount volume named "parameters" to the
+specific file in the container. In the volume section, volume name "parameters" is defined and it's content is
 get from ConfigMap at key "parameters.yml".
 
 We change Open Loyalty configuration using our own configuration defined in ConfigMap and just replace file at the

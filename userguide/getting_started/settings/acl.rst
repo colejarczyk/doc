@@ -6,11 +6,11 @@ Access Control List (ACL)
 
 .. note::
 
-    **Users roles and permissions (ACL settings) are related only with Admin Cockpit users**
+    **Users roles and permissions (ACL settings) are related only to Admin Cockpit users**
 
 Open Loyalty platform uses roles and permissions to create different levels of access to the Admin Cockpit. When your platform is first installed, you receive a **Super admin** role that has full permissions and give you full administrative access.
 
-However, you can restrict the level of permissions for other admin users, who work with you. For example, a customer sevice can be given access to only the Customers, but not to areas with settings and earning rules.
+However, you can restrict the level of permissions for other admin users, who work with you. For example, a customer service can given access to only the Customers, but not to areas with settings and earning rules.
 
 .. note::
 
@@ -26,7 +26,7 @@ If an Admin user’s access is restricted to specific sections and/or elements, 
 
 .. note::
 
-    The grid lists all the existing roles. After first installed, **Super admin** is the only role available.
+    The grid lists all the existing roles. After the first is installed, **Super admin** is the only role available.
 
 
 New role creation
@@ -35,7 +35,7 @@ New role creation
 To add new Role:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **ACL**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **ACL** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -49,7 +49,7 @@ To add new Role:
  
 3. In the *Basic Information* section enter a descriptive role **Name**
 
-4. To assigne resources and permissions level, do the following:
+4. To assign resources and permissions level, do the following:
 
   - tap ``Add permission`` in **Permissions** field
   - set **Access** level of permissions to one of the following:
@@ -65,13 +65,13 @@ To add new Role:
 .. image:: /userguide/_images/permissions.PNG
    :alt:   Assigne resources
   
-5. Repeat *step 4* to add access for additional resources assigne to the Role
+5. Repeat *step 4* to add access for additional resources assigned to the Role
 
 6. You can simply remove permission by clicking bin |bin| icon in a particular row 
 
 .. |bin| image:: /userguide/_images/bin.png
 
-7. When complete, tap ``SAVE``
+7. When it is done, tap ``SAVE``
  
 The role now appears in the grid, and can be assigned to new user accounts.
 
@@ -103,7 +103,7 @@ To learn more about Role resources please find :doc:`Role resources </userguide/
 
 .. tip::
 
-    **When assigning resources, be sure to include all sections containing resources to which user should have an access. Otherwise, users will not be able to modify or view them all.**
+    **When assigning resources, please be sure to include all sections containing resources to which user should have an access. Otherwise, users will not be able to modify or view them all.**
 
 
 Users roles management
@@ -115,11 +115,11 @@ To edit a Role:
 .. image:: /userguide/_images/role_edit.PNG
    :alt:   Role edition mode
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **ACL**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **ACL** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
-2.	In the Roles list, find the record to be edited and click **Edit** icon |edit|  in the Action column to open the role in edit mode.	
+2. In the Roles list, find the record to be edited and click **Edit** icon |edit|  in the Action column to open the role in edit mode.	
 
 .. |edit| image:: /userguide/_images/edit.png
 
@@ -140,7 +140,7 @@ You can also delete existing role from the Admin.
     Default **Super admin** role can not be deleted 
     
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **ACL**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **ACL** on the menu.
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -148,17 +148,17 @@ You can also delete existing role from the Admin.
 
 .. |remove| image:: /userguide/_images/remove.png
 
-3. System display a message asked you to confirm the action. To confirm tap ``Yes``
+3. System displays a message asked you to confirm the action. To confirm tap ``Yes``
 
 .. image:: /userguide/_images/remove_role.PNG
    :alt:   Removing Role Action
 
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 
 .. warning::
 
-    When removing role, be sure to don't delete role which is currently assigned to any user.  
+    When removing role, please be sure to don't delete role which is currently assigned to any user.  
     
     **Otherwise, user will not be able to login to Admin Cockpit** 

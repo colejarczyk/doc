@@ -1,17 +1,17 @@
-How to add new tab in admin panel
-=================================
+How to add a new tab in the admin panel
+=======================================
 
 In this tutorial we will describe how to add a new simple tab (`mock`) to admin panel.
 
-Create module
--------------
+Create a module
+---------------
 
-Let's create in ``frontend/src/modules`` new `admin.mock` directory. Module contains `templates` directory for
-html templates and minimum 3 files.
+Let's create a new `admin.mock` directory in ``frontend/src/modules``. Module contains `templates` directory for html
+templates and minimum 3 files.
 
  - MockController.js - responsible for controlling views,
- - MockService - providing logic or data,
- - module.js - entry point for module, which defining routing, controllers, services etc.
+ - MockService.js - providing logic or data,
+ - module.js - entry point for module, defining routing, controllers, services etc.
 
 Create `module.js` with content:
 
@@ -79,7 +79,7 @@ And finally we have to register our module in ``frontend/src/appAdmin.js`` by ad
     ...
     angular.module('OpenLoyalty', [
     ...
-    'admin.mock'
+      'admin.mock'
     ...
     ]
 

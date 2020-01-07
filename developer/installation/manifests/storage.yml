@@ -88,4 +88,17 @@ spec:
   accessModes:
     - ReadWriteMany
 ---
-
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: rabbitmq-volume
+  namespace: openloyalty
+  labels:
+    storage-tier: rabbitmq
+spec:
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 1Gi
+  accessModes:
+    - ReadWriteOnce

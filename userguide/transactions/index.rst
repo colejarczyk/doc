@@ -13,11 +13,21 @@ Transactions menu
 .. include:: /userguide/transactions/menu/map.rst.inc
 
 
+
 Transactions matching
 ---------------------
 
 - :doc:`Match transaction with customer </userguide/transactions/matching_transaction>`
  
+
+
+Return mechanism
+----------------
+
+- :doc:`Return transactions </userguide/transactions/menu/returns>`
+- :doc:`Return "Voucher </userguide/transactions/return_voucher>`
+
+
 
 Transactions import
 -------------------

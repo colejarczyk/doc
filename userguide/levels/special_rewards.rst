@@ -30,7 +30,7 @@ To assigned special rewards to level:
 
 3. Repeat the steps for all special rewards you want to assigned to this level 
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 5. You can simply remove special reward by clicking bin icon |remove| in a particular box
 

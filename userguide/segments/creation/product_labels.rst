@@ -20,7 +20,7 @@ To create only Bought products with labels type segment:
 2. In **Basic informations** section, do the following:  
 
  - Enter a unique segment **Name** to identify the customer segment when working in the Admin
- - Enter a brief **Description** that explain purpose of the segment for internal reference
+ - Enter a brief **Description** that explains purpose of the segment for internal reference
  - To activate the customer segment, in **Active** field select "**Active**" from the dropdown list
 
    
@@ -29,7 +29,7 @@ To create only Bought products with labels type segment:
 
 3. In **Segment Parts** set the conditions that must be met to assign the customer to *only* **Bought products with labels** segment.   
 
-   Each of list element has two values – **Key**, which is a label name, and **Value**, which is a label value. Both field need to be filled out.  
+   Each of list element has two values – **Key**, which is a label name, and **Value**, which is a label value. Both fields need to be filled out.  
    
    Enter your key and value to add a product label. To apply additional labels, click ``Add label``
 
@@ -58,7 +58,7 @@ To learn more about conditions type, see :doc:`Segment parts types </userguide/s
 
 .. |bin| image:: /userguide/_images/bin.png
 
-5. When complete, tap ``SAVE``  
+5. When it is done, tap ``SAVE``  
  
    
    
