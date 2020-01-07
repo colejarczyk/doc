@@ -6,27 +6,27 @@ Custom campaign
 
 Receiving reward by customer may be linked with :doc:`geolocation </userguide/earning_rules/creation/geolocation>` or :doc:`QR code </userguide/earning_rules/creation/qrcode>` earning rule. Rule to which reward will be assigned is specified in **Connect type** field.
 
-If customer redeemed reward, and conditions of linked rule will be met, additional points will be assign to his account. 
+If customer redeemed reward, and conditions of linked rule will be met, additional points will be assigned to his account. 
 
 **For example**
 
 - during reward creation, **geolocation** earning rule has been assigned, for which (when it is fulfilled) customer can get 10 points. 
   
-  When during reward redeeming, customer is in specified in geolocation rule location (rule radius, latitude, longitude conditions are met), **except reward that he redeemed additional 10 points goes to his Active points pool**. If rule conditions are not fulfilled, customer receive only reward (without additional points). 
+  When during reward redeeming, customer is in specified in geolocation rule location (rule radius, latitude, longitude conditions are met), **except reward that he redeemed additional 10 points goes to his Active points pool**. If rule conditions are not fulfilled, customer receives only reward (without additional points). 
 
 - during reward creation, **qr code** earning rule has been assigned, for which (when it is fulfilled) customer can get 15 points.  
 
-  When during reward redeeming, customer will scan specified in qr code rule code (e.g. redeeming reward is done by scanning code), **except reward that he redeemed additional 15 points goes to his Active points pool**. If rule conditions are not fulfilled, customer receive only reward (without additional points). 
+  When during reward redeeming, customer will scan specified in qr code rule code (e.g. redeeming reward is done by scanning code), **except reward that he redeemed additional 15 points goes to his Active points pool**. If rule conditions are not fulfilled, customer receives only reward (without additional points). 
 
 To create Custom campaign reward:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Reward campaigns**. Then, choose **Add reward campaign**. You can also add new reward directly from **All reward campaigns** list by clicking ``Add reward campaign`` at the top of the page 
+1. Tap **Reward campaigns** on the Admin sidebar and choose **Add reward campaign**. You can also add new reward directly from **All reward campaigns** list by clicking ``Add reward campaign`` at the top of the page 
 
 .. image:: /userguide/_images/add_reward_button.png
    :alt:   Add Reward Options  
 
-2. In the **Campaign type** section select a **Custom campaign** reward type from a dropdown list (by default Discount code is displaying)
+2. In the **Campaign type** section select a **Custom campaign** reward type from a dropdown list (Discount code is displayed by default)
 
 .. image:: /userguide/_images/custom_type.PNG
    :alt:   Custom reward type 
@@ -91,7 +91,7 @@ To create Custom campaign reward:
 
     Labels can be added to reward campaign during reward creation and subsequently added and modified at any time 
 
-6. In the same **Campaign details** section, in **Categories** field, select campaign category or categories to be assign to this reward campaign. You can assign more than one campaign category. 
+6. In the same **Campaign details** section, in **Categories** field, select campaign category or categories to be assigned to this reward campaign. You can assign more than one campaign category. 
 
 .. image:: /userguide/_images/reward_category.png
    :alt:   Campaign category      
@@ -105,18 +105,18 @@ To create Custom campaign reward:
  - **None**  
       Any earning rule linked 
 
-   If you choose any other type than *None*, choose one of the **Earning rule** from a dropdown (related to the type choose in previous step)
+   If you choose any other type than *None*, choose one of the **Earning rule** from a dropdown (related to the type chosen in previous step)
 
 .. image:: /userguide/_images/custom_rule.png
    :alt:   Earning rule
 
 .. note:: 
 
-    Displaying earning rule names will be related with type, chose in previous step.
+    Displaying earning rule names will be related with type chosen in previous step.
     
     For example, if you set Connect type to Geolocation earning rule, only Geolocation earning rules will be listed.  
 
-8. **Brand info** section allow to upload an image of the reward brand, that will be display in Client cockpit
+8. **Brand info** section allows to upload an image of the reward brand, that will be displayed in Client cockpit
 
 .. image:: /userguide/_images/reward_brand.png
    :alt:   Brand info 
@@ -144,7 +144,7 @@ To create Custom campaign reward:
     **Visible to** and **Visible from** fields are available only when reward visibility is limited
 
 
-11. **Activity** section define time boundaries when reward can be used by customers. To make the reward *available for a limited period of time*, complete the **From and To dates** in Activity section:  
+11. **Activity** section defines time boundaries when reward can be used by customers. To make the reward *available for a limited period of time*, complete the **From and To dates** in Activity section:  
 
  - In **Active from** field set the first date the reward is available. You can either enter the date or select it from the calendar
  - In **Active to** field set the last date the reward is available. You can either enter the date or select it from the calendar
@@ -186,7 +186,7 @@ To create Custom campaign reward:
     Image size is limited to 2MB. Image dimensions could not be smaller than 600 x 600 px. Allowed file formats: png, gif, jpg.
 
 
-13. When complete, tap ``SAVE``  
+13. When it is done, tap ``SAVE``  
 
 
 .. warning:: 

@@ -37,7 +37,7 @@ Defines access to the :doc:`ACL  </userguide/getting_started/settings/acl>` sett
     
 .. warning:: 
 
-    When assigning resources, be sure to don't give an any access to the **ACL** section if you are limiting access for a given role. 
+    When assigning resources, please be sure to don't give an any access to the **ACL** section if you are limiting access for a given role. 
     
     **Otherwise, users will be able to modify their own permissions** 
 
@@ -513,7 +513,7 @@ Defines access to the :doc:`Transactions  </userguide/transactions/index>` secti
 Utilities
 ^^^^^^^^^^^^^^^^^^
 
-Enable export options
+Enables export options
 
 
 +-------------------------------------------------+

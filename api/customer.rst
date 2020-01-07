@@ -721,7 +721,52 @@ Example Response
 
     (no content)
 
+Anonymize customer 
+------------------
 
+To anonymize the customer you need to call the ``/api/admin/customer/{customer}/anonymize`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/admin/customer/{customer}/anonymize
+
++----------------------+----------------+--------------------------------------------------------+
+| Parameter            | Parameter type |  Description                                           |
++======================+================+========================================================+
+| Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <customer>           | query          | Customer UUID                                          |
++----------------------+----------------+--------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/admin/customer/c9be6a4e-9a21-414a-bbbd-f506d9ffad85/anonymize \
+        -X "POST" \
+        -H "Accept:\ application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204
+	
+.. code-block:: json
+
+    (no content)
 
 Check if customer with given phone number or email exists
 ---------------------------------------------------------

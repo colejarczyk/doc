@@ -36,7 +36,7 @@ Levels
 Points Transfers
 ''''''''''''''''
 
-*The Points Transfer menu includes tools to controls everything related to your points transfer operation*
+*The Points Transfer menu includes tools to control everything related to your points transfer operation*
 
 
 .. image:: /userguide/_images/transfer.png

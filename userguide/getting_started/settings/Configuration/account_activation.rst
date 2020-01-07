@@ -13,7 +13,7 @@ In order to use Open Loyalty Client cockpit, your customers must first activate 
 To set up account activation method:
 ''''''''''''''''''''''''''''''''''''
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Configuration**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Configuration** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -26,6 +26,6 @@ To set up account activation method:
   - **SMS**  
       an account will be activated after entering a verification code sent to the phone number. The Verification PIN is valid for 30 minutes
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 

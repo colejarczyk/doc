@@ -11,11 +11,11 @@ An account can be locked and unlocked (set to active) by Admin user.
 To lock/unlock an admin account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Customers**. Then, choose **All Customers**. 
+1. Tap **Customers** on the Admin sidebar and choose **All Customers**. 
    
    You can also deactivate/activate customer account from :doc:`Edit mode </account/account_deactivate>`
 
-2. In the Customers list, find the record to be lock/unlock and click **Deactivate/Activate** icon |remove| in the Action column
+2. In the Customers list, find the record to be locked/unlocked and click **Deactivate/Activate** icon |remove| in the Action column
 
 .. |remove| image:: /userguide/_images/remove.png
 
@@ -24,7 +24,7 @@ To lock/unlock an admin account:
 .. image:: /userguide/_images/customer_deactivate.png
    :alt:   System Message
 
-4. The deactivated customer account appears on the Customers list as a greyed-out
+4. The deactivated customer account appears on the Customers list as a grayed-out
 
 5. To activate an account click the same icon |remove| and confirm the action
 

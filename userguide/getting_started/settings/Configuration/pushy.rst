@@ -21,7 +21,7 @@ You need to pass these device tokens to OpenLoyalty via /api/customer/{customer}
 .. image:: /userguide/_images/pushy.PNG	
    :alt:   Push Notification Service
 
-**Currently, Open Loyalty support one notification about new reward campaign available for customer** 
+**Currently, Open Loyalty supports one notification about new reward campaign available for customer** 
 
 Text of displaying notification is provided by you during reward campaign creation. More information about reward campaigns you will find :doc:`here </userguide/reward_campaigns/index>`
 
@@ -35,7 +35,7 @@ Text of displaying notification is provided by you during reward campaign creati
 To set up integration with Pushy:
 '''''''''''''''''''''''''''''''''''''''
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Configuration**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Configuration** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -43,7 +43,7 @@ To set up integration with Pushy:
 
 3. To integrate with Pushy in **Pushy API secret key** field provide your Pushy ApiSecret string (API authentication section from your Pushy account) 
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 .. warning::
 

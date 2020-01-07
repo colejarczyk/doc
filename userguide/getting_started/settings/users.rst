@@ -12,7 +12,7 @@ Then, you can assign the role to a specific user account.
 
 .. note::
 
-    **Admin users who are assigned to a restricted role can see and/or change data only for resources that are associated with the role**
+    **Admin users, who are assigned to a restricted role, can see and/or change data only for resources that are associated with the role**
 
 
 Users list include both active and inactive Admin user’s – inactive are grayed-out.
@@ -29,7 +29,7 @@ New admin user creation
 To add new user:
 ^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings_add| . Then on the menu, choose **Users**.
+1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Users** on the menu.
 
 .. |settings_add| image:: /userguide/_images/icon.png
 
@@ -63,7 +63,7 @@ To add new user:
 
 6. Set **Active** field to "Active"
 
-7. When complete, tap ``SAVE``
+7. When it is done, tap ``SAVE``
 
 .. note::
 
@@ -79,28 +79,28 @@ Admin user edition
 To edit an admin account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings_edit| . Then on the menu, choose **Users**.
+1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Users** on the menu.
 
 .. |settings_edit| image:: /userguide/_images/icon.png
 
-2.	In the Users list, find the record to be edited and click **Edit** icon |edit_form|  in the Action column to open the record in edit mode.
+2. In the Users list, find the record to be edited and click **Edit** icon |edit_form|  in the Action column to open the record in edit mode.
 
 .. |edit_form| image:: /userguide/_images/edit.png
 
 3. Make any necessary changes to user account information. **If you change password/API key or role, make sure to inform user about changes**
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 
 Locked users
 ------------
 
-Any user account that is currently inactive appears in the Users list as grayed-out. An account can be unlocked (set to active) by other Admin users.
+Any user account, that is currently inactive, appears in the Users list as grayed-out. An account can be unlocked (set to active) by other Admin users.
 
 To lock/unlock an admin account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings_lock| . Then on the menu, choose **Users**.
+1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Users** on the menu.
 
 .. |settings_lock| image:: /userguide/_images/icon.png
 
@@ -108,7 +108,7 @@ To lock/unlock an admin account:
 
 .. |lock_form| image:: /userguide/_images/edit.png
 
-3. Set **Active** field, to one of the following
+3. Set **Active** field to one of the following
 
   - **Active**
       to unlock admin account. User can log in and have access to the Open Loyalty platform

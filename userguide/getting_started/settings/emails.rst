@@ -23,7 +23,7 @@ Open Loyalty includes a default email template for the body section of each mess
 To edit an email template:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Emails**.
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Emails** on the menu.
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -55,15 +55,15 @@ To edit an email template:
 .. image:: /userguide/_images/gift_email.png
    :alt:   Reward Redeemed template
 
-5. When you are ready to review your work, tap ``Preview``. Then, make adjustments to the template as needed
+5. When you are ready to review your work, tap ``Preview``and make adjustments to the template as needed
 
-6. When complete, tap ``SAVE``
+6. When it is done, tap ``SAVE``
 
 
 To stop/restart sending emails generated with a given template:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Emails**.
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Emails** on the menu.
 
 .. |settings| image:: /userguide/_images/icon.png
 

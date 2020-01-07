@@ -438,6 +438,7 @@ Example Response
           "purchasePlace": "wroclaw",
           "documentType": "sell",
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
+          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
           "customerData": {
             "email": "user@example.com",
             "name": "Jan Nowak",
@@ -503,6 +504,7 @@ Example Response
           "purchasePlace": "wroclaw",
           "documentType": "sell",
           "customerId": "57524216-c059-405a-b951-3ab5c49bae14",
+          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
           "customerData": {
             "email": "o@lo.com",
             "name": "Jan Nowak",
@@ -619,6 +621,7 @@ Example Response
       "purchasePlace": "wroclaw",
       "documentType": "sell",
       "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
+      "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
       "customerData": {
         "email": "user@example.com",
         "name": "Jan Nowak",
@@ -767,6 +770,7 @@ Example Response
       "purchasePlace": "wroclaw",
       "documentType": "sell",
       "customerId": "00000000-0000-474c-b092-b0dd880c07e2",
+      "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
       "customerData": {
         "email": "user-temp@example.com",
         "name": "Jan Nowak",
@@ -961,6 +965,7 @@ Example Response
           "purchaseDate": "2017-08-23T00:00:00+0200",
           "documentType": "return",
           "customerId": "4b32a723-9923-46fc-a2bc-d09767e5e59b",
+          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
           "customerData": {
             "email": "tomasztest8@wp.pl",
             "name": "Firstname+Lastname",
@@ -1071,6 +1076,7 @@ Example Response
           "purchaseDate": "2017-08-22T00:00:00+0200",
           "documentType": "sell",
           "customerId": "4b32a723-9923-46fc-a2bc-d09767e5e59b",
+          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
           "customerData": {
             "email": "tomasztest8@wp.pl",
             "name": "Firstname+Lastname",
@@ -1214,6 +1220,7 @@ Example Response
           "purchasePlace": "wroclaw",
           "documentType": "sell",
           "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
+          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
           "customerData": {
             "email": "user@example.com",
             "name": "Jan Nowak",
@@ -1821,6 +1828,7 @@ Example Response
       "purchasePlace": "wroclaw",
       "documentType": "sell",
       "customerId": "57524216-c059-405a-b951-3ab5c49bae14",
+      "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
       "customerData": {
         "email": "o@lo.com",
         "name": "Jan Nowak",

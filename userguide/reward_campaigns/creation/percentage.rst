@@ -17,7 +17,7 @@ Discount will be equal to percentage value of transaction provided in **Transact
 **For example**
 
 - local currency is EUR 
-- Transaction percentage value is equal 10 (i.e. 10% of registered transaction total amount) 
+- Transaction percentage value is equal to 10 (i.e. 10% of registered transaction total amount) 
 
 If Customer total amount of transaction is **100 EUR**, he will receive **10 EUR** discount for next purchase 
 
@@ -35,13 +35,13 @@ If Customer total amount of transaction is **32 EUR**, he will receive **3 EUR**
 To create Percentage discount code reward:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Reward campaigns**. Then, choose **Add reward campaign**. You can also add new reward directly from **All reward campaigns** list by clicking ``Add reward campaign`` at the top of the page 
+1. On the Admin sidebar, tap **Reward campaigns** and choose **Add reward campaign**. You can also add new reward directly from **All reward campaigns** list by clicking ``Add reward campaign`` at the top of the page 
 
 .. image:: /userguide/_images/add_reward_button.png
    :alt:   Add Reward Options  
 
 
-2. In the **Campaign type** section select a **Percentage discount code** reward type from a dropdown list (by default Discount code is displaying)
+2. In the **Campaign type** section select a **Percentage discount code** reward type from a dropdown list (Discount code is displayed by default)
 
 .. image:: /userguide/_images/percentage_type.PNG
    :alt:   Percentage discount code type
@@ -174,7 +174,7 @@ To create Percentage discount code reward:
     Even if time boundaries from Activity section will be valid,  changing Status to Inactive means that reward will not be available to customers.
 
 
-11. When complete, tap ``SAVE``
+11. When it is done, tap ``SAVE``
 
 
 .. warning:: 

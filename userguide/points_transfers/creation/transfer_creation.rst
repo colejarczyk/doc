@@ -16,7 +16,7 @@ To add points transfer manually:
 
 1. On the Admin sidebar, tap **Points transfers**. Then, choose **All points transfers**
   
-2. Tap ``Add transfer`` at the top of the page. Then, do the following: 
+2. Tap ``Add transfer`` at the top of the page. Then do the following: 
 
  - From the dropdown list choose **Transfer type**:
  
@@ -24,12 +24,12 @@ To add points transfer manually:
    - If you want to add points select **Add points**
     
  - **Select customer** account for which points transfer will be deal with. Enter few letters/signs of customer name/surname/phone.
-   System display the list of all matching customer record. 
+   System displays the list of all matching customer records. 
  - In **Points to add/spend** field enter amount of points that will be added to / subtracted from Customer Account active Points
- - If needed, provide a **Comment** for operation as a brief description that explain purpose of the transfer e.g. information on what they were spent or why they were subtracted 
+ - If needed, provide a **Comment** for operation as a brief description that explains purpose of the transfer e.g. information on what they were spent or why they were subtracted 
 
 .. image:: /userguide/_images/add_transfer2.png
    :alt:   Select Customer to add Points Transfer
 
-3. When complete, tap ``SAVE``
+3. When it is done, tap ``SAVE``
 

@@ -472,6 +472,53 @@ Example Response
 
 
 
+Delete a level
+--------------
+
+To remove a level from database, you need to call the ``/api/level/{level}`` endpoint with the ``DELETE`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    DELETE /api/level/<level>
+
++---------------+----------------+--------------------------------------+
+| Parameter     | Parameter type | Description                          |
++===============+================+======================================+
+| Authorization | header         | Token received during authentication |
++---------------+----------------+--------------------------------------+
+| <level>       | query          | Level ID                             |
++---------------+----------------+--------------------------------------+
+
+Example
+^^^^^^^
+
+To remove the level with id ``level = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/level/000096cf-32a3-43bd-9034-4df343e5fd93 \
+        -X "DELETE" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+
+
+
 Get a list of customers assigned to specific level
 ------------------------------------------------
 

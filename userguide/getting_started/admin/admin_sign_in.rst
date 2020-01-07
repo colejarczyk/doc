@@ -16,7 +16,7 @@ To sign in to the Admin:
    
   *You can bookmark the page or save a shortcut on your desktop for easy access.*
 
-  The default **Admin URL** look as follow:
+  The default **Admin URL** looks as follow:
 
 .. code-block:: text
 

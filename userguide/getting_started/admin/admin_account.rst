@@ -9,9 +9,9 @@ Your Admin account was initially set up during the installation. You can persona
 To edit your account information:
 '''''''''''''''''''''''''''''''''
 
-#. In the upper-right corner, tab the **Account** icon. Then on the menu, choose ``Edit your account``
+#. In the upper-right corner, tab the **Account** icon and choose ``Edit your account`` on the menu.
 #. Make any necessary changes to your profile information. If you change your password, make sure to write it down.
-#. When complete, tap ``SAVE``
+#. When it is done, tap ``SAVE``
 
 .. image:: /userguide/_images/admin_profile.png
    :alt:   Admin profile

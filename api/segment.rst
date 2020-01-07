@@ -80,7 +80,11 @@ Example Response
             }
           ],
           "createdAt": "2018-02-19T09:45:06+0100",
-          "customersCount": 0
+          "customersCount": 0,
+          "averageTransactionAmount": 0,
+          "averageTransactions": 0,
+          "averageClv": 0,
+          "currency": "EUR"
         },
         {
           "segmentId": "00000000-0000-0000-0000-000000000000",
@@ -114,7 +118,11 @@ Example Response
             }
           ],
           "createdAt": "2018-02-19T09:45:06+0100",
-          "customersCount": 0
+          "customersCount": 0,
+          "averageTransactionAmount": 0,
+          "averageTransactions": 0,
+          "averageClv": 0,
+          "currency": "EUR"
         }
       ],
       "total": 2
@@ -386,7 +394,11 @@ Example Response
         }
       ],
       "createdAt": "2018-02-19T09:45:06+0100",
-      "customersCount": 0
+      "customersCount": 0,
+      "averageTransactionAmount": 0,
+      "averageTransactions": 0,
+      "averageClv": 0,
+      "currency": "EUR"
     }
 
 

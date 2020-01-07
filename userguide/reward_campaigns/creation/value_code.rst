@@ -10,9 +10,9 @@ During creation you can also specified if all customers will received the same c
 
 **For example**
 
-- if limit in general is equal 10, limit per customer is 1 and *single coupon* **marked** - then only the first ten clients will be able to use the coupon (each of them only once) and the coupon code will be the same for everyone
+- if limit in general is equal to 10, limit per customer is 1 and *single coupon* **marked** - then only the first ten clients will be able to use the coupon (each of them only once) and the coupon code will be the same for everyone
  
-- if limit in general is equal 10, limit per customer is 1 and *single coupon* **unmarked** - then only the first ten clients will be able to use the coupon (each of them only once) and the coupon code will be different. 
+- if limit in general is equal to 10, limit per customer is 1 and *single coupon* **unmarked** - then only the first ten clients will be able to use the coupon (each of them only once) and the coupon code will be different. 
 
 Number of codes depends on number of uploaded coupon codes during reward creation e.g. if you uploaded 2 different codes, only those two will be randomly assigned to those customers. Another words, there can be situation that several of them receive the same codes. 
 
@@ -23,7 +23,7 @@ Number of codes depends on number of uploaded coupon codes during reward creatio
 To create Value code reward:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Reward campaigns**. Then, choose **Add reward campaign**. You can also add new reward directly from **All reward campaigns** list by clicking ``Add reward campaign`` at the top of the page 
+1. Tap **Reward campaigns** on the Admin sidebar and choose **Add reward campaign**. You can also add new reward directly from **All reward campaigns** list by clicking ``Add reward campaign`` at the top of the page 
 
 .. image:: /userguide/_images/add_reward_button.png
    :alt:   Add Reward Options  
@@ -106,7 +106,7 @@ To create Value code reward:
    :alt:   Campaign category    
 
 
-7. **Brand info** section allow to upload an image of the reward brand, that will be display in Client cockpit
+7. **Brand info** section allows to upload an image of the reward brand, that will be display in Client cockpit
 
 .. image:: /userguide/_images/reward_brand.png
    :alt:   Brand info 
@@ -140,7 +140,7 @@ To create Value code reward:
 
    **If you want make coupons valid instantly, provide 0**
 
- - In **Days valid** specify number of days during which coupon assign to this campaign will be active since the inactive time boundaries finished. After provided here number of days voucher will expired.
+ - In **Days valid** specify number of days during which coupon assign to this campaign will be active since the inactive time boundaries finished. After provided here number of days voucher will be expired.
 
    **If you want your coupons never expired, provide 0**
 
@@ -162,7 +162,7 @@ To create Value code reward:
     **Visible to** and **Visible from** fields are available only when reward visibility is limited
 
 
-12. **Activity** section define time boundaries when reward can be used by customers. To make the reward *available for a limited period of time*, complete the **From and To dates** in Activity section:  
+12. **Activity** section defines time boundaries when reward can be used by customers. To make the reward *available for a limited period of time*, complete the **From and To dates** in Activity section:  
 
  - In **Active from** field set the first date the reward is available. You can either enter the date or select it from the calendar
  - In **Active to** field set the last date the reward is available. You can either enter the date or select it from the calendar
@@ -204,4 +204,4 @@ To create Value code reward:
     Image size is limited to 2MB. Image dimensions could not be smaller than 600 x 600 px. Allowed file formats: png, gif, jpg.
 
 
-14. When complete, tap ``SAVE``
+14. When it is done, tap ``SAVE``

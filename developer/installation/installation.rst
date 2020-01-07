@@ -16,7 +16,7 @@ Execute bellow command to run application:
 
 .. code-block:: bash
 
-    $ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+    $ docker-compose -f docker-compose.dev.yml up
 
 Then use another command to setup database, Elasticsearch and load some demo data:
 

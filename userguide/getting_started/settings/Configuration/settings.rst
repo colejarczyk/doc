@@ -13,7 +13,7 @@ The Configuration section determines loyalty program and points details, custome
 To configure Open Loyalty:
 ''''''''''''''''''''''''''
 
-In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Configuration**. 
+Tap the **Settings** icon |settings| in the upper-right corner and choose **Configuration** on the menu. 
 
 In the **Settings** section, do the following:
 
@@ -141,4 +141,4 @@ In the **Settings** section, do the following:
 18. In the **SKUs excluded from levels** enter SKUs that will not be included in order value used for earned points calculation
 
 
-When complete, tap ``SAVE``
+19. When it is done, tap ``SAVE``

@@ -10,9 +10,9 @@ During creation you can also specified if all customers will received the same c
 
 **For example**
 
-- if limit in general is equal 10, limit per customer is 1 and *single coupon* **marked** - then only the first ten clients will be able to use the coupon (each of them only once) and the coupon code will be the same for everyone
+- if limit in general is equal to 10, limit per customer is 1 and *single coupon* **marked** - then only the first ten clients will be able to use the coupon (each of them only once) and the coupon code will be the same for everyone
 
-- if limit in general is equal 10, limit per customer is 1 and *single coupon* **unmarked** - then only the first ten clients will be able to use the coupon (each of them only once) and the coupon code will be different.
+- if limit in general is equal to 10, limit per customer is 1 and *single coupon* **unmarked** - then only the first ten clients will be able to use the coupon (each of them only once) and the coupon code will be different.
 
 Number of codes depends on number of uploaded coupon codes during reward creation e.g. if you uploaded 2 different codes, only those two will be randomly assigned to those customers. Another words, there can be situation that several of them receive the same codes.
 
@@ -96,12 +96,12 @@ To create Discount code reward:
 
     Labels can be added to reward campaign during reward creation and subsequently added and modified at any time
 
-6. In the same **Campaign details** section, in **Categories** field, select campaign category or categories to be assign to this reward campaign. You can assign more than one campaign category.
+6. In the same **Campaign details** section, in **Categories** field, select campaign category or categories to be assigned to this reward campaign. You can assign more than one campaign category.
 
 .. image:: /userguide/_images/reward_category.png
    :alt:   Campaign category
 
-7. **Brand info** section allow to upload an image of the reward brand, that will be display in Client cockpit
+7. **Brand info** section allows to upload an image of the reward brand, that will be displayed in Client cockpit
 
 .. image:: /userguide/_images/reward_brand.png
    :alt:   Brand info
@@ -195,6 +195,6 @@ To create Discount code reward:
 
     Image size is limited to 2MB. Image dimensions could not be smaller than 600 x 600 px. Allowed file formats: png, gif, jpg.
 
-14. When complete, tap ``SAVE``
+14. When it is done, tap ``SAVE``
 
 

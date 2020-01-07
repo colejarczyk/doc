@@ -1,23 +1,23 @@
-How to add new field to entity
-==============================
+How to add a new field to an entity
+===================================
 
 Open Loyalty contains two main types of entities: ORM and Event source aggregate entities (according to CQRS pattern).
-More details about architecture solutions you can find in architecture section of our documentation.
+You can find more details about architecture solutions in architecture section of our documentation.
 
-ORM entities ane entities which are stored to database (PostgreSQL). Doctrine is persistence manager for that entities.
-Event source aggregate entities are managed by Brodway library and object of these type are stored in ElasticSearch as
+ORM entities ane entities which are stored in database (PostgreSQL). Doctrine is persistence manager for that entities.
+Event source aggregate entities are managed by Broadway library and objects of this type are stored in ElasticSearch as
 projections and in database (PostgreSQL) as event store.
 
 ORM entity
 ----------
 
-One of an example of ORM entity in Open Loyalty is Campaign object. Let's assume that we want to add new field to
-campaign entity with name ``title`` and type string.
+One of examples of ORM entity in Open Loyalty is the Campaign object. Let's assume that we want to add a new field to
+the campaign entity with name ``title`` and type string.
 
 Entity object
 ^^^^^^^^^^^^^
 
-Add property to ``src/Domain/Campaign/Campaign.php``.
+Add a property to ``src/Domain/Campaign/Campaign.php``.
 
 .. code-block:: php
 
@@ -43,10 +43,10 @@ Add property to ``src/Domain/Campaign/Campaign.php``.
     }
 
 .. note::
-    If you want to add translatable field you have to include instructions from ``How to create a translatable field``
-    during adding field.
+    If you want to add a translatable field you will need to follow instructions from ``How to create a
+    translatable field``
 
-Then we have to extend functions responsible creation object from array data.
+Then we have to extend the functions responsible for creation of an object from array data.
 
 .. code-block:: php
 
@@ -59,8 +59,7 @@ Then we have to extend functions responsible creation object from array data.
         ...
     }
 
-Next open class ``src/Infrastructure/Campaign/Model/Campaign.php`` where we have to extend function responsible for
-Campaign's deserialization.
+Next open the class ``src/Infrastructure/Campaign/Model/Campaign.php`` to extend the function responsible for
 
 .. code-block:: php
 
@@ -72,13 +71,13 @@ Campaign's deserialization.
     }
 
 .. note::
-    Not all classes requires extend these functions.
+    Not all classes require extending these functions.
 
 Doctrine
 ^^^^^^^^
 
-In this step we have to inform doctrine about new field. Localize file
-``src/Infrastructure/Campaign/Persistence/Doctrine/ORM/Campaign.orm.yml`` and in ``fields`` section add:
+Next, we have to let Doctrine know about the new field. Find the file
+``src/Infrastructure/Campaign/Persistence/Doctrine/ORM/Campaign.orm.yml`` and in the ``fields`` section add:
 
 .. code-block:: yaml
 
@@ -87,21 +86,21 @@ In this step we have to inform doctrine about new field. Localize file
         nullable: true
         column: title
 
-Now we can persist schema changes to database. Execute symfony command in console:
+Now we can persist schema changes to the database. Execute the following Symfony command in the console:
 
 .. code-block:: bash
 
     bin/console doctrine:schema:update --force
 
-After successfully execution fields is ready to use by backend application, but is not used for controllers
-and is not visible on frontend application.
+After successful execution, the field is ready to use by the backend application, but it is not used in controllers
+and is not visible in the frontend application.
 
 Serialization
 ^^^^^^^^^^^^^
 
-Next we have to inform serialization about our new field. Add to file
-``src/Infrastructure/Campaign/Resources/config/serializer/Campaign.yml`` in section ``properties`` if new fields are
-excluded as default.
+In the next step, we will let serialization know how to treat our new field. In the file
+``src/Infrastructure/Campaign/Resources/config/serializer/Campaign.yml`` in section ``properties``, add a clause to
+publicize the new field, as they are excluded as default.
 
 .. code-block:: yaml
 
@@ -114,11 +113,11 @@ excluded as default.
 Controllers
 ^^^^^^^^^^^
 
-Campaign entity has possibility to store new data in field, but now we have to pass some values from UI. In order to do
-it we have to find controller and action responsible for for example add new campaign.
+Campaign entity has a possibility to store data in the new field, but now we need a way to pass its value from the user
+interface. In order to do that we need to find controllers and actions responsible for adding and editing new campaigns.
 
-In first line of ``src/Ui/Rest/Controller/Campaign/Post.php`` file we see that data is taken from ``CampaignFormType``
-object. Let's open it and add to ``build`` function:
+In the first line of ``src/Ui/Rest/Controller/Campaign/Post.php`` file we see that data is taken from
+``CampaignFormType`` object. Let's open it and add the following to the ``build`` function:
 
 .. code-block:: php
 
@@ -126,10 +125,10 @@ object. Let's open it and add to ``build`` function:
             'required' => false,
         ]);
 
-Add field to UI
-^^^^^^^^^^^^^^^
+Add a field to UI
+^^^^^^^^^^^^^^^^^
 
-Add to file ``frontend/src/modules/admin.campaign/templates/add-campaign.html``
+Add the following to the ``frontend/src/modules/admin.campaign/templates/add-campaign.html`` file:
 
 .. code-block:: html
 
@@ -143,7 +142,7 @@ Add to file ``frontend/src/modules/admin.campaign/templates/add-campaign.html``
         </div>
     </div>
 
-Add to file ``frontend/src/modules/admin.campaign/templates/edit-campaign.html``
+To the file ``frontend/src/modules/admin.campaign/templates/edit-campaign.html`` add:
 
 .. code-block:: html
 
@@ -157,17 +156,21 @@ Add to file ``frontend/src/modules/admin.campaign/templates/edit-campaign.html``
         </div>
     </div>
 
+
+
+
 Event source aggregate entities
 -------------------------------
 
-Example of a event source aggregate entity in Open Loyalty is Customer object. Let's assume that we want to add new field to
-customer entity with name ``code`` and type string.
+An example of an event source aggregate entity in Open Loyalty is Customer object. Let's assume that we want to add a
+new field to the Customer entity with name ``code`` and type string.
 
 Domain entity
 ^^^^^^^^^^^^^
 
-Like in above example, let's start from domain object ``src/Domain/User/Customer.php``. As you can noticed this class extend `SnapableEventSourcedAggregateRoot`, so it's
-confirmation that this entity is aggregate entity and use CQRS pattern. Add to this entity property `code` with getter.
+Like in the example above, let's start with domain object ``src/Domain/User/Customer.php``. As you might have noticed
+this class extends `SnapableEventSourcedAggregateRoot` - it's confirmation that this entity is an aggregate entity
+and uses CQRS pattern. Add an entity property `code` with getter to this class.
 
 .. code-block:: php
 
@@ -184,9 +187,9 @@ confirmation that this entity is aggregate entity and use CQRS pattern. Add to t
         return $this->code;
     }
 
-Additionally let's assume that we want to set value of this field only during registration process. So we have to find
-method responsible for applying changes to domain object when customer is being registered. Bellow method is executed
-when application will be going to register customer.
+Additionally, let's assume that we want to set the value of this field only during the registration process. To do
+that, we need to find the method responsible for applying changes to domain object when customer is being registered.
+The method below is executed when application is going to register a customer.
 
 .. code-block:: php
 
@@ -208,9 +211,9 @@ Calling this method delegates control to another method which should update doma
 Controllers
 ^^^^^^^^^^^
 
-Controller responsible for registering customer is located in file ``backend/src/Ui/Rest/Controller/User/Customer/PostRegister.php``.
+Controller responsible for registering a customer is located in the file ``backend/src/Ui/Rest/Controller/User/Customer/PostRegister.php``.
 FormType associated with register customer is ``src/Infrastructure/User/Form/Type/CustomerRegistrationFormType.php``.
-There we have to add our a new field:
+There, we need to add our new field:
 
 .. code-block:: php
 
@@ -223,16 +226,17 @@ There we have to add our a new field:
             ]
         );
 
-Now Open Loyalty is ready to persist a new field when customer is being registered, but we have to make more adjustments.
+Now Open Loyalty is ready to persist the new field when customer is being registered, but we have to make a
+few more adjustments.
 
 Projections
 ^^^^^^^^^^^
 
-When event CustomerWasRegistered is throw then projectors handle this event and update/create projections. In order to
-find all listeners which listening for this event then you have to find all services with tag
-`broadway.domain.event_listener` and with a method ``applyCustomerWasRegistered``. One of that listener is
-``src/Domain/User/ReadModel/CustomerDetailsProjector.php``. Projector does not persist a domain object, but operate on
-a read model object. For example ``Customer`` is persisted in projections using ``src/Domain/User/ReadModel/CustomerDetails.php``.
+When event CustomerWasRegistered is thrown, projectors handle the event and update/create projections. In order to find
+all listeners which are listening for this event, you have to find all services with tag `broadway.domain.event_listener`
+and with method ``applyCustomerWasRegistered`` in them. One of that listeners is
+``src/Domain/User/ReadModel/CustomerDetailsProjector.php``. Projector does not persist a domain object, but operates
+on a read model object. For example ``Customer`` is persisted in projections using ``src/Domain/User/ReadModel/CustomerDetails.php``.
 
 Let's open this file and update it.
 
@@ -290,8 +294,8 @@ Then we have to update projector:
         ...
     }
 
-Last thing is update Elastic Search index for Customer Details projection. Go to
-``backend/src/Infrastructure/User/Repository/Elasticsearch/CustomerIndex.php`` and add a new field to an index.
+Last thing is to update ElasticSearch index for Customer Details projection. Go to
+``backend/src/Infrastructure/User/Repository/Elasticsearch/CustomerIndex.php`` and add a new field to the index.
 
 .. code-block:: php
 
@@ -300,7 +304,7 @@ Last thing is update Elastic Search index for Customer Details projection. Go to
     ],
 
 .. note::
-    Changing index in Elastic Search requires recreating all read models in order to apply changes to an index.
+    Changing the index in ElasticSearch requires recreating the read models in order to apply changes to an index.
 
 .. code-block:: bash
     bin/console oloy:user:projections:index:create --drop-old
@@ -309,4 +313,4 @@ Last thing is update Elastic Search index for Customer Details projection. Go to
 Add field to UI
 ^^^^^^^^^^^^^^^
 
-Adding field to UI is similar like in ORM Entities.
+Adding the field to the user interface is analogous to the process presented in ORM Entites section above.

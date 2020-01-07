@@ -11,7 +11,7 @@ In addition, you can control logs results by filter and search option.
 .. image:: /userguide/_images/logs.png
    :alt:   System Logs
 
-System monitors and logged following events/operations:
+System monitors and performs following events/operations:
 
 1. **Create** –
 	Customer and all elements related to the customer: transactions, transfers.
@@ -45,7 +45,7 @@ The date format is as follows: “YYYY-MM-DD HH:mm” and allows to display logs
 To find a match:
 ^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **System logs**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **System logs** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -53,7 +53,7 @@ To find a match:
 
 3. Set up the end date in **To** field by selecting date and time from calendar grid
 
-4. When complete, tap ``Search``
+4. When it is done, tap ``Search``
 
 
 Search/Filter Logs
@@ -73,5 +73,3 @@ To search the list:
   - to find an exact match, enter the exact word/number you want to find
 
 2. You can put as many values under different columns headers as needed to describe the conditions that must be met for the search result. Search values from each column create an AND Condition rule. It means that in search results only records matching all entered values are displayed
-
-

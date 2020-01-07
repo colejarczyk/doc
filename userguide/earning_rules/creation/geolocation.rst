@@ -13,7 +13,7 @@ This Earning rule could be call only with API. Every run of API function will re
 To add new Geolocation rule:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Earning rules**. Then, choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
+1. Tap **Earning rules** on the Admin sidebar and choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
 
 .. image:: /userguide/_images/add_rule_button.png
    :alt:   Add Rule Options  
@@ -73,7 +73,7 @@ To add new Geolocation rule:
 .. image:: /userguide/_images/rule_photo.png
    :alt:   Earning rule photo option
 
-8. When complete, tap ``SAVE``
+8. When it is done, tap ``SAVE``
 
 
 .. note:: 

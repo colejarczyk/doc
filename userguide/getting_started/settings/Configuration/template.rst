@@ -14,7 +14,7 @@ The content is formatted with CSS, and can be easily edited and customizes by ad
 To customize your template:
 '''''''''''''''''''''''''''
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Configuration**.
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Configuration** on the menu.
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -59,7 +59,7 @@ To upload your logo:
 .. image:: /userguide/_images/logo2.png
    :alt:   Logo Updating
 
-2. When complete, tap ``SAVE``
+2. When it is done, tap ``SAVE``
 
 +--------------------+-------------------------------------------------------------------------------------------------+
 |   Field            |  Description                                                                                    |

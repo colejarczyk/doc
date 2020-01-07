@@ -69,7 +69,7 @@ Example Response
 
 .. note::
 
-    Token and refresh token has been shorten for the documentation purpose by suspension points.
+    Token and refresh token have been shorten for the documentation purpose by suspension points.
 
 Using JSON Web Token
 ^^^^^^^^^^^^^^^^^^^^^^

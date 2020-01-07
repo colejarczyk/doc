@@ -156,7 +156,7 @@ To create a Free delivery reward:
     **Visible to** and **Visible from** fields are available only when reward visibility is limited
 
 
-12. **Activity** section define time boundaries when reward can be used by customers. To make the reward *available for a limited period of time*, complete the **From and To dates** in Activity section:
+12. **Activity** section defines time boundaries when reward can be used by customers. To make the reward *available for a limited period of time*, complete the **From and To dates** in Activity section:
 
  - In **Active from** field set the first date the reward is available. You can either enter the date or select it from the calendar
  - In **Active to** field set the last date the reward is available. You can either enter the date or select it from the calendar
@@ -197,6 +197,6 @@ To create a Free delivery reward:
 
     Image size is limited to 2MB. Image dimensions could not be smaller than 600 x 600 px. Allowed file formats: png, gif, jpg.
 
-14. When complete, tap ``SAVE``
+14. When it is done, tap ``SAVE``
 
 

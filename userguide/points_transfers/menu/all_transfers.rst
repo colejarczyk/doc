@@ -47,7 +47,7 @@ Field description
 |   Type                     | | Transfer operation type:                                                             |
 |                            |                                                                                        |
 |                            |    - **Adding**                                                                        |
-|                            |       customer earn point for transaction or other activity                            |
+|                            |       customer earned points for transaction or other activity                         |
 |                            |    - **Spending**                                                                      |
 |                            |       customer spent points for campaign reward                                        |
 +----------------------------+----------------------------------------------------------------------------------------+
@@ -70,7 +70,7 @@ Field description
 |   POS                      | | Which of POS processed transaction upon which points were calculated.                |
 |                            | | If there is no assignment "Not set" is displayed                                     |
 +----------------------------+----------------------------------------------------------------------------------------+
-|   Issuer                   | | Define who create Transfer operation.                                                |
+|   Issuer                   | | Define who creates Transfer operation.                                                |
 |                            | | **Options include**: system/admin                                                    |
 +----------------------------+----------------------------------------------------------------------------------------+
 |   Actions                  | | The operations that can be applied to selected transfer record.                      |

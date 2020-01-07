@@ -15,7 +15,7 @@ To setup a webhook all you have to do is register a URL with the company proving
 To enable Webhook:
 ''''''''''''''''''
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Configuration**
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Configuration** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -27,7 +27,7 @@ To enable Webhook:
     This gives you the option of rejecting webhook batches if these custom headers and associated values are not included in the batch
   - In **Request header value** enter associated with header value
 
-3. When complete, tap ``SAVE``
+3. When it is done, tap ``SAVE``
 
 Available webhooks
 ''''''''''''''''''

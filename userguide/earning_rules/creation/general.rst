@@ -11,7 +11,7 @@ If needed, you can exclude certain products (with define SKUs or labels) and del
 To add new General spending rule:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Earning rules**. Then, choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
+1. Tap **Earning rules** on the Admin sidebar and choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
 
 .. image:: /userguide/_images/add_rule_button.png
    :alt:   Add Rule Options  
@@ -30,7 +30,7 @@ To add new General spending rule:
 
 3. In **Type details** section set rule **type** as General spending rule and complete details as follow:
 
- - In **Point value** enter ratio for calculating earned points based on purchased value. For example, if ratio is 2 then user get 2 points for every 1$ spent. 
+ - In **Point value** enter ratio for calculating earned points based on purchased value. For example, if ratio is equal to 2 then user get 2 points for every 1$ spent. 
    
  - SKU's provided in **Excluded SKUs** field will be excluded from the calculation of earned points
  
@@ -43,7 +43,7 @@ To add new General spending rule:
     - **Include**  
        points will be calculated for purchased products with defined labels
 
- - Depending on the option chose in **Labels inclusion type** field, appropriate field will be display: 
+ - Depending on the option chosen in **Labels inclusion type** field, appropriate field will be displayed: 
    
     - **Has labels** – when *Include* is selected in previous step 
     - **Excluded labels** – when *Exclude* is selected in previous step
@@ -95,7 +95,7 @@ To add new General spending rule:
 .. image:: /userguide/_images/rule_photo.png
    :alt:   Earning rule photo option
 
-8. When complete, tap ``SAVE``
+8. When it is done, tap ``SAVE``
 
 
 .. note:: 

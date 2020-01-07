@@ -5,5 +5,5 @@
 * :doc:`/userguide/getting_started/settings/translations`
 * :doc:`/userguide/getting_started/settings/emails`
 * :doc:`/userguide/getting_started/settings/system_logs`
-
+* :doc:`/userguide/getting_started/settings/stores`
 

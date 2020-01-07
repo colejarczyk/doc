@@ -23,7 +23,7 @@ Each level can provide fixed discounts and also have exclusive rewards that can 
 
 To display the Levels menu:
 ---------------------------
-On the Admin sidebar, tap ``Levels``, then choose **All levels**
+Tap ``Levels`` on the Admin sidebar and choose **All levels**
 
 
 Menu options:

@@ -4,7 +4,7 @@
 Cashback
 ========
 
-During purchase customer can exchange earned points and get value discount to reduce order amount. Discount is calculated base on **Point value**. Each point will be exchanged for provided value in **Point value** field (regarding current currency)
+During purchase customer can exchange earned points and get value discount to reduce order amount. Discount is calculated based on **Point value**. Each point will be exchanged for provided value in **Point value** field (regarding current currency)
 
 **For example**
 
@@ -12,9 +12,9 @@ During purchase customer can exchange earned points and get value discount to re
 - point value is equal 2 (i.e. 1 point = 2 EUR)
 - customer has 50 points
 
-Customer **total amount of transaction is 100 EUR**. Base on point value, if he exchange all his points (50) he can get order for free.
+Customer **total amount of transaction is 100 EUR**. Based on point value, if he exchanges all his points (50), he can get order for free.
 
-If he exchange part of his points e.g. 20, he will receive 40 EUR discount, and will have to pay 60 EUR for his order (instead 100 EUR)
+If he exchanges part of his points e.g. 20, he will receive 40 EUR discount, and will have to pay 60 EUR for his order (instead of 100 EUR)
 
 .. note::
 
@@ -24,7 +24,7 @@ If he exchange part of his points e.g. 20, he will receive 40 EUR discount, and 
 To create Cashback reward:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Reward campaigns**. Then, choose **Add reward campaign**. You can also add new reward directly from **All reward campaigns** list by clicking ``Add reward campaign`` at the top of the page
+1. On the Admin sidebar, tap **Reward campaigns**. Then choose **Add reward campaign**. You can also add new reward directly from **All reward campaigns** list by clicking ``Add reward campaign`` at the top of the page
 
 .. image:: /userguide/_images/add_reward_button.png
    :alt:   Add Reward Options
@@ -94,12 +94,12 @@ To create Cashback reward:
 
     Labels can be added to reward campaign during reward creation and subsequently added and modified at any time
 
-6. In the same **Campaign details** section, in **Categories** field, select campaign category or categories to be assign to this reward campaign. You can assign more than one campaign category.
+6. In the same **Campaign details** section, in **Categories** field, select campaign category or categories to be assigned to this reward campaign. You can assign more than one campaign category.
 
 .. image:: /userguide/_images/reward_category.png
    :alt:   Campaign category
 
-7. **Brand info** section allow to upload an image of the reward brand, that will be display in Client cockpit
+7. **Brand info** section allows to upload an image of the reward brand, that will be displayed in Client cockpit
 
 .. image:: /userguide/_images/reward_brand.png
    :alt:   Brand info
@@ -112,11 +112,11 @@ To create Cashback reward:
 .. image:: /userguide/_images/reward_target.png
    :alt:   Target
 
-9. **Activity** section define time boundaries when reward can be used by customers. To make the reward *available for a limited period of time*, complete the **From and To dates** in Activity section:
+9. **Activity** section defines time boundaries when reward can be used by customers. To make the reward *available for a limited period of time*, complete the **From and To dates** in Activity section:
 
  - In **Active from** field set the first date the reward is available. You can either enter the date or select it from the calendar
  - In **Active to** field set the last date the reward is available. You can either enter the date or select it from the calendar
- - If you want the reward to be active all the time mark **All time active** checkbox. When you choose that option *Active from and Active to fields will not be available*.
+ - If you want the reward to be active all the time,please mark **All time active** checkbox. When you choose that option *Active from and Active to fields will not be available*.
 
 .. image:: /userguide/_images/reward_activity.png
    :alt:   Activity
@@ -129,9 +129,9 @@ To create Cashback reward:
 
     Status of the Reward campaign (Active/Inactive) has higher priority than time boundaries from Active section.
 
-    Even if time boundaries from Activity section will be valid,  changing Status to Inactive means that reward will not be available to customers.
+    Even if time boundaries from Activity section are valid, changing Status to Inactive means that reward will not be available to customers.
 
-10. When complete, tap ``SAVE``
+10. When it is done, tap ``SAVE``
 
 .. warning::
 

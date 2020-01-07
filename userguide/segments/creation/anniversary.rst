@@ -12,7 +12,7 @@ Segment of customers who have registration or birthday anniversary in specify nu
 To create only Anniversary type segment:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Segments**. Then, choose **Add segment**. You can also add rule directly from **All segments** list by clicking ``Add segment`` at the top of the page 
+1. Tap **Segments** on the Admin sidebar and choose **Add segment**. You can also add rule directly from **All segments** list by clicking ``Add segment`` at the top of the page 
 
 .. image:: /userguide/_images/add_segment_button.png
    :alt:   Add Segment Options  
@@ -21,7 +21,7 @@ To create only Anniversary type segment:
 2. In **Basic informations** section, do the following:  
 
  - Enter a unique segment **Name** to identify the customer segment when working in the Admin
- - Enter a brief **Description** that explain purpose of the segment for internal reference
+ - Enter a brief **Description** that explains purpose of the segment for internal reference
  - To activate the customer segment, in **Active** field select "**Active**" from the dropdown list
 
    
@@ -47,9 +47,9 @@ To create only Anniversary type segment:
 
     **For example**
     
-    if Days is equal 0 then all customers who e.g. have birthday today or register account today or at the same date like today but in previous years will be assign to this segment.
+    if Days is equal to 0 then all customers, who e.g. have birthday today or register account today or at the same date like today but in previous years, will be assigned to this segment.
     
-    If Days is equal 5 then all customers  who e.g. have birthday within 5 days (including today) or registered account within 5 days in previous years (including today) will be assign to the segment.     
+    If Days is equal to 5 then all customers, who e.g. have birthday within 5 days (including today) or registered account within 5 days in previous years (including today), will be assigned to the segment.     
    
    
 .. note:: 
@@ -74,5 +74,5 @@ To learn more about conditions type, see :doc:`Segment parts types </userguide/s
 
 .. |bin| image:: /userguide/_images/bin.png
 
-5. When complete, tap ``SAVE``  
+5. When it is done, tap ``SAVE``  
 

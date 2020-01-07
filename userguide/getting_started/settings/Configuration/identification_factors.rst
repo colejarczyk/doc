@@ -16,7 +16,7 @@ Otherwise, these information are used to assign your loyalty program participant
 To set up identification factors:
 '''''''''''''''''''''''''''''''''
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Configuration**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Configuration** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -51,8 +51,4 @@ To set up identification factors:
 .. |bin| image:: /userguide/_images/bin.png
 
 
-6. When complete, tap ``SAVE``
-
-
-
-
+6. When it is done, tap ``SAVE``

@@ -1883,8 +1883,8 @@ Example Response
 
 
 
-Buy reward campaign for a specific customer
--------------------------------------------
+Buy reward campaign for a specific customer(admin)
+--------------------------------------------------
 
 To buy reward campaign for a specific customer you need to call the ``/api/admin/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
 
@@ -1953,7 +1953,8 @@ Example Response
 
     {
       "coupons": [{
-        "code": "123"
+        "code": "123",
+		"id": "ceb169c7-4fe2-4b49-9f2a-5a18634d7236
       }]
     }
 
@@ -2956,7 +2957,8 @@ Example Response
 
     {
       "coupons": [{
-        "code": "123"
+        "code": "123",
+		"id": "ceb169c7-4fe2-4b49-9f2a-5a18634d7236"
       }]
     }
 

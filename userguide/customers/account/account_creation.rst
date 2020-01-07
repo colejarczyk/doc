@@ -19,7 +19,7 @@ However, you can also create customer account directly from the Admin or POS Coc
 To create a New Customer Account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the Admin sidebar, tap **Customers**. Then, choose **Add Customer**. You can also add a customer directly from **All customers** list by clicking ``Add Customer`` at the top of the page
+1. Tap **Customers** on the Admin sidebar and choose **Add Customer**. You can also add a customer directly from **All customers** list by clicking ``Add Customer`` at the top of the page
 
 .. image:: /userguide/_images/add_customer_button.png
    :alt:   Add Customer Options

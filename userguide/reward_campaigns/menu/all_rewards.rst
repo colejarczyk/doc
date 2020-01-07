@@ -4,7 +4,7 @@
 All Reward campaigns
 ====================
 
-The All reward campaigns grid provide information about all rewards within your Loyalty Program with information about type, status, cost in points, limits of use, if and how many times reward has been used by customers and time boundaries of activity. 
+The All reward campaigns grid provides information about all rewards within your Loyalty Program with information about type, status, cost in points, limits of use, if and how many times reward has been used by customers and time boundaries of activity. 
 
 Moreover, you can also see how many customers could use reward and preview theirs details. 
 

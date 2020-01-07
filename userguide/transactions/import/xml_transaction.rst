@@ -6,9 +6,9 @@ XML file structure
 
 .. tip:: 
 
-    If you don’t have or don’t want to import all this data, **remove all code line/section instead leave it blank**. 
+    If you don’t have or don’t want to import all this data, **remove all code lines/section instead leave it blank**. 
    
-    For example, if you don’t want to include posID remove all line from the code - don’t leave it with no value as below
+    For example, if you don’t want to include posID remove all lines from the code - don’t leave it with no value as below
     
     **Remember that some of them are required, so if you remove it Import will not be possible**
 
@@ -26,7 +26,7 @@ XML file structure
     **If you don’t know POS ID you can include only POS Identifier**. POS Identifier is provided during POS creation and accessible from POS list
 
 
-Example of complete Transaction XML file structure below
+Example of completed Transaction XML file structure below
 
 .. code-block:: json
 
@@ -89,4 +89,3 @@ Example of complete Transaction XML file structure below
                </item>
             </items>
          </transaction>
-

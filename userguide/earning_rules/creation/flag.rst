@@ -21,7 +21,7 @@ By default only one of the following, the most "current" rule (edited as the las
  - Multiply earned points by product labels and
  - Instant reward 
 
-But, if you add a "stoppable" flag to one of them and before points calculation you will also edited any of Multiply points rules or Instant reward (name, description, activity etc.), Open Loyalty recognize the edited one as the most "current"and use it before the rule with stoppable flag. The behavior is also related  with more than one this rule type.
+But, if you add a "stoppable" flag to one of them and before points calculation you will also edit any of Multiply points rules or Instant reward (name, description, activity etc.), Open Loyalty recognizes the edited one as the most "current"and use it before the rule with stoppable flag. The behaviour is also related with more than one this rule type.
 
 In this exceptional case, the sequence of points calculation can be as follow:
 

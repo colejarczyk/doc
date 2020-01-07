@@ -14,15 +14,15 @@ You can update reward data by selecting its record from **All reward campaigns**
 To edit a Reward campaign:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Reward campaigns**. Then, choose **All reward campaigns**
+1. On the Admin sidebar tap **Reward campaigns** and then choose **All reward campaigns**
 
-2. In the *Reward campaign list*, find the reward to be edited and click **Edit** icon |edit| in the Action column to open reward in edit mode
+2. In the *Reward campaign list* find the reward to be edited and click **Edit** icon |edit| in the Action column to open reward in edit mode
 
 .. |edit| image:: /userguide/_images/edit.png
 
 3. Make any necessary changes to the reward data
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 
 .. warning:: 

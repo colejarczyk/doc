@@ -56,7 +56,7 @@ Pagination controls appear if there are more redeemed rewards records than fit o
 
 To see all Redeemed rewards:
 ----------------------------
-On the Admin sidebar, tap ``Reward campaigns``, then choose **Redeemed rewards** 
+Tap ``Reward campaigns`` on the Admin sidebar and choose **Redeemed rewards** 
 
 
 Field description
