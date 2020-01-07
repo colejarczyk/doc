@@ -1003,3 +1003,64 @@ Example Response
       "2018-02-03": 0,
       "2018-02-04": 0
     }
+
+
+
+Block points to customer's account
+----------------------------------
+
+Administrator can block points to customer's account in order prevent to spend it. To block points you need to
+call ``/api/points/transfer/block`` endpoint with the ``POST`` method. In order to unblock points you need to
+use ``/api/points/transfer/<transfer>/cancel`` endpoint.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/points/transfer/block
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| transfer[customer]                  | query          | Customer ID                                       |
++-------------------------------------+----------------+---------------------------------------------------+
+| transfer[points]                    | query          | How many points to block                          |
++-------------------------------------+----------------+---------------------------------------------------+
+| transfer[comment]                   | query          | *(optional)* Comment                              |
++-------------------------------------+----------------+---------------------------------------------------+
+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/points/transfer/block \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "transfer[customer]=b9af6a8c-9cc5-4924-989c-e4af614ab2a3" \
+        -d "transfer[points]=9"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "pointsTransferId": "32132863-3d1e-4a94-8bb4-6e42e3c96c0b"
+    }
+
