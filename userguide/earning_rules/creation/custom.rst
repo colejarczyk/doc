@@ -11,7 +11,7 @@ This Earning rule could be call only with API. Every run of API function will re
 To add new Custom event rule:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap **Earning rules** on the Admin sidebar and choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
+1. On the Admin sidebar, tap **Earning rules**. Then, choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
 
 .. image:: /userguide/_images/add_rule_button.png
    :alt:   Add Rule Options  
@@ -35,14 +35,10 @@ To add new Custom event rule:
  - You can limit how many times customer could be rewarded for the same action with the specified period of time. Mark **Usage limit active** checkbox to limit repeatability. Leave it blank to reward customer for this rule without limits.
  - **Period** field is visible and required if *Usage limit active* is marked.
    
-   It defines period of time within customer can be rewarded for this rule. Options include:
-    - 1 day
+   It defines period of time within customer can be rewarded for this rule. Option include: 
+    - 1 day 
     - 1 week
     - 1 month
-    - 3 months
-    - 6 months
-    - 1 year
-    - Forever
  - **Limit** field is visible and required if *Usage limit active* is marked. 
 
    Provided number defines how many times customer could be rewarded for this rule in specified period of time. 
@@ -85,8 +81,10 @@ To add new Custom event rule:
 .. image:: /userguide/_images/rule_photo.png
    :alt:   Earning rule photo option
 
-8. When it is done, tap ``SAVE``
+8. When complete, tap ``SAVE``
+
 
 .. note:: 
 
     Image size is limited to 2MB. Image dimensions could not be smaller than 600 x 600 px. Allowed file formats: png, gif, jpg.
+

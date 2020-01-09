@@ -11,5 +11,5 @@ The Transactions grid lists all (system and imported) payment activity that has 
 
 To display the Transactions menu:
 ---------------------------------
-Tap ``Transactions`` on the Admin sidebar and choose **All transactions**
+On the Admin sidebar, tap ``Transactions``, then choose **All transactions**
 

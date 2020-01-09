@@ -4,7 +4,7 @@
 Assigned POS
 ============
 
-**Assigned POS** section includes information about customer account assignment to the offline or online store. 
+**Assigned POS** section include information about customer account assignment to the offline or online store. 
 
 .. note:: 
 

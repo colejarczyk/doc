@@ -8,7 +8,7 @@ There is also possibility to download a list of customers to a CSV file.
 
 To download the list of customers assigned to a segment :
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Tap **Segments** on the Admin sidebar and choose **All segments** 
+1. On the Admin sidebar, tap **Segments**. Then choose **All segments** 
 
 2. In the segments list, find the segment that you want to download customers list and click **Download** icon |download| in the Action column 
 

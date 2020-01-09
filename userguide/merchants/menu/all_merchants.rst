@@ -4,7 +4,7 @@
 All merchants
 =============
 
-The All merchants grid provides information about all merchants and its assigned to a POS, which transactions made by customers will be registered and count within Loyalty Program. 
+The All merchants grid provide information about all merchants and its assigned to a POS, which transactions made by customers will be registered and count within Loyalty Program. 
 
 Moreover, list contains POS address details and additional information about each one and allows modify merchant data. 
 

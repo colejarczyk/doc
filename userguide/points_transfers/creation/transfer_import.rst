@@ -54,7 +54,7 @@ Mechanism of matching the customer with points transfer basing on priorities is 
 To import a points from a file:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap **Points transfers** on the Admin sidebar and choose **All points transfers**
+1. On the Admin sidebar, tap **Points transfers**. Then, choose **All points transfers**
 
 2. Click ``Import`` at the top of the page, next to ``Add Transfer``
 
@@ -66,7 +66,7 @@ To import a points from a file:
 .. image:: /userguide/_images/import_points.png
    :alt:   Import Points Transfers
 
-4. When file is selected, click ``IMPORT``
+4. When file selected, click ``IMPORT``
 
 The points transfers details of customers whose you've added to the XML file will appear in the **All points transfers** list in your Open Loyalty admin. 
 

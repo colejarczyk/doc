@@ -4,11 +4,11 @@
 Segment parts types
 ===================
 
-The assignment process is carried out by the application based on defined rules. Customers, who meet all criteria, will be assigned to the segment. 
+The assignment process is carried out by the application based on defined rules. Customers who meet all criteria will be assigned to the segment. 
 
-The criteria consists of conditions that can be combined through AND (conjuction of sets) and OR (disjunction of sets) logical operators.
+The criteria consist of conditions that can be combined through AND (conjuction of sets) and OR (disjunction of sets) logical operators.
 
-During creation of Segment you must specify Segment parts type, describing conditions for assigning customer. Every type has its own required fields that must be filled to specified condition. 
+During creation of Segment you must specify Segment parts type, describing conditions for assigning customer. Every type has its own required fields that must be filled, to specified condition. 
 
 .. image:: /userguide/_images/segment_type.png
    :alt:   Segment Parts Types
@@ -16,7 +16,7 @@ During creation of Segment you must specify Segment parts type, describing condi
 
 Segments types
 --------------
-Open Loyalty offers following standard types: 
+Open Loyalty offer following standard types: 
 
 1. **Anniversary** 
     Customers  who have registration/birthday anniversary in specify number of days

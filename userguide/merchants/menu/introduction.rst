@@ -6,15 +6,15 @@ Introduction
 
 The Merchant is linked to a store. In Open Loyalty store is called point-of-sale (POS). 
 
-Merchants menu provides an overview of all merchants and its assigned to particular POS. You can simply see number of merchants works in particular store. 
-Moreover, you can assign merchant to customer, who is operated by a given merchant.
+Merchants menu provide an overview of all merchants and it’s assigned to particular POS. You can simply see number of merchants works in particular store. 
+Moreover, you can assigned merchant to customer, who is operated by a given merchant.
 
 .. image:: /userguide/_images/merchant.png
    :alt:   Merchants
 
 To display the Merchants menu:
 ------------------------------
-Tap ``Merchants`` on the Admin sidebar and choose **All merchants**
+On the Admin sidebar, tap ``Merchants``, then choose **All merchants**
 
 Menu options:
 ^^^^^^^^^^^^^

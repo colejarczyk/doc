@@ -17,16 +17,16 @@ To sign in to your merchant account:
 
 1. Click a link on the POS to open Login page 
 
-2. When it is prompted, enter the **Email Address** that is associated with customer account, and **Password**. Then, tap ``Sign In``
+2. When prompted, enter the **Email Address** that is associated with customer account, and **Password**. Then, tap ``Sign In``
 
 
 
 To reset your customer account password:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap **Forgot password?** on the Login page 
+1. On the Login page, tap **Forgot password?**
 
-2. When it is prompted, enter the **Email Address** that is associated with your account, and tap ``Recover Password``
+2. When prompted, enter the **Email Address** that is associated with your account, and tap ``Recover Password``
 
    If the email address you entered matches the one that is associated with the account, you will receive a "Password reset requested" email with a link to reset your password.   
 

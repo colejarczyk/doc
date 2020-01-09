@@ -4,7 +4,7 @@
 Introduction
 ============
 
-Customers can make transactions not only in the online store but also in offline stores. Both transactions should be counted within your Loyalty Program. 
+Customers can make transactions not only in the online store but also in offline stores. Both transactions should be count within your Loyalty Program. 
 
 POS menu allows you to define all stores, that transaction should be included within your Loyalty Program.
 
@@ -15,7 +15,7 @@ You can simply track all stores and theirs transactions details – value and nu
 
 To display the POS menu:
 ------------------------
-Tap ``POS`` on the Admin sidebar and choose **All POS**
+On the Admin sidebar, tap ``POS``, then choose **All POS**
 
 Menu options:
 ^^^^^^^^^^^^^

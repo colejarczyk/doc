@@ -6,7 +6,7 @@ XML file structure
 
 .. tip:: 
 
-    If you don’t have or don’t want to import all this data, **remove all code lines/section instead leave it blank**. 
+    If you don’t have or don’t want to import all this data, **remove all code line/section instead leave it blank**. 
    
     For example, if you don’t want to include province remove all line from the code - don’t leave it with no value as below
     
@@ -20,7 +20,7 @@ XML file structure
      <customerPhoneNumber> </customerPhoneNumber>
      <customerPhoneNumber></customerPhoneNumber>
 
-Example of completed Points transfer XML file structure below
+Example of complete Points transfer XML file structure below
 
 .. code-block:: json
 
@@ -34,7 +34,7 @@ Example of completed Points transfer XML file structure below
             <points>12</points>
             <type>adding</type>
             <comment>reason of points transfer</comment>
-            <validityDuration>30</validityDuration>
+            <validityDuration>30</ validityDuration >
          </pointsTransfer>
          <pointsTransfer>
             <customerEmail>jane.doe@example.com</customerEmail>
@@ -42,7 +42,7 @@ Example of completed Points transfer XML file structure below
             <points>50</points>
             <type>spending</type>
             <comment>reason of points transfer</comment>
-            <validityDuration>30</validityDuration>
+            <validityDuration>30</ validityDuration >
          </pointsTransfer>
       </pointsTransfers>
       

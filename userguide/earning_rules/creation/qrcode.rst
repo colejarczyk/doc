@@ -8,12 +8,12 @@ Reward customer with defined amount of points for scanning QR code e.g. of produ
 
 If needed, you can also add repeatability limit to this rule type. 
 
-This Earning rule could be called only with API. Every run of API function will reward Customer with defined points. 
+This Earning rule could be call only with API. Every run of API function will reward Customer with defined points. 
 
 To add new QR code rule:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap **Earning rules** on the Admin sidebar and choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
+1. On the Admin sidebar, tap **Earning rules**. Then, choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
 
 .. image:: /userguide/_images/add_rule_button.png
    :alt:   Add Rule Options  
@@ -83,7 +83,7 @@ To add new QR code rule:
 .. image:: /userguide/_images/rule_photo.png
    :alt:   Earning rule photo option
 
-8. When it is done, tap ``SAVE``
+8. When complete, tap ``SAVE``
 
 
 .. note:: 

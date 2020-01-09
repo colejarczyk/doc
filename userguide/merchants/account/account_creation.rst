@@ -35,7 +35,7 @@ To add new Merchant:
 .. image:: /userguide/_images/add_merchant_form.png
    :alt:   Add merchant form
 
-3. When it is done, tap ``SAVE``
+3. When complete, tap ``SAVE``
 
 .. note::
     

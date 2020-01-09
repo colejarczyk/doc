@@ -6,7 +6,7 @@ These endpoints will allow you to easily manage admin users.
 Creating an Admin User
 ----------------------
 
-To create a new admin user you need to call the ``/api/admin/data`` endpoint with the ``POST`` method.
+To create a new admin user you will need to call the ``/api/admin/data`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -42,7 +42,7 @@ Definition
 Example
 ^^^^^^^
 
-To create a new admin user use the method below:
+To create a new admin user use the below method:
 
 .. code-block:: bash
 
@@ -57,12 +57,7 @@ To create a new admin user use the method below:
         -d "admin[isActive]=1" \
         -d "admin[roles][0]=37"
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-    
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -80,7 +75,7 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -105,12 +100,10 @@ Example Response
       "errors": []
     }
 
-
-
 Getting a Single Admin User
 ---------------------------
 
-To retrieve the details of an admin user you need to call the ``/api/admin/data/{admin}`` endpoint with the ``GET`` method.
+To retrieve the details of an admin user you will need to call the ``/api/admin/data/{admin}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -130,22 +123,16 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the admin user with ``admin = 22200000-0000-474c-b092-b0dd880c07e2`` use the method below:
+To see the details of the admin user with ``admin = 22200000-0000-474c-b092-b0dd880c07e2`` use the below method:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/data/22200000-0000-474c-b092-b0dd880c07e2 \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
+    curl http://localhost:8181/api/admin/data/22200000-0000-474c-b092-b0dd880c07e2
+        -X "GET" -H "Accept: application/json"
+        -H "Content-type: application/x-www-form-urlencoded"
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-    
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -159,20 +146,20 @@ Example Response
       "username": "admin",
       "isActive": true,
       "createAt": "2017-09-21T13:54:04+0200",
-      "email": "admin@example.com",
+      "email": "admin@oloy.com",
       "external": false,
       "dtype": "admin"
     }
 
 .. note::
 
-    The *22200000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
+    The *22200000-0000-474c-b092-b0dd880c07e2* id is an exemplary value. Your value can be different.
     Check in the list of all admin users if you are not sure which id should be used.
 
 Collection of Admin Users
 -------------------------
 
-To retrieve a paginated list of admin users you need to call the ``/api/admin`` endpoint with the ``GET`` method.
+To retrieve a paginated list of admin users you will need to call the ``/api/admin`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -198,7 +185,7 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the first page of all admin users use the method below:
+To see the first page of all admin users use the below method:
 
 Example
 ^^^^^^^
@@ -206,17 +193,11 @@ Example
 .. code-block:: bash
 
     curl http://localhost:8181/api/admin \
-        -X "GET" \
-        -H "Accept: application/json" \
+        -X "GET" -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-    
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -250,7 +231,7 @@ Example Response
           "username": "admin",
           "isActive": true,
           "createAt": "2017-09-21T13:54:04+0200",
-          "email": "admin@example.com",
+          "email": "admin@oloy.com",
           "external": false,
           "dtype": "admin",
           "roles": [
@@ -287,7 +268,7 @@ Example Response
 Updating an Admin User
 ----------------------
 
-To fully update an admin user you need to call the ``/api/admin/data/<admin>`` endpoint with the ``PUT`` method.
+To fully update an admin user you will need to call the ``/api/admin/data/<admin>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -323,7 +304,7 @@ Definition
 Example
 ^^^^^^^
 
- To fully update the admin user with ``id = 22200000-0000-474c-b092-b0dd880c07e2`` use the method below:
+ To fully update the admin user with ``id = 22200000-0000-474c-b092-b0dd880c07e2`` use the below method:
 
 .. code-block:: bash
 
@@ -339,12 +320,8 @@ Example
         -d "admin[plainPassword]=newPassword12!" \
         -d "admin[external]=0" \
         -d "admin[roles][0]=37"
-.. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-    
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
@@ -371,12 +348,7 @@ Example
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -X "PUT"
 
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-    
-Example Response
+Exemplary Response
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text

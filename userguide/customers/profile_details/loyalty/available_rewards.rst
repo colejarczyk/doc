@@ -4,7 +4,7 @@
 Available rewards
 =================
 
-Available rewards tab contains view of Reward Campaigns available for particular customer, including cost in points to redeem reward and dates when reward is available.
+Available rewards tab contain view of Reward Campaigns available for particular customer, including cost in points to redeem reward and dates when reward is available.
 
 .. image:: /userguide/_images/available_reward.png
    :alt:   Available Rewards
@@ -31,7 +31,7 @@ Field description
 | Active            | | Determines whether the reward is available to customers.                                                                  |
 |                   | | **Option include: true/false**                                                                                            |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Cost in points    | | Defines how much points customer must spend to redeem reward                                                              |
+| Cost in points    | | Define how much points customer must spend to redeem reward                                                               |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Limit             | | Information about the redeem rewards limit globally. Is associated with Limit per customer value.                         |
 |                   | | **For example**, value 10 means that reward can be redeem only 10 times (by the same or different customers, what depends |

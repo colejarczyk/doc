@@ -11,7 +11,7 @@ For example, create an account, first purchase etc.
 To add new Event rule:
 ^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap **Earning rules** on the Admin sidebar and choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
+1. On the Admin sidebar, tap **Earning rules**. Then, choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
 
 .. image:: /userguide/_images/add_rule_button.png
    :alt:   Add Rule Options  
@@ -72,7 +72,7 @@ To add new Event rule:
 .. image:: /userguide/_images/rule_photo.png
    :alt:   Earning rule photo option
 
-8. When it is done, tap ``SAVE``
+8. When complete, tap ``SAVE``
 
 
 .. note:: 

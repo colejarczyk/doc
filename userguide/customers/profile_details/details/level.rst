@@ -20,7 +20,7 @@ To **change manually the level** to which the customer is assigned go to edit mo
 
 To remove manual assignment by Admin, and let customer earn points based on Earning rules click ``Unlink`` 
 
-You can also simply **Unlink manual assignment** from All customers list by clicking **Unlink** icon |unlink| in the Action column.
+You can also simply **Unlink manually assignment** also from All customers list by clicking **Unlink** icon |unlink| in the Action column. 
 
 .. |unlink| image:: /userguide/_images/unlink.png
 

@@ -8,7 +8,7 @@ You can simply view not only the number but also the list of customers with deta
 
 To display the list of customers:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Tap **Levels** on the Admin sidebar and choose **All levels** 
+1. On the Admin sidebar, tap **Levels**. Then choose **All levels** 
 
 2. In the levels list, find the level you want to see customers list and click ``Show`` in the **Customers** column. 
 

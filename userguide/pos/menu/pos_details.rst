@@ -8,7 +8,7 @@ You can simply view not only the transaction summary and city were store is loca
 
 To display the address details:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Tap **POS** on the Admin sidebar and choose **All POS** 
+1. On the Admin sidebar, tap **POS**. Then choose **All POS** 
 
 2. In the POS list, find the store you want to see address details and click ``Show more`` in the **Localization** column.
 

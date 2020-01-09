@@ -12,7 +12,7 @@ You can edit all data provided during level creation process. You can update lev
 To edit a level:
 ^^^^^^^^^^^^^^^^
 
-1. Tap **Levels** on the Admin sidebar and choose **All levels**.
+1. On the Admin sidebar, tap **Levels**. Then, choose **All levels**.
 
 2. In the Levels list, find the record to be edited and click **Edit** icon |edit| in the Action column to open the record in edit mode 
 
@@ -20,4 +20,4 @@ To edit a level:
 
 3. Make any necessary changes to the level data
 
-4. When it is done, tap ``SAVE``
+4. When complete, tap ``SAVE``

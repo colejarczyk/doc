@@ -12,10 +12,10 @@ You can edit information regarding POS  used within your Loyalty Program, includ
 To edit a POS:
 ^^^^^^^^^^^^^^
 
-1. Tap **POS** on the Admin sidebar and choose **All POS**.
+1. On the Admin sidebar, tap **POS**. Then, choose **All POS**.
 2. In the POS list, find the store to be edited and click **Edit** icon |edit| in the Action column to open the record in edit mode 
 
 .. |edit| image:: /userguide/_images/edit.png
 
 3. Make any necessary changes to the POS data
-4. When it is done, tap ``SAVE``
+4. When complete, tap ``SAVE``

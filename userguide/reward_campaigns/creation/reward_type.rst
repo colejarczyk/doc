@@ -5,13 +5,13 @@ Open Loyalty Reward campaigns gives you the ability to create unique rewards tha
 
 During creation you determine time boundaries, when reward is available for customer, customers groups for whom the reward is available and defines the basic operating parameters. 
 
-Depending on the Translations settings, **Basic information’s** can be provided in different language versions (listed in :doc:`Translations </userguide/getting_started/settings/translations>`). Information from that section can be displayed on a Client cockpit depending on a chosen from the admin cockpit default language version.
+Depending on the Translations settings, **Basic information’s** can be provided in different language versions (listed in :doc:`Translations </userguide/getting_started/settings/translations>`). Information from that section can be display on a Client cockpit depending on a chosen from the admin cockpit default language version.
 
 .. tip:: 
 
     **For example**
     
-    when default language is English, informations are displayed in English, but when we change it on polish as a default language, all basic informations will be displayed in polish (if provided).  
+    when default language is English, information are display in English, but when we change it on polish as a default language, all basic information will be displayed in polish (if provided).  
 
 
 .. image:: /userguide/_images/campaign_types .png
@@ -20,7 +20,7 @@ Depending on the Translations settings, **Basic information’s** can be provide
 
 Reward campaigns types
 ----------------------
-Open Loyalty offers following standard types: 
+Open Loyalty offer following standard types: 
 
 1. **Cashback** 
     during purchase customer can exchange earned points for value discount and reduce order amount

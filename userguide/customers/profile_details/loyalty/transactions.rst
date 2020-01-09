@@ -4,7 +4,7 @@
 Transactions
 ============
 
-Transactions is a tab which contains latest transaction data such as type, place and date of transaction, value of earned points etc. linked with customer
+Transactions is a tab which contain latest transaction data such as type, place and date of transaction, value of earned points etc. linked with Customer
 
 .. image:: /userguide/_images/customer_transaction.png
    :alt:   Transactions view
@@ -41,7 +41,7 @@ Click **View** icon |view| in the Action column to open the transaction details 
 .. image:: /userguide/_images/transaction_details.png
    :alt:   Transaction Record Preview
 
-To see the list of all your customer transactions (not only the latest) click ``All Transactions`` below the tab.
+To see the list of all your customer transaction (not only the latest) click ``All Transactions`` below the tab.
 
 To learn more about Transactions, see :doc:`Transactions </userguide/transactions/index>`
 

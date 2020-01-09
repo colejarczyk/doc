@@ -6,8 +6,6 @@ Transactions Menu
 
    transaction_import
    xml_transaction
-   transaction_mass_matching
-   xml_transaction_mass_matching
 
   
    

@@ -18,7 +18,7 @@ Because customer segment information is constantly refreshed, customers can beco
 
 To display the Segments menu:
 -----------------------------
-Tap ``Segments`` on the Admin sidebar and choose **All segments**
+On the Admin sidebar, tap ``Segments``, then choose **All segments**
 
 Menu options:
 ^^^^^^^^^^^^^

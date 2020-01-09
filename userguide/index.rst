@@ -29,7 +29,7 @@ Getting started
 
 Customers
 ---------
-:doc:`The Customers </userguide/customers/index>` section becomes you familiar with the customer account menu, and learn to manage customer accounts according to adding, deleting and modifying data. You will also learn how to create customer account that can be referenced in customer levels and segments.
+:doc:`The Customers </userguide/customers/index>` section become you familiar with the customer account menu, and learn to manage customer accounts according to adding, deleting and modifying data. You will also learn how to create customer account that can be referenced in customer levels and segments.
 
 .. toctree::
    :hidden:

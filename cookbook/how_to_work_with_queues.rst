@@ -9,7 +9,7 @@ is disabled. The consumer is a class which processes elements from queue.
 Configuration
 -------------------------------
 
-In Symfony config files a simple default configuration is defined. Administrators can enable the queue by setting queue_enabled to true.
+In parameters.yml file a simple default configuration is defined. Administrators can enable the queue by setting queue_enabled to true.
 
 .. code-block:: yaml
 

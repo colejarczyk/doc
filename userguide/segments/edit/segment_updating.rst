@@ -4,7 +4,7 @@
 Updating segments data
 ======================
 
-You can edit all data provided during segment creation process. You can update segment data by selecting its record from **All segments** list.
+You can edit all data provided during segment creation process. You can update segment data by selecting it’s record from **All segments** list.
 
 .. image:: /userguide/_images/edit_segment.png
    :alt:   Segment  Edition
@@ -12,12 +12,12 @@ You can edit all data provided during segment creation process. You can update s
 To edit a Segment:
 ^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar tap **Segments**. Then choose **All segments**
+1. On the Admin sidebar, tap **Segments**. Then, choose **All segments**
 
-2. In the Segments list find the record to be edited and click **Edit** icon |edit| in the Action column to open segment in edit mode
+2. In the Segments list, find the record to be edited and click **Edit** icon |edit| in the Action column to open segment in edit mode
 
 .. |edit| image:: /userguide/_images/edit.png
 
 3. Make any necessary changes to the segment data
 
-4. When it is done, tap ``SAVE``
+4. When complete, tap ``SAVE``

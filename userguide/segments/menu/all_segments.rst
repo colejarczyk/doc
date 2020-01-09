@@ -4,7 +4,7 @@
 All segments
 ============
 
-The **All segments** grid provides information about all segments within your Loyalty Program with information about assigned customers. 
+The **All segments** grid provide information about all segments within your Loyalty Program with information about assigned customers. 
 
 Moreover, you can also export the list of targeted customers. 
 
@@ -30,15 +30,6 @@ Field description
 +----------------------------+-------------------------------------------------------------------------------------+
 |   Customers                | | Show customers account number assigned to this segment.                           |
 |                            | | After ``Show`` click, list of these customer details will be shown                |
-+----------------------------+-------------------------------------------------------------------------------------+
-|   Average transaction      | | Average transactions amount of the customers in this segment.                     |
-|   amount                   |                                                                                     |
-+----------------------------+-------------------------------------------------------------------------------------+
-|   Average transactions     | | Average number of transactions of customers in this segment.                      |
-|                            |                                                                                     |
-+----------------------------+-------------------------------------------------------------------------------------+
-|   Average CLV              | | Average CLV of customers in this segment.                                         |
-|                            |                                                                                     |
 +----------------------------+-------------------------------------------------------------------------------------+
 |   Active                   | | Segment current status. **Option include: Active/Inactive**                       |
 |                            | | Customer could be assigned only to Active segment.                                |

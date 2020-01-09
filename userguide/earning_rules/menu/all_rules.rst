@@ -4,7 +4,7 @@
 All earning rules
 =================
 
-The **All earning rules** grid provides information about type and activity of all Earning Rules within Loyalty Program. Moreover, list contains brief description about each one and allows to preview and modify rule detail.
+The **All earning rules** grid provide information about type and activity of all Earning Rules within Loyalty Program. Moreover, list contains brief description about each one and allows to preview and modify rule detail.
 
 .. image:: /userguide/_images/earning_rules.png
    :alt:   Earning Rules 

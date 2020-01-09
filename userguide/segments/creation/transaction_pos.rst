@@ -11,7 +11,7 @@ Segment of customers whose number of purchases in a specified POS is within defi
 To create only Transaction percent in POS type segment:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap **Segments** on the Admin sidebar and choose **Add segment**. You can also add rule directly from **All segments** list by clicking ``Add segment`` at the top of the page 
+1. On the Admin sidebar, tap **Segments**. Then, choose **Add segment**. You can also add rule directly from **All segments** list by clicking ``Add segment`` at the top of the page 
 
 .. image:: /userguide/_images/add_segment_button.png
    :alt:   Add Segment Options  
@@ -42,13 +42,13 @@ To create only Transaction percent in POS type segment:
     
          is used to perform a logical conjuction on two conditions. Both conditions linked with this operator must be true. 
     
-         **For example**, you can create segment with a list of customers who made purchase in specific POS and bought specific SKU. The list will contain customers who met both, 1st and 2nd condition.
+         **For example**, you can create segment with a list of customers who made purchase in specific POS and bought specific SKU. The list will contain customer who met both, 1st and 2nd condition.
      
      - **OR Condition** 
  
          is used to perform a logical disjunction on two conditions. At least one of conditions linked with this operator must be true. 
     
-         **For example** you can create segment with a list of customers who made purchase in specific POS or bought specific SKU. List will contain customers who met only the 1st condition, who met only the 2nd condition and met both conditions.
+         **For example** you can create segment with a list of customers who made purchase in specific POS or bought specific SKU. List will contain customer who met only the 1st condition, who met only the 2nd condition and met both conditions.
   
 To learn more about conditions type, see :doc:`Segment parts types </userguide/segments/creation/segment_type>`
 
@@ -56,5 +56,5 @@ To learn more about conditions type, see :doc:`Segment parts types </userguide/s
 
 .. |bin| image:: /userguide/_images/bin.png
 
-5. When it is done, tap ``SAVE``  
+5. When complete, tap ``SAVE``  
     

@@ -15,7 +15,7 @@ if you have 2 labels assigned to this rule which are true, points gathered from 
 To add new Multiply earned points by product labels:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap **Earning rules** on the Admin sidebar and choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
+1. On the Admin sidebar, tap **Earning rules**. Then, choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
 
 .. image:: /userguide/_images/add_rule_button.png
    :alt:   Add Rule Options  
@@ -84,7 +84,7 @@ To add new Multiply earned points by product labels:
 .. image:: /userguide/_images/rule_photo.png
    :alt:   Earning rule photo option
 
-8. When it is done, tap ``SAVE``
+8. When complete, tap ``SAVE``
 
 
 .. note:: 
@@ -98,7 +98,7 @@ Exceptional case of stoppable flag
 
 **When also Multiply earned points or Instant reward will be used?**
 
-The same case as was described in Multiply earned points rule exception. If you add a "stoppable" flag to this rule and before points calculation you will also edited Multiply earned points (name, description, activity etc.), Open Loyalty recognizes the second one as the most "current" and use it before the rule with stoppable flag.
+The same case as was described in Multiply earned points rule exception. If you add a "stoppable" flag to this rule and before points calculation you will also edited Multiply earned points (name, description, activity etc.), Open Loyalty recognize the second one as the most "current" and use it before the rule with stoppable flag.
 
 In this exceptional case, the sequence of points calculation can be as follow:
 

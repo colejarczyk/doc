@@ -6,15 +6,15 @@ All campaign categories
 
 The **All campaign categories** grid allows you to manage reward campaign category to facilitate their identification. 
 
-Grid provides information about all categories that can be assigned to particular reward (during it’s creation/edition) with information about status. 
+Grid provide information about all categories that can be assign to particular reward (during it’s creation/edition) with information about status. 
 
-Depending on the Translations settings, **Basic information** can be provided in different language versions (listed in :doc:`Translations </userguide/getting_started/settings/translations>`). Information from that section can be displayed on a Client cockpit depending on a chosen from the admin cockpit default language version.
+Depending on the Translations settings, **Basic information’s** can be provided in different language versions (listed in :doc:`Translations </userguide/getting_started/settings/translations>`). Information from that section can be display on a Client cockpit depending on a chosen from the admin cockpit default language version.
 
 .. tip:: 
 
     **For example**
     
-    when default language is English, information are displayed in English, but when we change it to polish as a default language, all basic information will be displayed in polish (if provided).  
+    when default language is English, information are display in English, but when we change it on polish as a default language, all basic information will be displayed in polish (if provided).  
 
 
 .. image:: /userguide/_images/campaign_categories2.png

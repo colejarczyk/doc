@@ -57,7 +57,7 @@ Example
         -H 'Accept: application/json, text/plain, */*'
         --data-binary '{"_username":"admin","_password":"open"}'
 
-Example Response
+Exemplary Response
 ''''''''''''''''''
 
 .. code-block:: json
@@ -69,7 +69,7 @@ Example Response
 
 .. note::
 
-    Token and refresh token have been shorten for the documentation purpose by suspension points.
+    Token and refresh token has been shorten for the documentation purpose by suspension points.
 
 Using JSON Web Token
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -101,7 +101,7 @@ is not related to real user and is stored in configuration.
 Creating a permanent token in configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to activate configuration access token you need to add to Symfony config value
+In order to activate configuration access token you need to add to parameters.yml value
 
 .. code-block:: text
 
@@ -155,14 +155,14 @@ Example
         -d "admin[apiKey]=customPermanentToken" \
         -d "admin[isActive]=1"
 
-Example Response
+Exemplary Response
 ''''''''''''''''''
 
 .. code-block:: text
 
     STATUS: 200 OK
 
-Example Fail Response
+Exemplary Fail Response
 '''''''''''''''''''''''
 
 .. code-block:: text

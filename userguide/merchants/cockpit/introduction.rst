@@ -4,9 +4,9 @@
 Introduction
 ============
 
-Merchants are linked with a store and Point of Sale (POS) device. PoS device plays an important role in implementation of the Loyalty Program. 
+Merchants are linked with a store and Point of Sale (POS) device. PoS device play an important role in implementation of the Loyalty Program. 
 
-The sale can be done by webshop or stationary by retailers to customers – but in that case only through PoS devices. This chapter gives an overview of the PoS Cockpit usage.
+The sale can be done by webshop or stationary by retailers to customers – but in that case only through PoS devices. This chapter gives an overview of the PoS Cockpit use.
 
 .. image:: /userguide/_images/pos_cockpit.png
    :alt:   POS Cockpit Home Page

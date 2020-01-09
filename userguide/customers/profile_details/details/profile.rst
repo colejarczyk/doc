@@ -6,7 +6,7 @@ Profile details
 
 The Customer Profile details section provides the short customer account summary and information of customer provided during registration.
 
-Block in the upper left corner, shows some factors describing Customer and their account summary, such as:
+Block in the upper left corner, shows some factors describing Customer and its account summary, such as:
 
  - First name
  - Last name

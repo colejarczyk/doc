@@ -13,7 +13,7 @@ This applies to both, customer personal data (such as name, surname, gender, dat
 
 To display the Customers menu:
 ------------------------------
-Tap ``Customers`` on the Admin sidebar and choose **All customers**
+On the Admin sidebar, tap ``Customers``, then choose **All customers**
 
 
 Menu options:

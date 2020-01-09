@@ -18,7 +18,7 @@ During creation of rule you must specify its type, describing conditions for awa
 
 Transactional rules
 -------------------
-Open Loyalty offers following standard types: 
+Open Loyalty offer following standard types: 
 
 1. **General spending rule** 
     Customer could receive points for order value
@@ -47,7 +47,7 @@ Open Loyalty offers following standard types:
 
 
 
-The sequence of points calculation is as follows   
+The sequence of points calculation is as following   
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
  1. Firstly, if applicable, customer receives points from **General spending rule**
@@ -57,7 +57,7 @@ The sequence of points calculation is as follows
  
 .. note::
 
-    Rules from the 2nd step of sequence:
+    Rule from the 2nd step of sequence:
     
      - Multiply earned points,
      - Multiply earned points by product labels and
@@ -72,7 +72,7 @@ The sequence of points calculation is as follows
 
 Non-transactional rules
 -----------------------
-Open Loyalty offers following standard types: 
+Open Loyalty offer following standard types: 
 
 1. **Custom event rule** 
     Customer could receive points for external actions
@@ -80,7 +80,7 @@ Open Loyalty offers following standard types:
     More information about rule creation :doc:`here </userguide/earning_rules/creation/custom>`
    
 2. **Customer referral**
-    Referred and/or Referrer customer could receive points for the action
+    Referred and/or Referrer customer receive points for his action
     
     More information about rule creation :doc:`here </userguide/earning_rules/creation/referral>`
    
