@@ -721,6 +721,8 @@ Example Response
 
     (no content)
 
+
+
 Anonymize customer 
 ------------------
 
@@ -767,6 +769,8 @@ Example Response
 .. code-block:: json
 
     (no content)
+
+
 
 Check if customer with given phone number or email exists
 ---------------------------------------------------------

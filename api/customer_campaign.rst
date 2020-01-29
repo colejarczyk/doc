@@ -698,7 +698,7 @@ Example Response
     {
       "coupons": [{
         "code": "123",
-		"id": "ceb169c7-4fe2-4b49-9f2a-5a18634d7236"
+        "id": "ceb169c7-4fe2-4b49-9f2a-5a18634d7236"
       }]
     }
 

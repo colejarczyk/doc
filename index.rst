@@ -52,9 +52,17 @@ The REST API Reference
 
    api/index
 
-.. include:: /api/map.rst.inc
+Changelog
+----------
 
-.. _OL: http://openloyalty.io
-.. _`Open Loyalty`: http://openloyalty.io
+:doc:`The Changelog </changelog/index>` is a detailed list of changes in each version of Open Loyalty.
+
+.. toctree::
+   :hidden:
+
+   changelog/index
+
+.. _OL: https://openloyalty.io
+.. _`Open Loyalty`: https://openloyalty.io
 .. _`Symfony Framework`: http://symfony.com
 .. _`Quick Tour`: http://symfony.com/doc/current/quick_tour
