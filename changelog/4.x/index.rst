@@ -1,10 +1,10 @@
-The Changelog
-=============
+4.x
+===
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+The format is based on `Keep a Changelog <http://keepachangelog.com/en/1.0.0/>`
+and this project adheres to `Semantic Versioning <http://semver.org/spec/v2.0.0.html>`.
 
 [4.1.0] 29-01-2020
 ------------------
@@ -15,26 +15,26 @@ Added
  - (#1769) [DEV] Upgrade PHP version to 7.3
  - (#2491) [DEV] Migration to latest Symfony 4.4
  - (#2327) [DEV] Upgrade dependencies of the project
- - (#2397) [ADMIN] Searchable select boxes in the administration appłem ra
+ - (#2397) [ADMIN] Searchable select boxes in the administration panel
  - (#2432) [DEV] Add redis support for better performance
  - (#2460) [DEV] Added MiniKube scripts
  - (#2461) [DEV] Added cache layer for API using Varnish for better performance
  - (#2481) [DEV] Open Loyalty’s skeleton for custom projects
  - (#2520) [ADMIN] Multi store levels
  - (#2522) [ADMIN] Multi store transactions
- - (#2521) Extend webhooks with more data
+ - (#2521) Extend Webhooks with more data
  - (#2523) Import transaction from remote S3 for storage
  - (#2524) [ADMIN] Disable emails
  - (#2543) [ADMIN]Assign labels to transactions for import XML
  - (#2563) [ADMIN] Delete levels
  - (#2566) [ADMIN] Delete customers
- - (#2577) [DEV] Overriding crontab jobs
+ - (#2577) [DEV] Overriding Crontab jobs
  - (#2606) [ADMIN] Match transactions with customers through XML import
  - (#2607) [ADMIN] Improved filtering and sorting
  - (#2608) [ADMIN] New dashboard
  - (#2625) [DOC] Improved documentation
  - (#2640) [ADMIN] Segments statistics
- - (#2654) Asynchronous webhooks
+ - (#2654) Asynchronous Webhooks
  - (#2659) [API] Locking & releasing points
 
 Changed
@@ -172,7 +172,7 @@ Changed
 
 Fixed
 ^^^^^
- - (#2434) Fixed wrong data in webhook thrown after registering a new transaction
+ - (#2434) Fixed wrong data in Webhook thrown after registering a new transaction
  - (#2441) [DEV] Fixing wrong docker-compose configuration
 
 [4.0.0] 31-05-2019
@@ -185,7 +185,7 @@ Added
 ^^^^^
  - (#2398) Send SMS when a transaction is matched
  - (#2396) Implement cursors for all exports
- - (#2393) Prepare minikube deployment scripts for OL
+ - (#2393) Prepare MiniKube deployment scripts for OL
  - (#2389) [ADMIN] Create filters and make columns sortable
  - (#2337) [DOC] How to add a new API endpoint
  - (#2339) [DOC] How to create a new bundle
@@ -235,7 +235,7 @@ Changed
  - (#2254) [BC][DEV] Move commands and commands handler to application layer (Customer, EarningRule, Email)
  - (#2258) [BC][DEV] Move commands and commands handler to application layer (Level, Pos, Segment)
  - (#2259) [BC][DEV] Move entity ids to Core component
- - (#2265) [BC][DEV] Split AnalitycsBundle to ADR
+ - (#2265) [BC][DEV] Split AnalyticsBundle to ADR
  - (#2266) [BC][DEV] Split AuditBundle Controllers to ADR pattern
  - (#2267) [BC][DEV] Split CampaignBundle Controllers into ADR Pattern
  - (#2268) [BC][DEV] Split EarningRuleBundle Controllers into ADR Pattern
@@ -248,7 +248,7 @@ Changed
  - (#2275) [BC][DEV] Split TransactionBundle Controllers to ADR pattern
  - (#2277) [BC][DEV] Split UserBundle Controllers into ADR Pattern
  - (#2278) [BC][DEV] Split UtilityBundle Controllers to ADR pattern
- - (#2279) [BC][DEV] Move Business logic AnalitycsBundle to Domain Services
+ - (#2279) [BC][DEV] Move Business logic AnalyticsBundle to Domain Services
  - (#2280) [BC][DEV] Move Business logic AuditBundle Controllers to Domain Services
  - (#2281) [BC][DEV] Move Business logic CampaignBundle Controllers to Domain Services
  - (#2282) [BC][DEV] Move Business logic EarningRuleBundle Controllers to Domain Services
