@@ -3,8 +3,7 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on `Keep a Changelog <http://keepachangelog.com/en/1.0.0/>`
-and this project adheres to `Semantic Versioning <http://semver.org/spec/v2.0.0.html>`.
+The format is based on `Keep a Changelog` and this project adheres to `Semantic Versioning`.
 
 [3.3.0] 22-03-2019
 ------------------
@@ -225,3 +224,6 @@ Fixed
  - buying a campaign when a customer has no phone number caused 500 error
  - fixed typos
  - missing translations
+
+.. _`Keep a Changelog`: http://keepachangelog.com/en/1.0.0/
+.. _`Semantic Versioning`: http://semver.org/spec/v2.0.0.html

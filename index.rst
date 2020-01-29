@@ -20,6 +20,18 @@ The User Guide
 
    userguide/index
 
+The REST API Reference
+----------------------
+
+:doc:`The API guide </api/index>` covers the REST API of Open Loyalty platform.
+
+.. toctree::
+   :hidden:
+
+   api/index
+
+.. include:: api/map.rst.inc
+
 Developer Documentation
 -----------------------
 
@@ -30,6 +42,8 @@ Open Loyalty architecture and used concepts. This guide helps to understand how 
    :hidden:
 
    developer/index
+
+.. include:: developer/map.rst.inc
 
 The Cookbook
 ------------
@@ -42,15 +56,7 @@ specific, narrow problems.
 
    cookbook/index
 
-The REST API Reference
-----------------------
-
-:doc:`The API guide </api/index>` covers the REST API of Open Loyalty platform.
-
-.. toctree::
-   :hidden:
-
-   api/index
+.. include:: cookbook/map.rst.inc
 
 Changelog
 ----------
@@ -61,6 +67,8 @@ Changelog
    :hidden:
 
    changelog/index
+
+.. include:: changelog/map.rst.inc
 
 .. _OL: https://openloyalty.io
 .. _`Open Loyalty`: https://openloyalty.io

@@ -3,8 +3,7 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on `Keep a Changelog <http://keepachangelog.com/en/1.0.0/>`
-and this project adheres to `Semantic Versioning <http://semver.org/spec/v2.0.0.html>`.
+The format is based on `Keep a Changelog` and this project adheres to `Semantic Versioning`.
 
 [4.1.0] 29-01-2020
 ------------------
@@ -282,3 +281,6 @@ Fixed
  - (#2045) [CC] Fixed wrong edit button name
  - (#2324) [CC] Incorrect information about activity/visibility for the reward campaign in PWACC
  - (#2335) Cron job is not executed and wrongly saved pushy tokens
+
+.. _`Keep a Changelog`: http://keepachangelog.com/en/1.0.0/
+.. _`Semantic Versioning`: http://semver.org/spec/v2.0.0.html
