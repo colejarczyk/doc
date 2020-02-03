@@ -4,7 +4,7 @@
 All POS
 =======
 
-The All POS grid provide information about all stores, which transactions made by customers will be registered and count within Loyalty Program. 
+The All POS grid provides information about all stores, which transactions made by customers will be registered and count within Loyalty Program. 
 
 Moreover, list contains address details and brief description about each one and allows modify POS detail. 
 
@@ -29,10 +29,6 @@ Field description
 +----------------------------+-------------------------------------------------------------------------------------+
 |   Localization             | | Address details of the store. Only city is visible.                               |
 |                            | | More information is available after clicking ``Show more``                        |
-+----------------------------+-------------------------------------------------------------------------------------+
-|   Transactions value       | | Sum of all transactions values that were processed in POS                         |
-+----------------------------+-------------------------------------------------------------------------------------+
-|   Transactions count       | | How many transactions were processed in POS                                       |
 +----------------------------+-------------------------------------------------------------------------------------+
 |   Actions                  | | Open POS record in edit mode                                                      |
 +----------------------------+-------------------------------------------------------------------------------------+

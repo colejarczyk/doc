@@ -4,19 +4,19 @@
 Profitability
 =============
 
-**Profitability** include information about basic factors regarding customer transactions within the loyalty program.
+**Profitability** includes information about basic factors regarding customer transactions within the loyalty program.
 
 .. image:: /userguide/_images/customer_profitability.png
    :alt:   Customer Profitability
 
 1. **CLV  (Customer Lifetime Value)**
 
-   total amount of customer all registered transactions
+   total amount of all registered transactions realized by the customer
 
 2. **AVO (Average Value of Order)**
 
-   average amount of customer all registered transactions
+   average amount of all registered transactions realized by the customer
    
 3. **Orders** 
 
-   total number of customer registered transactions (orders) within the Loyalty Program
+   total number of registered transactions (orders) realized by the customer within the Loyalty Program

@@ -5,7 +5,7 @@ Currently all campaign photos are stored in app/uploads directory.
 
 It can be easily changed to other directory or even to cloud storage.
 
-In order to do that change `adapter_*` entry in `parameters.yml` to your adapter defined
+In order to do that change `adapter_*` entry in Symfony config to your adapter defined
 in src/Infrastructure/Core/Resources/config/config.yml at knp_gaufrette.adapters.
 
 Complete reference on how to define adapter can be found in `KnpGaufretterBundle documentation <https://github.com/KnpLabs/KnpGaufretteBundle>`_

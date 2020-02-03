@@ -24,7 +24,7 @@ Match transaction & customer
 
 *Allows to link transaction with Customer Account directly from the POS. Based on matching transaction with customer identification factors priority (set up in Configuration). Useful when only transactions are sent to Open Loyalty*  
    
-*To remain about identification factors please see :doc:`Configuration </userguide/getting_started/settings/Configuration/identification_factors>`*
+*To remain about identification factors please see :doc:`Configuration </userguide/getting_started/settings/Configuration/identification_factors>`
 
 .. image:: /userguide/_images/pos_match.png
    :alt:   Match transaction & customer

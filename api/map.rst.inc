@@ -6,6 +6,7 @@
 * :doc:`/api/campaign`
 * :doc:`/api/customer`
 * :doc:`/api/customer_campaign`
+* :doc:`/api/customer_level`
 * :doc:`/api/customer_earning_rule`
 * :doc:`/api/customer_points_transfers`
 * :doc:`/api/earning_rule`
@@ -17,6 +18,7 @@
 * :doc:`/api/seller`
 * :doc:`/api/segment`
 * :doc:`/api/settings`
+* :doc:`/api/store`
 * :doc:`/api/transactions`
 * :doc:`/api/utility`
 * :doc:`/api/campaign_category`

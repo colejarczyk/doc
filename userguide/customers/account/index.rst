@@ -9,6 +9,7 @@ Customers account creation
    xml_customer
    account_updating
    account_deactivate
+   level_assigned
   
    
 .. include:: /userguide/customers/account/map.rst.inc

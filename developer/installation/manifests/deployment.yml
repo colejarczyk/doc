@@ -23,7 +23,7 @@ spec:
               value: openloyalty
             - name: POSTGRES_USER
               value: openloyalty
-          image: postgres:9
+          image: postgres:9-alpine
           name: db
           ports:
             - containerPort: 5432
@@ -70,7 +70,7 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/web:latest
+        - image: registry-1.divante.pl:5000/openloyalty/web:4.1.0
           name: openloyalty-web
           ports:
             - containerPort: 80
@@ -152,7 +152,7 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/pwacc:latest
+        - image: registry-1.divante.pl:5000/openloyalty/pwacc:4.1.0
           name: openloyalty-pwacc
           env:
             - name: OL_HOST
@@ -182,7 +182,7 @@ spec:
 ########
 # PHPFPM
 ########
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   labels:
@@ -201,31 +201,15 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/fpm:latest
+        - image: registry-1.divante.pl:5000/openloyalty/fpm:4.1.0
           name: php
-          env:
-            - name: APP_DB_HOST
-              value: db
-            - name: APP_DB_PORT
-              value: '5432'
-            - name: APP_DB_USER
-              value: openloyalty
-            - name: APP_DB_PASSWORD
-              value: openloyalty
-            - name: APP_DB_NAME
-              value: openloyalty
-            - name: ELK_HOST
-              value: elk
           ports:
             - containerPort: 9000
           volumeMounts:
-            - mountPath: /var/www/openloyalty/var/cache
-              name: cache
-              subPath: cache
-            - mountPath: /var/www/openloyalty/var/logs
+            - mountPath: /var/www/openloyalty/var/log
               name: logs
               subPath: logs
-            - mountPath: /var/www/openloyalty/var/jwt
+            - mountPath: /var/www/openloyalty/config/jwt
               name: jwt
               subPath: jwt
             - mountPath: /var/www/openloyalty/var/uploads
@@ -239,9 +223,6 @@ spec:
               subPath: www.conf
       restartPolicy: Always
       volumes:
-        - name: cache
-          persistentVolumeClaim:
-            claimName: cache-volume
         - name: logs
           persistentVolumeClaim:
             claimName: logs-volume
@@ -281,7 +262,7 @@ spec:
 #########
 # Elastic
 #########
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   name: elasticsearch
@@ -321,28 +302,22 @@ spec:
         - name: elasticsearch
           mountPath: /usr/share/elasticsearch/data
       containers:
-      - image: registry-1.divante.pl:5000/openloyalty/elasticsearch:6.7.0
+      - image: registry-1.divante.pl:5000/openloyalty/elasticsearch:7.5.0
         name: elasticsearch
         securityContext:
           privileged: false
+          capabilities:
+            add:
+              - IPC_LOCK
+              - SYS_RESOURCE
         ports:
         - containerPort: 9200
         - containerPort: 9300
         env:
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        - name: NODE_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
         - name: discovery.type
           value: single-node
-        - name: bootstrap.memory_lock
-          value: "true"
         - name: ES_JAVA_OPTS
-          value: "-Xms512m -Xmx512m"
+          value: "-Xms1024m -Xmx1024m"
         volumeMounts:
         - mountPath: /usr/share/elasticsearch/data
           name: elasticsearch
@@ -367,10 +342,10 @@ spec:
   selector:
     app: elasticsearch
 ---
-########
-# mail
-########
-apiVersion: extensions/v1beta1
+##############
+# MAIL CATCHER
+##############
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   labels:
@@ -411,7 +386,7 @@ spec:
 ########
 # WORKER
 ########
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   labels:
@@ -430,30 +405,14 @@ spec:
       imagePullSecrets:
       - name: registry
       containers:
-      - image: registry-1.divante.pl:5000/openloyalty/worker:latest
+      - image: registry-1.divante.pl:5000/openloyalty/worker:4.1.0
         name: worker
         imagePullPolicy: Always
-        env:
-        - name: APP_DB_HOST
-          value: db
-        - name: APP_DB_PORT
-          value: "5432"
-        - name: APP_DB_USER
-          value: openloyalty
-        - name: APP_DB_PASSWORD
-          value: openloyalty
-        - name: APP_DB_NAME
-          value: openloyalty
-        - name: ELK_HOST
-          value: elk
         volumeMounts:
-          - mountPath: /var/www/openloyalty/var/cache
-            name: cache
-            subPath: cache
-          - mountPath: /var/www/openloyalty/var/logs
+          - mountPath: /var/www/openloyalty/var/log
             name: logs
             subPath: logs
-          - mountPath: /var/www/openloyalty/var/jwt
+          - mountPath: /var/www/openloyalty/config/jwt
             name: jwt
             subPath: jwt
           - mountPath: /var/www/openloyalty/var/uploads
@@ -464,9 +423,6 @@ spec:
             subPath: .env.prod
       restartPolicy: Always
       volumes:
-        - name: cache
-          persistentVolumeClaim:
-            claimName: cache-volume
         - name: logs
           persistentVolumeClaim:
             claimName: logs-volume
@@ -483,10 +439,10 @@ spec:
               - key: .env.prod
                 path: .env.prod
 ---
-#######
+##########
 # RABBITMQ
-#######
-apiVersion: extensions/v1beta1
+##########
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   name: rabbitmq
@@ -530,10 +486,10 @@ spec:
   selector:
     app: rabbitmq
 ---
-#######
+##########
 # LOGSTASH
-#######
-apiVersion: extensions/v1beta1
+##########
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
     name: logstash
@@ -550,7 +506,7 @@ spec:
             imagePullSecrets:
                 - name: registry
             containers:
-                - image: registry-1.divante.pl:5000/openloyalty/logstash:6.7.0
+                - image: registry-1.divante.pl:5000/openloyalty/logstash:7.5.0
                   name: logstash
                   ports:
                       - containerPort: 5000
@@ -586,45 +542,47 @@ spec:
 #######
 # REDIS
 #######
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
-    name: redis
-    namespace: openloyalty
+  name: redisserver
+  namespace: openloyalty
 spec:
-    replicas: 1
-    strategy:
-        type: Recreate
-    template:
-        metadata:
-            labels:
-                app: redis
-        spec:
-            containers:
-                - image: redis:5.0
-                  name: redis
-                  ports:
-                      - containerPort: 6379
-            restartPolicy: Always
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: redisserver
+    spec:
+      imagePullSecrets:
+        - name: registry
+      containers:
+        - image: registry-1.divante.pl:5000/openloyalty/redis:5.0.7-alpine
+          name: redis
+          ports:
+            - containerPort: 6379
+      restartPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
-    name: redis
-    namespace: openloyalty
-    labels:
-        app: redis
+  name: redisserver
+  namespace: openloyalty
+  labels:
+    app: redisserver
 spec:
-    ports:
-        - port: 6379
-          targetPort: 6379
-    selector:
-        app: redis
+  ports:
+    - port: 6379
+      targetPort: 6379
+  selector:
+    app: redisserver
 ---
 #######
 # KIBANA
 #######
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   name: kibana
@@ -639,7 +597,7 @@ spec:
         app: kibana
     spec:
       containers:
-        - image: docker.elastic.co/kibana/kibana:6.7.0
+        - image: docker.elastic.co/kibana/kibana:7.5.0
           name: kibana
           ports:
             - containerPort: 5601
@@ -662,10 +620,10 @@ spec:
   selector:
     app: kibana
 ---
-#####
+#########
 # Varnish
-#####
-apiVersion: extensions/v1beta1
+#########
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   name: varnish
@@ -682,11 +640,22 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/varnish:4
+        - image: registry-1.divante.pl:5000/openloyalty/varnish:6
           name: openloyalty-varnish
           ports:
             - containerPort: 80
+          volumeMounts:
+            - mountPath: /etc/varnish/settings.vcl
+              name: varnish
+              subPath: settings.vcl
       restartPolicy: Always
+      volumes:
+        - name: varnish
+          configMap:
+            name: varnish
+            items:
+              - key: settings.vcl
+                path: settings.vcl
 ---
 apiVersion: v1
 kind: Service

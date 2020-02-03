@@ -10,7 +10,7 @@ Points can be awarded for a wide range of transaction and customer activities, a
 
 You can add point multipliers, eligibility criteria and even exclude certain products or customers. 
 
-Customers can redeem points toward rewards, based on the condition (points cost) that you establish.
+Customers can redeem points toward rewards, based on the condition (cost points) that you establish.
 
 
 .. image:: /userguide/_images/earning_rules.png
@@ -19,7 +19,7 @@ Customers can redeem points toward rewards, based on the condition (points cost)
 To display the Earning rules  menu:
 -----------------------------------
 
-On the Admin sidebar, tap ``Earning rules``, then choose **All earning rules**
+Tap ``Earning rules`` on the Admin sidebar and choose **All earning rules**
 
 Menu options:
 ^^^^^^^^^^^^^
@@ -27,7 +27,7 @@ Menu options:
 All earning rules
 *****************
 
-*Lists all Earning Rules within your loyalty program with additional information regarding it’s activity, conditions and general information*
+*Lists all Earning Rules within your loyalty program with additional information regarding its activity, conditions and general information*
 
 .. image:: /userguide/_images/earning_rules.png
    :alt:   Earning Rules 

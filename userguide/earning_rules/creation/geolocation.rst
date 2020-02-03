@@ -13,7 +13,7 @@ This Earning rule could be call only with API. Every run of API function will re
 To add new Geolocation rule:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Earning rules**. Then, choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
+1. Tap **Earning rules** on the Admin sidebar and choose **Add earning rule**. You can also add rule directly from **All earning rules** list by clicking ``Add earning rule`` at the top of the page 
 
 .. image:: /userguide/_images/add_rule_button.png
    :alt:   Add Rule Options  
@@ -21,7 +21,7 @@ To add new Geolocation rule:
 .. image:: /userguide/_images/basic_rule.png
    :alt:   Add Earning Rule Form
 
-2. In **Basic informations** section, do the following:  
+2. In **Basic information** section, do the following:
 
  - Enter **Name** of the rule that will be displayed in views
  - Provide a brief **Description** of the rule that explains how to award points and information when the rule is active (thereby using to points calculation) 
@@ -38,6 +38,16 @@ To add new Geolocation rule:
    
    Customer can get points only when he is in radius area 
  - Amount of **Points** that will be earned for this event rule
+
+ - **Period** defining the period of the customer's usage(possible values to select: 1 Day, 1 Month, 1 Week, 1 year, 3 months, 6 months, Forever
+
+.. image:: /userguide/_images/geolocation_period.png
+   :alt:   Geolocation
+
+ - **Limit** defining the usage limit
+
+.. image:: /userguide/_images/geolocation_limit.png
+   :alt:   Geolocation
 
    See :doc:`Rule Types </userguide/earning_rules/creation/rule_type>` to learn more about Earning rules types
 
@@ -73,7 +83,7 @@ To add new Geolocation rule:
 .. image:: /userguide/_images/rule_photo.png
    :alt:   Earning rule photo option
 
-8. When complete, tap ``SAVE``
+8. When it is done, tap ``SAVE``
 
 
 .. note:: 

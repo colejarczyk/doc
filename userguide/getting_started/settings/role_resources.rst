@@ -6,7 +6,7 @@ Role Resources
 
 Access to the following resources can be assigned to any admin user role. 
 
-See the **Resources** linked page to learn more about the capabilities thyat are associated with. 
+See the **Resources** linked page to learn more about the capabilities that are associated with.
 
 .. image:: /userguide/_images/resources.png
    :alt:   Resources list
@@ -130,9 +130,9 @@ Defines access to the :doc:`Customers  </userguide/customers/index>` section and
     **Customer account creation & edition***
     
     To enable full customer account edition & creation, and display all Customer profile details, you must have at least an **View access** to the following: 
-     - *Levels* - to assigne level and display in Profile details 
-     - *POS* - to assigne POS and display in Profile details
-     - *Merchants* - to assigne merchant and display in Profile details
+     - *Levels* - to assign level and display in Profile details
+     - *POS* - to assign POS and display in Profile details
+     - *Merchants* - to assign merchant and display in Profile details
      - *Segments* - to display segments to which customer belongs in Profile details 
      - *Transactions* - to display all customer registered transactions in Profile details 
      - *Points transfers* - to display all customer adding/spending points transfer in Profile details 

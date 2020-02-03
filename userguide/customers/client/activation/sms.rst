@@ -12,17 +12,14 @@ On the phone number provided by customer in the registration form activation cod
 To activate customer account using SMS code:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When customer receive that message, he needs to return on Login page and do as follow:
+When customer receives that message, he needs to return on Login page and do as follow:
 
 1. On the login page, tap **Activate an account or resend a code** 
 
 .. image:: /userguide/_images/login_page.png
    :alt:   Login page
 
-2. When prompted, in the Account activation window, enter the **Activation code** that received. Then tap ``SAVE``
-
-.. image:: /userguide/_images/sms_activation.png
-   :alt:   Customer account activation 
+2. When it is prompted, in the Account activation window, enter the **Activation code** that received. Then tap ``SAVE``
 
 
 | If for some reason customer will lost this code he can simply resend an activation code.
@@ -32,7 +29,7 @@ To resend an activation code:
 
 1. On the login page, tap **Activate an account or resend a code** , like in a previous step 
 
-2. When prompted, in the Account activation window, tap ``Resend code``
+2. When it is prompted, tap ``Resend code`` in the Account activation window 
 
 3. Enter the **Phone number** on which another resend code will be sent. Phone number can be different than this one provided in registration form.
 
@@ -44,4 +41,4 @@ To resend an activation code:
 .. image:: /userguide/_images/resend.png
    :alt:   Resend code
 
-4. When complete, tap ``Resend activation code`` 
+4. When it is done, tap ``Resend activation code`` 

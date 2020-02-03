@@ -16,21 +16,21 @@ Importing a XML file will create a customer in your Loyalty platform for each em
 To import a Customer list from a file:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Customers**. Then, choose **All Customers**
+1. Tap **Customers** on the Admin sidebar and choose **All Customers**
 
 2. Click ``Import`` at the top of the page, next to ``Add Customer``
 
 .. image:: /userguide/_images/customer_import_button.png
    :alt:   Customers Import Button
 
-3. In the **Import Customers** dialog, click ``Upload``, and then choose your customer XML file
+3. Click ``Upload`` in the **Import Customers** dialog and choose your customer XML file
 
 .. image:: /userguide/_images/customer_import_window.png
    :alt:   Customers Import Button
 
-4. When file selected, click ``IMPORT``
+4. When file is selected, click ``IMPORT``
 
-The customers whose records you've added to the XML file will appear in the **All customers** list in your Open Loyalty admin
+The customers, whose records you've added to the XML file, will appear in the **All customers** list in your Open Loyalty admin
 
 .. note:: 
 

@@ -6,7 +6,7 @@ Marketing Automation Tool
 
 To create effective email marketing and easy determine which of your products and services will suit to individual customer who registered to your Loyalty Program or just left their email address (newsletter subscription) **you can integrate Open Loyalty Platform with SALESmanago**. 
 
-**SALESmanago** is the 1st in Poland and 6th in the world*  a comprehensive, next-generation platform for marketing automation. SALESmanago identifies people entering your website, analyze their online behavior and transaction. Based on this information create complete and individual customer behavioral profile. This information is processed by the Machine Learning & AI algorithms to provide fully personalized offers.  
+**SALESmanago** is the 1st in Poland and 6th in the world*  a comprehensive, next-generation platform for marketing automation. SALESmanago identifies people entering your website, analyze their online behavior and transaction. Based on this information create completed and individual customer behavioral profile. This information is processed by the Machine Learning & AI algorithms to provide fully personalized offers.  
 
 .. note::
 
@@ -22,7 +22,7 @@ To create effective email marketing and easy determine which of your products an
 To set up integration with SALESmanago:
 '''''''''''''''''''''''''''''''''''''''
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Configuration**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Configuration** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -44,7 +44,4 @@ To set up integration with SALESmanago:
   - In **Email** field enter the email address of the default owner of acquired contacts in SALESmanago
 
 
-6. When complete, tap ``SAVE``
- 
-
-
+6. When it is done, tap ``SAVE``

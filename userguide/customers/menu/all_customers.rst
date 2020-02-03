@@ -24,7 +24,7 @@ To view customer detail information:
 .. image:: /userguide/_images/customer_details.png
    :alt:   Customer Record Preview
 
-To learn more about **Customer Profile Detail Page**, see :doc:`Profile details </profile_details/index>`
+To learn more about **Customer Profile Details Page**, see :doc:`Profile details </profile_details/index>`
 
 
 Field description
@@ -62,6 +62,8 @@ Field description
 +----------------------------+-------------------------------------------------------------------------------------+
 | | Current level            | | Current level that is assigned to customer account.                               |
 |                            | | To learn more about levels see :doc:`Levels </levels/index>`                      |
++----------------------------+-------------------------------------------------------------------------------------+
+| | Store                    | | The Store the customer belongs to                                                 |
 +----------------------------+-------------------------------------------------------------------------------------+
 | | Assigned manually        | | Information whether current customer level was assigned manually by Admin or not. |
 |                            | | **Options include: Yes/No**                                                       |

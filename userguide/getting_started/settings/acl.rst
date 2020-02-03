@@ -62,7 +62,7 @@ To add new Role:
 
   - in **Resource** field select from dropdown Admin Cockpit resource that the role can specified in previous step *Access*
   
-.. image:: /userguide/_images/permissions.PNG
+.. image:: /userguide/_images/permissions.png
    :alt:   Assigne resources
   
 5. Repeat *step 4* to add access for additional resources assigned to the Role
@@ -107,12 +107,12 @@ To learn more about Role resources please find :doc:`Role resources </userguide/
 
 
 Users roles management
-------------------------
+----------------------
 
 To edit a Role:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
-.. image:: /userguide/_images/role_edit.PNG
+.. image:: /userguide/_images/role_edit.png
    :alt:   Role edition mode
 
 1. Tap the **Settings** icon |settings| in the upper-right corner and choose **ACL** on the menu. 
@@ -131,7 +131,7 @@ To edit a Role:
 
 
 To remove a Role:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 You can also delete existing role from the Admin.
 
@@ -153,8 +153,7 @@ You can also delete existing role from the Admin.
 .. image:: /userguide/_images/remove_role.PNG
    :alt:   Removing Role Action
 
-
-4. When it is done, tap ``SAVE``
+4. When finished, tap ``SAVE``
 
 
 .. warning::

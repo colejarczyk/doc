@@ -13,28 +13,24 @@ data:
         "debug": false,
         "modules": []
     };
-    window.OpenLoyaltyConfig = {
-        "apiUrl": "http://api.example.com/api",
-        "dateFormat": "YYYY-MM-DD",
-        "dateTimeFormat": "YYYY-MM-DD HH:mm",
-        "perPage": 20,
-        "debug": false,
-        "modules": []
-    };
+    window.OpenLoyaltyConfig = config;
   .env.prod: |
     APP_ENV=prod
     APP_SECRET=__REPLACE_IT__
     RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
     DATABASE_URL=pgsql://openloyalty:openloyalty@db:5432/openloyalty
+    DATABASE_VERSION='9'
     MAILER_URL=smtp://mail:1025
     GELF_SERVER=logstash
     GELF_PORT=12201
     ELK_HOST=elk:9200
     VARNISH_HOST=varnish
     VARNISH_CACHE_BASE_URL=localhost
-    REDIS_HOST=redis
-    REDIS_PORT=5379
-
+    VARNISH_TTL=0
+    VARNISH_INVALIDATION=true
+    VARNISH_DEBUG=false
+    REDIS_HOST=redisserver
+    REDIS_PORT=6379
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -52,3 +48,37 @@ data:
     pm.start_servers = 15
     pm.min_spare_servers = 15
     pm.max_spare_servers = 30
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: varnish
+  namespace: openloyalty
+data:
+  settings.vcl: |
+    import directors;
+
+    backend default_server {
+      .host = "web";
+      .port = "8080";
+      .max_connections = 300;
+
+      .first_byte_timeout     = 300s;
+      .connect_timeout        = 5s;
+      .between_bytes_timeout  = 2s;
+    }
+
+    acl purge {
+      # ACL we'll use later to allow purges
+      "localhost";
+      "127.0.0.1";
+      "::1";
+      "php";
+      "web";
+    }
+
+    sub vcl_init {
+      new vdir = directors.round_robin();
+      vdir.add_backend(default_server);
+    }
+---

@@ -103,7 +103,9 @@ To update the store with ``store = cbc362ae-aa53-46d2-bc98-422ab249ac0b`` use th
         -X "PUT" \ 
 	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+		-d "store[name] = store_name" \
+		-d "store[active] = 0"
 
 .. note::
 
@@ -248,7 +250,11 @@ Example
         -X "POST" \
 		-H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+		-d "store[active] = 1" \
+        -d "store[name] = store_name" \
+        -d "store[currency] = EUR" \
+        -d "store[code] = store_code"
 
 .. note::
 

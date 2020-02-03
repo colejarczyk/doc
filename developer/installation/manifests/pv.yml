@@ -31,21 +31,6 @@ spec:
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-    name: cache-pv
-    namespace: openloyalty
-spec:
-    storageClassName: manual
-    capacity:
-        storage: 5Gi
-    accessModes:
-        - ReadWriteMany
-    hostPath:
-        path: "/data/openloyalty/cache"
-        type: DirectoryOrCreate
----
-kind: PersistentVolume
-apiVersion: v1
-metadata:
     name: logs-pv
     namespace: openloyalty
 spec:
@@ -86,4 +71,19 @@ spec:
         - ReadWriteMany
     hostPath:
         path: "/data/openloyalty/uploads"
+        type: DirectoryOrCreate
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+    name: rabbitmq-pv
+    namespace: openloyalty
+spec:
+    storageClassName: manual
+    capacity:
+        storage: 1Gi
+    accessModes:
+        - ReadWriteMany
+    hostPath:
+        path: "/data/openloyalty/rabbitmq"
         type: DirectoryOrCreate

@@ -3,6 +3,8 @@ Customer Campaign API
 
 These endpoints will allow you to see and use Reward Campaigns for a customer.
 
+
+
 Get all campaigns bought by a customer
 --------------------------------------
 
@@ -13,14 +15,14 @@ Definition
 
 .. code-block:: text
 
-    GET /api/admin/customer/{customer}/campaign/bought
+    GET /api/admin/customer/<customer>/campaign/bought
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
 +----------------------+----------------+--------------------------------------------------------+
-| customer             | request        | Customer UUID                                          |
+| <customer>           | request        | Customer UUID                                          |
 +----------------------+----------------+--------------------------------------------------------+
 | includeDetails       | query          | *(optional)* Include details about bought campaign     |
 |                      |                | For example ``1``                                      |
@@ -51,7 +53,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -115,7 +117,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -185,6 +187,8 @@ Example Response
       "total": 1
     }
 
+
+
 Get all campaigns available for logged in customer
 --------------------------------------------------
 
@@ -239,7 +243,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. warning::
 
@@ -290,6 +294,8 @@ Example Response
       "total": 1
     }
 
+
+
 Get all campaigns bought by logged in customer
 ----------------------------------------------
 
@@ -336,7 +342,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. warning::
 
@@ -384,7 +390,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. warning::
 
@@ -444,6 +450,103 @@ Example Response
       "total": 1
     }
 
+
+
+Mark multiple coupons as used/unused by customer.
+-------------------------------------------------
+
+Mark customer coupons as used/unused  using ``/api/admin/campaign/coupons/mark_as_used`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/admin/campaign/coupons/mark_as_used
+
++---------------------------+----------------+-------------------------------------------------------------+
+| Parameter                 | Parameter type |  Description                                                |
++===========================+================+=============================================================+
+| Authorization             | header         | Token received during authentication                        |
++---------------------------+----------------+-------------------------------------------------------------+
+| coupons[][campaignId]     | request        | Campaign UUID                                               |
++---------------------------+----------------+-------------------------------------------------------------+
+| coupons[][couponId]       | request        | Coupon UUID                                                 |
++---------------------------+----------------+-------------------------------------------------------------+
+| coupons[][code]           | request        | Coupon code                                                 |
++---------------------------+----------------+-------------------------------------------------------------+
+| coupons[][used]           | request        | Is coupon used, 1 if true, 0 if not used                    |
++---------------------------+----------------+-------------------------------------------------------------+
+| coupons[][transactionId]  | request        | *(optional)* Transaction ID for which coupon has been used  |
++---------------------------+----------------+-------------------------------------------------------------+
+| coupons[][customerId]     | request        | Customer UUID                                               |
++---------------------------+----------------+-------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/admin/campaign/coupons/mark_as_used \
+        -X "POST" -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "coupons[0][campaignId]=f1eddc46-e985-43e8-bc2a-8007dca3df95" \
+        -d "coupons[0][couponId]=83d6a65e-d237-4049-84aa-bb107cd6f9a4" \
+        -d "coupons[0][code]=test1" \
+        -d "coupons[0][used]=1" \
+        -d "coupons[0][customerId]=00000000-0000-474c-b092-b0dd880c07e1" \
+        -d "coupons[0][campaignId]=f1eddc46-e985-43e8-bc2a-8007dca3df95" \
+        -d "coupons[0][couponId]=6a2456ec-49b3-4970-9ac4-75ca01eab0ee" \
+        -d "coupons[0][code]=test2" \
+        -d "coupons[0][used]=1" \
+        -d "coupons[0][customerId]=00000000-0000-474c-b092-b0dd880c07e1"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *campaignId = f1eddc46-e985-43e8-bc2a-8007dca3df95* id is an example value. Your value can be different.
+
+.. note::
+
+    The *couponId = 6a2456ec-49b3-4970-9ac4-75ca01eab0ee* id is an example value. Your value can be different.
+
+.. note::
+
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "coupons": [
+        {
+          "name": "test1",
+          "used": true,
+          "campaignId": "f1eddc46-e985-43e8-bc2a-8007dca3df95",
+          "customerId": "00000000-0000-474c-b092-b0dd880c07e1"
+        },
+        {
+          "name": "test2",
+          "used": true,
+          "campaignId": "f1eddc46-e985-43e8-bc2a-8007dca3df95",
+          "customerId": "00000000-0000-474c-b092-b0dd880c07e1"
+        }
+      ]
+    }
+
+
+
 Mark logged in customer coupons as used
 ---------------------------------------
 
@@ -478,7 +581,8 @@ Example
 .. code-block:: bash
 
     curl http://localhost:8181/api/customer/campaign/coupons/mark_as_used \
-        -X "GET" -H "Accept: application/json" \
+        -X "POST" \
+        -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "coupons[0][campaignId]=00000000-0000-0000-0000-000000000001" \
@@ -490,19 +594,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaignId = 00000000-0000-0000-0000-000000000001* id is an example value. Your value can be different.
-
-.. note::
-
-    The *couponId = 00000000-0000-0000-0000-000000000002* id is an example value. Your value can be different.
-
-.. note::
-
-    The *transactionId = 00000000-0000-0000-0000-000000000003* id is an example value. Your value can be different.
+    The *campaignId = 00000000-0000-0000-0000-000000000001*, *couponId = 00000000-0000-0000-0000-000000000002*,
+    *transactionId = 00000000-0000-0000-0000-000000000003* are example values. Your values can be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -527,7 +624,7 @@ Example Response
 Example Error Response
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If there is no more coupons left, you'll receive follow responses.
+If there is no more coupons left, you will receive following responses.
 
 .. code-block:: text
 
@@ -542,10 +639,12 @@ If there is no more coupons left, you'll receive follow responses.
       }
     }
 
-Buy campaign by logged in customer
-----------------------------------
 
-Buy campaign bought by logged in customer use ``/api/customer/campaign/{campaign}/buy`` endpoint with the ``POST`` method.
+
+Buy campaign by the logged in customer
+--------------------------------------
+
+Buy campaign bought by the logged in customer use ``/api/customer/campaign/{campaign}/buy`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -580,7 +679,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. warning::
 
@@ -598,14 +697,15 @@ Example Response
 
     {
       "coupons": [{
-        "code": "123"
+        "code": "123",
+        "id": "ceb169c7-4fe2-4b49-9f2a-5a18634d7236"
       }]
     }
 
 Example Error Response
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If there is no more coupons left, you'll receive follow responses.
+If there is no more coupons left, you will receive following responses.
 
 .. code-block:: text
 
@@ -620,7 +720,7 @@ If there is no more coupons left, you'll receive follow responses.
 Example Error Response
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If you don't have enough points to buy a reward, you'll receive follow responses.
+If you don't have enough points to buy a reward, you will receive following responses.
 
 .. code-block:: text
 
@@ -632,6 +732,8 @@ If you don't have enough points to buy a reward, you'll receive follow responses
       "error": "Not enough points"
     }
 
+
+
 Get all campaigns bought by a customer (seller)
 -----------------------------------------------
 
@@ -642,14 +744,14 @@ Definition
 
 .. code-block:: text
 
-    GET /api/seller/customer/{customer}/campaign/bought
+    GET /api/seller/customer/<customer>/campaign/bought
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
 +----------------------+----------------+--------------------------------------------------------+
-| customer             | request        | Customer UUID                                          |
+| <customer>           | request        | Customer UUID                                          |
 +----------------------+----------------+--------------------------------------------------------+
 | includeDetails       | query          | *(optional)* Include details about bought campaign     |
 |                      |                | For example ``1``                                      |
@@ -680,7 +782,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -689,7 +791,7 @@ Example
 
 .. note::
 
-    When you will use endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
 
 .. note::
 
@@ -753,7 +855,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about :doc:`Authorization in the </authorization>`.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -762,7 +864,7 @@ Example
 
 .. note::
 
-    When you will use endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
 
 .. note::
 

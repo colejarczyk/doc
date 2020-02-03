@@ -6,7 +6,7 @@ Returns
 
 If for any reason the customer returns the purchased products and claims a refund a Return transaction is created. Customer can request a return from both, online and offline stores and both, partial or full refund. 
 
-Typically, customer contacts the merchant to request a refund. If merchant authorize the return and agree for refund, a unique document number of related sell transaction is required to identify the returned products and sell transaction, that caused the points earned. 
+Typically, customer contacts the merchant to request a refund. If merchant authorizes the return and agree for refund, a unique document number of related sell transaction is required to identify the returned products and sell transaction, that caused the points earned. 
 
 .. note:: 
 
@@ -50,7 +50,7 @@ For better understanding please see **Example** below
 Example of customer points and profitability factors behavior after return 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-Your customer **transaction value is 40 €** and include following products: 
+Your customer **transaction value is 40 €** and includes following products: 
     
  - Product A – 10 €  
  - Product B – 10 € 
@@ -67,7 +67,7 @@ For following transaction and purchased of these products your customer has **ea
     
 Points were added to his Active points pool, and transaction value to total amount of his registered transaction value (CLV attribute).
     
-For some reason, **he decided to return Product C, which cost 20 €**, which is a half of the total transaction value. 
+For some reason, **he decided to return Product C, which costs 20 €**, which is a half of the total transaction value. 
     
 And exactly in the same proportion will be calculated the value of points that will be subtracted. For this transaction he earned 70 points, so half of them – 35 points will be subtracted from the Active points pool. 
 

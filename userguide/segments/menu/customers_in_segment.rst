@@ -8,7 +8,7 @@ You can simply view not only the number but also the list of customers with deta
 
 To display the list of customers:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. On the Admin sidebar, tap **Segments**. Then choose **All segments** 
+1. Tap **Segments** on the Admin sidebar and choose **All segments** 
 
 2. In the segments list, find the segment that you want to see customers list and click ``Show`` in the **Customers** column. 
 

@@ -6,7 +6,7 @@ Updating merchant account
 
 You can edit information about your merchants, including all their data provided during account creation process and password. 
 
-Obviously Merchant can also edited all listed data (including password) from his account in POS Cockpit. 
+Obviously Merchant can also edit all listed data (including password) from his account in POS Cockpit. 
 
 .. image:: /userguide/_images/edit_merchant.png
    :alt:   Merchant Account Editing
@@ -14,7 +14,7 @@ Obviously Merchant can also edited all listed data (including password) from his
 To edit a a merchant account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Merchants**. Then, choose **All merchants**
+1. Tap **Merchants** on the Admin sidebar  and choose **All merchants**
 
 2. In the merchants list, find the record to be edited and click **Edit** icon |edit| in the Action column to open the merchant in edit mode
 
@@ -22,13 +22,13 @@ To edit a a merchant account:
  
 3. Make any necessary changes to the merchant account information
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 
 To change a password to merchant account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Merchants**. Then, choose **All merchants**
+1. Tap **Merchants** on the Admin sidebar  and choose **All merchants**
 
 2. In the merchants list, find the record to be edited and click **Edit** icon |edit| in the Action column to open the merchant in edit mode
 
@@ -38,7 +38,7 @@ To change a password to merchant account:
 
 4. Provide a new password in blank **Password** field 
 
-5. When complete, tap ``SAVE``
+5. When it is done, tap ``SAVE``
 
 
 .. note:: 

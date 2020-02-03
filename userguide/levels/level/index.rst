@@ -7,8 +7,7 @@ Customer level creation & edition
    level_creation
    level_updating
    level_activate
-   
-   
+   level_delete
+
+
 .. include:: /userguide/levels/level/map.rst.inc
-
-

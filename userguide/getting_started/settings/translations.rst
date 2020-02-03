@@ -35,7 +35,7 @@ You can create and versions your loyalty platform in multiple languages. You can
 To add new translation:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Translations**. 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Translations** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -58,7 +58,7 @@ To add new translation:
 7. In **Content** field, for each text to be edited either paste or type the translated text into the field. The translated text is marked in green.
    Text in an editor must be valid JSON.
    
-8. When complete, tap ``SAVE``
+8. When it is done, tap ``SAVE``
 
 9. Repeat the process for all language version used in the Open Loyalty
 
@@ -107,7 +107,7 @@ You can edit all data provided during translation creation process (except Code 
 To edit a translation:
 ^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Translations**
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Translations** on the menu.
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -117,7 +117,7 @@ To edit a translation:
 
 3. Make any necessary changes to the translated text
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 
 .. note::
@@ -129,7 +129,7 @@ To edit a translation:
 To change the default language:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. In the upper-right corner, tap the **Settings** icon |settings| . Then on the menu, choose **Translations** 
+1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Translations** on the menu. 
 
 .. |settings| image:: /userguide/_images/icon.png
 
@@ -139,7 +139,7 @@ To change the default language:
 
 3. Mark **Default** checkbox
 
-4. When complete, tap ``SAVE``
+4. When it is done, tap ``SAVE``
 
 
 .. note::

@@ -31,21 +31,6 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: cache-volume
-  namespace: openloyalty
-  labels:
-    storage-tier: cache
-spec:
-  storageClassName: manual
-  resources:
-    requests:
-      storage: 5Gi
-  accessModes:
-    - ReadWriteMany
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
   name: logs-volume
   namespace: openloyalty
   labels:
@@ -101,4 +86,4 @@ spec:
     requests:
       storage: 1Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany

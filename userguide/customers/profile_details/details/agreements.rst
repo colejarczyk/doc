@@ -4,7 +4,7 @@
 Agreements
 ==========
 
-**Agreements** section is a list of consents and include information about their acceptance by customer. If the customer has accepted the agreement, the checkbox in the name record is marked.
+**Agreements** section is a list of consents and includes information about their acceptance by customer. If the customer has accepted the agreement, the checkbox in the name record is marked.
 
 .. image:: /userguide/_images/agreements_ok.png
    :alt:   Agreements
@@ -14,4 +14,4 @@ Agreements
 .. |edit| image:: /userguide/_images/edit.png
 
 
-| The same behavior is used to withdrawal of consent by the customer. 
+| The same behaviour is used to withdrawal of consent by the customer. 

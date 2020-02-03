@@ -1,13 +1,13 @@
 Customer Level API
-=========
+==================
 
 These endpoints will allow you to see Levels for a customer.
 
 
-Get complete list of levels
----------------------------
+Get a complete list of levels
+-----------------------------
 
-To retrieve the complete list of levels you will need to call the ``/api/customer/level`` endpoint with the ``GET`` method.
+To retrieve a complete list of levels you need to call the ``/api/customer/level`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -44,9 +44,13 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
+.. note::
 
-Exemplary Response
-^^^^^^^^^^^^^^^^^^
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 

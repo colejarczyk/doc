@@ -8,10 +8,16 @@ Segment of customers who bought specific products (on the basis of selected SKU)
 
 **For example**, you can create segment of customers who bought products of specific SKU "123ABC" or "X1Y8Z0"
 
+.. tip::
+
+    **SKUs can contain spaces or any other special characters, but remember that "SKU 123." is not equal to "sku 123."**
+
+
+
 To create only Bought specific SKU type segment:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On the Admin sidebar, tap **Segments**. Then, choose **Add segment**. You can also add rule directly from **All segments** list by clicking ``Add segment`` at the top of the page 
+1. Tap **Segments** on the Admin sidebar and choose **Add segment**. You can also add rule directly from **All segments** list by clicking ``Add segment`` at the top of the page 
 
 .. image:: /userguide/_images/add_segment_button.png
    :alt:   Add Segment Options  
@@ -56,4 +62,4 @@ To learn more about conditions type, see :doc:`Segment parts types </userguide/s
 
 .. |bin| image:: /userguide/_images/bin.png
 
-5. When complete, tap ``SAVE``  
+5. When it is done, tap ``SAVE``  
