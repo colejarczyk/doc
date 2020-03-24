@@ -32,17 +32,6 @@ Client Cockpit
 
 .. image:: /userguide/_images/client.png
    :alt:   client cockpit
-
-   
-   
-E-commerce Cockpit
-^^^^^^^^^^^^^^^^^^
-
-*New additional loyalty and gamification features as a seamless part of your webshop*
-
-.. image:: /userguide/_images/e-commerce.png
-   :alt:   e-commerce cockpit  
-   
    
    
 API & Connectors

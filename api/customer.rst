@@ -12,7 +12,7 @@ These endpoints allow you to easily manage customers.
 Activate a customer
 -------------------
 
-To activate a customer you need to call the ``/api/admin/customer/{customer}/activate`` endpoint with the ``POST`` method.
+To activate a customer, you need to call the ``/api/admin/customer/{customer}/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -43,11 +43,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value may be different.
     Check the list of all customers if you are not sure which id should be used.
 
 Example Response
@@ -66,7 +66,7 @@ Example Response
 Deactivate a customer
 ---------------------
 
-To deactivate a customer you need to call the ``/api/admin/customer/{customer}/deactivate`` endpoint with the ``POST`` method.
+To deactivate a customer, you need to call the ``/api/admin/customer/{customer}/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -97,11 +97,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value may be different.
     Check the list of all customers if you are not sure which id should be used.
 
 Example Response
@@ -120,7 +120,7 @@ Example Response
 Get customer status
 -------------------
 
-To get a customer status you need to call the ``/api/admin/customer/{customer}/status`` endpoint with the ``GET`` method.
+To get a customer status, you need to call the ``/api/admin/customer/{customer}/status`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -151,11 +151,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value may be different.
     Check the list of all customers if you are not sure which id should be used.
 
 Example Response
@@ -205,7 +205,7 @@ Example Response
 Get customers
 -------------
 
-To get customers list you need to call the ``/api/customer/`` endpoint with the ``GET`` method.
+To get a list of customers, you need to call the ``/api/customer/`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -277,7 +277,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -358,7 +358,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -454,7 +454,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -472,10 +472,10 @@ Example Response
 
 
 
-Get customers list as an admin
-------------------------------
+Get a customer list as an admin
+-------------------------------
 
-To get list of all customers you need to call the ``/api/admin/customer`` endpoint with the ``GET`` method.
+To get a list of all customers, you need to call the ``/api/admin/customer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -553,7 +553,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -619,7 +619,7 @@ Example Response
 Activate a customer using SMS activation token
 ----------------------------------------------
 
-To activate a customer using a token (sms code) you need to call the ``/api/customer/activate-sms/{token}`` endpoint with the ``POST`` method.
+To activate a customer using a token (sms code), you need to call the ``/api/customer/activate-sms/{token}`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -650,11 +650,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *token = 954604* is an example value. Your value can be different.
+    The *token = 954604* is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -672,7 +672,7 @@ Example Response
 Activate a customer using activation token
 ------------------------------------------
 
-To activate a customer using a token you need to call the ``/api/customer/activate/{token}`` endpoint with the ``POST`` method.
+To activate a customer using a token, you need to call the ``/api/customer/activate/{token}`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -703,11 +703,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *token = abcde* is an example value. Your value can be different.
+    The *token = abcde* is an example value. Your value may be different.
     For testing, the value can be checked in the database, table ``ol_user``, field ``action_token``.
 
 Example Response
@@ -721,12 +721,10 @@ Example Response
 
     (no content)
 
-
-
-Anonymize customer 
+Anonymize customer
 ------------------
 
-To anonymize the customer you need to call the ``/api/admin/customer/{customer}/anonymize`` endpoint with the ``POST`` method.
+To anonymize the customer, you need to call the ``/api/admin/customer/{customer}/anonymize`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -757,7 +755,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -765,17 +763,16 @@ Example Response
 .. code-block:: text
 
     STATUS: 204
-	
+
 .. code-block:: json
 
     (no content)
 
 
-
 Check if customer with given phone number or email exists
 ---------------------------------------------------------
 
-To check if customer with given phone number or email exists you need to call the ``/api/customer/check`` endpoint with the ``GET`` method.
+To check if a customer with a given phone number or email exists, you need to call the ``/api/customer/check`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -806,7 +803,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -826,12 +823,12 @@ Example Response
 Create a new customer
 ---------------------
 
-To create a new customer you need to call the ``/api/customer/register`` endpoint with the ``POST`` method.
+To create a new customer, you need to call the ``/api/customer/register`` endpoint with the ``POST`` method.
 
 .. note::
 
-    This endpoint allows to set more customer parameters than ``/api/customer/self_register`` and is used when creating
-    a new customer in the admin cockpit or pos cockpit. Self register endpoint is used in the client cockpit for registration
+    This endpoint allows you to set more customer parameters than ``/api/customer/self_register`` and is used when creating
+    a new customer in the admin cockpit or POS cockpit. The The self register endpoint is used in the client cockpit for registration
     and has some limitations.
 
 Definition
@@ -912,7 +909,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -958,7 +955,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -988,7 +985,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1044,7 +1041,7 @@ Example Response
 Get customer details
 ---------------------
 
-To get details about a customer you need to call the ``/api/customer/<customer>`` endpoint with the ``GET`` method.
+To get details about a customer, you need to call the ``/api/customer/<customer>`` endpoint with the ``GET`` method.
 
 
 Definition
@@ -1076,7 +1073,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1154,7 +1151,7 @@ Example Response
 Update a customer
 -----------------
 
-To update an existing customer you need to call the ``/api/customer/{customer}`` endpoint with the ``PUT`` method.
+To update an existing customer, you need to call the ``/api/customer/{customer}`` endpoint with the ``PUT`` method.
 
 .. note::
 
@@ -1163,9 +1160,9 @@ To update an existing customer you need to call the ``/api/customer/{customer}``
 
 .. note::
 
-    All simple fields can be updated separately, but compound fields (address, company) must be updated whole.
-    Attempt to update only one of the address' fields will result in deleting other parts of the address.
-    Attempt to update only name or nip will result in error code 500.
+    All simple fields can be updated separately, but compound fields (address, company) must be updated as a whole.
+    Any attempt to update only one of the address fields will result in deleting other parts of the address.
+    Any attempt to update only the name or NIP will result in error code 500.
 
 Definition
 ^^^^^^^^^^
@@ -1243,7 +1240,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1280,7 +1277,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1341,7 +1338,7 @@ Example Response
 Customer registrations
 ----------------------
 
-To get information about customer registrations you need to call the
+To get information about customer registrations, you need to call the
 ``/api/customer/registrations`` endpoint with the ``GET`` method.
 
 Definition
@@ -1377,7 +1374,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1426,7 +1423,7 @@ Example Response
 Remove customer's avatar
 ------------------------
 
-To remove the avatar of a customer using admin token you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``DELETE`` method.
+To remove the avatar of a customer using an admin token, you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1457,7 +1454,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1468,10 +1465,10 @@ Example Response
 
 
 
-Get customer's avatar
----------------------
+Get a customer's avatar
+-----------------------
 
-To get customer's avatar using admin token you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``GET`` method.
+To get a customer's avatar using an admin token, you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1502,7 +1499,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1516,7 +1513,7 @@ Example Response
 Set customer's avatar
 ---------------------
 
-To set customer's avatar using admin token you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``POST`` method.
+To set a customer's avatar using an admin token, you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1551,11 +1548,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *photo[file]=C:\fakepath\avatar.png* is an example value. Your value can be different.
+    The *photo[file]=C:\fakepath\avatar.png* is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1569,7 +1566,7 @@ Example Response
 Assign a customer to a level
 ----------------------------
 
-To assign a customer to a level using admin token you need to call the ``/api/customer/{customer}/level`` endpoint with the ``POST`` method.
+To assign a customer to a level using an admin token, you need to call the ``/api/customer/{customer}/level`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1603,7 +1600,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1621,7 +1618,7 @@ Example Response
 Assign a POS to a customer
 --------------------------
 
-To assign a POS to a customer using admin token you need to call the ``/api/customer/{customer}/pos`` endpoint with the ``POST`` method.
+To assign a POS to a customer using an admin token, you need to call the ``/api/customer/{customer}/pos`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1655,7 +1652,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1673,7 +1670,7 @@ Example Response
 List Pushy tokens
 -----------------
 
-To list pushy tokens using admin token you need to call the ``/api/customer/{customer}/pushy-token`` endpoint with the ``GET`` method.
+To list pushy tokens using an admin token, you need to call the ``/api/customer/{customer}/pushy-token`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1704,7 +1701,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1724,7 +1721,7 @@ Example Response
 Add a Pushy token
 -----------------
 
-To add a Pushy token to a customer using admin token you need to call the ``/api/customer/{customer}/pushy-token`` endpoint with the ``POST`` method.
+To add a Pushy token to a customer using an admin token, you need to call the ``/api/customer/{customer}/pushy-token`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1758,7 +1755,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1772,7 +1769,7 @@ Example Response
 Remove a Pushy token
 --------------------
 
-To remove a pushy token you need to call the ``/api/customer/{customer}/pushy-token/{tokenToRemove}`` endpoint with the ``DELETE`` method.
+To remove a pushy token, you need to call the ``/api/customer/{customer}/pushy-token/{tokenToRemove}`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1805,7 +1802,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1819,7 +1816,7 @@ Example Response
 Remove a customer from a manually assigned level
 ------------------------------------------------
 
-To unassign customer from a manually assigned level using a token you need to call the ``/api/customer/{customer}/remove-manually-level`` endpoint with the ``POST`` method.
+To unassign a customer from a manually assigned level using a token, you need to call the ``/api/customer/{customer}/remove-manually-level`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1850,7 +1847,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1864,7 +1861,7 @@ Example Response
 Customer status (customer)
 --------------------------
 
-To retrieve a status of a customer you need to call the ``/api/customer/customer/{customer}/status`` endpoint with the ``GET`` method.
+To retrieve the status of a customer, you need to call the ``/api/customer/customer/{customer}/status`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1896,7 +1893,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1942,7 +1939,7 @@ Example Response
 Customer status (seller)
 ------------------------
 
-To retrieve a status of specific customer you need to call the ``/api/seller/customer/{customer}/status`` endpoint with the ``GET`` method.
+To retrieve the status of specific customer, you need to call the ``/api/seller/customer/{customer}/status`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1972,12 +1969,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2023,7 +2020,7 @@ Example Response
 Send an activation code to a customer as an admin
 -------------------------------------------------
 
-To send an SMS activation code to specific customer you need to call the ``/api/admin/customer/{customer}/send-sms-code`` endpoint with the ``POST`` method.
+To send an SMS activation code to specific customer, you need to call the ``/api/admin/customer/{customer}/send-sms-code`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2053,12 +2050,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/admin`` you need to authorize using admin account credentials.
+    When using endpoints starting with ``/api/admin``, you need to authorize using admin account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2072,7 +2069,7 @@ Example Response
 Send an activation token as a customer
 --------------------------------------
 
-To send/resend sms activation code you need to call the ``/api/customer/customer-phone/send-sms-code`` endpoint with the ``POST`` method.
+To send/resend an sms activation code, you need to call the ``/api/customer/customer-phone/send-sms-code`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2101,7 +2098,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2115,7 +2112,7 @@ Example Response
 Send SMS activation code as a seller
 ------------------------------------
 
-To send SMS activation code to a specific customer you need to call the ``/api/seller/customer/{customer}/send-sms-code`` endpoint with the ``POST`` method.
+To send an SMS activation code to a specific customer, you need to call the ``/api/seller/customer/{customer}/send-sms-code`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2145,12 +2142,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2168,7 +2165,7 @@ Example Response
 Assign a POS to a customer as a seller
 --------------------------------------
 
-To assign POS to specific customer you need to call the ``/api/seller/customer/{customer}/pos`` endpoint with the ``POST`` method.
+To assign a POS to specific customer, you need to call the ``/api/seller/customer/{customer}/pos`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2201,17 +2198,17 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
     The *posId = 00000000-0000-474c-1111-b0dd880c07e3* and *customer = 00000000-0000-474c-b092-b0dd880c07e1* are example values.
-    Your values can be different.
+    Your values may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2225,7 +2222,7 @@ Example Response
 Activate a customer as a seller
 -------------------------------
 
-To activate a specific customer you need to call the ``/api/seller/customer/{customer}/activate`` endpoint with the ``POST`` method.
+To activate a specific customer, you need to call the ``/api/seller/customer/{customer}/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2255,16 +2252,16 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2278,7 +2275,7 @@ Example Response
 Deactivate a customer as a seller
 ---------------------------------
 
-To deactivate a specific customer you need to call the ``/api/seller/customer/{customer}/deactivate`` endpoint with the ``POST`` method.
+To deactivate a specific customer, you need to call the ``/api/seller/customer/{customer}/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2308,16 +2305,16 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2331,7 +2328,7 @@ Example Response
 Register new customer as a seller
 ---------------------------------
 
-To register customer you need to call the ``/api/seller/customer/register`` endpoint with the ``POST`` method.
+To register a customer, you need to call the ``/api/seller/customer/register`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2342,8 +2339,8 @@ Definition
 
 .. note::
 
-    This endpoint allows to set more customer parameters than ``/api/customer/self_register`` and is used when creating
-    a new customer in the admin cockpit or pos cockpit. Self register endpoint is used in the client cockpit for registration
+    This endpoint allows you to set more customer parameters than ``/api/customer/self_register`` and is used when creating
+    a new customer in the admin cockpit or POS cockpit. The self register endpoint is used in the client cockpit for registration
     and has some limitations.
 
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
@@ -2414,12 +2411,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -2437,10 +2434,10 @@ Example Response
 
 
 
-Search customers as a seller
-----------------------------
+Search for customers as a seller
+--------------------------------
 
-To search customer in POS you need to call the ``/api/pos/search/customer`` endpoint with the ``POST`` method.
+To search for a customer in POS, you need to call the ``/api/pos/search/customer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2484,12 +2481,12 @@ Example
 
 .. note::
 
-    When using this endpoint you need to authorize using seller account credentials.
+    When using this endpoint, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -2659,7 +2656,7 @@ Example Response
 Import customers
 ----------------
 
-To import customers you need to call the ``/api/admin/customer/import`` endpoint with the ``POST`` method.
+To import customers, you need to call the ``/api/admin/customer/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2690,12 +2687,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/admin`` you need to authorize using admin account credentials.
+    When using endpoints starting with ``/api/admin``, you need to authorize using admin account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2788,12 +2785,12 @@ Example Response
 Register a new customer as an admin
 -----------------------------------
 
-To create a new customer you need to call the ``/api/admin/customer/register`` endpoint with the ``POST`` method.
+To create a new customer, you need to call the ``/api/admin/customer/register`` endpoint with the ``POST`` method.
 
 .. note::
 
-    This endpoint allows to set more customer parameters than ``/api/customer/self_register`` and is used when creating
-    a new customer in the admin cockpit or pos cockpit. Self register endpoint is used in the client cockpit for registration
+    This endpoint allows you to set more customer parameters than ``/api/customer/self_register`` and is used when creating
+    a new customer in the admin cockpit or POS cockpit. The self register endpoint is used in the client cockpit for registration
     and has some limitations.
 
 Definition
@@ -2874,7 +2871,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -2889,3 +2886,47 @@ Example Response
       "customerId": "e0eb0355-8aaa-4fb1-8159-f58e81b7a25c",
       "email": "john@example.com"
     }
+
+Remove customer
+---------------
+
+To remove the customer using admin token you need to call the ``/api/customer/{customer}`` endpoint with the ``DELETE`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    DELETE /api/customer/<customer>
+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type |  Description                                                   |
++====================================+================+================================================================+
+| Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <customer>                         | query          |  Customer ID                                                   |
++------------------------------------+----------------+----------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9 \
+        -X "DELETE" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+

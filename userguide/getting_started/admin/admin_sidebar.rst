@@ -93,5 +93,5 @@ Reward Campaigns
 
 *The Reward Campaign menu is where you manage rewards available in your loyalty application, decide who can redeem rewards, and when*
 
-.. image:: /userguide/_images/reward3.PNG
+.. image:: /userguide/_images/reward.png
    :alt:   Rewards

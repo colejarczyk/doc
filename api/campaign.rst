@@ -5,14 +5,14 @@ These endpoints will allow you to easily manage Reward Campaigns.
 
 .. note::
 
-    Each role in the Open Loyalty has individual endpoints to manage reward campaigns.
+    Each role in Open Loyalty has individual endpoints to manage reward campaigns.
 
 
 
 Reedem cashback (admin)
 -----------------------
 
-To reedem cashback you need to call the ``/api/admin/campaign/cashback/redeem`` endpoint with the ``POST`` method.
+To reedem cashback, you need to call the ``/api/admin/campaign/cashback/redeem`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -28,7 +28,7 @@ Definition
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | customerId                                        | request        |  Customer ID                                                                 |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| pointsAmount                                      | request        |  Points amount to spend                                                      |
+| pointsAmount                                      | request        |  Number of points to spend                                                      |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | cashbackId                                        | request        |  *(optional)* Cashback id                                                    |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
@@ -51,7 +51,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -74,7 +74,7 @@ Example Response
 Reedem cashback (customer)
 --------------------------
 
-To reedem cashback you need to call the ``/api/customer/campaign/cashback/redeem`` endpoint with the ``POST`` method.
+To reedem cashback, you need to call the ``/api/customer/campaign/cashback/redeem`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -88,7 +88,7 @@ Definition
 +===================================================+================+==============================================================================+
 | Authorization                                     | header         | Token received during authentication                                         |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| pointsAmount                                      | request        |  Points amount to spend                                                      |
+| pointsAmount                                      | request        |  Number of points to spend                                                      |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | cashbackId                                        | request        |  Cashback id                                                                 |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
@@ -111,7 +111,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -135,7 +135,7 @@ Example Response
 Simulate cashback
 -----------------
 
-To simulate cashback you need to call the ``/api/admin/campaign/cashback/simulate`` endpoint with the ``POST`` method.
+To simulate cashback, you need to call the ``/api/admin/campaign/cashback/simulate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -151,7 +151,7 @@ Definition
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | customerId                                        | request        |  Customer ID                                                                 |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| pointsAmount                                      | request        |  Points amount to spend                                                      |
+| pointsAmount                                      | request        |  Number of points to spend                                                      |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 
 Example
@@ -170,7 +170,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -193,7 +193,7 @@ Example Response
 Cashback provider callback
 --------------------------
 
-To run cashback provider callback you need to call the ``/api/campaign/cashback/callback/{provider}`` endpoint with the ``POST`` method.
+To run a cashback provider callback, you need to call the ``/api/campaign/cashback/callback/{provider}`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -226,11 +226,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The data in the Content is an example value and depends on the [Cashback][PayTM] Requested PayTM cashback message after cashback reedem.
+    The data in the Content is an example value and depends on the [Cashback][PayTM] Requested PayTM cashback message after redeeming cashback.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -255,7 +255,7 @@ Example Response
 Create a new campaign
 ---------------------
 
-To create a new campaign you need to call the ``/api/campaign`` endpoint with the ``POST`` method.
+To create a new campaign, you need to call the ``/api/campaign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -278,9 +278,9 @@ Definition
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[translations][en][conditionsDescription] | request        |  *(optional)* A description of required conditions to apply in given locale. |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign[translations][en][usageInstruction]      | request        |  *(optional)* A short information about how to use coupons in given locale.  |
+| campaign[translations][en][usageInstruction]      | request        |  *(optional)* A little information about how to use coupons in given locale. |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign[translations][en][brandDescription]      | request        |  *(optional)* A short information about brand in given locale.               |
+| campaign[translations][en][brandDescription]      | request        |  *(optional)* A little information about brand in given locale.              |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[active]                                  | request        |  Set 1 if active, otherwise 0                                                |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
@@ -330,11 +330,11 @@ Definition
 | campaign[campaignActivity][activeTo]              | request        |  Campaign visible to YYYY-MM-DD HH:mm, for example ``2017-10-05 10:59``.     |
 |                                                   |                |  *(required only if ``allTimeVisible=0``)*                                   |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign[daysInactive]                            | request        |  Number of days, while coupon will not be active after purchase              |
+| campaign[daysInactive]                            | request        |  Number of days, during which coupon will not be active after purchase       |
 |                                                   |                |  0 means "active immediately"                                                |
 |                                                   |                |  Required for all rewards besides cashback                                   |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign[daysValid]                               | request        |  Number of days, while coupon will be valid, after activation                |
+| campaign[daysValid]                               | request        |  Number of days, during which coupon will be valid, after activation         |
 |                                                   |                |  0 means "valid forever"                                                     |
 |                                                   |                |  Required for all rewards besides cashback                                   |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
@@ -379,12 +379,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
     The *e82c96cf-32a3-43bd-9034-4df343e5fd94* or *000096cf-32a3-43bd-9034-4df343e5fd94* id are example values.
-    Your value can be different. Check in the list of all levels if you are not sure which id should be used.
+    Your value may be different. Check the list of all levels if you are not sure which id should be used.
 
 .. note::
 
@@ -392,8 +392,8 @@ Example
 
 .. attention::
 
-    If you would like to add a photos (one or many) to the campaign you need to call the ``/api/campaign/<campaign>/photo`` endpoint with the ``POST`` method.
-    You can find more details in *Add a photo to the campaign* section.
+    If you would like to add photos (one or many) to the campaign, you need to call the ``/api/campaign/<campaign>/photo`` endpoint with the ``POST`` method.
+    You can find more details in the *Add a photo to the campaign* section.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -422,7 +422,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -499,7 +499,7 @@ Example Response
 Get a collection of campaigns
 -----------------------------
 
-To retrieve a paginated list of campaigns you need to call the ``/api/campaign`` endpoint with the ``GET`` method.
+To retrieve a paginated list of campaigns, you need to call the ``/api/campaign`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -532,7 +532,7 @@ Definition
 | categoryId[]                        | query          | *(optional)* Array of category Ids                 |
 +-------------------------------------+----------------+----------------------------------------------------+
 
-To see the first page of all campaigns use the method below:
+To see the first page of all campaigns, use the method below:
 
 Example
 ^^^^^^^
@@ -547,17 +547,17 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
 .. note::
 
-    In below example you can get all Reward Campaigns that have label with key and value. You can
-    filter only by label's key or value if you want and specify as many condition as you want.
+    In the example below, you can get all Reward Campaigns that have a label with a key and value. You can
+    filter by a label's key or value if you want and specify as many condition as you want.
 
 .. note::
 
-    Translatable fields (name, short description etc.) are returned in given locale.
+    Translatable fields (name, short description, etc.) are returned in given locale.
 
 .. code-block:: bash
 
@@ -773,7 +773,7 @@ Example Response
 Get a collection of active campaigns
 ------------------------------------
 
-To retrieve a paginated list of active campaigns you need to call the ``/api/campaign/active`` endpoint with the ``GET`` method.
+To retrieve a paginated list of active campaigns, you need to call the ``/api/campaign/active`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -793,7 +793,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the first page of all campaigns use the method below:
+To see the first page of all campaigns, use the method below:
 
 .. code-block:: bash
 
@@ -806,7 +806,7 @@ To see the first page of all campaigns use the method below:
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -897,7 +897,7 @@ Example Response
 Get a collection of bought campaigns
 ------------------------------------
 
-To retrieve a paginated list of bought campaigns you need to call the ``/api/campaign/bought`` endpoint with the ``GET`` method.
+To retrieve a paginated list of bought campaigns, you need to call the ``/api/campaign/bought`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -945,7 +945,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the first page of all bought campaigns use the method below:
+To see the first page of all bought campaigns, use the method below:
 
 .. code-block:: bash
 
@@ -958,7 +958,7 @@ To see the first page of all bought campaigns use the method below:
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1061,7 +1061,7 @@ Example Response
 Get a collection of campaigns exported to a CSV file
 ----------------------------------------------------
 
-To retrieve a paginated list of campaigns exported to a CSV file you need to call the ``/api/campaign/bought/export/csv`` endpoint with the ``GET`` method.
+To retrieve a paginated list of campaigns exported to a CSV file, you need to call the ``/api/campaign/bought/export/csv`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1083,7 +1083,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the first page of all campaigns in CSV file format, use the method below:
+To see the first page of all campaigns in CSV file format,, use the method below:
 
 .. code-block:: bash
 
@@ -1096,7 +1096,7 @@ To see the first page of all campaigns in CSV file format, use the method below:
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1124,7 +1124,7 @@ Example Response
 Get a collection of publicly available campaigns
 ------------------------------------------------
 
-To retrieve a paginated list of campaigns that are publicly available you need to call the ``/api/campaign/public/available`` endpoint with the ``GET`` method.
+To retrieve a paginated list of campaigns that are publicly available, you need to call the ``/api/campaign/public/available`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1165,7 +1165,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the first page of all publicly available campaigns use the method below:
+To see the first page of all publicly available campaigns, use the method below:
 
 .. code-block:: bash
 
@@ -1178,7 +1178,7 @@ To see the first page of all publicly available campaigns use the method below:
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1304,7 +1304,7 @@ Example Response
 Update a campaign
 -----------------
 
-To fully update a campaign you need to call the ``/api/campaign/<campaign>`` endpoint with the ``PUT`` method.
+To fully update a campaign, you need to call the ``/api/campaign/<campaign>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1329,9 +1329,9 @@ Definition
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[translations][en][conditionsDescription] | request        |  *(optional)* A description of required conditions to apply in given locale. |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign[translations][en][usageInstruction]      | request        |  *(optional)* A short information about how to use coupons in given locale.  |
+| campaign[translations][en][usageInstruction]      | request        |  *(optional)* A little information about how to use coupons in given locale.  |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign[translations][en][brandDescription]      | request        |  *(optional)* A short information about brand in given locale.               |
+| campaign[translations][en][brandDescription]      | request        |  *(optional)* A little information about brand in given locale.               |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[active]                                  | request        |  Set 1 if active, otherwise 0                                                |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
@@ -1374,11 +1374,11 @@ Definition
 | campaign[campaignActivity][activeTo]              | request        |  Campaign visible to YYYY-MM-DD HH:mm, for example ``2017-10-05 10:59``.     |
 |                                                   |                |  *(required only if ``allTimeVisible=0``)*                                   |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign[daysInactive]                            | request        |  Number of days, while coupon will not be active after purchase              |
+| campaign[daysInactive]                            | request        |  Number of days, during which coupon will not be active after purchase       |
 |                                                   |                |  0 means "active immediately"                                                |
 |                                                   |                |  Required for all rewards besides cashback                                   |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign[daysValid]                               | request        |  Number of days, while coupon will be valid, after activation                |
+| campaign[daysValid]                               | request        |  Number of days, during which coupon will be valid, after activation         |
 |                                                   |                |  0 means "valid forever"                                                     |
 |                                                   |                |  Required for all rewards besides cashback                                   |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
@@ -1388,7 +1388,7 @@ Definition
 Example
 ^^^^^^^
 
- To fully update a campaign with ``id = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
+ To fully update a campaign with ``id = 3062c881-93f3-496b-9669-4238c0a62be8``, use the method below:
 
 .. code-block:: bash
 
@@ -1433,12 +1433,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
     The *e82c96cf-32a3-43bd-9034-4df343e5fd94* or *000096cf-32a3-43bd-9034-4df343e5fd94* id are example values.
-    Your value can be different. Check in the list of all levels if you are not sure which id should be used.
+    Your value may be different. Check the list of all levels if you are not sure which id should be used.
 
 .. note::
 
@@ -1462,7 +1462,7 @@ Example Response
 Remove campaign's brand icon
 ----------------------------
 
-To remove campaign's brand icon to the campaign you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``DELETE`` method.
+To remove a campaign's brand icon from the campaign, you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1482,7 +1482,7 @@ Definition
 Example
 ^^^^^^^
 
-To remove an brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To remove a brand icon from the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -1494,12 +1494,12 @@ To remove an brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1510,10 +1510,10 @@ Example Response
 
 
 
-Get campaign's brand icon
+Get a campaign's brand icon
 -------------------------
 
-To get campaign's brand icon to the campaign you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``GET`` method.
+To get a campaign's brand icon, you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1533,7 +1533,7 @@ Definition
 Example
 ^^^^^^^
 
-To get a brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To get a brand icon for the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -1545,12 +1545,12 @@ To get a brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1564,7 +1564,7 @@ Example Response
 Add a brand icon to the campaign
 ---------------------------------
 
-To add an brand icon to the campaign you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``POST`` method.
+To add a brand icon to the campaign, you need to call the ``/api/campaign/{campaign}/brand_icon`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1586,7 +1586,7 @@ Definition
 Example
 ^^^^^^^
 
-To add an brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To add a brand icon for the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -1599,16 +1599,16 @@ To add an brand icon for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5f
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 .. note::
 
-    The *brand_icon[file]=C:\fakepath\Photo.png* is an example value. Your value can be different.
+    The *brand_icon[file]=C:\fakepath\Photo.png* is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1622,7 +1622,7 @@ Example Response
 Get campaign details
 --------------------
 
-To retrieve the details of a campaign you need to call the ``/api/campaign/{campaign}`` endpoint with the ``GET`` method.
+To retrieve the details of a campaign, you need to call the ``/api/campaign/{campaign}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1645,7 +1645,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
+To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8``, use the method below:
 
 .. code-block:: bash
 
@@ -1658,7 +1658,7 @@ To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -1666,8 +1666,8 @@ To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4
 
 .. note::
 
-    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an example value. Your value can be different.
-    Check in the list of all admin users if you are not sure which id should be used.
+    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an example value. Your value may be different.
+    Check the list of all admin users if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1756,7 +1756,7 @@ Example Response
 Get available campaign for a customer
 -------------------------------------
 
-To check which campaigns are available for a specific customer you need to call the ``/api/admin/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
+To check which campaigns are available for a specific customer, you need to call the ``/api/admin/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1795,7 +1795,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the list of campaigns for a customer with ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2`` use the method below:
+To see the list of campaigns for a customer with ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2``, use the method below:
 
 
 .. code-block:: bash
@@ -1809,12 +1809,12 @@ To see the list of campaigns for a customer with ID ``customer = 00000000-0000-4
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1886,7 +1886,7 @@ Example Response
 Buy reward campaign for a specific customer (admin)
 ---------------------------------------------------
 
-To buy reward campaign for a specific customer you need to call the ``/api/admin/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
+To buy a reward campaign for a specific customer, you need to call the ``/api/admin/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1916,7 +1916,7 @@ Definition
 Example
 ^^^^^^^
 
-To buy reward campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` for the customer ``customer = 00000000-0000-474c-b092-b0dd880c07e2``
+To buy a reward campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` for the customer ``customer = 00000000-0000-474c-b092-b0dd880c07e2``
 use the method below:
 
 .. code-block:: bash
@@ -1930,17 +1930,17 @@ use the method below:
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1960,10 +1960,10 @@ Example Response
 
 
 
-Mark logged in customer coupons as used
+Mark logged-in customer coupons as used
 ---------------------------------------
 
-Mark bought by logged in customer coupons as used using ``/api/admin/customer/campaign/coupons/mark_as_used`` endpoint with the ``POST`` method.
+Mark coupons bought by logged-in customers as used using the ``/api/admin/customer/campaign/coupons/mark_as_used`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2010,19 +2010,19 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaignId = 00000000-0000-0000-0000-000000000001* id is an example value. Your value can be different.
+    The *campaignId = 00000000-0000-0000-0000-000000000001* id is an example value. Your value may be different.
 
 .. note::
 
-    The *couponId = 00000000-0000-0000-0000-000000000002* id is an example value. Your value can be different.
+    The *couponId = 00000000-0000-0000-0000-000000000002* id is an example value. Your value may be different.
 
 .. note::
 
-    The *transactionId = 00000000-0000-0000-0000-000000000003* id is an example value. Your value can be different.
+    The *transactionId = 00000000-0000-0000-0000-000000000003* id is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -2047,7 +2047,7 @@ Example Response
 Example Error Response
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If there is no more coupons left, you will receive following responses.
+If there are no more coupons left, you will receive the following responses.
 
 .. code-block:: text
 
@@ -2064,10 +2064,10 @@ If there is no more coupons left, you will receive following responses.
 
 
 
-Check campaign visibility for the customers
--------------------------------------------
+Check campaign visibility for customers
+---------------------------------------
 
-To check reward campaign visibility for the customers you need to call the ``/api/campaign/<campaign>/customers/visible`` endpoint with the ``GET`` method.
+To check reward campaign visibility for customers, you need to call the ``/api/campaign/<campaign>/customers/visible`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2087,7 +2087,7 @@ Definition
 Example
 ^^^^^^^
 
-To check reward campaign visibility for the customers ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To check reward campaign visibility for customers ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -2100,12 +2100,12 @@ To check reward campaign visibility for the customers ``campaign = 000096cf-32a3
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2198,10 +2198,10 @@ Example Response
 
 
 
-Get campaign's photo
---------------------
+Get a campaign's photo
+----------------------
 
-To get campaign's photo you need to call the ``/api/campaign/<campaign>/photo/{photoId}`` endpoint with the ``GET`` method.
+To get a campaign's photo, you need to call the ``/api/campaign/<campaign>/photo/{photoId}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2223,7 +2223,7 @@ Definition
 Example
 ^^^^^^^
 
-To get photo ``photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5`` for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To get the photo ``photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5`` for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -2236,12 +2236,12 @@ To get photo ``photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5`` for campaign ``c
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id and *photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5* are example values. Your values can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id and *photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5* are example values. Your values may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2258,7 +2258,7 @@ Example Response
 Example Response
 ^^^^^^^^^^^^^^^^^^
 
-The campaign may not have photo at all and you will receive a below response.
+The campaign may not have a photo at all and you will receive the following response.
 
 .. code-block:: text
 
@@ -2275,10 +2275,10 @@ The campaign may not have photo at all and you will receive a below response.
 
 
 
-Remove campaign's photo
------------------------
+Remove a campaign's photo
+-------------------------
 
-To remove campaign's photo you need to call the ``/api/campaign/<campaign>/photo/{photoId}`` endpoint with the ``DELETE`` method.
+To remove a campaign's photo, you need to call the ``/api/campaign/<campaign>/photo/{photoId}`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2300,7 +2300,7 @@ Definition
 Example
 ^^^^^^^
 
-To remove photo ``photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5`` for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To remove the photo ``photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5`` for campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -2313,12 +2313,12 @@ To remove photo ``photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5`` for campaign 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id and *photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5* are the example values. Your values can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id and *photoId = 08ae48fd-04b0-4a08-a2a7-fcfca3c4caf5* are example values. Your values may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2329,10 +2329,10 @@ Example Response
 
 
 
-Add a photo to the campaign
----------------------------
+Add a photo to a campaign
+-------------------------
 
-To add a photo to the campaign you need to call the ``/api/campaign/<campaign>/photo`` endpoint with the ``POST`` method.
+To add a photo to a campaign, you need to call the ``/api/campaign/<campaign>/photo`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2354,7 +2354,7 @@ Definition
 Example
 ^^^^^^^
 
-To add a photo to the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To add a photo to the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -2367,16 +2367,16 @@ To add a photo to the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 .. note::
 
-    The *photo[file]=C:\fakepath\Photo.png* is an example value. Your value can be different.
+    The *photo[file]=C:\fakepath\Photo.png* is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2387,10 +2387,10 @@ Example Response
 
 
 
-Change campaign's state
+Change a campaign's state
 -----------------------
 
-To make a campaign active or inactive you need to call the ``/api/campaign/<campaign>/<active>`` endpoint with the ``POST`` method.
+To make a campaign active or inactive, you need to call the ``/api/campaign/<campaign>/<active>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2412,7 +2412,7 @@ Definition
 Example
 ^^^^^^^
 
-To make campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` active use the method below:
+To make the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` active, use the method below:
 
 .. code-block:: bash
 
@@ -2424,12 +2424,12 @@ To make campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` active use 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2447,7 +2447,7 @@ Example Response
 Example
 ^^^^^^^
 
-To make campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` inactive use the method below:
+To make the campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` inactive, use the method below:
 
 .. code-block:: bash
 
@@ -2459,12 +2459,12 @@ To make campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` inactive us
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *campaign = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2497,10 +2497,10 @@ Example Not Found Response
 
 
 
-Get campaign collection (seller)
+Get a campaign collection (seller)
 --------------------------------
 
-To retrieve a paginated list of campaigns you need to call the ``/api/seller/campaign`` endpoint with the ``GET`` method.
+To retrieve a paginated list of campaigns, you need to call the ``/api/seller/campaign`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2525,7 +2525,7 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the first page of all campaigns use the method below:
+To see the first page of all campaigns, use the method below:
 
 Example
 ^^^^^^^
@@ -2539,16 +2539,16 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
-    As a seller you will receive less amount of information about campaign than an administrator.
+    As a seller, you will receive less information about a campaign than an administrator.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2654,7 +2654,7 @@ Example Response
 Get campaign details (seller)
 -----------------------------
 
-To retrieve the details of a campaign you need to call the ``/api/seller/campaign/{campaign}`` endpoint with the ``GET`` method.
+To retrieve the details of a campaign, you need to call the ``/api/seller/campaign/{campaign}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2674,7 +2674,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
+To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8``, use the method below:
 
 .. code-block:: bash
 
@@ -2686,17 +2686,17 @@ To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an example value. Your value can be different.
-    Check in the list of all admin users if you are not sure which id should be used.
+    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an example value. Your value may be different.
+    Check the list of all admin users if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2760,7 +2760,7 @@ Example Response
 Get available campaigns for a customer (seller)
 -----------------------------------------------
 
-To check which campaigns are available for a specific customer you need to call the ``/api/seller/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
+To check which campaigns are available for a specific customer, you need to call the ``/api/seller/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2799,7 +2799,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the list of campaigns for a customer with ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2`` use the method below:
+To see the list of campaigns for a customer with the ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2``, use the method below:
 
 .. code-block:: bash
 
@@ -2811,17 +2811,17 @@ To see the list of campaigns for a customer with ID ``customer = 00000000-0000-4
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2887,10 +2887,10 @@ Example Response
 
 
 
-Buy reward campaign for a specific customer (seller)
+Buy a reward campaign for a specific customer (seller)
 ----------------------------------------------------
 
-To buy a reward campaign for a specific customer you need to call the ``/api/seller/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
+To buy a reward campaign for a specific customer, you need to call the ``/api/seller/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -2916,7 +2916,7 @@ Definition
 Example
 ^^^^^^^
 
-To buy reward campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` for the customer ``customer = 00000000-0000-474c-b092-b0dd880c07e2``
+To buy the reward campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` for the customer ``customer = 00000000-0000-474c-b092-b0dd880c07e2``
 use the method below:
 
 .. code-block:: bash
@@ -2929,22 +2929,22 @@ use the method below:
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all campaigns if you are not sure which id should be used.
+    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
 
 .. note::
 
-    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2964,10 +2964,10 @@ Example Response
 
 
 
-Get all campaigns available for logged in customer
+Get all campaigns available for a logged-in customer
 --------------------------------------------------
 
-To get all campaigns available you need to call the ``/api/customer/campaign/available`` endpoint with the ``GET`` method.
+To get all campaigns available, you need to call the ``/api/customer/campaign/available`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -3010,16 +3010,16 @@ Get all campaigns available for logged in customer.
 
 .. note::
 
-    When using endpoints starting with ``/api/customer`` you need to authorize using customer account credentials.
+    When using endpoints starting with ``/api/customer``, you need to authorize using customer account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
-Change delivery status in bought campaign by customer
------------------------------------------------------
+Change delivery status in a campaign bought by a customer
+---------------------------------------------------------
 
 To change delivery status, use the ``/api/admin/customer/{customer}/bought/coupon/{coupon}/changeDeliveryStatus`` endpoint with the ``PUT`` method.
 
@@ -3046,7 +3046,7 @@ Definition
 Example
 ^^^^^^^
 
-To change delivery status for customer with ``id = 5bdab759-5b31-48d6-a38b-ba4628ca1a91`` and coupon with ``id = 42d74422-ca0b-46f4-8871-be26f5a0497e`` use the method below:
+To change delivery status for a customer with ``id = 5bdab759-5b31-48d6-a38b-ba4628ca1a91`` and coupon with ``id = 42d74422-ca0b-46f4-8871-be26f5a0497e``, use the method below:
 
 .. code-block:: bash
 
@@ -3059,16 +3059,16 @@ To change delivery status for customer with ``id = 5bdab759-5b31-48d6-a38b-ba462
 
 .. note::
 
-    You can get all available statuses via settings choice request ``/api/settings/choices/deliveryStatus``
+    You can get all available statuses via a settings choice request ``/api/settings/choices/deliveryStatus``
 
 .. note::
 
-    When using endpoints starting with ``/api/admin/customer/{customer}/bought/coupon/{couponId}/changeDeliveryStatus`` you need to authorize using admin account credentials.
+    When using endpoints starting with ``/api/admin/customer/{customer}/bought/coupon/{couponId}/changeDeliveryStatus``, you need to authorize using admin account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^

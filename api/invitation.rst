@@ -7,7 +7,7 @@ These endpoints will allow you to easily manage Invitations.
 Get a complete list of invitations
 ----------------------------------
 
-To retrieve a paginated list of invitations you need to call the ``/api/invitations`` endpoint with the ``GET`` method.
+To retrieve a paginated list of invitations, you need to call the ``/api/invitations`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -53,7 +53,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -115,7 +115,7 @@ Example Response
 Send invitation to customer
 ---------------------------
 
-To send invitation to recipient you need to call the ``/api/invitation/invite`` endpoint with the ``POST`` method.
+To send an invitation to a recipient, you need to call the ``/api/invitation/invite`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -152,7 +152,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^

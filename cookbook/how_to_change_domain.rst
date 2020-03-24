@@ -11,59 +11,21 @@ Using Docker and Docker Compose
 -------------------------------
 
 The easiest way is to use Docker Compose and provided docker images with Open Loyalty's code and infrastructure.
-To change the domain, just copy below docker-compose configuration and paste it to the docker-compose.yml file.
+To change the domain, just add bellow environments to your php container in docker-compose.yml file.
 
 .. code-block:: yaml
 
-    version: "2"
-
     services:
       php:
-        container_name: openloyalty_backend
-        image: divante/open-loyalty-fpm
-        links:
-          - db
-          - elk
-          - mail
-        depends_on:
-          - db
-        env_file:
-            - .env
+        ...
         environment:
-          - frontend_customer_panel_url=http://openloyalty.dev:8183/client
-          - frontend_password_reset_url=openloyalty.dev:8183/client#!/password/reset
-      nginx:
-        container_name: openloyalty_frontend
-        image: divante/open-loyalty-web
-        links:
-          - php
-        ports:
-          - "80:80"
-          - "8182:3001"
-          - "8183:3002"
-          - "8184:3003"
-        command: bash -c "sed -i -e 's@"http://openloyalty.localhost/api"@'\"http://openloyalty.dev/api\"'@g' /var/www/openloyalty/front/config.js && nginx -g 'daemon off;'"
-      elk:
-        container_name: openloyalty_elk
-        image: elasticsearch:6.7.0
-      db:
-        container_name: openloyalty_db
-        image: postgres:9
-        env_file:
-            - .env
-      mail:
-        container_name: openloyalty_mail
-        image: mailhog/mailhog
-        ports:
-          - "8186:8025"
+          - api_url=http://openloyalty.dev/api
+          - admin_url=http://openloyalty.dev:8182/
+          - customer_url=http://openloyalty.dev:8183/
+          - merchant_url=http://openloyalty.dev:8184/
 
-Then change "openloyalty.dev" with your custom domain or public IP address. The next step is to run docker-compose.
-
-.. code-block:: bash
-
-    docker-compose up
-
-That's it.
+Then change "openloyalty.dev" with your custom domain or public IP address. The next step is to restart containers
+defined in  docker-compose.
 
 But how to create different domains for admin, client and pos?
 --------------------------------------------------------------
@@ -74,7 +36,6 @@ First of all, remove from the docker-compose follow ports for Nginx container an
 
     ports:
       - "8182:3001"
-      - "8183:3002"
       - "8184:3003"
 
 The next step is to add a volume to the nginx container so it will mount virtual hosts files to the Nginx configuration directory.
@@ -82,7 +43,7 @@ The next step is to add a volume to the nginx container so it will mount virtual
 .. code-block:: yml
 
     volumes:
-      - './prod/web:/etc/nginx/conf.d'
+      - './prod/web:/etc/nginx/conf.d/front.conf'
 
 Final configuration for Nginx container should look like
 
@@ -110,17 +71,6 @@ The last step is to adjust frontend.conf configuration file
 
         root /var/www/openloyalty/front;
         index admin/index.html;
-        location ~* \.(?:js|css|jpg|jpeg|gif|png|svg|ico|pdf|html|htm)$ {
-        }
-    }
-
-    server {
-        listen 80;
-        listen [::]:80;
-        server_name client.openloyalty.localhost www.client.openloyalty.localhost;
-
-        root /var/www/openloyalty/front;
-        index client/index.html;
         location ~* \.(?:js|css|jpg|jpeg|gif|png|svg|ico|pdf|html|htm)$ {
         }
     }
@@ -162,67 +112,32 @@ This content will be used in the deployment file to replace existing files with 
                   "debug": false,
                   "modules": []
               };
-              window.OpenLoyaltyConfig = {
-                  "apiUrl": "https://example.com/api",
-                  "dateFormat": "YYYY-MM-DD",
-                  "dateTimeFormat": "YYYY-MM-DD HH:mm",
-                  "perPage": 20,
-                  "debug": false,
-                  "modules": []
-              };
-      parameters.yml: |
-        parameters:
-            database_host: db
-            database_port: null
-            database_name: openloyalty
-            database_user: openloyalty
-            database_password: openloyalty
-            database_driver: pdo_pgsql
-            database_version: 9
-            elastica:
-                hosts:
-                    - 'elk:9200'
-            secret: ThisTokenIsNotSoSecretChangeIt
-            jwt_private_key_path: '%kernel.root_dir%/var/jwt/private.pem'
-            jwt_public_key_path: '%kernel.root_dir%/var/jwt/public.pem'
-            jwt_key_pass_phrase: ''
-            jwt_token_ttl: 86400
-            pagination_per_page: 10
-            mailer_transport: smtp
-            mailer_host: smtp.example.com
-            mailer_user: null
-            mailer_password: null
-            mailer_port: 25
-            mailer_encryption: null
-            mailer_from_address: open@example.com
-            mailer_from_name: open@example.com
-            frontend_password_reset_url: '%env(frontend_password_reset_url)%'
-            frontend_activate_account_url: '%env(frontend_activate_account_url)%'
-            frontend_customer_panel_url: '%env(frontend_customer_panel_url)%'
-            env(frontend_password_reset_url): 'example.com:8182/#!/change-password?token='
-            env(frontend_activate_account_url): '#!/customer/panel/customer/registration/activate'
-            env(frontend_customer_panel_url): 'http://example.com:8182/'
-            ecommerce_address: 'http://ecommerce.local'
-            es_max_result_window_size: 2000000
+              window.OpenLoyaltyConfig = config;
+      .env.prod: |
+        APP_ENV=prod
+        api_url=http://openloyalty.localhost/api
+        admin_url=http://openloyalty.localhost:8182/
+        customer_url=http://openloyalty.localhost:8183/
+        merchant_url=http://openloyalty.localhost:8184/
         ---
 
 Now we can create a deployment for PHP container. Most of the configuration is related to run image as a container and k8s
 polices but take a look at volumeMounts and volumes. volumeMounts is where we mount volume named "parameters" to the
 specific file in the container. In the volume section, volume name "parameters" is defined and it's content is
-get from ConfigMap at key "parameters.yml".
+get from ConfigMap at key ".env.prod".
 
 We change Open Loyalty configuration using our own configuration defined in ConfigMap and just replace file at the
 container with our own file.
 
 .. code-block:: yaml
 
-    apiVersion: extensions/v1beta1
+    apiVersion: extensions/v1
     kind: Deployment
     metadata:
       labels:
         app: php
       name: php
-      namespace: test
+      namespace: openloyalty
     spec:
       replicas: 1
       strategy:
@@ -233,50 +148,48 @@ container with our own file.
             app: php
         spec:
           imagePullSecrets:
-          - name: registry
+            - name: registry
           containers:
-          - image: divante-ltd/openloyalty/fpm:2.7.1
-            name: php
-            env:
-            - name: APP_DB_HOST
-              value: db
-            - name: APP_DB_PORT
-              value: "5432"
-            - name: APP_DB_USER
-              value: openloyalty
-            - name: APP_DB_PASSWORD
-              value: openloyalty
-            - name: APP_DB_NAME
-              value: openloyalty
-            - name: ELK_HOST
-              value: elk
-            ports:
-            - containerPort: 9000
-            volumeMounts:
-            - mountPath: /var/www/openloyalty/app/config/parameters.yml
-              name: parameters
-              subPath: parameters.yml
+            - image: registry-1.divante.pl:5000/openloyalty/fpm-framework:4.1.0
+              name: php
+              ports:
+                - containerPort: 9000
+              volumeMounts:
+
+                ...
+
+                - mountPath: /var/www/openloyalty/.env.prod
+                  name: parameters
+                  subPath: .env.prod
+
+                ...
+          restartPolicy: Always
           volumes:
-          - name: parameters
-            configMap:
-              name: app
-              items:
-                - key: parameters.yml
-                  path: parameters.yml
+
+            ...
+
+            - name: parameters
+              configMap:
+                name: app
+                items:
+                  - key: .env.prod
+                    path: .env.prod
+
+            ...
         ---
 
-The parameters.yml file is not the only file we need to replace to change default domain "openloyalty.localhost". The
+The .env.prod file is not the only file we need to replace to change default domain "openloyalty.localhost". The
 second file is config.js file, but the idea is the same. The same volumeMounts replaces config.js file with volumne named
 "config" and volume named "config" is created from the configMap under key "config.js". The content is copied from configMap
 to the config.js file.
 
 .. code-block:: yaml
 
-    apiVersion: extensions/v1beta1
+    apiVersion: extensions/v1
     kind: Deployment
     metadata:
-      name: web
-      namespace: test
+      name: frontend
+      namespace: openloyalty
     spec:
       replicas: 1
       strategy:
@@ -284,19 +197,19 @@ to the config.js file.
       template:
         metadata:
           labels:
-            app: web
+            app: frontend
         spec:
           imagePullSecrets:
-          - name: registry
+            - name: registry
           containers:
-          - image: divante-ltd/openloyalty/web:2.7.1
-            name: openloyalty-web
-            ports:
-            - containerPort: 80
-            volumeMounts:
-              - mountPath: /var/www/openloyalty/front/config.js
-                name: config
-                subPath: config.js
+            - image: registry-1.divante.pl:5000/openloyalty/frontend:4.1.0
+              name: openloyalty-frontend
+              ports:
+                - containerPort: 80
+              volumeMounts:
+                - mountPath: /var/www/openloyalty/front/config.js
+                  name: config
+                  subPath: config.js
           restartPolicy: Always
           volumes:
             - name: config
@@ -307,4 +220,5 @@ to the config.js file.
                     path: config.js
     ---
 
-This is the general idea of how to change the domain using k8s and implementing it may be a little bit different depending on which provider do you use: Amazon, Google, Alibaba or your own k8s instance.
+This is the general idea of how to change the domain using k8s and implementing it may be a little bit different
+depending on which provider do you use: Amazon, Google, Alibaba or your own k8s instance.

@@ -178,7 +178,7 @@ To create Custom campaign reward:
 
  All added images will be visible in **Campaign photos** field after *save*
 
-.. image:: /userguide/_images/reward_photo2.PNG
+.. image:: /userguide/_images/reward_photo.png
    :alt:   Reward photo
 
 .. note:: 

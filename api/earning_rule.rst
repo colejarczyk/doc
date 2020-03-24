@@ -8,7 +8,7 @@ These endpoints will allow you to easily manage Earning Rules.
 Get a complete list of earning rules
 ------------------------------------
 
-To retrieve a paginated list of earning rules you need to call the ``/api/earningRule`` endpoint with the ``GET`` method.
+To retrieve a paginated list of earning rules, you need to call the ``/api/earningRule`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -35,7 +35,7 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the first page of all earning rules use the method below:
+To see the first page of all earning rules, use the method below:
 
 Example
 ^^^^^^^
@@ -51,7 +51,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -120,7 +120,7 @@ Example Response
 Get earning rule details
 ------------------------
 
-To retrieve a specific earning rule's details you need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``GET`` method.
+To retrieve a specific earning rule's details, you need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -140,7 +140,7 @@ Definition
 Example
 ^^^^^^^
 
- To see details of earning rule with id ``earningRule = 00000000-0000-474c-b092-b0dd880c0121`` use the method below:
+ To see details of the earning rule with id ``earningRule = 00000000-0000-474c-b092-b0dd880c0121``, use the method below:
 
 .. code-block:: bash
 
@@ -153,12 +153,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *earningRule = 00000000-0000-474c-b092-b0dd880c0121* id is an example value. Your value can be different.
-    Check in the list of all earning rules if you are not sure which id should be used.
+    The *earningRule = 00000000-0000-474c-b092-b0dd880c0121* id is an example value. Your value may be different.
+    Check the list of all earning rules if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -199,7 +199,7 @@ Example Response
 Get a complete list of earning rules (seller)
 ---------------------------------------------
 
-To retrieve a paginated list of earning rules you need to call the ``/api/seller/earningRule`` endpoint with the ``GET`` method.
+To retrieve a paginated list of earning rules, you need to call the ``/api/seller/earningRule`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -226,7 +226,7 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the first page of all earning rules use the method below:
+To see the first page of all earning rules, use the method below:
 
 Example
 ^^^^^^^
@@ -241,12 +241,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -312,7 +312,7 @@ Example Response
 Get earning rule details (seller)
 ---------------------------------
 
-To retrieve a page of earning rule details you need to call the ``/api/seller/earningRule/<earningRule>`` endpoint with the ``GET`` method.
+To retrieve a page of earning rule details, you need to call the ``/api/seller/earningRule/<earningRule>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -332,7 +332,7 @@ Definition
 Example
 ^^^^^^^
 
- To see earning rule with ``earningRule = 00000000-0000-474c-b092-b0dd880c0725`` use the method below:
+ To see the earning rule with id ``earningRule = 00000000-0000-474c-b092-b0dd880c0725``, use the method below:
 
 .. code-block:: bash
 
@@ -345,12 +345,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *earningRule = 00000000-0000-474c-b092-b0dd880c0725* id is an example value. Your value can be different.
-    Check in the list of all earning rules if you are not sure which id should be used.
+    The *earningRule = 00000000-0000-474c-b092-b0dd880c0725* id is an example value. Your value may be different.
+    Check the list of all earning rules if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -388,7 +388,7 @@ Example Response
 Create a new earning rule
 -------------------------
 
-To create a new earning rule you need to call the ``/api/earningRule`` endpoint with the ``POST`` method.
+To create a new earning rule, you need to call the ``/api/earningRule`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -459,9 +459,9 @@ Definition
 | earningRule[includedLabels]      | request        | Points will be calculated only for the purchase of products with defined |
 |                                  |                | labels                                                                   |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[multiplier]          | request        | Points gained for purchase product will be multiplied by this factor     |
+| earningRule[multiplier]          | request        | Points gained for product purchase will be multiplied by this factor     |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[labelMultipliers]    | request        | Points gained for purchase product by labels will be multiplied          |
+| earningRule[labelMultipliers]    | request        | Points gained for product purchase by labels will be multiplied          |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
 | earningRule[skuIds][0]           | request        | Refers to products with the given SKU                                    |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
@@ -503,12 +503,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
     The *000096cf-32a3-43bd-9034-4df343e5fd93* or *00000000-0000-474c-b092-b0dd880c0121* id are example values.
-    Your value can be different. Check in the list of all levels if you are not sure which id should be used.
+    Your value may be different. Check the list of all levels if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -522,10 +522,10 @@ Example Response
       "earningRuleId": "3e3d8a3a-2efb-4283-87c4-20b286bde19c"
     }
 
-Edit existing earning rule
---------------------------
+Edit an existing earning rule
+-----------------------------
 
-To edit existing earning rule you need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``PUT`` method.
+To edit an existing earning rule, you need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -597,9 +597,9 @@ Definition
 | earningRule[includedLabels]      | request        | Points will be calculated only for the purchase of products with defined |
 |                                  |                | labels                                                                   |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[multiplier]          | request        | Points gained for purchase product will be multiplied by this factor     |
+| earningRule[multiplier]          | request        | Points gained for product purchase will be multiplied by this factor     |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
-| earningRule[labelMultipliers]    | request        | Points gained for purchase product by labels will be multiplied          |
+| earningRule[labelMultipliers]    | request        | Points gained for product purchase by labels will be multiplied          |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
 | earningRule[skuIds][0]           | request        | Refers to products with the given SKU                                    |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
@@ -607,7 +607,7 @@ Definition
 Example
 ^^^^^^^
 
-To fully update an earning rule with ``earningRule = 00000000-0000-474c-b092-b0dd880c0121`` use the method below:
+To fully update an earning rule with id ``earningRule = 00000000-0000-474c-b092-b0dd880c0121``, use the method below:
 
 .. code-block:: bash
 
@@ -643,17 +643,17 @@ To fully update an earning rule with ``earningRule = 00000000-0000-474c-b092-b0d
 
 .. warning::
 
-    Remember, you must update the whole data of the earningRule.
+    Remember, you must update the all data of the earningRule.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
     The *000096cf-32a3-43bd-9034-4df343e5fd93* or *00000000-0000-474c-b092-b0dd880c0121* id are example values.
-    Your value can be different. Check in the list of all levels if you are not sure which id should be used.
+    Your value may be different. Check the list of all levels if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -673,7 +673,7 @@ Example Response
 Change earning rule status
 --------------------------
 
-To make earning rule active or inactive you need to call the ``/api/earningRule/<earningRule>/activate`` endpoint with the ``POST`` method.
+To make an earning rule active or inactive, you need to call the ``/api/earningRule/<earningRule>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -695,7 +695,7 @@ Definition
 Example
 ^^^^^^^
 
-To make earning rule active ``earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8`` use the method below:
+To make the earning rule ``earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8`` active, use the method below:
 
 .. code-block:: bash
 
@@ -708,12 +708,12 @@ To make earning rule active ``earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8* id is an example value. Your value can be different.
-    Check in the list of all earningRules if you are not sure which id should be used.
+    The *earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8* id is an example value. Your value may be different.
+    Check the list of all earningRules if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -727,7 +727,7 @@ Example Response
 Use a custom event earning rule
 -------------------------------
 
-To use a custom event earning rule for a specific customer you need to call the ``/api/<version>/earnRule/<eventName>/customer/<customer>`` endpoint with the ``POST`` method.
+To use a custom event earning rule for a specific customer, you need to call the ``/api/<version>/earnRule/<eventName>/customer/<customer>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -763,12 +763,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *57524216-c059-405a-b951-3ab5c49bae14* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *57524216-c059-405a-b951-3ab5c49bae14* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -785,10 +785,10 @@ Example Response
 
 
 
-Get earning rule's photo
---------------------
+Get an earning rule's photo
+---------------------------
 
-To get earning rule's photo you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``GET`` method.
+To get an earning rule's photo, you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -808,7 +808,7 @@ Definition
 Example
 ^^^^^^^
 
-To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To get the photo for earning rule ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -821,12 +821,12 @@ To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all earning rules if you are not sure which id should be used.
+    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all earning rules if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -843,7 +843,7 @@ Example Response
 Example Response
 ^^^^^^^^^^^^^^^^^^
 
-The earning rule may not have photo at all and you will receive a below response.
+The earning rule may not have a photo at all and you will receive the following response:
 
 .. code-block:: text
 
@@ -860,10 +860,10 @@ The earning rule may not have photo at all and you will receive a below response
 
 
 
-Remove earning rule's photo
------------------------
+Remove an earning rule's photo
+------------------------------
 
-To remove earning rule's photo you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``DELETE`` method.
+To remove an earning rule's photo, you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -883,7 +883,7 @@ Definition
 Example
 ^^^^^^^
 
-To remove earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To remove the photo for earning rule ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -896,12 +896,12 @@ To remove earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5f
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all earning rules if you are not sure which id should be used.
+    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all earning rules if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -912,10 +912,10 @@ Example Response
 
 
 
-Add a photo to the earning rule
----------------------------
+Add a photo to an earning rule
+------------------------------
 
-To add a photo to the earning rule you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``POST`` method.
+To add a photo to an earning rule, you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -937,7 +937,7 @@ Definition
 Example
 ^^^^^^^
 
-To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93`` use the method below:
+To add a photo to earning rule ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93``, use the method below:
 
 .. code-block:: bash
 
@@ -950,16 +950,16 @@ To get earning rule's photo ``earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value can be different.
-    Check in the list of all earning rules if you are not sure which id should be used.
+    The *earningRule = 000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all earning rules if you are not sure which id should be used.
 
 .. note::
 
-    The *photo[file]=C:\fakepath\Photo.png* is an example value. Your value can be different.
+    The *photo[file]=C:\fakepath\Photo.png* is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1010,7 +1010,7 @@ Example Response
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -1032,7 +1032,7 @@ Example Response
 Geolocation
 -----------
 
-This method allows calculating points using geolocation you need to call the ``/api/earningRule/geolocation/customer/<customer>`` endpoint with the ``POST`` method.
+To calculate points using geolocation, you need to call the ``/api/earningRule/geolocation/customer/<customer>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1072,7 +1072,7 @@ Example Response
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 

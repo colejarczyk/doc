@@ -6,7 +6,7 @@ Access Control List (ACL)
 
 .. note::
 
-    **Users roles and permissions (ACL settings) are related only to Admin Cockpit users**
+    **Admins roles and permissions (ACL settings) are related only to Admin Cockpit admins**
 
 Open Loyalty platform uses roles and permissions to create different levels of access to the Admin Cockpit. When your platform is first installed, you receive a **Super admin** role that has full permissions and give you full administrative access.
 
@@ -16,7 +16,7 @@ However, you can restrict the level of permissions for other admin users, who wo
 
     To give someone restricted access to the Admin, the first step is to create a role that has the appropriate level of permissions.
     
-    After the role is saved, you can add new users and assign the restricted role to grant them limited access to the Admin.
+    After the role is saved, you can add new admins and assign the restricted role to grant them limited access to the Admin.
 
 
 If an Admin user’s access is restricted to specific sections and/or elements, the sections and elements for which they are not authorized will either not be visible to them, or grayed-out as inactive.
@@ -46,10 +46,13 @@ To add new Role:
 
 .. image:: /userguide/_images/new_role.PNG
    :alt:   Add new role
- 
-3. In the *Basic Information* section enter a descriptive role **Name**
 
-4. To assign resources and permissions level, do the following:
+3. In the *Basic Information* section enter a descriptive role **Name**.
+
+4. Check if the role is set as **Default**. If a role is set as default, it will be assigned to any admin user created
+by logging in by LDAP.
+
+5. To assign resources and permissions level, do the following:
 
   - tap ``Add permission`` in **Permissions** field
   - set **Access** level of permissions to one of the following:
@@ -62,32 +65,32 @@ To add new Role:
 
   - in **Resource** field select from dropdown Admin Cockpit resource that the role can specified in previous step *Access*
   
-.. image:: /userguide/_images/permissions.PNG
+.. image:: /userguide/_images/permissions.png
    :alt:   Assigne resources
   
-5. Repeat *step 4* to add access for additional resources assigned to the Role
+6. Repeat *step 4* to add access for additional resources assigned to the Role
 
-6. You can simply remove permission by clicking bin |bin| icon in a particular row 
+7. You can simply remove permission by clicking bin |bin| icon in a particular row
 
 .. |bin| image:: /userguide/_images/bin.png
 
-7. When it is done, tap ``SAVE``
+8. When it is done, tap ``SAVE``
  
 The role now appears in the grid, and can be assigned to new user accounts.
 
 +--------------------+-----------------------------------------------------------------------+
 | ACCESS             | DESCRIPTION                                                           |
 +====================+=======================================================================+
-| View               | | Users can view resources and their properties, to which they are    |     
+| View               | | Admins can view resources and their properties, to which they are   |
 |                    | | assigned                                                            |
 +--------------------+-----------------------------------------------------------------------+
-| Modify             | | Users can view and modify resources and their properties, to which  | 
+| Modify             | | Admins can view and modify resources and their properties, to which |
 |                    | | they are assigned, including adding, deleting and edit option       |
 +--------------------+-----------------------------------------------------------------------+
 | Not listed         | | Specifies that the permission type is not granted for the object.   |
 |                    |                                                                       |
-|                    | | User can not view or make any changes to the resources, if they are |
-|                    | | not assigne to him.                                                 |
+|                    | | Admin can not view or make any changes to the resources, if they are|
+|                    | | not assigned to him.                                                |
 +--------------------+-----------------------------------------------------------------------+
 
 To learn more about Role resources please find :doc:`Role resources </userguide/getting_started/settings/role_resources>` section
@@ -103,16 +106,16 @@ To learn more about Role resources please find :doc:`Role resources </userguide/
 
 .. tip::
 
-    **When assigning resources, please be sure to include all sections containing resources to which user should have an access. Otherwise, users will not be able to modify or view them all.**
+    **When assigning resources, please be sure to include all sections containing resources to which user should have an access. Otherwise, admins will not be able to modify or view them all.**
 
 
-Users roles management
-------------------------
+Admins roles management
+-----------------------
 
 To edit a Role:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
-.. image:: /userguide/_images/role_edit.PNG
+.. image:: /userguide/_images/role_edit.png
    :alt:   Role edition mode
 
 1. Tap the **Settings** icon |settings| in the upper-right corner and choose **ACL** on the menu. 
@@ -131,7 +134,7 @@ To edit a Role:
 
 
 To remove a Role:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 You can also delete existing role from the Admin.
 
@@ -153,8 +156,7 @@ You can also delete existing role from the Admin.
 .. image:: /userguide/_images/remove_role.PNG
    :alt:   Removing Role Action
 
-
-4. When it is done, tap ``SAVE``
+4. When finished, tap ``SAVE``
 
 
 .. warning::

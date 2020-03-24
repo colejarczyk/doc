@@ -12,7 +12,7 @@ You can optimize marketing initiatives based on targeted segments. You can also 
 
 Because customer segment information is constantly refreshed, customers can become associated and disassociated from a segment as they shop in your store. 
 
-.. image:: /userguide/_images/segment2.png
+.. image:: /userguide/_images/segment.png
    :alt:   Segments
 
 
@@ -30,7 +30,7 @@ All segments
 
 *There is also possibility to preview and export the list of targeted customers*
 
-.. image:: /userguide/_images/segment2.png
+.. image:: /userguide/_images/segment.png
    :alt:   Segments
 
 

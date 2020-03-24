@@ -8,7 +8,7 @@ The All reward campaigns grid provides information about all rewards within your
 
 Moreover, you can also see how many customers could use reward and preview theirs details. 
 
-.. image:: /userguide/_images/reward3.PNG
+.. image:: /userguide/_images/reward.png
    :alt:   Reward Campaign Menu
 
 Use the standard controls to sort the list, filter and search rewards by typing in the field under Name column header value you want to find, and apply actions to selected rewards record (modify, preview details). 
@@ -64,8 +64,9 @@ Field description
 |                            |   :doc:`Gift fulfillment </userguide/reward_campaigns/creation/fulfillment_tracking>`   |
 |                            |   tracking process section                                                              |
 +----------------------------+-----------------------------------------------------------------------------------------+
-|   Customers                | | Show number of customers who could redeem reward.                                     |
-|                            | | After ``Show customers`` click, list of these customers details will be shown         |
+|   Customers                | | When ``Show customers`` is clicked, list of customers who redeemed it will be shown   |
++----------------------------+-----------------------------------------------------------------------------------------+
+|   Created at               | | Shows date and time of creation of the reward campaign.                               |
 +----------------------------+-----------------------------------------------------------------------------------------+
 |   Actions                  | | The operations that can be applied to selected reward.                                |
 |                            | | **Options include**:                                                                  |

@@ -4,9 +4,8 @@
 Anonymize a Customer's account
 ==============================
 
-Any customer account that is currently active can be anonymized. Customer is anonymized so all of the informations about the customer disappears.
-Customer disappears also from the customers list and isn't included to the total number of customers.
-
+Any customer account that is currently active can be anonymized. Customer is anonymized so all of the information
+about the customer will be anonymized.
 
 To anonymize a customer's account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

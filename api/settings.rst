@@ -1,12 +1,12 @@
 Settings API
 ============
 
-These endpoints will allow you to see the list of settings taken in the Open Loyalty.
+These endpoints will allow you to see the list of settings in Open Loyalty.
 
 Get list of translations
 ------------------------
 
-To retrieve a paginated list of available translations you need to call the ``/api/admin/translations`` endpoint with the ``GET`` method.
+To retrieve a paginated list of available translations, you need to call the ``/api/admin/translations`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -59,7 +59,7 @@ Example Response
 Create new translations
 -----------------------
 
-To add new translations you need to call the ``/api/admin/translations`` endpoint with the ``POST`` method.
+To add new translations, you need to call the ``/api/admin/translations`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -173,7 +173,7 @@ Example Response
 Update all translations and locale data
 ---------------------------------------
 
-To update the whole locale you need to call the ``/api/admin/translations/<code>`` endpoint with the ``PUT`` method.
+To update the whole locale, you need to call the ``/api/admin/translations/<code>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -232,7 +232,7 @@ Example Response
 Remove a whole locale
 ---------------------
 
-To remove a whole locale along with its translations you need to call the ``/api/admin/translations/<code>`` endpoint with the ``DELETE`` method.
+To remove a whole locale along with its translations, you need to call the ``/api/admin/translations/<code>`` endpoint with the ``DELETE`` method.
 
 
 Definition
@@ -278,7 +278,7 @@ Example Response
 Get all system settings
 -----------------------
 
-To retrieve a list of all system settings you need to call the ``/api/settings`` endpoint with the ``GET`` method.
+To retrieve a list of all system settings, you need to call the ``/api/settings`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -412,7 +412,7 @@ Example Response
 Update system settings
 ----------------------
 
-To update system settings you need to call the ``/api/settings`` endpoint with the ``POST`` method.
+To update system settings, you need to call the ``/api/settings`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -487,7 +487,7 @@ Definition
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[tierAssignType]                              | request        | Levels will be calculated with: transactions/points                        |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[excludeDeliveryCostsFromTierAssignment]      | request        | *(optional)* Delivery costs will not be generating points: true/false      |
+| settings[excludeDeliveryCostsFromTierAssignment]      | request        | *(optional)* Delivery costs will not generate points: true/false           |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[excludedDeliverySKUs][]                      | request        | Required when DeliveryCostsFromTierAssignment=true                         |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -562,12 +562,12 @@ Example Response
 Get lists of choices for specific select fields
 -----------------------------------------------
 
-To return a list of available choices for some specific select fields you need to call the ``/api/settings/choices/<type>`` endpoint with the ``GET`` method.
+To return a list of available choices for some specific fields, you need to call the ``/api/settings/choices/<type>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
-  To see a list of choices for the select field <type> use the method below:
+  To see a list of choices for a specific field <type>, use the method below:
 
 .. code-block:: text
 
@@ -585,7 +585,7 @@ Definition
 Example
 ^^^^^^^
 
- To see list of language translations use the method below:
+ To see a list of language translations, use the method below:
 
 .. code-block:: bash
 
@@ -642,7 +642,7 @@ Example Response
 Get a list of available email settings
 --------------------------------------
 
-To retrieve a complete list of available email settings you need to call the ``/api/settings/emails`` endpoint with the ``GET`` method.
+To retrieve a complete list of available email settings, you need to call the ``/api/settings/emails`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -748,7 +748,7 @@ Example Response
 Get details of an email setting
 -------------------------------
 
-To retrieve details of a particular email setting you need to call the ``/api/settings/emails/<emailId>`` endpoint with the ``GET`` method.
+To retrieve details of a particular email setting, you need to call the ``/api/settings/emails/<emailId>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -769,7 +769,7 @@ Definition
 Example
 ^^^^^^^
 
- To see the details of email with ``emailId = c60f1033-b1d0-4033-b9fe-7a3c230c4479`` use the method below:
+ To see the details of an email with ``emailId = c60f1033-b1d0-4033-b9fe-7a3c230c4479``, use the method below:
  
 .. code-block:: bash
 
@@ -812,7 +812,7 @@ Example Response
 Update email details
 --------------------
 
-To update email details you need to call the ``/api/settings/emails/<email>`` endpoint with the ``PUT`` method.
+To update email details, you need to call the ``/api/settings/emails/<email>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -860,7 +860,7 @@ Example
         -d "email[enabled]=1"
 
 Example Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -877,7 +877,7 @@ Example Response
 Return all public system settings
 ---------------------------------
 
-To retrieve a list of all public system settings you need to call the ``/api/settings/public`` endpoint with the ``GET`` method.
+To retrieve a list of all public system settings, you need to call the ``/api/settings/public`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -923,7 +923,7 @@ Example Response
 Remove logo
 -----------
 
-To remove the site logo you need to call the ``/api/settings/logo`` endpoint with the ``DELETE`` method.
+To remove the site logo, you need to call the ``/api/settings/logo`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -965,7 +965,7 @@ Example Response
 Get logo
 --------
 
-To retrieve the logo you need to call the ``/api/settings/logo`` endpoint with the ``GET`` method.
+To retrieve the logo, you need to call the ``/api/settings/logo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1007,7 +1007,7 @@ Example Response
 Add logo
 --------
 
-To add the site logo you need to call the ``/api/settings/logo`` endpoint with the ``POST`` method.
+To add the site logo, you need to call the ``/api/settings/logo`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1052,7 +1052,7 @@ Example Response
 Get a small logo
 ----------------
 
-To retrieve a small logo you need to call the ``/api/settings/small-logo`` endpoint with the ``GET`` method.
+To retrieve a small logo, you need to call the ``/api/settings/small-logo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1093,7 +1093,7 @@ Example Response
 Get a named photo
 -----------------
 
-To retrieve a named photo you need to call the ``/api/settings/photo/{name}`` endpoint with the ``GET`` method.
+To retrieve a named photo, you need to call the ``/api/settings/photo/{name}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1136,7 +1136,7 @@ Example Response
 Add a named photo
 -----------------
 
-To add a named photo you need to call the ``/api/settings/photo/{name}`` endpoint with the ``POST`` method.
+To add a named photo, you need to call the ``/api/settings/photo/{name}`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1184,7 +1184,7 @@ Example Response
 Remove a named photo
 --------------------
 
-To remove a named photo you need to call the ``/api/settings/photo/{name}`` endpoint with the ``DELETE`` method.
+To remove a named photo, you need to call the ``/api/settings/photo/{name}`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1229,7 +1229,7 @@ Example Response
 Get the hero image
 ------------------
 
-To retrieve the client cockpit hero image you need to call the ``/api/settings/hero-image`` endpoint with the ``GET`` method.
+To retrieve the client cockpit hero image, you need to call the ``/api/settings/hero-image`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1256,7 +1256,7 @@ Example
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
 
 Example Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
@@ -1271,7 +1271,7 @@ Example Response
 Remove the hero image
 ---------------------
 
-To remove a the client cockpit hero image you need to call the ``/api/settings/hero-image`` endpoint with the ``DELETE`` method.
+To remove the client cockpit hero image, you need to call the ``/api/settings/hero-image`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1310,10 +1310,10 @@ Example Response
 
 
 
-Get conditions terms file
--------------------------
+Get terms and conditions file
+-----------------------------
 
-To retrieve a conditions terms file you need to call the ``/terms-conditions`` endpoint with the ``GET`` method.
+To retrieve a terms and conditions file, you need to call the ``/terms-conditions`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1346,10 +1346,10 @@ Example Response
 
 
 
-Add conditions terms file
--------------------------
+Add terms and conditions file
+-----------------------------
 
-To add a terms and conditions file you need to call the ``/api/settings/conditions-file`` endpoint with the ``POST`` method.
+To add a terms and conditions file, you need to call the ``/api/settings/conditions-file`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1394,7 +1394,7 @@ Example Response
 Remove a conditions file
 ------------------------
 
-To remove a terms and conditions file you need to call the ``/api/settings/conditions-file`` endpoint with the ``DELETE`` method.
+To remove a terms and conditions file, you need to call the ``/api/settings/conditions-file`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1436,7 +1436,7 @@ Example Response
 Get current translations
 ------------------------
 
-To return current translations you need to call the ``/api/translations`` endpoint with the ``GET`` method.
+To return current translations, you need to call the ``/api/translations`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1497,7 +1497,7 @@ Example Response
 Get custom css
 --------------
 
-These endpoints will allow you to provide customized CSS file which can be used in frontend application.
+These endpoints will allow you to provide a customized CSS file which can be used in frontend application.
 
 
 Definition
@@ -1538,7 +1538,7 @@ Example Response
 Return activation method (email|sms)
 ------------------------------------
 
-To check activation method you need to call the ``/api/settings/activation-method`` endpoint with the ``GET`` method.
+To check activation method, you need to call the ``/api/settings/activation-method`` endpoint with the ``GET`` method.
 
 
 Definition
@@ -1583,7 +1583,7 @@ Example Response
 Get the manifest file
 ---------------------
 
-To get the manifest file you need to call the ``/api/settings/manifest`` endpoint with the ``GET`` method.
+To get the manifest file, you need to call the ``/api/settings/manifest`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^

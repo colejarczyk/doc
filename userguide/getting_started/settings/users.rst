@@ -1,8 +1,8 @@
 .. index::
    single: users
 
-Users
-=====
+Admins
+======
 
 When your store is first set up, you receive a set of login credentials for the Administrator role that has full permissions. If there are others on your team or service providers who need access, you can create a separate user account for each from this section.
 
@@ -15,30 +15,30 @@ Then, you can assign the role to a specific user account.
     **Admin users, who are assigned to a restricted role, can see and/or change data only for resources that are associated with the role**
 
 
-Users list include both active and inactive Admin user’s – inactive are grayed-out.
+Admins list include both active and inactive Admin user’s – inactive are grayed-out.
 You can also see their status in Active column.
-Additionally, Users list grid provides basic information about users – name, surname, email address and authenticate method.
+Additionally, Admins list grid provides basic information about admins – name, surname, email address and authenticate method.
 
 .. image:: /userguide/_images/users.png
-   :alt:   All Users
+   :alt:   All Admins
 
 
 New admin user creation
 -----------------------
 
-To add new user:
-^^^^^^^^^^^^^^^^
+To add new admin:
+^^^^^^^^^^^^^^^^^
 
-1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Users** on the menu.
+1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Admins** on the menu.
 
 .. |settings_add| image:: /userguide/_images/icon.png
 
-2. To add new user, tap ``Add``
+2. To add new admin, tap ``Add``
 
-.. image:: /userguide/_images/add_user2.PNG
-   :alt:   New User Account Information
+.. image:: /userguide/_images/add_user2.png
+   :alt:   New Admin Account Information
 
-3. In the **Create user** section, complete the following information:
+3. In the **Create admin** section, complete the following information:
 
   - Name
   - Surname
@@ -73,17 +73,17 @@ To add new user:
 Admin user edition
 ------------------
 
-.. image:: /userguide/_images/admin_edition.PNG
+.. image:: /userguide/_images/admin_edition.png
    :alt:   Admin User Editing
 
 To edit an admin account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Users** on the menu.
+1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Admins** on the menu.
 
 .. |settings_edit| image:: /userguide/_images/icon.png
 
-2. In the Users list, find the record to be edited and click **Edit** icon |edit_form|  in the Action column to open the record in edit mode.
+2. In the Admins list, find the record to be edited and click **Edit** icon |edit_form|  in the Action column to open the record in edit mode.
 
 .. |edit_form| image:: /userguide/_images/edit.png
 
@@ -92,19 +92,19 @@ To edit an admin account:
 4. When it is done, tap ``SAVE``
 
 
-Locked users
-------------
+Locked admins
+-------------
 
-Any user account, that is currently inactive, appears in the Users list as grayed-out. An account can be unlocked (set to active) by other Admin users.
+Any user account, that is currently inactive, appears in the Admins list as grayed-out. An account can be unlocked (set to active) by other Admin users.
 
 To lock/unlock an admin account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Users** on the menu.
+1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Admins** on the menu.
 
 .. |settings_lock| image:: /userguide/_images/icon.png
 
-2.	In the Users list, find the record to be edited and click **Edit** icon |lock_form|  in the Action column to open the record in edit mode.
+2.	In the Admins list, find the record to be edited and click **Edit** icon |lock_form|  in the Action column to open the record in edit mode.
 
 .. |lock_form| image:: /userguide/_images/edit.png
 

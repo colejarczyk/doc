@@ -1,19 +1,19 @@
 .. index::
    single: Introduction
 
-Introduction to Open Loyalty REST API
-=====================================
+Introduction to the Open Loyalty REST API
+=========================================
 
-This part of the documentation is about RESTful JSON API for the Open Loyalty platform.
+This part of the documentation is about the RESTful JSON API for the Open Loyalty platform.
 
 .. note::
 
-    To use this documentation should have some basic knowledge of `REST APIs <http://symfony.com/doc/current/quick_tour>`_.
+    To use this documentation, you should have some basic knowledge of `REST APIs <http://symfony.com/doc/current/quick_tour>`_.
 
 Get current version
 -------------------
 
-To retrieve current version of OpenLoyalty you need to call ``/api/`` endpoint with the ``GET`` method.
+To retrieve the current version of OpenLoyalty, you need to call the ``/api/`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -49,9 +49,9 @@ Example Response
 Health check endpoint
 ---------------------
 
-OpenLoyalty API provides special endpoint for checking application status. Endpoint verifies status of critical services
-like database, Elasticsearch etc. Calling ``/api/healthcheck`` endpoint with the ``GET`` method returns 204 code when
-all services works correctly otherwise returns 503 with details about statuses of each services.
+The OpenLoyalty API provides a special endpoint for checking application status. The endpoint verifies the status of critical services
+like database, Elasticsearch, etc. Calling the ``/api/healthcheck`` endpoint with the ``GET`` method returns 204 code when
+all services are working correctly. Oherwise, it returns 503 with details about the status of each service.
 
 Definition
 ^^^^^^^^^^

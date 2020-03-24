@@ -24,7 +24,7 @@ To add new campaign category:
 .. image:: /userguide/_images/category_basic.png
    :alt:   General basic information
 
-4. In next **Basic information** section provide as follow: 
+4. In **Basic information details** section provide as follow:
 
  - In **Sort order** field  enter the number, determine order in which category will be listed after sorting
  - To activate the rule, in **Active** field select "**Active**" from the dropdown list 

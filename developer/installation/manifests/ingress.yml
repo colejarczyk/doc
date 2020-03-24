@@ -12,7 +12,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: web-admin
+              serviceName: frontend-admin
               servicePort: 3001
     - host: client.example.com
       http:
@@ -26,7 +26,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: web-pos
+              serviceName: frontend-pos
               servicePort: 3003
     - host: api.example.com
       http:

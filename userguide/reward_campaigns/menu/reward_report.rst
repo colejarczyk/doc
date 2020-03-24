@@ -9,7 +9,7 @@ To download the redeemed reward report:
 
 1. Tap **Reward campaigns** on the Admin sidebar and choose **All reward campaigns**
 
-2. Click ``Export`` at the top of the page
+2. Click ``Export to CSV`` at the top of the page
 
 .. image:: /userguide/_images/export.png
    :alt:   Redeemed rewards export Button

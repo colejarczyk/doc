@@ -21,9 +21,6 @@ When customer receives that message, he needs to return on Login page and do as 
 
 2. When it is prompted, in the Account activation window, enter the **Activation code** that received. Then tap ``SAVE``
 
-.. image:: /userguide/_images/sms_activation.png
-   :alt:   Customer account activation 
-
 
 | If for some reason customer will lost this code he can simply resend an activation code.
 

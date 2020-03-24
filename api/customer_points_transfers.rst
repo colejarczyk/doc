@@ -3,10 +3,10 @@ Customer Points transfers
 
 These endpoints will allow you to see Customer Points transfers list.
 
-List of all logged in customer points transfer
+List of all logged-in customer points transfer
 ----------------------------------------------
 
-To retrieve list of points transfer by a specific customer use ``/api/customer/points/transfer`` endpoint with the ``GET`` method.
+To retrieve a list of points transfer by a specific customer, use ``/api/customer/points/transfer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -50,7 +50,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -105,7 +105,7 @@ Example Response
 Transfer points between customers
 ---------------------------------
 
-To transfer points owned by a specific customer to another customer use ``/api/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
+To transfer points owned by a specific customer to another customer, use the ``/api/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -140,7 +140,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. RRead more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
 Example Response

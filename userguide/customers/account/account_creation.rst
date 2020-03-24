@@ -48,6 +48,7 @@ To create a New Customer Account:
  - Select level
  - Select POS
  - Select merchant
+ - Select store
 
 .. warning::
 
@@ -148,7 +149,9 @@ Field description
 +--------------------+-----------------------------------------------------------------------+
 | Select POS         | | POS which will be linked to the customer                            |
 +--------------------+-----------------------------------------------------------------------+
-| Select Merchant    | | Merchant account, which will be linked to the customer              |
+| Select merchant    | | Merchant account, which will be linked to the customer              |
++--------------------+-----------------------------------------------------------------------+
+| Select store       | | Store linked to the level                                           |
 +--------------------+-----------------------------------------------------------------------+
 | Company            | | customer associated with company.                                   |
 |                    | | If marked then additional sectionwill be shown.                     |
@@ -167,20 +170,20 @@ Field description
 | | **ADDRESS**                                                                              |
 | | Visible only when **Address** checkbox is marked                                         |
 +--------------------+-----------------------------------------------------------------------+
-| Street name*       | | The street address of the customer                                  |
+| Street name        | | The street address of the customer                                  |
 +--------------------+-----------------------------------------------------------------------+
-| Building name*     | | The name/number of a building or property where the customer        |
+| Building name      | | The name/number of a building or property where the customer        |
 |                    | | resides at this address                                             |
 +--------------------+-----------------------------------------------------------------------+
 | Flat/Unit name     | | The flat/unit name or number of the customer at this address        |
 +--------------------+-----------------------------------------------------------------------+
-| Postal code*       | | The postal code of the customer at this address                     |
+| Postal code        | | The postal code of the customer at this address                     |
 +--------------------+-----------------------------------------------------------------------+
-| City*              | | The city where the customer resides at this address                 |
+| City               | | The city where the customer resides at this address                 |
 +--------------------+-----------------------------------------------------------------------+
 | State/Province     | | The state or province of the customer at this address               |
 +--------------------+-----------------------------------------------------------------------+
-| Country*           | | The country where customer resides at this address                  |
+| Country            | | The country where customer resides at this address                  |
 +--------------------+-----------------------------------------------------------------------+
 | | **AGREEMENTS**                                                                           |
 +--------------------+-----------------------------------------------------------------------+

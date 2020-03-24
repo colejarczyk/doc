@@ -20,7 +20,7 @@ During creation you can specify for each reward e.g.:
  - Reward brand information 
 
 
-.. image:: /userguide/_images/reward2.png
+.. image:: /userguide/_images/reward.png
    :alt:   Reward Campaign Menu
 
 .. note:: 
@@ -46,7 +46,7 @@ All reward campaigns
 
 *Lists all rewards within your loyalty program, with additional information about its type, activity, limits, points costs and customers who can redeem each reward*
 
-.. image:: /userguide/_images/reward2.png
+.. image:: /userguide/_images/reward.png
    :alt:   Reward Campaign Menu
 
 
@@ -64,7 +64,7 @@ Redeemed rewards
 
 *Lists all redeemed rewards with additional information who and when redeemed reward and it’s status – delivered or used* 
 
-.. image:: /userguide/_images/redeemed_rewards2.png
+.. image:: /userguide/_images/redeemed.png
    :alt:   Redeemed rewards
 
 

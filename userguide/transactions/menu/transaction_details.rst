@@ -9,7 +9,7 @@ Click **View** icon |view| in the Action column to open the transaction details 
 .. |view| image:: /userguide/_images/view.png
 
 
-.. image:: /userguide/_images/transaction_details2.png
+.. image:: /userguide/_images/transaction_details.png
    :alt:   Transaction Record Preview
 
 Field description

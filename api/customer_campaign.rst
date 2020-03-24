@@ -8,7 +8,7 @@ These endpoints will allow you to see and use Reward Campaigns for a customer.
 Get all campaigns bought by a customer
 --------------------------------------
 
-To retrieve list of bought rewards by a specific customer use ``api/admin/customer/{customer}/campaign/bought`` endpoint with the ``GET`` method.
+To retrieve a list of rewards bought by a specific customer use the ``api/admin/customer/{customer}/campaign/bought`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -53,12 +53,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -117,12 +117,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -189,10 +189,10 @@ Example Response
 
 
 
-Get all campaigns available for logged in customer
---------------------------------------------------
+Get all campaigns available for a logged-in customer
+----------------------------------------------------
 
-To get all campaign available for logged in customer use ``/api/customer/campaign/available`` endpoint with the ``GET`` method.
+To get all campaigns available for a logged-in customer, use the ``/api/customer/campaign/available`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -243,12 +243,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. warning::
 
-    Calling this endpoint is meaningful only when you call it with authorization token that belongs to the logged in customer.
-    Otherwise it will return ``403 Forbidden`` error response.
+    Calling this endpoint is meaningful only when you call it with an authorization token that belongs to the logged-in customer.
+    Otherwise, it will return a ``403 Forbidden`` error response.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -296,10 +296,10 @@ Example Response
 
 
 
-Get all campaigns bought by logged in customer
-----------------------------------------------
+Get all campaigns bought by a logged-in customer
+------------------------------------------------
 
-To get all campaign bought by logged in customer use ``/api/customer/campaign/bought`` endpoint with the ``POST`` method.
+To get all campaigns bought by a logged-in customer, use the ``/api/customer/campaign/bought`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -342,12 +342,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. warning::
 
-    Calling this endpoint is meaningful only when you call it with authorization token that belongs to the logged in customer.
-    Otherwise it will return ``403 Forbidden`` error response.
+    Calling this endpoint is meaningful only when you call it with an authorization token that belongs to the logged-in customer.
+    Otherwise, it will return a ``403 Forbidden`` error response.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -390,12 +390,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. warning::
 
-    Calling this endpoint is meaningful only when you call it with authorization token that belongs to the logged in customer.
-    Otherwise it will return ``403 Forbidden`` error response.
+    Calling this endpoint is meaningful only when you call it with an authorization token that belongs to the logged-in customer.
+    Otherwise, it will return a ``403 Forbidden`` error response.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -452,10 +452,10 @@ Example Response
 
 
 
-Mark multiple coupons as used/unused by customer.
--------------------------------------------------
+Mark multiple coupons as used/unused by a customer.
+---------------------------------------------------
 
-Mark customer coupons as used/unused  using ``/api/admin/campaign/coupons/mark_as_used`` endpoint with the ``POST`` method.
+Mark customer coupons as used/unused using the ``/api/admin/campaign/coupons/mark_as_used`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -505,19 +505,19 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *campaignId = f1eddc46-e985-43e8-bc2a-8007dca3df95* id is an example value. Your value can be different.
+    The *campaignId = f1eddc46-e985-43e8-bc2a-8007dca3df95* id is an example value. Your value may be different.
 
 .. note::
 
-    The *couponId = 6a2456ec-49b3-4970-9ac4-75ca01eab0ee* id is an example value. Your value can be different.
+    The *couponId = 6a2456ec-49b3-4970-9ac4-75ca01eab0ee* id is an example value. Your value may be different.
 
 .. note::
 
-    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -547,10 +547,10 @@ Example Response
 
 
 
-Mark logged in customer coupons as used
----------------------------------------
+Mark a logged-in customer's coupons as used
+-------------------------------------------
 
-Mark bought by logged in customer coupons as used using ``/api/customer/campaign/coupons/mark_as_used`` endpoint with the ``POST`` method.
+Mark coupons bought by a logged-in customer as used using the ``/api/customer/campaign/coupons/mark_as_used`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -594,7 +594,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -624,7 +624,7 @@ Example Response
 Example Error Response
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If there is no more coupons left, you will receive following responses.
+If there are no more coupons left, you will receive the following responses.
 
 .. code-block:: text
 
@@ -641,10 +641,10 @@ If there is no more coupons left, you will receive following responses.
 
 
 
-Buy campaign by the logged in customer
---------------------------------------
+Buy a campaign by the logged-in customer
+----------------------------------------
 
-Buy campaign bought by the logged in customer use ``/api/customer/campaign/{campaign}/buy`` endpoint with the ``POST`` method.
+To buy a campaign bought by the logged-in customer, use ``/api/customer/campaign/{campaign}/buy`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -679,12 +679,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. warning::
 
-    Calling this endpoint is meaningful only when you call it with authorization token that belongs to the logged in customer.
-    Otherwise it will return ``403 Forbidden`` error response.
+    Calling this endpoint is meaningful only when you call it with an authorization token that belongs to the logged-in customer.
+    Otherwise, it will return a ``403 Forbidden`` error response.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -705,7 +705,7 @@ Example Response
 Example Error Response
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If there is no more coupons left, you will receive following responses.
+If there are no more coupons left, you will receive the following responses.
 
 .. code-block:: text
 
@@ -737,7 +737,7 @@ If you don't have enough points to buy a reward, you will receive following resp
 Get all campaigns bought by a customer (seller)
 -----------------------------------------------
 
-To retrieve list of bought rewards by a specific customer use ``api/seller/customer/{customer}/campaign/bought`` endpoint with the ``GET`` method.
+To retrieve a list of rewards bought by a specific customer, use the ``api/seller/customer/{customer}/campaign/bought`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -782,20 +782,20 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
-    As a seller you will receive less amount of information about campaign than an administrator.
+    As a seller, you will receive less information about campaigns than an administrator.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -855,20 +855,20 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
-    Check in the list of all customers if you are not sure which id should be used.
+    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
-    As a seller you will receive less amount of information about campaign than an administrator.
+    As a seller, you will receive less information about campaigns than an administrator.
 
 Example Response
 ^^^^^^^^^^^^^^^^

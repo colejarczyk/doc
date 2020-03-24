@@ -13,7 +13,7 @@ To cancel points transfer click **Remove** icon |remove| in the Action column. S
 
 .. |remove| image:: /userguide/_images/remove.png
 
-.. image:: /userguide/_images/remove_ok.png
+.. image:: /userguide/_images/remove_transfer.png
    :alt:   Removing Transfer Action
 
 After canceling, no action to canceled transfer record will be longer available and the **Remove** icon background changes color to blue. The same situation deals with Points transfers with "spending" type. 
@@ -43,7 +43,7 @@ Field description
 |                   |    - **Canceled** : points are subtracted from the pool of Active Points as a result of canceling the points transfer       |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Type              | | Transfer operation type.                                                                                                  |
-|                   | | **Options include: Adding/Spending**                                                                                      |
+|                   | | **Options include: Adding/Spending/Blocked**                                                                              |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Value             | | Amount of points earned/spent within the transfer                                                                         |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------+

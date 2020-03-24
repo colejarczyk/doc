@@ -1,7 +1,7 @@
 ##########
 # Database
 ##########
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   name: db
@@ -50,13 +50,13 @@ spec:
   selector:
     app: db
 ---
-#####
-# WEB
-#####
-apiVersion: extensions/v1beta1
+##########
+# Frontend
+##########
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
-  name: web
+  name: frontend
   namespace: openloyalty
 spec:
   replicas: 1
@@ -65,13 +65,13 @@ spec:
   template:
     metadata:
       labels:
-        app: web
+        app: frontend
     spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/web:4.1.0
-          name: openloyalty-web
+        - image: registry-1.divante.pl:5000/openloyalty/frontend:4.1.0
+          name: openloyalty-frontend
           ports:
             - containerPort: 80
           volumeMounts:
@@ -90,52 +90,88 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: frontend-admin
   namespace: openloyalty
   labels:
-    app: web
-spec:
-  ports:
-    - name: http
-      port: 8080
-      targetPort: 80
-  selector:
-    app: web
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: web-admin
-  namespace: openloyalty
-  labels:
-    app: web-admin
+    app: frontend-admin
 spec:
   ports:
     - name: http
       port: 3001
       targetPort: 3001
   selector:
-    app: web
+    app: frontend
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-pos
+  name: frontend-pos
   namespace: openloyalty
   labels:
-    app: web-pos
+    app: frontend-pos
 spec:
   ports:
     - name: http
       port: 3003
       targetPort: 3003
   selector:
-    app: web
+    app: frontend
+---
+#####
+# API
+#####
+apiVersion: extensions/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: openloyalty
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      imagePullSecrets:
+        - name: registry
+      containers:
+        - image: registry-1.divante.pl:5000/openloyalty/api-framework:4.1.0
+          name: openloyalty-api
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /var/www/openloyalty/front/config.js
+              name: config
+              subPath: config.js
+      restartPolicy: Always
+      volumes:
+        - name: config
+          configMap:
+            name: app
+            items:
+              - key: config.js
+                path: config.js
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  namespace: openloyalty
+  labels:
+    app: api
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: api
 ---
 #######
 # PWACC
 #######
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   name: pwacc
@@ -201,7 +237,7 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/fpm:4.1.0
+        - image: registry-1.divante.pl:5000/openloyalty/fpm-framework:4.1.0
           name: php
           ports:
             - containerPort: 9000
@@ -302,7 +338,7 @@ spec:
         - name: elasticsearch
           mountPath: /usr/share/elasticsearch/data
       containers:
-      - image: registry-1.divante.pl:5000/openloyalty/elasticsearch:7.5.0
+      - image: registry-1.divante.pl:5000/openloyalty/elasticsearch:7.5.2
         name: elasticsearch
         securityContext:
           privileged: false
@@ -405,7 +441,7 @@ spec:
       imagePullSecrets:
       - name: registry
       containers:
-      - image: registry-1.divante.pl:5000/openloyalty/worker:4.1.0
+      - image: registry-1.divante.pl:5000/openloyalty/worker-framework:4.1.0
         name: worker
         imagePullPolicy: Always
         volumeMounts:
@@ -506,7 +542,7 @@ spec:
             imagePullSecrets:
                 - name: registry
             containers:
-                - image: registry-1.divante.pl:5000/openloyalty/logstash:7.5.0
+                - image: registry-1.divante.pl:5000/openloyalty/logstash:7.5.2
                   name: logstash
                   ports:
                       - containerPort: 5000

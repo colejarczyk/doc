@@ -8,7 +8,7 @@ These endpoints will allow you to easily manage transactions.
 Import transactions
 -------------------
 
-To import an XML file with transactions you need to call the ``/api/admin/transaction/import`` endpoint with the ``POST`` method.
+To import an XML file with transactions, you need to call the ``/api/admin/transaction/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -40,7 +40,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -76,7 +76,7 @@ Example Response
 Match transactions with the customers by importing a XML file
 -------------------------------------------------------------
 
-In order to match many transactions to many customers using XML file you need to call the ``/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
+In order to match many transactions to many customers using an XML file, you need to call the ``/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -108,7 +108,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example XML
 ^^^^^^^^^^^
@@ -128,7 +128,6 @@ Example XML
 .. note::
 
     Only one customer* field is required (customerId, customerEmail, customerPhoneNumber, customerLoyaltyCardNumber).
-    If more fields
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -157,8 +156,7 @@ Example Response
 Assign a customer to a specific transaction (admin)
 ---------------------------------------------------
 
-To assign a customer to a specific transaction
-you need to call the ``/api/admin/transaction/customer/assign`` endpoint with the ``POST`` method.
+To assign a customer to a specific transaction, you need to call the ``/api/admin/transaction/customer/assign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -199,7 +197,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -244,8 +242,7 @@ Example Error Response
 Assign a customer to a specific transaction (customer)
 ------------------------------------------------------
 
-To assign the logged in customer to a specific transaction,
-you need to call the ``/api/customer/transaction/customer/assign`` endpoint with the ``POST`` method.
+To assign a logged-in customer to a specific transaction, you need to call the ``/api/customer/transaction/customer/assign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -261,11 +258,17 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | assign[transactionDocumentNumber]   | query          | Transaction Document Number                       |
 +-------------------------------------+----------------+---------------------------------------------------+
+| assign[customerId]                  | query          | Customer ID                                       |
++-------------------------------------+----------------+---------------------------------------------------+
+| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                           |
++-------------------------------------+----------------+---------------------------------------------------+
+| assign[customerPhoneNumber]         | query          | Customer Phone Number                             |
++-------------------------------------+----------------+---------------------------------------------------+
 
 .. note::
 
-    If you are using the auto-generated docs, you may see there are other fields in assign[] object.
-    They are ignored in this endpoint. Do not use them in your application, as they will be removed in a future version.
+    If you are using the auto-generated docs, you may see there are other fields in the assign[] object.
+    They are ignored in this endpoint. Do not use them in your application as they will be removed in a future version.
 
 Example
 ^^^^^^^
@@ -282,7 +285,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -302,8 +305,7 @@ Example Response
 Assign a customer to specific transaction (seller)
 --------------------------------------------------
 
-To assign a customer to a specific transaction
-you need to call the ``/api/pos/transaction/customer/assign`` endpoint with the ``POST`` method.
+To assign a customer to a specific transaction, you need to call the ``/api/pos/transaction/customer/assign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -344,7 +346,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -364,8 +366,7 @@ Example Response
 Get a list of transactions (customer)
 -------------------------------------
 
-To retrieve a complete or filtered list of all transactions a customer has access to,
-you need to call the ``/api/customer/transaction`` endpoint with the ``GET`` method.
+To retrieve a complete or filtered list of all transactions a customer has access to, you need to call the ``/api/customer/transaction`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -401,7 +402,7 @@ Definition
 .. note::
 
     If you are using the auto-generated docs, you may see there are other params, named ``customerData_*``.
-    They are not used in this endpoint. Do not use them in your application, as they will be removed in a future version.
+    They are not used in this endpoint. Do not use them in your application as they will be removed in a future version.
 
 Example
 ^^^^^^^
@@ -417,7 +418,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -571,7 +572,7 @@ Example Response
 Get transaction details (customer)
 ----------------------------------
 
-To retrieve transaction details you need to call the ``/api/customer/transaction/<transaction>`` endpoint with the ``GET`` method.
+To retrieve transaction details, you need to call the ``/api/customer/transaction/<transaction>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -602,7 +603,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -749,7 +750,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -901,8 +902,7 @@ Example Response
 Get customer's transactions (seller)
 ------------------------------------
 
-To retrieve a list of customer transactions
-you need to call the ``/api/seller/transaction/customer/<customer>`` endpoint with the ``GET`` method.
+To retrieve a list of customer transactions, you need to call the ``/api/seller/transaction/customer/<customer>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -945,7 +945,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1019,8 +1019,7 @@ Example Response
 Get transactions with provided document number (seller)
 -------------------------------------------------------
 
-To retrieve a list of transactions with provided document number
-you need to call the ``/api/seller/transaction/<documentNumber>`` endpoint with the ``GET`` method.
+To retrieve a list of transactions with provided document number, you need to call the ``/api/seller/transaction/<documentNumber>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1051,7 +1050,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -1130,8 +1129,7 @@ Example Response
 Get a list of transactions
 --------------------------
 
-To retrieve a complete or filtered list of transactions
-you need to call the ``/api/transaction`` endpoint with the ``GET`` method.
+To retrieve a complete or filtered list of transactions, you need to call the ``/api/transaction`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1199,7 +1197,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1352,7 +1350,7 @@ Example Response
 Register a new transaction
 --------------------------
 
-To register a new transaction you need to call the ``/api/transaction`` endpoint with the ``POST`` method.
+To register a new transaction, you need to call the ``/api/transaction`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1468,7 +1466,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1488,7 +1486,7 @@ Example Response
 Update transaction labels
 -------------------------
 
-To update transaction labels you need to log in as admin and call the ``/api/admin/transaction/labels`` endpoint with the ``POST`` method.
+To update transaction labels, you need to log in as admin and call the ``/api/admin/transaction/labels`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1530,7 +1528,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1550,8 +1548,8 @@ Example Response
 Add new transaction labels as customer
 --------------------------------------
 
-To update transaction labels you need to log in as customer and call the ``/api/customer/transaction/labels/append`` endpoint with the ``PUT`` method.
-Customer can only add new labels to transactions which are assigned to them.
+To update transaction labels, you need to log in as a customer and call the ``/api/customer/transaction/labels/append`` endpoint with the ``PUT`` method.
+A customer can only add new labels to transactions which are assigned to them.
 
 Definition
 ^^^^^^^^^^
@@ -1593,7 +1591,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1613,7 +1611,7 @@ Example Response
 Get available item labels
 -------------------------
 
-To retrieve available labels you need to call the ``/api/transaction/item/labels`` endpoint with the ``GET`` method.
+To retrieve available labels, you need to call the ``/api/transaction/item/labels`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1642,11 +1640,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *label* and *label2* are example values. You can name labels as you like.
+    The *label* and *label2* are example values. You can name labels as you wish.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1671,8 +1669,7 @@ Example Response
 Number of points which can be obtained after registering given transaction
 --------------------------------------------------------------------------
 
-To retrieve the number of points which can be obtained after registering given transaction,
-you need to call the ``/api/transaction/simulate`` endpoint with the ``POST`` method.
+To retrieve the number of points which can be obtained after registering a given transaction, you need to call the ``/api/transaction/simulate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1729,8 +1726,7 @@ Definition
 | transaction[storeCode]                       | query          | *(optional)* Store code                           |
 +----------------------------------------------+----------------+---------------------------------------------------+
 
-**Heads up!** One of the following: email, phone, loyaltyCardNumber is required along with the name to find
-the user for the simulation to be performed.
+**Heads up!** One of the following: email, phone, loyaltyCardNumber is required, along with the name, in order to find the user for the simulation to be performed.
 
 Example
 ^^^^^^^
@@ -1756,7 +1752,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1776,7 +1772,7 @@ Example Response
 Get transaction details (admin)
 -------------------------------
 
-To get transaction details you need to call the ``/api/transaction/<transaction>`` endpoint with the ``GET`` method.
+To get transaction details, you need to call the ``/api/transaction/<transaction>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -1796,7 +1792,7 @@ Definition
 Example
 ^^^^^^^
 
- To see details of a transaction with ID ``00000000-0000-1111-0000-000000000005`` use the below method:
+ To see details of a transaction with ID ``00000000-0000-1111-0000-000000000005``, use the below method:
 
 .. code-block:: bash
 
@@ -1809,7 +1805,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^

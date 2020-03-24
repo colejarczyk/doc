@@ -1,19 +1,19 @@
 Open Loyalty Documentation
 ==========================
 
-`Open Loyalty`_ is technology for loyalty solutions for starting new loyalty projects
+`Open Loyalty`_ is a technology for loyalty solutions. It is geared towards starting new loyalty projects
 based on the `Symfony Framework`_.
 
 .. note::
 
     This documentation assumes you have a working knowledge of the Symfony
-    Framework. If you're not familiar with Symfony, please start with
+    Framework. If you're not familiar with Symfony, please start by
     reading the `Quick Tour`_ from the Symfony documentation.
 
 The User Guide
 ------------
 
-:doc:`The Open Loyalty's User Guide </userguide/index>` is a complete documentation for users.
+:doc:`The Open Loyalty User Guide </userguide/index>` is a complete documentation for users.
 
 .. toctree::
    :hidden:
@@ -23,7 +23,7 @@ The User Guide
 The REST API Reference
 ----------------------
 
-:doc:`The API guide </api/index>` covers the REST API of Open Loyalty platform.
+:doc:`The API Guide </api/index>` covers the REST API of the Open Loyalty platform.
 
 .. toctree::
    :hidden:
@@ -36,7 +36,7 @@ Developer Documentation
 -----------------------
 
 :doc:`The Developer's Guide </developer/index>` contains information for developers who want to know more about
-Open Loyalty architecture and used concepts. This guide helps to understand how Open Loyalty works.
+Open Loyalty architecture and the concepts used within. This guide helps developers to understand how Open Loyalty works.
 
 .. toctree::
    :hidden:
@@ -48,7 +48,7 @@ Open Loyalty architecture and used concepts. This guide helps to understand how 
 The Cookbook
 ------------
 
-:doc:`The Open Loyalty's Cookbook </cookbook/index>` is a collection of solution articles helping you with some
+:doc:`The Open Loyalty Cookbook </cookbook/index>` is a collection of solution articles helping you with some
 specific, narrow problems.
 
 .. toctree::

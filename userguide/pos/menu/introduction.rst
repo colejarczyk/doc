@@ -8,8 +8,6 @@ Customers can make transactions not only in the online store but also in offline
 
 POS menu allows you to define all stores, that transaction should be included within your Loyalty Program.
 
-You can simply track all stores and theirs transactions details – value and number.  
-
 .. image:: /userguide/_images/pos2.png
    :alt:   POS
 
@@ -23,7 +21,7 @@ Menu options:
 All POS
 *******
 
-*Lists all POS within your loyalty program with additional information regarding it’s localization and transactions*
+*Lists all POS within your loyalty program with additional information regarding it’s localization*
 
 .. image:: /userguide/_images/pos2.png
    :alt:   POS

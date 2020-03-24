@@ -20,7 +20,7 @@ To add new POS:
 .. image:: /userguide/_images/basic_pos.png
    :alt:   Add POS Basic Information Section
 
-2. In the **Basic informations** section, do the following:   
+2. In the **Basic information** section, do the following:
 
  - Enter **Name** of the store that will be displayed in views
  - If needed, provide a brief **Description** of store that help identifications 

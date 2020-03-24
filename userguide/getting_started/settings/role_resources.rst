@@ -6,7 +6,7 @@ Role Resources
 
 Access to the following resources can be assigned to any admin user role. 
 
-See the **Resources** linked page to learn more about the capabilities thyat are associated with. 
+See the **Resources** linked page to learn more about the capabilities that are associated with.
 
 .. image:: /userguide/_images/resources.png
    :alt:   Resources list
@@ -39,18 +39,18 @@ Defines access to the :doc:`ACL  </userguide/getting_started/settings/acl>` sett
 
     When assigning resources, please be sure to don't give an any access to the **ACL** section if you are limiting access for a given role. 
     
-    **Otherwise, users will be able to modify their own permissions** 
+    **Otherwise, admins will be able to modify their own permissions**
 
 
 Admins 
 ^^^^^^
 
-Defines access to the Admin :doc:`Users  </userguide/getting_started/settings/users>` settings section and its individual elements
+Defines access to the Admin :doc:`Admins  </userguide/getting_started/settings/users>` settings section and its individual elements
 
 +----------------------------------------+----------------------------------------+
 | VIEW                                   | MODIFY                                 |
 +========================================+========================================+
-|- Users list preview                    | All **View** permissions, and more:    |     
+|- Admins list preview                   | All **View** permissions, and more:    |
 |                                        |                                        |
 |                                        | - New User account creation*           |
 |                                        | - Existing user account edition*       |
@@ -64,7 +64,7 @@ Defines access to the Admin :doc:`Users  </userguide/getting_started/settings/us
 
 .. warning:: 
 
-    Remember, that granting *View* access for ACL section (to enable new users account creation and edition), you give an access to the entire ACL section (in accordance with the permissions listed in the ACL table in *View* column) 
+    Remember, that granting *View* access for ACL section (to enable new admins account creation and edition), you give an access to the entire ACL section (in accordance with the permissions listed in the ACL table in *View* column)
     
 
     
@@ -72,14 +72,14 @@ Defines access to the Admin :doc:`Users  </userguide/getting_started/settings/us
 Audit
 ^^^^^^
 
-Defines access to the :doc:`System logs  </userguide/getting_started/settings/system_logs>` settings section and its individual elements
+Defines access to the :doc:`Audit logs  </userguide/getting_started/settings/system_logs>` settings section and its individual elements
 
 
 +-------------------------------------------------+
 | VIEW & MODIFY                                   |                                 
 +=================================================+
-|- System logs list preview                       |    
-|- filter and sorting options of system logs list |
+|- Audit logs list preview                        |
+|- filter and sorting options of audit log list   |
 |- search logs from time period                   | 
 +-------------------------------------------------+
 
@@ -130,9 +130,9 @@ Defines access to the :doc:`Customers  </userguide/customers/index>` section and
     **Customer account creation & edition***
     
     To enable full customer account edition & creation, and display all Customer profile details, you must have at least an **View access** to the following: 
-     - *Levels* - to assigne level and display in Profile details 
-     - *POS* - to assigne POS and display in Profile details
-     - *Merchants* - to assigne merchant and display in Profile details
+     - *Levels* - to assign level and display in Profile details
+     - *POS* - to assign POS and display in Profile details
+     - *Merchants* - to assign merchant and display in Profile details
      - *Segments* - to display segments to which customer belongs in Profile details 
      - *Transactions* - to display all customer registered transactions in Profile details 
      - *Points transfers* - to display all customer adding/spending points transfer in Profile details 
@@ -146,7 +146,7 @@ Defines access to the :doc:`Customers  </userguide/customers/index>` section and
 
 .. warning:: 
 
-    Remember, that granting *View* access for every section (to enable new users account creation and edition or display information in profile details), you give an access to the entire menu section (in accordance with the permissions listed in the particular tables in *View* column) 
+    Remember, that granting *View* access for every section (to enable new admins account creation and edition or display information in profile details), you give an access to the entire menu section (in accordance with the permissions listed in the particular tables in *View* column)
 
 
 

@@ -4,9 +4,20 @@
 Authorization
 =============
 
-This part of the documentation is about an authorization process in Open Loyalty platform through API. Open Loyalty uses two types of
-authorization, JSON Web Token and permanent API Token. In order to check this configuration, please set up your local
+This part of the documentation is about the authorization process in the Open Loyalty platform through the API. Open Loyalty uses two types of
+authorization: JSON Web Tokens and permanent API Tokens. In order to check this configuration, please set up your local
 copy of the Open Loyalty platform and change *localhost* to your address.
+
+LDAP
+----
+
+By default Open Loyalty authenticates admin users using database. This can be changed by set environment
+ADMIN_LDAP_AUTHORIZATION_ENABLED to true.
+
+.. note::
+
+    You can enable two authorization methods at the same time but this is not recommended.
+
 
 JSON Web Token
 --------------
@@ -15,7 +26,7 @@ Open Loyalty has the JWT authorization configured.
 
 .. tip::
 
-To learn what is JSON Web Token and how does it work - check out `Introduction to JSON Web Tokens <https://jwt.io/introduction/>`
+To learn what a JSON Web Token is and how it works, check out `Introduction to JSON Web Tokens <https://jwt.io/introduction/>`
 
 .. note::
 
@@ -24,7 +35,7 @@ To learn what is JSON Web Token and how does it work - check out `Introduction t
 Obtain an access token
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Send the request with the following parameters:
+Send a request with the following parameters:
 
 Definition
 ''''''''''
@@ -69,7 +80,7 @@ Example Response
 
 .. note::
 
-    Token and refresh token have been shortened for the documentation purpose by suspension points.
+    Token and refresh token have been shorten for the documentation purpose by suspension points.
 
 Using JSON Web Token
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -80,7 +91,7 @@ Add authorization header to each request
 
     Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6...
 
-You can now access any API method you want under /api prefix.
+You can now access any API method you want under the /api prefix.
 
 Example
 '''''''
@@ -95,13 +106,13 @@ Example
 Permanent token
 ---------------
 
-Permanent token is a constant string value assigned to the admin account in the Open Loyalty or constant value which
-is not related to real user and is stored in configuration.
+A permanent token is a constant string value assigned to the admin account in Open Loyalty or a constant value which
+is not related to a real user and is stored in the configuration.
 
-Creating a permanent token in configuration
+Creating a permanent token in the configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to activate configuration access token you need to add to Symfony config value
+In order to activate a configuration access token, you need to add to a Symfony config value
 
 .. code-block:: text
 
@@ -111,7 +122,7 @@ In order to activate configuration access token you need to add to Symfony confi
 Creating a permanent user token
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Send request with the following parameters
+Send a request with the following parameters
 
 Definition
 ''''''''''
@@ -203,18 +214,18 @@ Create a new account in the administration panel.
 .. note::
 
     The administration panel is available at http://localhost:8182/
-    To log in, use standard username "admin" and password "open".
+    To log in, use the standard username "admin" and password "open".
 
-Mark a new account as "external" and provide "Api key".
+Mark a new account as "external" and provide an "Api key".
 
 .. image:: images/permanent_token_setting.png
 
-How to use permanent token
+How to use a permanent token
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Permanent token can be provided using headers or query parameter.
+A permanent token can be provided using headers or a query parameter.
 
-Using header
+Using headers
 ''''''''''''
 
 .. code-block:: bash
@@ -224,7 +235,7 @@ Using header
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "X-AUTH-TOKEN: customPermanentToken"
 
-Using query parameter
+Using a query parameter
 '''''''''''''''''''''
 
 .. code-block:: bash

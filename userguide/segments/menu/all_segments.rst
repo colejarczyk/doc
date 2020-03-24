@@ -8,7 +8,7 @@ The **All segments** grid provides information about all segments within your Lo
 
 Moreover, you can also export the list of targeted customers. 
 
-.. image:: /userguide/_images/segment2.png
+.. image:: /userguide/_images/segment.png
    :alt:   All Segments
 
 

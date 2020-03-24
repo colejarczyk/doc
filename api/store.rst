@@ -1,13 +1,13 @@
 Store API
 =========
 
-These endpoints will allow you to see the list of stores taken in the Open Loyalty.
+These endpoints will allow you to see the list of stores in Open Loyalty.
 
 
 Get store details
 -----------------
 
-To retrieve the details of a store you need to call the ``/api/store/{store}`` endpoint with the ``GET`` method.
+To retrieve the details of a store, you need to call the ``/api/store/{store}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -27,7 +27,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the store with ``store = cbc362ae-aa53-46d2-bc98-422ab249ac0b`` use the method below:
+To see the details of the store with id ``store = cbc362ae-aa53-46d2-bc98-422ab249ac0b``, use the method below:
 
 .. code-block:: bash
 
@@ -40,16 +40,16 @@ To see the details of the store with ``store = cbc362ae-aa53-46d2-bc98-422ab249a
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    Translatable fields (name, short description etc.) are returned in given locale.
+    Translatable fields (name, short description, etc.) are returned in the given locale.
 
 .. note::
 
-    The *cbc362ae-aa53-46d2-bc98-422ab249ac0b* id is an example value. Your value can be different.
-    Check in the list of all admin users if you are not sure which id should be used.
+    The *cbc362ae-aa53-46d2-bc98-422ab249ac0b* id is an example value. Your value may be different.
+    Check the list of all admin users if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -70,7 +70,7 @@ Example Response
 Update a store
 --------------
 
-To update a store you need to call the ``/api/store/{store}`` endpoint with the ``PUT`` method.
+To update a store, you need to call the ``/api/store/{store}`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -95,7 +95,7 @@ Definition
 Example
 ^^^^^^^
 
-To update the store with ``store = cbc362ae-aa53-46d2-bc98-422ab249ac0b`` use the method below:
+To update a store with id ``store = cbc362ae-aa53-46d2-bc98-422ab249ac0b``, use the method below:
 
 .. code-block:: bash
 
@@ -103,21 +103,23 @@ To update the store with ``store = cbc362ae-aa53-46d2-bc98-422ab249ac0b`` use th
         -X "PUT" \ 
 	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+		-d "store[name] = store_name" \
+		-d "store[active] = 0"
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    Translatable fields (name, short description etc.) are returned in given locale.
+    Translatable fields (name, short description etc.) are returned in the given locale.
 
 .. note::
 
-    The *cbc362ae-aa53-46d2-bc98-422ab249ac0b* id is an example value. Your value can be different.
-    Check in the list of all admin users if you are not sure which id should be used.
+    The *cbc362ae-aa53-46d2-bc98-422ab249ac0b* id is an example value. Your value may be different.
+    Check the list of all admin users if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -133,7 +135,7 @@ Example Response
 Get a collection of stores
 --------------------------
 
-To retrieve a paginated list of stores you need to call the ``/api/store`` endpoint with the ``GET`` method.
+To retrieve a paginated list of stores, you need to call the ``/api/store`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -162,7 +164,7 @@ Definition
 | name                                | query          | *(optional)* Filter by name                        |
 +-------------------------------------+----------------+----------------------------------------------------+
 
-To see the first page of all campaigns use the method below:
+To see the first page of all campaigns, use the method below:
 
 Example
 ^^^^^^^
@@ -178,7 +180,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
 Example Response
@@ -213,7 +215,7 @@ Example Response
 Create a new store
 ------------------
 
-To create a new store you need to call the ``/api/store`` endpoint with the ``POST`` method.
+To create a new store, you need to call the ``/api/store`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -237,7 +239,7 @@ Definition
 +-------------------------------------+----------------+----------------------------------------------------+
 
 
-To create a new store use the method below:
+To create a new store, use the method below:
 
 Example
 ^^^^^^^
@@ -248,12 +250,16 @@ Example
         -X "POST" \
 		-H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+		-d "store[active] = 1" \
+        -d "store[name] = store_name" \
+        -d "store[currency] = EUR" \
+        -d "store[code] = store_code"
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
 Example Response

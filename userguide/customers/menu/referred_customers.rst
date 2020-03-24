@@ -31,7 +31,7 @@ Columns description
 +------------------+-----------------------------------------------------------------------+
 | COLUMN           | DESCRIPTION                                                           |
 +==================+=======================================================================+
-| Referrer Id      | The customer ID of a registered customer, who send invitation         |                
+| Referrer Id      | The customer ID of a registered customer, who send invitation         |
 +------------------+-----------------------------------------------------------------------+
 | Referrer Name    | The name and surname of a registered customer                         |                              
 +------------------+-----------------------------------------------------------------------+
@@ -39,10 +39,12 @@ Columns description
 |                  | Will be shown when referred customer will register                    |
 +------------------+-----------------------------------------------------------------------+
 | Recipient Name   | The name and surname of a referred person.                            |
-|                  | Will be shown when referred customer will register                    |    
+|                  | Will be shown when referred customer will register                    |
 +------------------+-----------------------------------------------------------------------+
-| Recipient Email  | The email address of an invitation recipient                          |                                        
+| Recipient Email  | The email address of an invitation recipient if set.                  |
 +------------------+-----------------------------------------------------------------------+
-| Status           | Options include: invited/registered/made purchase                      |                            
+| Recipient Phone  | The phone number of an invitation recipient if set.                   |
++------------------+-----------------------------------------------------------------------+
+| Status           | Options include: invited/registered/made purchase                     |
 +------------------+-----------------------------------------------------------------------+
 

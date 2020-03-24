@@ -7,7 +7,7 @@ These endpoints will allow you to see Levels for a customer.
 Get a complete list of levels
 -----------------------------
 
-To retrieve a complete list of levels you need to call the ``/api/customer/level`` endpoint with the ``GET`` method.
+To retrieve a complete list of levels, you need to call the ``/api/customer/level`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -47,7 +47,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^

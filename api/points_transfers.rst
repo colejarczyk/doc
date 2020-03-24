@@ -7,7 +7,7 @@ These endpoints will allow you to easily manage Points transfers.
 Get a complete list of Points transfers
 ---------------------------------------
 
-To retrieve a paginated list of Points transfers you need to call the ``/api/points/transfer`` endpoint with the ``GET`` method.
+To retrieve a paginated list of Points transfers, you need to call the ``/api/points/transfer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -62,7 +62,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -157,7 +157,7 @@ Example Response
 Get a complete list of Points transfers (seller)
 ------------------------------------------------
 
-To retrieve a paginated list of Points transfers you need to call the ``/api/seller/points/transfer`` endpoint with the ``GET`` method.
+To retrieve a paginated list of Points transfers, you need to call the ``/api/seller/points/transfer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -211,7 +211,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
 Example Response
@@ -308,7 +308,7 @@ Example Response
 Get a complete list of points transfers (customer)
 --------------------------------------------------
 
-To retrieve a paginated list of Points transfers you need to call the ``/api/customer/points/transfer`` endpoint with the ``GET`` method.
+To retrieve a paginated list of Points transfers, you need to call the ``/api/customer/points/transfer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -352,7 +352,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -448,7 +448,7 @@ Example Response
 Add points to customer's account
 --------------------------------
 
-To add points you need to call the ``/api/points/transfer/add`` endpoint with the ``POST`` method.
+To add points, you need to call the ``/api/points/transfer/add`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -486,7 +486,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -506,7 +506,7 @@ Example Response
 Spend customer's points
 -----------------------
 
-To spend customer's points you need to call the ``/api/points/transfer/spend`` endpoint with the ``POST`` method.
+To spend a customer's points, you need to call the ``/api/points/transfer/spend`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -522,7 +522,7 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[customer]                  | query          | Customer ID                                       |
 +-------------------------------------+----------------+---------------------------------------------------+
-| transfer[points]                    | query          | How many points customer can get                  |
+| transfer[points]                    | query          | How many points customer can spend                |
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[comment]                   | query          | *(optional)* Comment                              |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -544,7 +544,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -564,7 +564,7 @@ Example Response
 Transfer points between customers (admin)
 -----------------------------------------
 
-To transfer points between customers you need to call the ``/api/admin/p2p-points-transfer`` endpoint with the ``POST`` method.
+To transfer points between customers, you need to call the ``/api/admin/p2p-points-transfer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -604,7 +604,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -628,7 +628,7 @@ Example Response
 Transfer points between customers (customer)
 --------------------------------------------
 
-To transfer points between logged in customer and another customer you need to call the ``/api/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
+To transfer points between a logged-in customer and another customer, you need to call the ``/api/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -664,7 +664,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -688,7 +688,7 @@ Example Response
 Cancel specific points transfer
 -------------------------------
 
-To cancel specific points transfer you need to call the ``/api/points/transfer/<transfer>/cancel`` endpoint with the ``POST`` method.
+To cancel a specific points transfer, you need to call the ``/api/points/transfer/<transfer>/cancel`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -719,7 +719,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -734,10 +734,10 @@ Example Response
 
 
 
-Import transfers points
------------------------
+Import point transfers
+----------------------
 
-To import file with points transfer you need to call the ``/api/points/transfer/import`` endpoint with the ``POST`` method.
+To import a file with points transfers, you need to call the ``/api/points/transfer/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -769,7 +769,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -802,7 +802,7 @@ Example Response
 Add points to customer's account (seller)
 -----------------------------------------
 
-To add points to a customer's account as seller you need to call the ``/api/pos/points/transfer/add`` endpoint with the ``POST`` method.
+To add points to a customer's account as a seller, you need to call the ``/api/pos/points/transfer/add`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -843,7 +843,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -863,7 +863,7 @@ Example Response
 Spend customer points (seller)
 ------------------------------
 
-To spend customer points as seller you need to call the ``/api/pos/points/transfer/spend`` endpoint with the ``POST`` method.
+To spend customer points as a seller, you need to call the ``/api/pos/points/transfer/spend`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -879,7 +879,7 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[customer]                  | query          | Customer ID                                       |
 +-------------------------------------+----------------+---------------------------------------------------+
-| transfer[points]                    | query          | How many points customer can get                  |
+| transfer[points]                    | query          | How many points customer can spend                |
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[comment]                   | query          | *(optional)* Comment                              |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -902,7 +902,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -920,7 +920,7 @@ Example Response
 Points transfers histogram
 --------------------------
 
-To get information about points transfers histogram you need to call the
+To get information about points transfers histogram, you need to call the
 ``/api/points/transfers`` endpoint with the ``GET`` method.
 
 Definition
@@ -960,7 +960,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1006,12 +1006,12 @@ Example Response
 
 
 
-Block points to customer's account
+Block points on customer's account
 ----------------------------------
 
-Administrator can block points to customer's account in order prevent to spend it. To block points you need to
-call ``/api/points/transfer/block`` endpoint with the ``POST`` method. In order to unblock points you need to
-use ``/api/points/transfer/<transfer>/cancel`` endpoint.
+The administrator can block points on a customer's account in order to prevent them from spending them. To block points, you need to
+call the ``/api/points/transfer/block`` endpoint with the ``POST`` method. In order to unblock points, you need to
+use the ``/api/points/transfer/<transfer>/cancel`` endpoint.
 
 Definition
 ^^^^^^^^^^
@@ -1049,7 +1049,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^

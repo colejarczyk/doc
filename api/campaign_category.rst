@@ -7,7 +7,7 @@ campaigns into categories. One campaign can be assigned to many categories.
 Create a new campaign category
 ------------------------------
 
-To create a new category you need to call the ``/api/campaignCategory`` endpoint with the ``POST`` method.
+To create a new category, you need to call the ``/api/campaignCategory`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -46,7 +46,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -66,7 +66,7 @@ Example Response
 Get a collection of campaign categories
 ---------------------------------------
 
-To retrieve a paginated list of campaigns categories you need to call the ``/api/campaignCategory`` endpoint with the ``GET`` method.
+To retrieve a paginated list of campaigns categories, you need to call the ``/api/campaignCategory`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -100,7 +100,7 @@ Definition
 | _locale                             | query          | *(optional)* Retrieves data in given locale        |
 +-------------------------------------+----------------+----------------------------------------------------+
 
-To see the first page of all campaigns categories use the method below:
+To see the first page of all campaigns categories, use the method below:
 
 Example
 ^^^^^^^
@@ -116,7 +116,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -178,7 +178,7 @@ Example Response
 Update a campaign
 -----------------
 
-To fully update a campaign you need to call the ``/api/campaignCategory/<campaign>`` endpoint with the ``PUT`` method.
+To fully update a campaign, you need to call the ``/api/campaignCategory/<campaign>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -204,7 +204,7 @@ Definition
 Example
 ^^^^^^^
 
- To fully update a campaign category with ``id = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
+ To fully update a campaign category with ``id = 3062c881-93f3-496b-9669-4238c0a62be8``, use the method below:
 
 .. code-block:: bash
 
@@ -239,7 +239,7 @@ Example Response
 Get campaign category details
 -----------------------------
 
-To retrieve the details of a campaign category you need to call the ``/api/campaignCategory/{campaignCategory}`` endpoint with the ``GET`` method.
+To retrieve the details of a campaign category, you need to call the ``/api/campaignCategory/{campaignCategory}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -261,7 +261,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the campaign category with ``campaignCategory = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
+To see the details of the campaign category with ``campaignCategory = 3062c881-93f3-496b-9669-4238c0a62be8``, use the method below:
 
 .. code-block:: bash
 
@@ -273,7 +273,7 @@ To see the details of the campaign category with ``campaignCategory = 3062c881-9
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -312,7 +312,7 @@ Example Response
 Activate or deactivate campaign category
 ----------------------------------------
 
-To activate or deactivate campaign category you need to call the ``/api/campaignCategory/{campaignCategory}/active`` endpoint with the ``POST`` method.
+To activate or deactivate a campaign category, you need to call the ``/api/campaignCategory/{campaignCategory}/active`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -342,7 +342,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^

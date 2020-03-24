@@ -8,7 +8,7 @@ These endpoints will allow you to easily manage password and token-related matte
 Password reset request (customer)
 ---------------------------------
 
-Invoking this method will send a message to the user with password reset URL.
+Invoking this method will send a message to the user with a password reset URL.
 You need to call the ``/api/customer/password/reset/request`` endpoint with the ``POST`` method.
 
 Definition
@@ -41,7 +41,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -61,7 +61,7 @@ Example Response
 Set new password after requesting a new password
 ------------------------------------------------
 
-To reset password for the customer who requested a new password, you need to call the ``/api/password/reset`` endpoint with the ``POST`` method.
+To reset the password for a customer who requested a new password,, you need to call the ``/api/password/reset`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -96,7 +96,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* or *AIENe11JjR2kj3XGiWuZmQ8...* authorization token are an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -120,10 +120,10 @@ Example Response
 
 
 
-Change logged in customer's password
+Change logged-in customer's password
 ------------------------------------
 
-To change logged in customer user's password you need to call the ``/api/customer/password/change`` endpoint with the ``POST`` method.
+To change a logged-in customer's password, you need to call the ``/api/customer/password/change`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -158,7 +158,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -182,10 +182,10 @@ Example Response
 
 
 
-Change logged in seller's password
+Change logged-in seller's password
 ----------------------------------
 
-To change logged in seller user's password you need to call the ``/api/seller/password/change`` endpoint with the ``POST`` method.
+To change a logged-in seller's password, you need to call the ``/api/seller/password/change`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -220,7 +220,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -244,10 +244,10 @@ Example Response
 
 
 
-Change logged in admin's password
+Change logged-in admin's password
 ---------------------------------
 
-To change logged in admin user's password you need to call the ``/api/admin/password/change`` endpoint with the ``POST`` method.
+To change a logged-in admin's password, you need to call the ``/api/admin/password/change`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -282,7 +282,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -342,7 +342,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -362,7 +362,7 @@ Example Response
 Log out current user
 --------------------
 
-To log out current user you need to call the ``/api/token/revoke`` endpoint with the ``GET`` method.
+To log out the current user, you need to call the ``/api/token/revoke`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -391,7 +391,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^

@@ -1,14 +1,14 @@
 Seller API
 ==========
 
-These endpoints will allow you to see the list of sellers taken in the Open Loyalty.
+These endpoints will allow you to see the list of sellers in Open Loyalty.
 
 
 
 Get list of sellers
 -------------------
 
-To retrieve a paginated list of sellers you need to call the ``/api/seller`` endpoint with the ``GET`` method.
+To retrieve a paginated list of sellers, you need to call the ``/api/seller`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -56,7 +56,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -104,7 +104,7 @@ Example Response
 Register new seller
 -------------------
 
-To register a new seller you need to call the ``/api/seller/register`` endpoint with the ``POST`` method.
+To register a new seller, you need to call the ``/api/seller/register`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -154,7 +154,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -176,7 +176,7 @@ Example Response
 Get seller details
 ------------------
 
-To retrieve seller details you need to call the ``/api/seller/<seller>`` endpoint with the ``GET`` method.
+To retrieve seller details, you need to call the ``/api/seller/<seller>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -197,7 +197,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the seller user with ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the method below:
+To see the details of the seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4``, use the method below:
 
 .. code-block:: bash
 
@@ -211,7 +211,7 @@ To see the details of the seller user with ``seller = 00000000-0000-474c-b092-b0
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -241,7 +241,7 @@ Example Response
 Update seller details
 ---------------------
 
-To fully update seller details for user you need to call the ``/api/seller/<seller>`` endpoint with the ``PUT`` method.
+To fully update seller details for a user, you need to call the ``/api/seller/<seller>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -293,7 +293,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -313,7 +313,7 @@ Example Response
 Activate seller
 ---------------
 
-To activate seller you need to call the ``/api/seller/<seller>/activate`` endpoint with the ``POST`` method.
+To activate a seller, you need to call the ``/api/seller/<seller>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -333,7 +333,7 @@ Definition
 Example
 ^^^^^^^
 
-To activate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the method below:
+To activate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4``, use the method below:
 
 
 .. code-block:: bash
@@ -347,7 +347,7 @@ To activate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -365,7 +365,7 @@ Example Response
 Deactivate seller
 -----------------
 
-To deactivate seller you need to call the ``/api/seller/<seller>/deactivate`` endpoint with the ``POST`` method.
+To deactivate a seller, you need to call the ``/api/seller/<seller>/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -385,7 +385,7 @@ Definition
 Example
 ^^^^^^^
 
-To deactivate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the method below:
+To deactivate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4``, use the method below:
 
 
 .. code-block:: bash
@@ -399,7 +399,7 @@ To deactivate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c0
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -416,7 +416,7 @@ Example Response
 Delete seller
 -------------
 
-To delete seller you need to call the ``/api/seller/<seller>/delete`` endpoint with the ``POST`` method.
+To delete a seller, you need to call the ``/api/seller/<seller>/delete`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -436,7 +436,7 @@ Definition
 Example
 ^^^^^^^
 
-To delete a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4`` use the method below:
+To delete a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4``, use the method below:
 
 .. code-block:: bash
 
@@ -449,7 +449,7 @@ To delete a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4`
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^

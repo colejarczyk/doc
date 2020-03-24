@@ -1,14 +1,14 @@
 Utility API
 ===========
 
-These endpoints will allow you to see the csv taken in the Open Loyalty.
+These endpoints will allow you to see the CSVs in Open Loyalty.
 
 
 
 Get CSV of customers assigned to a specific level
 -------------------------------------------------
 
-To retrieve CSV of customers assigned to a level you need to call the ``/api/csv/level/<level>`` endpoint with the ``GET`` method.
+To retrieve a CSV of customers assigned to a level,, you need to call the ``/api/csv/level/<level>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -55,14 +55,14 @@ Example Response
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
 
 Get CSV of customers assigned to a specific segment
 ---------------------------------------------------
 
-To retrieve CSV of customers assigned to a segment you need to call the ``/api/csv/segment/<segment>`` endpoint with the ``GET`` method.
+To retrieve a CSV of customers assigned to a segment, you need to call the ``/api/csv/segment/<segment>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -105,4 +105,4 @@ Example Response
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.

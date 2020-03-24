@@ -27,7 +27,7 @@ To create only Customers who has such labels type segment:
 .. image:: /userguide/_images/basic_segment.png
    :alt:   Basic Informations Section
 
-3. In **Segment Parts** set the conditions that must be met to assign the customer to *only* **Customers who has such labels** segment. 
+3. In **Segment Parts** set the conditions that must be met to assign the customer to *only* **Customers who have such labels** segment.
 
    Enter your label Key to add a customer label that will be included. To apply additional labels, click ``Add label``
 

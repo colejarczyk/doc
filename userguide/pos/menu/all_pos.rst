@@ -30,9 +30,5 @@ Field description
 |   Localization             | | Address details of the store. Only city is visible.                               |
 |                            | | More information is available after clicking ``Show more``                        |
 +----------------------------+-------------------------------------------------------------------------------------+
-|   Transactions value       | | Sum of all transactions values that were processed in POS                         |
-+----------------------------+-------------------------------------------------------------------------------------+
-|   Transactions count       | | How many transactions were processed in POS                                       |
-+----------------------------+-------------------------------------------------------------------------------------+
 |   Actions                  | | Open POS record in edit mode                                                      |
 +----------------------------+-------------------------------------------------------------------------------------+

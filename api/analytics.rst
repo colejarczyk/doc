@@ -1,13 +1,13 @@
 Analytics API
 =============
 
-These endpoints will allow you to easily analyze your data in the Open Loyalty.
+These endpoints will allow you to easily analyze your data in Open Loyalty.
 
-Getting number of registered customers
+Getting the number of registered customers
 --------------------------------------
 
-To get number of registered customers in the loyalty program you need to call the ``/api/admin/analytics/customers``
-endpoint with the ``GET`` method. Additionally method returns number of registered customers per last intervals (day, week, month, year).
+To get the number of registered customers in a loyalty program, you need to call the ``/api/admin/analytics/customers``
+endpoint with the ``GET`` method. Additionally, the method returns the number of registered customers for each of the following past intervals (day, week, month, year).
 
 Definition
 ^^^^^^^^^^
@@ -38,7 +38,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -59,10 +59,10 @@ Example Response
         }
     }
 
-Getting number of spent and transferred points
-----------------------------------------------
+Getting the number of spent and transferred points
+--------------------------------------------------
 
-To retrieve a number of spent and transferred points you need to call the ``/api/admin/analytics/points`` endpoint with the ``GET`` method.
+To retrieve the number of spent and transferred points, you need to call the ``/api/admin/analytics/points`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -93,7 +93,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -109,10 +109,10 @@ Example Response
       "totalPointsSpent": 100
     }
 
-Getting an information about referrals
---------------------------------------
+Getting information about referrals
+-----------------------------------
 
-To retrieve the details of referrals you need to call the ``/api/admin/analytics/referrals`` endpoint with the ``GET`` method.
+To retrieve the details of referrals, you need to call the ``/api/admin/analytics/referrals`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -143,7 +143,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -160,11 +160,11 @@ Example Response
       "totalRegistered": 0
     }
 
-Getting an information about transactions
------------------------------------------
+Getting information about transactions
+--------------------------------------
 
-To retrieve an information about transactions you need to call the ``/api/admin/analytics/transactions`` endpoint with the ``GET`` method.
-Additionally method returns number of orders per last intervals (day, week, month, year).
+To retrieve information about transactions, you need to call the ``/api/admin/analytics/transactions`` endpoint with the ``GET`` method.
+Additionally, the method returns the number of orders for each of the following past intervals (day, week, month, year).
 
 Definition
 ^^^^^^^^^^
@@ -198,7 +198,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -222,10 +222,10 @@ Example Response
         "currency": "EUR"
     }
 
-Get levels statistics
----------------------
+Get level statistics
+--------------------
 
-To get level statistics you need to call the ``/api/admin/analytics/levels`` endpoint with the ``GET`` method.
+To get level statistics, you need to call the ``/api/admin/analytics/levels`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -256,7 +256,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^

@@ -12,7 +12,7 @@ These endpoints will allow you to easily viewing active earning rules.
 Return all active earning rules
 -------------------------------
 
-To view active earning rules you need to call the ``/api/customer/earningRule`` endpoint with the ``GET`` method.
+To view active earning rules, you need to call the ``/api/customer/earningRule`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -41,7 +41,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -132,7 +132,7 @@ Example Response
 Use a custom event earning rule
 -------------------------------
 
-To trigger custom event earning rules you need to call the ``/api/customer/earningRule/<eventName>`` endpoint with the ``POST`` method.
+To trigger custom event earning rules, you need to call the ``/api/customer/earningRule/<eventName>`` endpoint with the ``POST`` method.
 
 
 Definition
@@ -165,7 +165,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^

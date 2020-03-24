@@ -13,7 +13,7 @@ Discount will be equal to percentage value of registered order amount - percenta
 
 **For example**
 
-If Customer total amount of transaction is **100 EUR**, and *Transaction percentage value* is equal **10** (i.e. 10% of registered transaction total amount) he will receive **10 EUR** discount for next purchase 
+If Customer total amount of transaction is **100 EUR**, and *Transaction percentage value* is set to **10** (i.e. 10% of registered transaction total amount) they will receive **10 EUR** discount for next purchase.
 
 Received value code can be used for next purchase to reduce the value of the order. But what happens if the customer decides to return the transaction to which he used the value code?
 
