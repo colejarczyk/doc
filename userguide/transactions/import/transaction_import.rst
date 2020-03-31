@@ -1,8 +1,8 @@
 .. index::
    single: transaction_import
 
-Importing transactions from a file
-==================================
+Import transactions from a file
+===============================
 
 If you have a transaction that you want to add within your Loyalty Program, you can enter it into a transactions XML file and then import it in your Open Loyalty Admin. 
 

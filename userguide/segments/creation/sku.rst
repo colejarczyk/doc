@@ -23,7 +23,7 @@ To create only Bought specific SKU type segment:
    :alt:   Add Segment Options  
 
 
-2. In **Basic informations** section, do the following:  
+2. In **Basic information** section, do the following:
 
  - Enter a unique segment **Name** to identify the customer segment when working in the Admin
  - Enter a brief **Description** that explain purpose of the segment for internal reference

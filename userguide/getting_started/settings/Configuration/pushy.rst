@@ -6,7 +6,7 @@ Push Notification Service
 
 A push notification is a message that pops up on a mobile devices and websites. For better communication and to increase engagement for your loyalty program participants using mobile app you can integrate Open Loyalty platform with **PUSHY.ME** 
 
-**Pushy** is push notification gateway, which can be used to send pursh notification to each user that install app version or visits your website and registers for push notifications. A unique device token token is assign to each customer to identify him and send personalized notification. 
+**Pushy** is push notification gateway, which can be used to send push notification to each user that install app version or visits your website and registers for push notifications. A unique device token token is assign to each customer to identify him and send personalized notification.
 
 
 .. warning::

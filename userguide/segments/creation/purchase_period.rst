@@ -17,7 +17,7 @@ To create only Purchase period type segment:
    :alt:   Add Segment Options  
 
 
-2. In **Basic informations** section, do the following:  
+2. In **Basic information** section, do the following:
 
  - Enter a unique segment **Name** to identify the customer segment when working in the Admin
  - Enter a brief **Description** that explain purpose of the segment for internal reference
@@ -25,7 +25,7 @@ To create only Purchase period type segment:
 
    
 .. image:: /userguide/_images/basic_segment.png
-   :alt:   Basic Informations Section
+   :alt:   Basic Information Section
 
 3. In **Segment Parts** set the conditions that must be met to assign the customer to *only* **Purchase period** segment. 
 

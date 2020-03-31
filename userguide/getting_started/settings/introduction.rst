@@ -21,9 +21,9 @@ Contents:
 #. :doc:`Admins </userguide/getting_started/settings/users>` - detailed information about Open Loyalty users and their account settings
 #. :doc:`ACL </userguide/getting_started/settings/acl>` - list of roles in the Open Loyalty system
 #. :doc:`Translations </userguide/getting_started/settings/translations>` - available languages list with the possibility to edit
-#. :doc:`Emails </userguide/getting_started/settings/emails>` - list of events sending email messages from Open Loyalty system, their preview and disabling option
 #. :doc:`Stores </userguide/getting_started/settings/stores>` - list of stores in the Open Loyalty system
-#. :doc:`Audit logs </userguide/getting_started/settings/system_logs>` - informational, error and warning events list related to the Open Loyalty system
+#. :doc:`Emails </userguide/getting_started/settings/emails>` - list of events sending email messages from Open Loyalty system, their preview and disabling option
+#. :doc:`Audit log </userguide/getting_started/settings/system_logs>` - informational, error and warning events list related to the Open Loyalty system
 
 
    

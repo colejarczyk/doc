@@ -37,17 +37,17 @@ To add new store:
 Editing the store
 -----------------
 
-.. image:: /userguide/_images/edit_store.PNG
+.. image:: /userguide/_images/edit_store.png
    :alt:   Admin User Editing
 
-To edit an admin account:
-^^^^^^^^^^^^^^^^^^^^^^^^^
+To edit the store:
+^^^^^^^^^^^^^^^^^^
 
-1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Stores** on the menu.
+1. Tap the **Settings** icon |settings_edit| in the upper-right corner and choose **Stores** on the menu.
 
 .. |settings_edit| image:: /userguide/_images/icon.png
 
-2. In the Stores list, find the record to be edited and click **Edit** icon |edit_form|  in the Action column to open the record in edit mode.
+2. In the Stores list, find the record to be edited and click **Edit** icon |edit_form| in the Action column to open the record in edit mode.
 
 .. |edit_form| image:: /userguide/_images/edit_store.png
 

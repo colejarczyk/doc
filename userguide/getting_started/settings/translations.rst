@@ -96,8 +96,8 @@ Field description
 
 
 
-Updating translation:
----------------------
+Update translations:
+--------------------
 
 You can edit all data provided during translation creation process (except Code locale), including change the default language to another. You can update translation data by selecting its record from **Translations list**.
 

@@ -45,6 +45,7 @@ To find a match:
 1. Tap the **Settings** icon |settings| in the upper-right corner and choose **Audit log** on the menu.
 
 .. |settings| image:: /userguide/_images/icon.png
+   :alt:   Settings icon
 
 2. Set up the starting date in **From** field by selecting date and time from calendar grid
 

@@ -25,7 +25,7 @@ To add new Customer referral rule:
 .. image:: /userguide/_images/basic_rule.png
    :alt:   Add Earning Rule Form
 
-2. In **Basic informations** section, do the following:  
+2. In **Basic information** section, do the following:
 
  - Enter **Name** of the rule that will be displayed in views
  - Provide a brief **Description** of the rule that explains how to award points and information when the rule is active (thereby using to points calculation) 
