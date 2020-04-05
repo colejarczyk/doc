@@ -77,6 +77,14 @@ Export Audit logs
 
 You can export audit logs to the csv file based on the for ie. selected time period for the logs.
 
+To export audit logs:
+
+1. Search logs based on the filters in the headers of each column and time period and click on the **Export to csv** icon.
+
+.. image:: /userguide/_images/archives.png
+
+After clicking, the list of exported audit logs will be downloaded in .CSV format.
+
 Archive Audit logs
 ------------------
 
