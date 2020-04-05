@@ -86,14 +86,14 @@ To archive audit logs:
 
 1. Click on the **Archives** icon.
 
-.. |settings| image:: /userguide/_images/archives.png
+.. image:: /userguide/_images/archives.png
 
 2. Select the date in **Archive before** field to which the logs will be archived
 
-.. |settings| image:: /userguide/_images/archive.png
+.. image:: /userguide/_images/archive.png
 
 3. Click on the **Generate a new archive** icon.
 
-.. |settings| image:: /userguide/_images/generate_archive.png
+.. image:: /userguide/_images/generate_archive.png
 
 The archive audit log xml file will be visible in the "Archived files available for download:" section.
