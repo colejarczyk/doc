@@ -76,14 +76,14 @@ Example Response
 Match transactions with the customers by importing a XML file
 -------------------------------------------------------------
 
-In order to match many transactions to many customers using an XML file, you need to call the ``/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
+In order to match many transactions to many customers using an XML file, you need to call the ``/api/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /admin/transaction/customer/assign/import
+    POST /api/admin/transaction/customer/assign/import
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
@@ -1372,6 +1372,8 @@ Definition
 | transaction[revisedDocument]                 | query          | Sales document number                             |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[storeCode]                       | query          | Store code                                        |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[pos]                             | query          | POS ID                                            |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[transactionData][purchaseDate]   | query          | *(optional)* Purchase date                        |
 +----------------------------------------------+----------------+---------------------------------------------------+
