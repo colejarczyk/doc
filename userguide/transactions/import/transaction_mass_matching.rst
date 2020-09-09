@@ -1,8 +1,8 @@
 .. index::
    single: transaction_mass_matching
 
-Match transactions with customers from a XML file
-=================================================
+Matching transactions with customers from a XML file
+====================================================
 
 If you have the transactions, which aren't linked with the customers accounts, you can match a lot of transactions with the customers through importing a XML file in your Open Loyalty Admin. 
 

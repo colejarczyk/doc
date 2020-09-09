@@ -4,7 +4,7 @@ Open Loyalty admin
 Your store Admin is the password-protected back office where you can set up points rule, reward campaigns, manage customers, and perform other administrative tasks. All basic configuration tasks and loyalty campaign management operations are performed from the Admin.
 
 Your initial sign-in credentials were set up during the Open Loyalty installation. If you forget your password, a temporary password can be sent to the email address that is associated with the account.
-There will be an attempt to send this message even if you disable email sending through the Admin Cockpit.
+There will be an attempt to send this message even if you disable sending of password reset message through the Admin Cockpit.
 
 
 .. image:: /userguide/_images/dashboard.png

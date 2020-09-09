@@ -390,11 +390,11 @@ Example Response
         "tierAssignType": "transactions",
         "levelDowngradeMode": "none",
         "levelDowngradeBase": "none",
-        "accountActivationMethod": "email",
+        "preferredCommunicationMethod": "email",
+        "accountActivationRequired": true,
         "marketingVendorsValue": "none",
         "pushySecretKey": "",
         "maxPointsRedeemed": "500",
-        "transactionTriggeredSmsContent": "",
         "programConditionsUrl": "",
         "programFaqUrl": "",
         "programUrl": "",
@@ -479,8 +479,6 @@ Definition
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[maxPointsRedeemed]                           | request        | Cashback limit in points per day per customer                              |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[transactionTriggeredSmsContent]              | request        | SMS message sent to the customer after realizing a transaction             |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[customersIdentificationPriority][][priority] | request        | Priority to define matching transaction with customer                      |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[customersIdentificationPriority][][field]    | request        | Field to define matching transaction with customer                         |
@@ -496,6 +494,11 @@ Definition
 | settings[excludedLevelCategories][]                   | request        | *(optional)* Categories excluded from levels ...                           |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[logo]                                        | request        | Absolute path to the photo                                                 |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[accountActivationRequired]                   | request        | Whether to require activation for new customer accounts.                   |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| settings[preferredCommunicationMethod]                | request        | Choose preferred method of communication with the customers.               |
+|                                                       |                | Possible values 'email' or 'sms'.                                          |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[marketingVendorsValue]                       | request        | *(optional)* Choose marketing automation integration.                      |
 |                                                       |                | Possible values 'none' or 'sales_manago'                                   |
@@ -639,22 +642,32 @@ Example Response
 
 
 
-Get a list of available email settings
---------------------------------------
+Get a list of available message templates
+-----------------------------------------
 
-To retrieve a complete list of available email settings, you need to call the ``/api/settings/emails`` endpoint with the ``GET`` method.
+To retrieve a complete list of available message templates, you need to call the ``/api/message`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/emails
+    GET /api/message
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| page                            | query          | *(optional)* Start from page, by default 1                        |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| perPage                         | query          | *(optional)* Number of items to display per page,                 |
+|                                 |                | by default = 10                                                   |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| sort                            | query          | *(optional)* Sort by column name                                  |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| direction                       | query          | *(optional)* Direction of sorting [ASC, DESC],                    |
+|                                 |                | by default = ASC                                                  |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
@@ -662,7 +675,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/emails \
+    curl http://localhost:8181/api/message \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -678,102 +691,101 @@ Example Response
 .. code-block:: json
 
     {
-      "emails": [
+      "messages": [
         {
-          "id": "c60f1033-b1d0-4033-b9fe-7a3c230c4479",
-          "key": "OpenLoyaltyUserBundle:email:registration.html.twig",
-          "subject": "Account created",
-          "content": "Email content",
-          "sender_name": "open@example.com",
-          "sender_email": "open@example.com",
-          "enabled": true,
-          "updatedAt": "2018-02-19T09:45:00+0100"
-        },
-         {
-          "id": "cf83d86a-538c-42f7-8d8d-3b46109a864d",
-          "key": "OpenLoyaltyUserBundle:email:registration_with_temporary_password.html.twig",
-          "subject": "Account created",
-          "content": "Email content",
-          "sender_name": "open@example.com",
-          "sender_email": "open@example.com",
-          "enabled": true,
-          "updatedAt": "2018-02-19T09:45:00+0100"
+          "id": "c5261111-0344-4661-9b51-b0733011b52f",
+          "channel": "sms",
+          "subject": "",
+          "content": "New transaction matched {{ first_name }} {{ last_name }}",
+          "enabled": false,
+          "updatedAt": "2020-09-07T15:56:00+02:00",
+          "event": "oloy.transaction.labels_were_appended",
+          "target": "customer"
         },
         {
-          "id": "d08481f5-7e79-4e80-9e74-5a8cf776849d",
-          "key": "OpenLoyaltyUserBundle:email:password_reset.html.twig",
-          "subject": "Password reset requested",
-          "content": "Email content",
-          "sender_name": "open@example.com",
-          "sender_email": "open@example.com",
-          "enabled": true,
-          "updatedAt": "2018-02-19T09:45:00+0100"
+          "id": "67b4a4bc-b65a-42df-b2f3-d66c7e140ddd",
+          "channel": "sms",
+          "subject": "",
+          "content": "You have achieved new level",
+          "enabled": false,
+          "updatedAt": "2020-09-07T15:56:00+02:00",
+          "event": "oloy.customer.level_changed_automatically",
+          "target": "customer"
         },
         {
-          "id": "f4f0e1f9-3677-4bdb-9685-416a961bc319",
-          "key": "OpenLoyaltyUserBundle:email:customer_reward_bought.html.twig",
-          "subject": "{{ program_name }} - new reward",
-          "content": "Email content",
-          "sender_name": "open@example.com",
-          "sender_email": "open@example.com",
-          "enabled": true,
-          "updatedAt": "2018-02-19T09:45:00+0100"
+          "id": "3fb108c9-00f4-482a-89c6-f1e069574073",
+          "channel": "sms",
+          "subject": "",
+          "content": "You have bought a new reward",
+          "enabled": false,
+          "updatedAt": "2020-09-07T15:56:00+02:00",
+          "event": "oloy.campaign.customer_bought_campaign",
+          "target": "customer"
         },
         {
-          "id": "a9964f68-d2af-4db2-88ba-de99af707aec",
-          "key": "OpenLoyaltyUserBundle:email:new_points.html.twig",
-          "subject": "{{ program_name }} - new points",
-          "content": "Email content",
-          "sender_name": "open@example.com",
-          "sender_email": "open@example.com",
+          "id": "9cbdf804-2724-4319-84e7-c8dbe7225149",
+          "channel": "email",
+          "subject": "New transaction labels",
+          "content": "New transaction labels {{ first_name }} {{ last_name }}",
           "enabled": true,
-          "updatedAt": "2018-02-19T09:45:00+0100"
+          "updatedAt": "2020-09-07T15:56:00+02:00",
+          "event": "oloy.transaction.labels_were_appended",
+          "target": "customer"
         },
         {
-          "id": "7824f1fb-9dee-45a8-b8c7-434f5130da60",
-          "key": "OpenLoyaltyUserBundle:email:new_level.html.twig",
-          "subject": "{{ program_name }} - new level",
-          "content": "Email content",
-          "sender_name": "open@example.com",
-          "sender_email": "open@example.com",
+          "id": "74236215-3bc7-4f8b-9f3a-ef23a7103307",
+          "channel": "email",
+          "subject": "Confirm your email change",
+          "content": "Confirm your email change in {{ program_name }} (no. {{ code_number }}): {{ code }}",
           "enabled": true,
-          "updatedAt": "2018-02-19T09:45:00+0100"
+          "updatedAt": "2020-09-07T15:56:00+02:00",
+          "event": "oloy.customer.email_was_changed",
+          "target": "customer"
+        },
+        {
+          "id": "3b6915cc-d960-4c6b-a65f-84df1fa3fc6b",
+          "channel": "email",
+          "subject": "Confirm your phone number change",
+          "content": "Confirm your phone change in {{ program_name }} (no. {{ code_number }}): {{ code }}",
+          "enabled": true,
+          "updatedAt": "2020-09-07T15:56:00+02:00",
+          "event": "oloy.customer.phone_number_was_changed",
+          "target": "customer"
         }
-        ],
-        "total": 6
+      ],
+      "total": 20
     }
 
 
 
-Get details of an email setting
--------------------------------
+Get details of a message template
+---------------------------------
 
-To retrieve details of a particular email setting, you need to call the ``/api/settings/emails/<emailId>`` endpoint with the ``GET`` method.
+To retrieve details of a particular message template, you need to call the ``/api/message/<messageId>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/emails/<emailId>
+    GET /api/message/<messageId>
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
 +---------------------------------+----------------+-------------------------------------------------------------------+
-| <emailId>                       | query          | Email ID                                                          |
+| <messageId>                     | query          | Message template's ID                                             |
 +---------------------------------+----------------+-------------------------------------------------------------------+
-
 
 Example
 ^^^^^^^
 
- To see the details of an email with ``emailId = c60f1033-b1d0-4033-b9fe-7a3c230c4479``, use the method below:
+ To see the details of a message template with ``messageId = c60f1033-b1d0-4033-b9fe-7a3c230c4479``, use the method below:
  
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/emails/c60f1033-b1d0-4033-b9fe-7a3c230c4479 \
+    curl http://localhost:8181/api/message/c60f1033-b1d0-4033-b9fe-7a3c230c4479 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -789,57 +801,52 @@ Example Response
 .. code-block:: json
 
     {
-      "entity": {
+      "message": {
         "id": "c60f1033-b1d0-4033-b9fe-7a3c230c4479",
-        "key": "OpenLoyaltyUserBundle:email:registration.html.twig",
-        "subject": "Account created",
+        "channel": "email",
+        "target": "customer",
+        "event": "oloy.account.available_points_amount_changed",
+        "subject": "Your balance changed",
         "content": "Email content",
-        "sender_name": "open@example.com",
-        "sender_email": "open@example.com",
         "enabled": true,
         "updatedAt": "2018-02-19T09:45:00+0100"
-      },
-      "additional": {
-        "variables": [
-        "url"
-       ],
-      "preview": "Email preview"
       }
     }
 
 
 
-Update email details
---------------------
+Update message template's details
+---------------------------------
 
-To update email details, you need to call the ``/api/settings/emails/<email>`` endpoint with the ``PUT`` method.
+To update details of a message template, you need to call the ``/api/message/<messageId>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT /api/settings/emails/<email>
+    PUT /api/message/<messageId>
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type | Description                                        |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
 +------------------------------------------------+----------------+----------------------------------------------------+
-| <email>                                        | query          | Email ID                                           |
+| <messageId>                                    | query          | Message template's ID                              |
 +------------------------------------------------+----------------+----------------------------------------------------+
-| email[key]                                     | request        | Email keys                                         |
+| message[channel]                               | request        | Channel: sms, email or push                        |
 +------------------------------------------------+----------------+----------------------------------------------------+
-| email[subject]                                 | request        | Email subject                                      |
+| message[target]                                | request        | Target: customer or admin                          |
 +------------------------------------------------+----------------+----------------------------------------------------+
-| email[content]                                 | request        | Email content                                      |
+| message[event]                                 | request        | Event triggering the message.                      |
+|                                                |                | See Get message events below.                      |
 +------------------------------------------------+----------------+----------------------------------------------------+
-| email[sender_name]                             | request        | Sender name                                        |
+| message[subject]                               | request        | Message subject                                    |
 +------------------------------------------------+----------------+----------------------------------------------------+
-| email[sender_email]                            | request        | Sender email                                       |
+| message[content]                               | request        | Message content                                    |
 +------------------------------------------------+----------------+----------------------------------------------------+
-| email[enabled]                                 | request        | If the emails generated from this template should  |
-|                                                |                | be sent or not.                                    |
+| message[enabled]                               | request        | If the messages generated from this template       |
+|                                                |                | should be sent or not.                             |
 +------------------------------------------------+----------------+----------------------------------------------------+
 
 Example
@@ -847,17 +854,17 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/emails/f4f0e1f9-3677-4bdb-9685-416a961bc319 \
+    curl http://localhost:8181/api/message/f4f0e1f9-3677-4bdb-9685-416a961bc319 \
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "email[key]=OpenLoyaltyUserBundle:email:registration.html.twig" \
-        -d "email[subject]=Account+created" \
-        -d "email[content]=test" \
-        -d "email[sender_name]=testol@divante.pl" \
-        -d "email[sender_email]=testol@divante.pl" \
-        -d "email[enabled]=1"
+        -d "message[key]=oloy.account.available_points_amount_changed" \
+        -d "message[channel]=sms" \
+        -d "message[target]=customer" \
+        -d "message[subject]=Your+balance+changed" \
+        -d "message[content]=test" \
+        -d "message[enabled]=1"
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -870,6 +877,240 @@ Example Response
 
     {
       "id": "f4f0e1f9-3677-4bdb-9685-416a961bc319"
+    }
+
+
+
+Activate a message
+------------------
+
+To enable sending a message, you need to call the ``/api/message/<messageId>/activate`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/message/<messageId>/activate
+
++------------------------------------------------+----------------+----------------------------------------------------+
+| Parameter                                      | Parameter type | Description                                        |
++================================================+================+====================================================+
+| Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <messageId>                                    | query          | Message template's ID                              |
++------------------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/message/f4f0e1f9-3677-4bdb-9685-416a961bc319/activate \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "id": "f4f0e1f9-3677-4bdb-9685-416a961bc319"
+    }
+
+
+
+Deactivate a message
+--------------------
+
+To disable sending a message, you need to call the ``/api/message/<messageId>/deactivate`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/message/<messageId>/deactivate
+
++------------------------------------------------+----------------+----------------------------------------------------+
+| Parameter                                      | Parameter type | Description                                        |
++================================================+================+====================================================+
+| Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <messageId>                                    | query          | Message template's ID                              |
++------------------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/message/f4f0e1f9-3677-4bdb-9685-416a961bc319/deactivate \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "id": "f4f0e1f9-3677-4bdb-9685-416a961bc319"
+    }
+
+
+
+Create a new message template
+-----------------------------
+
+To create a message template, you need to call the ``/api/message`` endpoint with the ``POST`` method.
+
+You can create only one message template addressed to a given target, for a given event, per channel.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/message
+
++------------------------------------------------+----------------+----------------------------------------------------+
+| Parameter                                      | Parameter type | Description                                        |
++================================================+================+====================================================+
+| Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| message[channel]                               | request        | Channel: sms, email or push                        |
++------------------------------------------------+----------------+----------------------------------------------------+
+| message[target]                                | request        | Target: customer or admin                          |
++------------------------------------------------+----------------+----------------------------------------------------+
+| message[event]                                 | request        | Event triggering the message.                      |
+|                                                |                | See Get message events below.                      |
++------------------------------------------------+----------------+----------------------------------------------------+
+| message[subject]                               | request        | Message subject                                    |
++------------------------------------------------+----------------+----------------------------------------------------+
+| message[content]                               | request        | Message content                                    |
++------------------------------------------------+----------------+----------------------------------------------------+
+| message[enabled]                               | request        | If the messages generated from this template       |
+|                                                |                | should be sent or not.                             |
++------------------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/message \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "message[key]=oloy.account.available_points_amount_changed" \
+        -d "message[channel]=sms" \
+        -d "message[target]=customer" \
+        -d "message[subject]=Your+balance+changed" \
+        -d "message[content]=test" \
+        -d "message[enabled]=1"
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "id": "c4f0e1f9-d33a-4b3b-9a4a-416a961bc319"
+    }
+
+
+
+Get message events
+------------------
+
+To retrieve a list of events a message can be triggered upon, you need to call the ``/api/message/events`` endpoint with the ``GET`` method.
+
+The list contains the form values, their human-readable labels and a list of snippets available to use in a template.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/message/events
+
++------------------------------------------------+----------------+----------------------------------------------------+
+| Parameter                                      | Parameter type | Description                                        |
++================================================+================+====================================================+
+| Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/message/events \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "events": [
+        {
+          "value": "oloy.account.available_points_amount_changed",
+          "label": "Earned points",
+          "snippets": [
+            "{{ program_name }}",
+            "{{ customer_url }} ",
+            "{{ added_points_amount }} ",
+            "{{ active_points_amount }} "
+          ]
+        },
+        {
+          "value": "oloy.customer.level_changed_automatically",
+          "label": "Gained new level",
+          "snippets": [
+            "{{ program_name }}",
+            "{{ customer_url }}",
+            "{{ level_name }}",
+            "{{ level_discount }}"
+          ]
+        },
+        {
+          "value": "oloy.campaign.has_become_available",
+          "label": "Campaign has become available",
+          "snippets": [
+            "{{ program_name }}",
+            "{{ customer_url }}",
+            "{{ title }}",
+            "{{ message }}"
+          ]
+        }
+      ]
     }
 
 
@@ -1535,10 +1776,10 @@ Example Response
 
 
 
-Return activation method (email|sms)
-------------------------------------
+Return activation configuration and method
+------------------------------------------
 
-To check activation method, you need to call the ``/api/settings/activation-method`` endpoint with the ``GET`` method.
+To check activation method, you need to call the ``/api/settings/activation`` endpoint with the ``GET`` method.
 
 
 Definition
@@ -1546,7 +1787,7 @@ Definition
 
 .. code-block:: text
 
-    GET /api/settings/activation-method
+    GET /api/settings/activation
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
@@ -1559,7 +1800,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/activation-method \
+    curl http://localhost:8181/api/settings/activation \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1575,7 +1816,8 @@ Example Response
 .. code-block:: json
 
     {
-      "method": "sms"
+      "method": "sms",
+      "required": true
     }
 
 

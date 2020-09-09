@@ -47,9 +47,9 @@ Definition
 +---------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Parameter     | Parameter type | Description                                                                                                                                                         |
 +===============+================+=====================================================================================================================================================================+
-| _username     | request        | For <user_type>=admin use username, for <user_type>=customer use e-mail address or loyalty card number or phone number, for <user_type>=seller use e-mail address   |
+| username      | request        | For <user_type>=admin use username, for <user_type>=customer use e-mail address or loyalty card number or phone number, for <user_type>=seller use e-mail address   |
 +---------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| _password     | request        | User password                                                                                                                                                       |
+| password      | request        | User password                                                                                                                                                       |
 +---------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | <user_type>   | query          | Use one of: admin, customer, seller                                                                                                                                 |
 +---------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -66,7 +66,7 @@ Example
     curl http://localhost:8181/api/admin/login_check
         -H 'Content-Type: application/json;charset=UTF-8'
         -H 'Accept: application/json, text/plain, */*'
-        --data-binary '{"_username":"admin","_password":"open"}'
+        --data-binary '{"username":"admin","password":"open"}'
 
 Example Response
 ''''''''''''''''''

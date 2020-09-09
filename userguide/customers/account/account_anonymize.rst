@@ -6,6 +6,7 @@ Anonymize a Customer's account
 
 Any customer account that is currently active can be anonymized. Customer is anonymized so all of the information
 about the customer will be anonymized.
+The following data will be anonymized: Name, Surname, Phone number, Date of birth, Address, Email Address, company information
 
 To anonymize a customer's account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -14,7 +15,7 @@ To anonymize a customer's account:
 
 2. In the Customers list, find the record to be anonymized and click magnifying glass icon to see customer profile page.
 
-3. Click Anonymize button in the Anonymize customer section.
+3. Scroll down and click Anonymize button in the Anonymize customer section.
 
 .. image:: /userguide/_images/customer_anonymize.png 
    :alt:   System Message

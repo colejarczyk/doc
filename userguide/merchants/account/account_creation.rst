@@ -27,7 +27,7 @@ To add new Merchant:
  - Provide merchant **Phone** number (in one of the acceptable format)
  - Enter **Password** to merchant account, which will be used as a login credential to account in POS Cockpit.
  
-   Merchant will not receive password to his account automatically via email/sms message. You have to give it to him "in person".
+   Merchant will **not** receive password to his account automatically via email/SMS message. You have to give it to them via some other channel or in person.
  
  - Assign **POS** to merchant by selecting from the dropdown list POS name
  - Mark **Allow to add a new transfer points** checkbox to allow merchant to manage customers points transfers (add, spend, cancel, deduct points amount etc.) from the POS Cockpit 

@@ -79,7 +79,7 @@ Defines access to the :doc:`Audit logs  </userguide/getting_started/settings/sys
 | VIEW & MODIFY                                   |                                 
 +=================================================+
 |- Audit logs list preview                        |
-|- filter and sorting options of audit log list   |
+|- filter and sorting options of audit log        |
 |- search logs from time period                   | 
 +-------------------------------------------------+
 
@@ -460,20 +460,20 @@ Defines access to the :doc:`Segments  </userguide/segments/index>` section and i
 
 
 Settings
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
-Defines access to the :doc:`Emails  </userguide/getting_started/settings/emails>` , :doc:`Translations  </userguide/getting_started/settings/translations>` and :doc:`Configuration  </userguide/getting_started/settings/Configuration/index>`  settings sections and its individual elements
+Defines access to the :doc:`Message templates settings  </userguide/getting_started/settings/messages>` , :doc:`Translations  </userguide/getting_started/settings/translations>` and :doc:`Configuration  </userguide/getting_started/settings/Configuration/index>`  settings sections and its individual elements
 
 +---------------------------------------------+----------------------------------------+
 | VIEW                                        | MODIFY                                 |
 +=============================================+========================================+
 |- Translations list preview                  | All **View** permissions, and more:    |     
-|- Emails list                                |                                        |
+|- Message templates list                     |                                        |
 |                                             | - Create new translations              |
 |                                             | - Updating translation                 |
 |                                             | - Delete non-default translations      |
-|                                             | - Updating an email template           |
-|                                             | - Email template preview               |
+|                                             | - Updating a message template          |
+|                                             | - Message template preview             |
 |                                             | - Configuration section management     |
 +---------------------------------------------+----------------------------------------+
 

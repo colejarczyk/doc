@@ -3,8 +3,8 @@ Audit API
 
 These endpoints will allow you to see the list of actions taken in Open Loyalty.
 
-Get audit logs
---------------
+Getting log
+-----------
 
 To retrieve the action log, you need to call the ``/api/audit/log`` endpoint with the ``GET`` method.
 
@@ -181,8 +181,8 @@ Example Response
 
 
 
-Export audit logs
------------------
+Exporting the view
+------------------
 
 To export the audit logs view you need to call ``/api/audit/log/export`` endpoint with the ``GET`` method and the same parameters.
 Pagination does not work in this endpoint, you can only sort the exported entries.
@@ -251,8 +251,8 @@ Example Response
 
 
 
-Create the audit logs archive
------------------------------
+Creating an archive
+-------------------
 
 To dump all audit log data older than a year counting from today's midnight into an archived file
 in the server's archives storage, use ``/api/audit/log/archive`` endpoint with the ``POST`` method.
@@ -328,8 +328,8 @@ Example Response
 
 
 
-Export the audit log archives file list
----------------------------------------
+Getting an archive list
+-----------------------
 
 To retrieve all archived files in the server's archives storage, use ``/api/audit/log/archive`` endpoint with the ``GET`` method.
 
@@ -375,8 +375,8 @@ Example Response
 
 
 
-Export the audit logs archive
------------------------------
+Downloading an archive
+----------------------
 
 To download an archived file in the server's archives storage, use ``/api/audit/log/archive/{filename}`` endpoint with the ``GET`` method.
 

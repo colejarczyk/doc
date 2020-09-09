@@ -42,13 +42,12 @@ List of all events
 +------------------+------------------------------------+---------------------------------------+------------------------------------------------+
 |                  |  - ActivateCustomer                | - CustomerWasActivated                | - CustomerActivatedSystemEvent                 |
 |                  |  - AssignPosToCustomer             | - PosWasAssignedToCustomer            | - CustomerAgreementsUpdatedSystemEvent         |
-|  Customer        |  - AssignSellerToCustomer          | - SellerWasAssignedToCustomer         | - CustomerAttachedToInvitationSystemEvent      |
-|                  |  - AttachCustomerToInvitation      | - CustomerWasAttachedToInvitation     | - CustomerDeactivatedSystemEvent               |
+|  Customer        |  - AssignSellerToCustomer          | - SellerWasAssignedToCustomer         | - CustomerDeactivatedSystemEvent               |                        |
 |                  |  - BuyCampaign                     | - CampaignWasBoughtByCustomer         | - CustomerLevelChangedSystemEvent              |
 |                  |  - ChangeCampaignUsage             | - CampaignUsageWasChanged             | - CustomerLoggedInSystemEvent                  |
 |                  |  - CreateInvitation                | - InvitationWasCreated                | - CustomerRegisteredSystemEvent                |
 |                  |  - DeactivateCustomer              | - CustomerWasDeactivated              | - CustomerRemovedManuallyLevelSystemEvent      |
-|                  |  - InvitedCustomerMadePurchase     | - PurchaseWasMadeForThisInvitation    | - CustomerUpdatedSystemEvent                   |
+|                  |  - UpdateCustomerLoyaltyCardNumber | - PurchaseWasMadeForThisInvitation    | - CustomerUpdatedSystemEvent                   |
 |                  |  - MoveCustomerToLevel             | - CustomerWasMovedToLevel             | - NewsletterSubscriptionSystemEvent            |
 |                  |  - NewsletterSubscription          | - CustomerWasRegistered               |                                                |
 |                  |  - RegisterCustomer                | - CustomerAddressWasUpdated           |                                                |
@@ -56,7 +55,6 @@ List of all events
 |                  |  - UpdateCustomerAddress           | - CustomerLoyaltyCardNumberWasUpdated |                                                |
 |                  |  - UpdateCustomerCompanyDetails    |                                       |                                                |
 |                  |  - UpdateCustomerDetails           |                                       |                                                |
-|                  |  - UpdateCustomerLoyaltyCardNumber |                                       |                                                |
 +------------------+------------------------------------+---------------------------------------+------------------------------------------------+
 |                  |  - ActivateEarningRule             |                                       |                                                |
 |                  |  - CreateEarningRule               |                                       |                                                |
@@ -66,15 +64,17 @@ List of all events
 |                  |  - UpdateEarningRule               |                                       |                                                |
 |                  |  - UseCustomEventEarningRule       |                                       |                                                |
 +------------------+------------------------------------+---------------------------------------+------------------------------------------------+
-|  Email           |  - CreateEmail                     |                                       | - EmailCreatedSystemEvent                      |
-|                  |  - UpdateEmail                     |                                       |                                                |
-+------------------+------------------------------------+---------------------------------------+------------------------------------------------+
 |                  |  - ActivateLevel                   |                                       |                                                |
 |                  |  - CreateLevel                     |                                       |                                                |
 |  Level           |  - DeactivateLevel                 |                                       |                                                |
 |                  |  - RemoveLevelPhoto                |                                       |                                                |
 |                  |  - SetLevelPhoto                   |                                       |                                                |
 |                  |  - UpdateLevel                     |                                       |                                                |
++------------------+------------------------------------+---------------------------------------+------------------------------------------------+
+|  Messaging       |  - CreateMessage                   |                                       | - MessageCreatedSystemEvent                    |
+|                  |  - UpdateMessage                   |                                       | - MessageUpdatedSystemEvent                    |
+|                  |  - ActivateMessage                 |                                       | - MessageActivatedSystemEvent                  |
+|                  |  - DeactivateMessage               |                                       | - MessageDeactivatedSystemEvent                |
 +------------------+------------------------------------+---------------------------------------+------------------------------------------------+
 |  Pos             |  - CreatePos                       |                                       | - PosUpdatedSystemEvent                        |
 |                  |  - UpdatePos                       |                                       |                                                |

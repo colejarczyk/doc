@@ -150,7 +150,7 @@ container with our own file.
           imagePullSecrets:
             - name: registry
           containers:
-            - image: registry-1.divante.pl:5000/openloyalty/fpm-framework:4.1.0
+            - image: registry-1.divante.pl:5000/openloyalty/fpm-framework:4.2.0
               name: php
               ports:
                 - containerPort: 9000
@@ -202,7 +202,7 @@ to the config.js file.
           imagePullSecrets:
             - name: registry
           containers:
-            - image: registry-1.divante.pl:5000/openloyalty/frontend:4.1.0
+            - image: registry-1.divante.pl:5000/openloyalty/frontend:4.2.0
               name: openloyalty-frontend
               ports:
                 - containerPort: 80

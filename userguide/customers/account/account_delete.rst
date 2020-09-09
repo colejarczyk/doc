@@ -15,9 +15,14 @@ To delete a customer's account:
 
 2. In the Customers list, find the record to be deleted and click magnifying glass icon to see customer profile page.
 
-3. Click Delete button in the Delete customer section and confirm the action:
+3. Scroll down and click Delete button in the Delete customer section and confirm the action:
 
 .. image:: /userguide/_images/customer_delete.png
    :alt:   System Message
 
-4. When you confirm it, customer is deleted.
+4. The system will display a message asking you to confirm the action.
+
+.. image:: /userguide/_images/confirm_deletion.png
+   :alt:   System Message
+
+5. Once you confirm it, the customer is deleted.

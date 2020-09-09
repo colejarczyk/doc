@@ -15,10 +15,10 @@ From the Admin, you can mark reward as **Used** to start the shipping process. T
 .. image:: /userguide/_images/gift_status.PNG
    :alt:   Gift statuses 
 
-When you mark reward as used, you will receive :doc:`Reward Redeemed  </userguide/getting_started/settings/emails>` email notification including information about used gift-type reward, customer and his address on which reward should be sent. The delivery address is the same address as the one assigned during registration, displayed in :doc:`Profile details </userguide/customers/profile_details/details/profile>` 
+When you mark reward as used, you will receive :doc:`Reward Redeemed </userguide/getting_started/settings/messages>` email/SMS notification including information about used gift-type reward, customer and his address on which reward should be sent. The delivery address is the same address as the one assigned during registration, displayed in :doc:`Profile details </userguide/customers/profile_details/details/profile>`
 
 .. image:: /userguide/_images/reward_redeemed_mail.PNG
-   :alt:   Reward redeemed email 
+   :alt:   Reward redeemed email
 
 Depending on the shipping process, you can freely change your **Delivery status** to one of the following:
 

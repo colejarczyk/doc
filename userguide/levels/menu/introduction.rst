@@ -6,7 +6,7 @@ Introduction
 
 Levels are used to categorize customers based on the value of their transactions (orders) - The higher value/amount of transaction, the more points they will get and the higher level they'll reach. 
 
-Customer is assigned to only one level at a time. **Customers are placed into levels based either on their total amount of transactions or points they have earned**. If customer has spent enough money or earned enough points to move up a level, their level will automatically move up and they will be informed about it via email (unless OL was configured not to send one).
+Customer is assigned to only one level at a time. **Customers are placed into levels based either on their total amount of transactions or points they have earned**. If customer has spent enough money or earned enough points to move up a level, their level will automatically move up and they will be informed about it via email or SMS (unless OL was configured not to send one).
 
 Depending on the Configuration, customer can also return to previous level e.g. when order, which caused this promotion, will be returned by him or his accumulated points will be not enough to stay at the current level at the end of specified period. 
 
@@ -16,7 +16,7 @@ Customer level can be also changed to higher or lower manually by the Admin user
 
 Each level can provide fixed discounts and also have exclusive rewards that can only be claimed when a customer is on that level.
 
-.. image:: /userguide/_images/levels2.png
+.. image:: /userguide/_images/all_levels.png
    :alt:   Customers Levels
 
 
@@ -35,7 +35,7 @@ All Levels
 
 *Lists all customers level within your loyalty program with additional information regarding conditions values, assigned rewards and possible, limited in time, special rewards*
 
-.. image:: /userguide/_images/levels2.png
+.. image:: /userguide/_images/all_levels.png
    :alt:   Customers Levels
 
 

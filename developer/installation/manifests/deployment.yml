@@ -23,7 +23,7 @@ spec:
               value: openloyalty
             - name: POSTGRES_USER
               value: openloyalty
-          image: postgres:9-alpine
+          image: postgres:9.6-alpine
           name: db
           ports:
             - containerPort: 5432
@@ -70,7 +70,7 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/frontend:4.1.0
+        - image: registry-1.divante.pl:5000/openloyalty/frontend:4.2.0
           name: openloyalty-frontend
           ports:
             - containerPort: 80
@@ -137,7 +137,7 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/api-framework:4.1.0
+        - image: registry-1.divante.pl:5000/openloyalty/api-framework:4.2.0
           name: openloyalty-api
           ports:
             - containerPort: 80
@@ -188,7 +188,7 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/pwacc:4.1.0
+        - image: registry-1.divante.pl:5000/openloyalty/pwacc:4.2.0
           name: openloyalty-pwacc
           env:
             - name: OL_HOST
@@ -237,7 +237,7 @@ spec:
       imagePullSecrets:
         - name: registry
       containers:
-        - image: registry-1.divante.pl:5000/openloyalty/fpm-framework:4.1.0
+        - image: registry-1.divante.pl:5000/openloyalty/fpm-framework:4.2.0
           name: php
           ports:
             - containerPort: 9000
@@ -441,7 +441,7 @@ spec:
       imagePullSecrets:
       - name: registry
       containers:
-      - image: registry-1.divante.pl:5000/openloyalty/worker-framework:4.1.0
+      - image: registry-1.divante.pl:5000/openloyalty/worker-framework:4.2.0
         name: worker
         imagePullPolicy: Always
         volumeMounts:

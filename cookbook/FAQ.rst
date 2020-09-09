@@ -4,19 +4,19 @@ Open Loyalty FAQ
 These are some of the most common questions and answers about Open Loyalty. If you couldn't find your question in the list below, please contact us `here <https://www.openloyalty.io/>`_.
 
 
-1. I register with customer, but I lose my account activation code. How can I resend the code?
+1. I registered a customer, but I lost my account activation code. How can I resend the code?
 -----------------------------------------------------------------------------------------------------
 
 **1. Account activation via SMS** 
 
-After registration form fullfillment by customer from client cockpit, on the phone number provided in ther form activation code will be sent. If for some reason customer will lost this code he can simply resend a code. To do this, he need to go to the login page and click "Activate an account or resend a code", then click "Resend code" button and provide phone number. After that he will get another acitavtion code. 
+After registration form fulfillment by customer from client cockpit, on the phone number provided in ther form activation code will be sent. If for some reason customer will lost this code he can simply resend a code. To do this, he need to go to the login page and click "Activate an account or resend a code", then click "Resend code" button and provide phone number. After that he will get another acitavtion code.
 
 Note, if you register customer from Admin or POS Cockpit activation code is not sent. Customer account is active instantly. 
 
 
 **2. Account activation via email**
 
-After registration form fullfillment by customer from client cockpit, on the email address provided in the form activation link will be sent. If for some reason customer will lost this link/email, his account can be activated manually by Admin on your side. Customer can send a message on help email or call to customer care department. 
+After registration form fulfillment by customer from client cockpit, on the email address provided in the form activation link will be sent. If for some reason customer will lost this link/email, his account can be activated manually by Admin on your side. Customer can send a message on help email or call to customer care department.
  
 Note, if you register customer from Admin or POS Cockpit activation link is not sent. Customer account is active instantly. 
 

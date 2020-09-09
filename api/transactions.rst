@@ -76,14 +76,14 @@ Example Response
 Match transactions with the customers by importing a XML file
 -------------------------------------------------------------
 
-In order to match many transactions to many customers using an XML file, you need to call the ``/api/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
+In order to match many transactions to many customers using an XML file, you need to call the ``/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/transaction/customer/assign/import
+    POST /admin/transaction/customer/assign/import
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
@@ -1371,10 +1371,6 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[revisedDocument]                 | query          | Sales document number                             |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[storeCode]                       | query          | Store code                                        |
-+----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[pos]                             | query          | POS ID                                            |
-+----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[transactionData][purchaseDate]   | query          | *(optional)* Purchase date                        |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][sku][code]              | query          | SKU Code                                          |
@@ -1724,8 +1720,6 @@ Definition
 | transaction[customerData][address][province] | query          | *(optional)* Province                             |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[customerData][address][country]  | query          | *(optional)* Country                              |
-+----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[storeCode]                       | query          | *(optional)* Store code                           |
 +----------------------------------------------+----------------+---------------------------------------------------+
 
 **Heads up!** One of the following: email, phone, loyaltyCardNumber is required, along with the name, in order to find the user for the simulation to be performed.

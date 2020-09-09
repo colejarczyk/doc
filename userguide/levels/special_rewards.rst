@@ -10,8 +10,8 @@ Special reward should be set if you want to give special discount for customer b
    :alt:   Add Special Reward
 
 
-To assign special rewards to level:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To assigned special rewards to level:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Open **Add/Edit Level Form** as described in :doc:`previous section </userguide/levels/level/index>`
 

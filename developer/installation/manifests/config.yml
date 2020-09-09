@@ -19,7 +19,7 @@ data:
     APP_SECRET=__REPLACE_IT__
     RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
     DATABASE_URL=pgsql://openloyalty:openloyalty@db:5432/openloyalty
-    DATABASE_VERSION='9'
+    DATABASE_VERSION='9.6'
     MAILER_URL=smtp://mail:1025
     GELF_SERVER=logstash
     GELF_PORT=12201

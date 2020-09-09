@@ -49,10 +49,10 @@ On the Linux it would be ``/etc/hosts``.
 .. note::
 
     After running docker-compose up you may wonder when it’s ready to use because you’ve got a message that keeps
-    appearing all the time. It’s perfectly fine to see messaage ``open_loyalty_mail | [APIv1] KEEPALIVE /api/v1/events``.
-    This message is shown my MailHog which is listening for incoming e-mail messages. Open Loyalty in the development mode
-    doesn’t sends e-mail to the world. All e-mail are catched by MailHog. To learn more about
-    `MailHog <https://github.com/mailhog/MailHog>`_.
+    appearing all the time. It’s perfectly fine to see message ``open_loyalty_mail | [APIv1] KEEPALIVE /api/v1/events``.
+    This message is shown by MailHog which is listening for incoming e-mail messages. Open Loyalty in the development mode
+    doesn't send e-mails to the wider network – all e-mails are caught by MailHog. To learn more about
+    `MailHog, click here <https://github.com/mailhog/MailHog>`_.
 
 If you don’t want to see messages from running containers run a docker-compose as a daemon ``docker-compose up -d``
 

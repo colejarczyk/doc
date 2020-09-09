@@ -63,7 +63,9 @@ To add new admin:
 
 6. Set **Active** field to "Active"
 
-7. When it is done, tap ``SAVE``
+7. To receive push notifications, select the **Notifications enabled** checkbox
+
+8. When it is done, tap ``SAVE``
 
 .. note::
 
@@ -79,11 +81,11 @@ Admin user edition
 To edit an admin account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap the **Settings** icon |settings_edit| in the upper-right corner and choose **Admins** on the menu.
+1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Admins** on the menu.
 
 .. |settings_edit| image:: /userguide/_images/icon.png
 
-2. In the Admins list, find the record to be edited and click **Edit** icon |edit_form| in the Action column to open the record in edit mode.
+2. In the Admins list, find the record to be edited and click **Edit** icon |edit_form|  in the Action column to open the record in edit mode.
 
 .. |edit_form| image:: /userguide/_images/edit.png
 
@@ -100,7 +102,7 @@ Any user account, that is currently inactive, appears in the Admins list as gray
 To lock/unlock an admin account:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap the **Settings** icon |settings_lock| in the upper-right corner and choose **Admins** on the menu.
+1. Tap the **Settings** icon |settings_add| in the upper-right corner and choose **Admins** on the menu.
 
 .. |settings_lock| image:: /userguide/_images/icon.png
 

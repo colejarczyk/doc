@@ -7,3 +7,5 @@ information.
 
 .. image:: _images/cqrs.png
     :scale: 100%
+
+You can read more on CQRS pattern on Martin Fowler's website `here <https://martinfowler.com/bliki/CQRS.html>`_.

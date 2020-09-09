@@ -5,7 +5,9 @@ CONFIGURATION
    :hidden:
 
    account_activation
+   cashback
    identification_factors
+   information
    level_downgrade_settings
    marketing_automation
    pushy

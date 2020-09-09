@@ -12,7 +12,7 @@ You can edit information regarding earning rule used within your Loyalty Program
 To edit an Earning Rule:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Tap **Earning rules** on the Admin sidebar and choose **All earning rules**
+1. Tap **Earning rules** on the Admin sidebar and choose **All earning rule**
 
 2. In the Earning Rules list, find the rule to be edited and click **Edit** icon |edit| in the Action column to open the rule in edit mode
 

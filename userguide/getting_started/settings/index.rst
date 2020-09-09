@@ -10,7 +10,7 @@ Open Loyalty Settings
    acl
    role_resources
    translations
-   emails
+   messages
    system_logs
   
    

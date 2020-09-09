@@ -631,8 +631,6 @@ Definition
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
-| Authorization                      | header         |  Token received during authentication                          |
-+------------------------------------+----------------+----------------------------------------------------------------+
 | <token>                            | request        |  Customer's token, SMS activation code                         |
 +------------------------------------+----------------+----------------------------------------------------------------+
 
@@ -644,13 +642,7 @@ Example
     curl http://localhost:8181/api/customer/activate-sms/954604\
         -X "POST" \
         -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+        -H "Content-type: application/x-www-form-urlencoded"
 
 .. note::
 
@@ -661,7 +653,7 @@ Example Response
 
 .. code-block:: text
 
-    STATUS: 200 OK
+    STATUS: 204 No Content
 
 .. code-block:: json
 
@@ -827,7 +819,7 @@ To create a new customer, you need to call the ``/api/customer/register`` endpoi
 
 .. note::
 
-    This endpoint allows you to set more customer parameters than ``/api/customer/self_register`` and is used when creating
+    This endpoint allows you to set more customer parameters than ``/api/customer/self-register`` and is used when creating
     a new customer in the admin cockpit or POS cockpit. The The self register endpoint is used in the client cockpit for registration
     and has some limitations.
 
@@ -878,8 +870,6 @@ Definition
 | customer[loyaltyCardNumber]        | request        |  *(optional)* Loyalty card number *(unique)*                                                  |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                             |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[storeCode]                | request        |  *(optional)* Store code                                                                      |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[agreement1]               | request        |  First agreement. Set 1 if true, otherwise 0                                                  |
 +------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -1335,6 +1325,60 @@ Example Response
 
 
 
+Confirm a change of authentication credential
+---------------------------------------------
+
+To activate a change of phone number when it is used as a log in credential, you need to call
+``/api/customer/confirm-change/{token}`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/customer/confirm-change/<token>
+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type |  Description                                                   |
++====================================+================+================================================================+
+| Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <token>                            | request        |  Customer's token, SMS activation code                         |
++------------------------------------+----------------+----------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/customer/confirm-change/153105\
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *token = 153105* is an example value. Your value can be different.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+
+.. code-block:: json
+
+    (no content)
+
+
+
 Customer registrations
 ----------------------
 
@@ -1356,8 +1400,6 @@ Definition
 | <interval>                         | request        | Group result by (day|month|year)                               |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <lastDays>                         | request        | Display data in last days                                      |
-+------------------------------------+----------------+----------------------------------------------------------------+
-| <storeCode>                        | request        | Filter result by given store                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
@@ -2339,7 +2381,7 @@ Definition
 
 .. note::
 
-    This endpoint allows you to set more customer parameters than ``/api/customer/self_register`` and is used when creating
+    This endpoint allows you to set more customer parameters than ``/api/customer/self-register`` and is used when creating
     a new customer in the admin cockpit or POS cockpit. The self register endpoint is used in the client cockpit for registration
     and has some limitations.
 
@@ -2789,7 +2831,7 @@ To create a new customer, you need to call the ``/api/admin/customer/register`` 
 
 .. note::
 
-    This endpoint allows you to set more customer parameters than ``/api/customer/self_register`` and is used when creating
+    This endpoint allows you to set more customer parameters than ``/api/customer/self-register`` and is used when creating
     a new customer in the admin cockpit or POS cockpit. The self register endpoint is used in the client cockpit for registration
     and has some limitations.
 
@@ -2841,8 +2883,6 @@ Definition
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                           |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
-| customer[storeCode]                | request        |  *(optional)* Store code                                                                      |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[agreement1]               | request        | First agreement. Set 1 if true, otherwise 0                                                 |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[agreement2]               | request        | *(optional)* Second agreement. Set 1 if true, otherwise 0                                   |
