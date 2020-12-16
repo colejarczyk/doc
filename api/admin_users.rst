@@ -6,7 +6,7 @@ These endpoints will allow you to easily manage admin users.
 Creating an Admin User
 ----------------------
 
-To create a new admin user you need to call the ``/api/admin/data`` endpoint with the ``POST`` method.
+To create a new admin user, you need to call the ``/api/admin/data`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -42,7 +42,7 @@ Definition
 Example
 ^^^^^^^
 
-To create a new admin user use the method below:
+To create a new admin user, use the method below:
 
 .. code-block:: bash
 
@@ -60,7 +60,7 @@ To create a new admin user use the method below:
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -110,7 +110,7 @@ Example Response
 Getting a Single Admin User
 ---------------------------
 
-To retrieve the details of an admin user you need to call the ``/api/admin/data/{admin}`` endpoint with the ``GET`` method.
+To retrieve the details of an admin user, you need to call the ``/api/admin/data/{admin}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -130,7 +130,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the admin user with ``admin = 22200000-0000-474c-b092-b0dd880c07e2`` use the method below:
+To see the details of the admin user with ``admin = 22200000-0000-474c-b092-b0dd880c07e2``, use the method below:
 
 .. code-block:: bash
 
@@ -143,7 +143,7 @@ To see the details of the admin user with ``admin = 22200000-0000-474c-b092-b0dd
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -166,13 +166,13 @@ Example Response
 
 .. note::
 
-    The *22200000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value can be different.
-    Check in the list of all admin users if you are not sure which id should be used.
+    The *22200000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value may be different.
+    Check the list of all admin users if you are not sure which id should be used.
 
 Collection of Admin Users
 -------------------------
 
-To retrieve a paginated list of admin users you need to call the ``/api/admin`` endpoint with the ``GET`` method.
+To retrieve a paginated list of admin users, you need to call the ``/api/admin`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -198,7 +198,7 @@ Definition
 |                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the first page of all admin users use the method below:
+To see the first page of all admin users, use the method below:
 
 Example
 ^^^^^^^
@@ -214,7 +214,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -287,7 +287,7 @@ Example Response
 Updating an Admin User
 ----------------------
 
-To fully update an admin user you need to call the ``/api/admin/data/<admin>`` endpoint with the ``PUT`` method.
+To fully update an admin user, you need to call the ``/api/admin/data/<admin>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -323,7 +323,7 @@ Definition
 Example
 ^^^^^^^
 
- To fully update the admin user with ``id = 22200000-0000-474c-b092-b0dd880c07e2`` use the method below:
+ To fully update the admin user with ``id = 22200000-0000-474c-b092-b0dd880c07e2``, use the method below:
 
 .. code-block:: bash
 
@@ -342,7 +342,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -353,12 +353,12 @@ Example Response
 
 .. warning::
 
-    Remember, you must update the whole data of the admin user. If you don't want to change e-mail address, you must pass current
+    Remember, you must update the whole data set of the admin user. If you don't want to change the e-mail address, you must pass the current
     value.
 
 .. tip::
 
-    It's not possible to delete an admin user. Set ``isActive=0`` if you want to disable access to the Open Loyalty.
+    It's not possible to delete an admin user. Set ``isActive=0`` if you want to disable access to Open Loyalty.
 
 Example
 ^^^^^^^
@@ -374,7 +374,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 Example Response
 ^^^^^^^^^^^^^^^^^^

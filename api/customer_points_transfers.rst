@@ -3,22 +3,24 @@ Customer Points transfers
 
 These endpoints will allow you to see Customer Points transfers list.
 
-List of all logged in customer points transfer
+List of all logged-in customer points transfer
 ----------------------------------------------
 
-To retrieve list of points transfer by a specific customer use ``/api/customer/points/transfer`` endpoint with the ``GET`` method.
+To retrieve a list of points transfer by a specific customer, use ``/api/<storeCode>/customer/points/transfer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET  /api/customer/points/transfer
+    GET  /api/<storeCode>/customer/points/transfer
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the customer belongs to.             |
 +----------------------+----------------+--------------------------------------------------------+
 | state                | query          | Set 1 if always active, otherwise 0                    |
 +----------------------+----------------+--------------------------------------------------------+
@@ -41,7 +43,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/points/transfer \
+    curl http://localhost:8181/api/DEFAULT/customer/points/transfer \
         -X "GET" \
         -H "Accept:application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -50,7 +52,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -105,19 +107,21 @@ Example Response
 Transfer points between customers
 ---------------------------------
 
-To transfer points owned by a specific customer to another customer use ``/api/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
+To transfer points owned by a specific customer to another customer, use the ``/api/<storeCode>/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST  /api/customer/points/p2p-transfer
+    POST  /api/<storeCode>/customer/points/p2p-transfer
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the customers belong to.             |
 +----------------------+----------------+--------------------------------------------------------+
 | transfer[receiver]   | string         | Customer ID                                            |
 +----------------------+----------------+--------------------------------------------------------+
@@ -129,7 +133,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/points/p2p-transfer \
+    curl http://localhost:8181/api/DEFAULT/customer/points/p2p-transfer \
         -X "POST" \
         -H "Accept:application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -140,7 +144,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. RRead more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 
 Example Response

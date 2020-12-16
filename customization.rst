@@ -1,24 +1,24 @@
 Campaign photos storage
 =======================
 
-Currently all campaign photos are stored in app/uploads directory.
+Currently, all campaign photos are stored in the app/uploads directory.
 
-It can be easily changed to other directory or even to cloud storage.
+This can be easily changed to another directory or even to cloud storage.
 
-In order to do that change `adapter_*` entry in Symfony config to your adapter defined
+In order to do that, change the `adapter_*` entry in the Symfony config to your adapter defined
 in src/Infrastructure/Core/Resources/config/config.yml at knp_gaufrette.adapters.
 
-Complete reference on how to define adapter can be found in `KnpGaufretterBundle documentation <https://github.com/KnpLabs/KnpGaufretteBundle>`_
+The complete reference on how to define an adapter can be found in the `KnpGaufretterBundle documentation <https://github.com/KnpLabs/KnpGaufretteBundle>`_
 
 Listening for system events
 ===========================
 
-In many places of this system some system events are dispatched, e.g. `oloy.account.available_points_amount_changed` is dispatched when available points
+In many places of this system some system events are dispatched, e.g. `oloy.account.available_points_amount_changed` is dispatched when the available points
 amount is changed.
 
-It is possible to write listener for that events and perform some custom actions.
+It is possible to write a listener for such events and perform some custom actions.
 
-Defining listener:
+Defining a listener:
 
 .. code:: php
 

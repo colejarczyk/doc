@@ -9,6 +9,7 @@ Customers account creation
    xml_customer
    account_updating
    account_deactivate
+   account_delete
    level_assigned
   
    

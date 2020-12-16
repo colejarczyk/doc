@@ -19,21 +19,11 @@ In the **Settings** section, do the following:
 
 .. |settings| image:: /userguide/_images/icon.png
 
-1. In the **Currency** list, select the currency to be used for the online and offline transaction, to one of the following:
+1. Select your **Timezone** from the list. Time zone is used for date time calculation
 
-  - EUR
-  - HKD
-  - INR
-  - PESO (COP)
-  - PLN
-  - USD
-  - VND
+2. Enter the **Program name** that you want to use in all communications
 
-2. Select your **Timezone** from the list. Time zone is used for date time calculation 
-
-3. Enter the **Program name** that you want to use in all communications  
-
-4. If applicable, enter the URLs to the following: 
+3. If applicable, enter the URLs to the following:
 
   - **Program URL**  
       URL to a page with Loyalty Program description
@@ -42,21 +32,21 @@ In the **Settings** section, do the following:
   - **FAQ URL**  
       URL to page with Loyalty Program FAQ page
 
-5. If applicable, in **Conditions File (PDF)** field you can upload Loyalty Program Terms & Conditions document in .pdf. After uploading and saving settings a link where a file is available appears. 
+4. If applicable, in **Conditions File (PDF)** field you can upload Loyalty Program Terms & Conditions document in .pdf. After uploading and saving settings a link where a file is available appears.
   
 .. image:: /userguide/_images/condition_file.png
    :alt:   Conditions file uploaded
 
 .. note::
 
-    **The document will be attached as a link in the Welcome system e-mails footer. For more information please see system Emails**
+    **The document will be attached as a link in the Welcome system e-mails footer. For more information please see Message Template Settings**
 
-6. In **Points singular** and **Points plural**, type a unit label of scoring in singular and plural, that you want to appear. 
+5. In **Points singular** and **Points plural**, type a unit label of scoring in singular and plural, that you want to appear.
   For example Point, Points
 
-7. Set **Help e-mail**, where a customer can write to find help and support for your Loyalty Program
+6. Set **Help e-mail**, where a customer can write to find help and support for your Loyalty Program
 
-8. In **Expire points method** field define customers gathered *Active points* expiration time boundaries to one of following:
+7. In **Expire points method** field define customers gathered *Active points* expiration time boundaries to one of following:
 
   - **After X days**  
       Points will expire, after a provided in **Points will expire after** field number of days, from the date of adding Points transfer
@@ -70,9 +60,9 @@ In the **Settings** section, do the following:
 .. image:: /userguide/_images/points_expiration.PNG
    :alt:   Expire points method
    
-9. Mark the **Points are never locked** checkbox if you want to assign points to Active points pool and recalculate customer level instantly when his transaction will be registered in Open Loyalty
+8. Mark the **Points are never locked** checkbox if you want to assign points to Active points pool and recalculate customer level instantly when his transaction will be registered in Open Loyalty
 
-10. **Points will be locked for** field is available and required only when **Points are never locked** is *unselected*. 
+9. **Points will be locked for** field is available and required only when **Points are never locked** is *unselected*.
   Points will be locked for a provided number of days from the date of transaction registration. After passing selected locked time points automatically will get active and customer level will be recalculated
 
 .. image:: /userguide/_images/locked_points.png
@@ -82,9 +72,9 @@ In the **Settings** section, do the following:
 
     **Date until points will be locked and amount of locked points is displaying in Customer profile details from the Admin and for customers via Client Cockpit**
 
-11. If you marked **Returns** checkbox, then after Return process completed amount of points earned for a returned transaction will be subtracted
+10. If you marked **Returns** checkbox, then after Return process completed amount of points earned for a returned transaction will be subtracted
 
-12. If you want to get a webhook notification about the customer earned points expiration you can define in **Days before expiring points to notify user** field number of days when notification will be sent.
+11. If you want to get a webhook notification about the customer earned points expiration you can define in **Days before expiring points to notify user** field number of days when notification will be sent.
   For proper operation, it **is necessary to activate the webhook** and provide the URL address to which the information will be sent (more in :doc:`Webhook section </userguide/getting_started/settings/Configuration/webhooks>`)
 
 .. image:: /userguide/_images/webhook_notification.png
@@ -98,7 +88,7 @@ In the **Settings** section, do the following:
     If **yes** webhook event will be sent (on the URL address provided by you in Webhooks section) with information about a customer, a     sum of his points which will expire in 10 days and points expiration date
 
    
-13. If you want to get a webhook notification about the customer coupon expiration you can define in **Days before expiring coupons to notify user** field number of days when notification will be sent. 
+12. If you want to get a webhook notification about the customer coupon expiration you can define in **Days before expiring coupons to notify user** field number of days when notification will be sent.
    For proper operation, it **is necessary to activate the webhook** and provide the URL address to which the information will be sent (more in :doc:`Webhook section </userguide/getting_started/settings/Configuration/webhooks>`)
 
 .. image:: /userguide/_images/webhook_notification2.png
@@ -111,7 +101,7 @@ In the **Settings** section, do the following:
     
     If **yes** webhook event will be sent (on the URL address provided by you in Webhooks section) with information about: customer,         coupon code which will expire in 10 days, expiration date and coupon status (status is calculated based on days inactive and days       valid defined during reward campaign creation). 
 
-14. If you want to get a webhook notification about the customer level which he will receive after the recalculation (at the current state of points) you can define in **Days before level recalculation to notify user** field number of days when notification will be sent. 
+13. If you want to get a webhook notification about the customer level which he will receive after the recalculation (at the current state of points) you can define in **Days before level recalculation to notify user** field number of days when notification will be sent.
    For proper operation, it **is necessary to activate the webhook** and provide the URL address to which the information will be sent (more in :doc:`Webhook section </userguide/getting_started/settings/Configuration/webhooks>`)
 
 .. image:: /userguide/_images/webhook_notification3.PNG
@@ -124,7 +114,7 @@ In the **Settings** section, do the following:
     
     If **yes** webhook event will be sent (on the URL address provided by you in Webhooks section) with information about: customer,         current level which will be recalculated in 10 days and new level, which he will receive after the recalculation if his loyalty         points balance doesn't change  
 
-15. Set the Levels will be calculated with a field to one of the following:
+14. Set the Levels will be calculated with a field to one of the following:
 
    - **Points** 
       current level assignment will be calculated on the basis of the sum of points earned from transactions (with use of earning rules)
@@ -133,12 +123,12 @@ In the **Settings** section, do the following:
 
    When **Points** is selected additional section appears below. Please see :doc:`Level downgrade settings </userguide/getting_started/settings/Configuration/level_downgrade_settings>` to learn how to configure reset points after a selected time period and level expiration
 
-16. When **Delivery costs** checkbox is selected then delivery cost will not be included in order value used for earned points calculation
+15. When **Delivery costs** checkbox is selected then delivery cost will not be included in order value used for earned points calculation
 
-17. **Excluded SKUs of delivery cost** field is available and required only when **Delivery costs** checkbox is selected.
+16. **Excluded SKUs of delivery cost** field is available and required only when **Delivery costs** checkbox is selected.
   SKU's provided in this field will be excluded from the calculation of earned points
 
-18. In the **SKUs excluded from levels** enter SKUs that will not be included in order value used for earned points calculation
+17. In the **SKUs excluded from levels** enter SKUs that will not be included in order value used for earned points calculation
 
 
-19. When it is done, tap ``SAVE``
+18. When it is done, tap ``SAVE``

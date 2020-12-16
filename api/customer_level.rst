@@ -7,19 +7,21 @@ These endpoints will allow you to see Levels for a customer.
 Get a complete list of levels
 -----------------------------
 
-To retrieve a complete list of levels you need to call the ``/api/customer/level`` endpoint with the ``GET`` method.
+To retrieve a complete list of levels, you need to call the ``/api/<storeCode>/customer/level`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/level
+    GET /api/<storeCode>/customer/level
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store to get the levels of.                |
 +----------------------+----------------+--------------------------------------------------------+
 | page                 | query          | *(optional)* Start from page, by default 1             |
 +----------------------+----------------+--------------------------------------------------------+
@@ -38,7 +40,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/level \
+    curl http://localhost:8181/api/DEFAULT/customer/level \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -47,7 +49,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^

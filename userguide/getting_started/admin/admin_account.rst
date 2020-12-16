@@ -4,7 +4,7 @@
 Your Admin account
 ==================
 
-Your Admin account was initially set up during the installation. You can personalize your username and password, and update your first and last name, and email address and phone number at any time.
+Your Admin account was initially set up during the installation. You can personalize your username and password, and update your first and last name, email address and phone number at any time.
 
 To edit your account information:
 '''''''''''''''''''''''''''''''''

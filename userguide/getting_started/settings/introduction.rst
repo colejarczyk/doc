@@ -18,11 +18,12 @@ Contents:
    
 .. include:: /userguide/getting_started/settings/Configuration/map.rst.inc
    
-#. :doc:`Users </userguide/getting_started/settings/users>` - detailed information about Open Loyalty users and their account settings
+#. :doc:`Admins </userguide/getting_started/settings/users>` - detailed information about Open Loyalty users and their account settings
+#. :doc:`ACL </userguide/getting_started/settings/acl>` - list of roles in the Open Loyalty system
 #. :doc:`Translations </userguide/getting_started/settings/translations>` - available languages list with the possibility to edit
-#. :doc:`Emails </userguide/getting_started/settings/emails>` - list of events sending email messages from Open Loyalty system, their preview and disabling option
+#. :doc:`Message Templates </userguide/getting_started/settings/messages>` - list of events sending email, SMS and pushy messages from Open Loyalty system, their preview and disabling option
 #. :doc:`Stores </userguide/getting_started/settings/stores>` - list of stores in the Open Loyalty system
-#. :doc:`System logs </userguide/getting_started/settings/system_logs>` - informational, error and warning events list related to the Open Loyalty system
+#. :doc:`Audit logs </userguide/getting_started/settings/system_logs>` - informational, error and warning events list related to the Open Loyalty system
 
 
    

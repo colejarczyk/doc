@@ -8,5 +8,6 @@
 * :doc:`/cookbook/how_to_work_with_queues`
 * :doc:`/cookbook/how_to_add_new_field_to_entity`
 * :doc:`/cookbook/how_to_add_new_tab_in_admin_panel`
+* :doc:`/cookbook/how_to_enable_ldap_authorization`
 * :doc:`/cookbook/translatable_field`
 * :doc:`/cookbook/FAQ`

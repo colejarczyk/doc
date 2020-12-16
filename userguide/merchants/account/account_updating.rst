@@ -43,6 +43,6 @@ To change a password to merchant account:
 
 .. note:: 
 
-    The same like during merchant account creation, merchant will not receive password to his account automatically via email/sms message. 
+    The same like during merchant account creation, merchant will **not** receive password to their account automatically via email nor SMS message.
     
-    You have to give it to him "in person".
+    You have to give it to them via some other channel or in person.

@@ -39,18 +39,18 @@ Defines access to the :doc:`ACL  </userguide/getting_started/settings/acl>` sett
 
     When assigning resources, please be sure to don't give an any access to the **ACL** section if you are limiting access for a given role. 
     
-    **Otherwise, users will be able to modify their own permissions** 
+    **Otherwise, admins will be able to modify their own permissions**
 
 
 Admins 
 ^^^^^^
 
-Defines access to the Admin :doc:`Users  </userguide/getting_started/settings/users>` settings section and its individual elements
+Defines access to the Admin :doc:`Admins  </userguide/getting_started/settings/users>` settings section and its individual elements
 
 +----------------------------------------+----------------------------------------+
 | VIEW                                   | MODIFY                                 |
 +========================================+========================================+
-|- Users list preview                    | All **View** permissions, and more:    |     
+|- Admins list preview                   | All **View** permissions, and more:    |
 |                                        |                                        |
 |                                        | - New User account creation*           |
 |                                        | - Existing user account edition*       |
@@ -64,7 +64,7 @@ Defines access to the Admin :doc:`Users  </userguide/getting_started/settings/us
 
 .. warning:: 
 
-    Remember, that granting *View* access for ACL section (to enable new users account creation and edition), you give an access to the entire ACL section (in accordance with the permissions listed in the ACL table in *View* column) 
+    Remember, that granting *View* access for ACL section (to enable new admins account creation and edition), you give an access to the entire ACL section (in accordance with the permissions listed in the ACL table in *View* column)
     
 
     
@@ -72,14 +72,14 @@ Defines access to the Admin :doc:`Users  </userguide/getting_started/settings/us
 Audit
 ^^^^^^
 
-Defines access to the :doc:`System logs  </userguide/getting_started/settings/system_logs>` settings section and its individual elements
+Defines access to the :doc:`Audit logs  </userguide/getting_started/settings/system_logs>` settings section and its individual elements
 
 
 +-------------------------------------------------+
 | VIEW & MODIFY                                   |                                 
 +=================================================+
-|- System logs list preview                       |    
-|- filter and sorting options of system logs list |
+|- Audit logs list preview                        |
+|- filter and sorting options of audit log        |
 |- search logs from time period                   | 
 +-------------------------------------------------+
 
@@ -146,7 +146,7 @@ Defines access to the :doc:`Customers  </userguide/customers/index>` section and
 
 .. warning:: 
 
-    Remember, that granting *View* access for every section (to enable new users account creation and edition or display information in profile details), you give an access to the entire menu section (in accordance with the permissions listed in the particular tables in *View* column) 
+    Remember, that granting *View* access for every section (to enable new admins account creation and edition or display information in profile details), you give an access to the entire menu section (in accordance with the permissions listed in the particular tables in *View* column)
 
 
 
@@ -460,20 +460,20 @@ Defines access to the :doc:`Segments  </userguide/segments/index>` section and i
 
 
 Settings
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
-Defines access to the :doc:`Emails  </userguide/getting_started/settings/emails>` , :doc:`Translations  </userguide/getting_started/settings/translations>` and :doc:`Configuration  </userguide/getting_started/settings/Configuration/index>`  settings sections and its individual elements
+Defines access to the :doc:`Message templates settings  </userguide/getting_started/settings/messages>` , :doc:`Translations  </userguide/getting_started/settings/translations>` and :doc:`Configuration  </userguide/getting_started/settings/Configuration/index>`  settings sections and its individual elements
 
 +---------------------------------------------+----------------------------------------+
 | VIEW                                        | MODIFY                                 |
 +=============================================+========================================+
 |- Translations list preview                  | All **View** permissions, and more:    |     
-|- Emails list                                |                                        |
+|- Message templates list                     |                                        |
 |                                             | - Create new translations              |
 |                                             | - Updating translation                 |
 |                                             | - Delete non-default translations      |
-|                                             | - Updating an email template           |
-|                                             | - Email template preview               |
+|                                             | - Updating a message template          |
+|                                             | - Message template preview             |
 |                                             | - Configuration section management     |
 +---------------------------------------------+----------------------------------------+
 

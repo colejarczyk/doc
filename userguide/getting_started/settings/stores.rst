@@ -5,7 +5,8 @@ Stores
 ======
 
 Stores functionality gives a possibility to add many stores with different currencies, codes, names. Each store has some clients and clients realize transactions only withing each store according to the currency and store code.
-
+After creating several stores, in the top right corner, you'll see a drop-down list where you can select a store. Once the store is selected, all the displayed data is exclusive to that selected store.
+There are 6 areas where the drop-down list is not visible: Configuration, Administrators, ACL, Transactions, Stores, My profile. In all of the above, settings will apply to all the stores.
 
 Creating a new store
 --------------------
@@ -17,7 +18,7 @@ To add new store:
 
 .. |settings_add| image:: /userguide/_images/icon.png
 
-2. Tap ``Add`` to add new user, 
+2. Tap ``Add Store`` to add new store,
 
 .. image:: /userguide/_images/add_store.png
    :alt:   New User Account Information

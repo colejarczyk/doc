@@ -7,26 +7,28 @@ campaigns into categories. One campaign can be assigned to many categories.
 Create a new campaign category
 ------------------------------
 
-To create a new category you need to call the ``/api/campaignCategory`` endpoint with the ``POST`` method.
+To create a new category, you need to call the ``/api/<storeCode>/campaignCategory`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/campaignCategory
+    POST /api/<storeCode>/campaignCategory
 
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| Parameter                                         | Parameter type |  Description                                                                 |
-+===================================================+================+==============================================================================+
-| Authorization                                     | header         |  Token received during authentication                                        |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign_category[translations][en][name]         | request        |  Campaign category name in given locale.                                     |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign_category[active]                         | request        |  Set 1 if active, otherwise 0                                                |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign_category[sortOrder]                      | request        |  Sort order key.                                                             |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
++-------------------------------------------+----------------+-----------------------------------------------------------+
+| Parameter                                 | Parameter type |  Description                                              |
++===========================================+================+===========================================================+
+| Authorization                             | header         |  Token received during authentication                     |
++-------------------------------------------+----------------+-----------------------------------------------------------+
+| <storeCode>                               | query          | Code of the store the campaign category should belong to. |
++-------------------------------------------+----------------+-----------------------------------------------------------+
+| campaign_category[translations][en][name] | request        |  Campaign category name in given locale.                  |
++-------------------------------------------+----------------+-----------------------------------------------------------+
+| campaign_category[active]                 | request        |  Set 1 if active, otherwise 0                             |
++-------------------------------------------+----------------+-----------------------------------------------------------+
+| campaign_category[sortOrder]              | request        |  Sort order key.                                          |
++-------------------------------------------+----------------+-----------------------------------------------------------+
 
 
 Example
@@ -34,7 +36,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/campaignCategory \
+    curl http://localhost:8181/api/DEFAULT/campaignCategory \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -46,7 +48,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -66,48 +68,50 @@ Example Response
 Get a collection of campaign categories
 ---------------------------------------
 
-To retrieve a paginated list of campaigns categories you need to call the ``/api/campaignCategory`` endpoint with the ``GET`` method.
+To retrieve a paginated list of campaigns categories, you need to call the ``/api/<storeCode>/campaignCategory`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/campaignCategory
+    GET /api/<storeCode>/campaignCategory
 
-+-------------------------------------+----------------+----------------------------------------------------+
-| Parameter                           | Parameter type | Description                                        |
-+=====================================+================+====================================================+
-| Authorization                       | header         | Token received during authentication               |
-+-------------------------------------+----------------+----------------------------------------------------+
-| name                                | request        | *(optional)* Filter by name                        |
-+-------------------------------------+----------------+----------------------------------------------------+
-| active                              | request        | *(optional)* Filter by activity                    |
-+-------------------------------------+----------------+----------------------------------------------------+
-| page                                | query          | *(optional)* Start from page, by default 1         |
-+-------------------------------------+----------------+----------------------------------------------------+
-| perPage                             | query          | *(optional)* Number of items to display per page,  |
-|                                     |                | by default = 10                                    |
-+-------------------------------------+----------------+----------------------------------------------------+
-| sort                                | query          | *(optional)* Sort by column name                   |
-+-------------------------------------+----------------+----------------------------------------------------+
-| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],     |
-|                                     |                | by default = ASC                                   |
-+-------------------------------------+----------------+----------------------------------------------------+
-| format                              | query          | *(optional)* Format of descriptions [html].        |
-|                                     |                | Default is RAW.                                    |
-+-------------------------------------+----------------+----------------------------------------------------+
-| _locale                             | query          | *(optional)* Retrieves data in given locale        |
-+-------------------------------------+----------------+----------------------------------------------------+
++-------------------------------------+----------------+--------------------------------------------------------+
+| Parameter                           | Parameter type | Description                                            |
++=====================================+================+========================================================+
+| Authorization                       | header         | Token received during authentication                   |
++-------------------------------------+----------------+--------------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to get the campaign categories from. |
++-------------------------------------+----------------+--------------------------------------------------------+
+| name                                | request        | *(optional)* Filter by name                            |
++-------------------------------------+----------------+--------------------------------------------------------+
+| active                              | request        | *(optional)* Filter by activity                        |
++-------------------------------------+----------------+--------------------------------------------------------+
+| page                                | query          | *(optional)* Start from page, by default 1             |
++-------------------------------------+----------------+--------------------------------------------------------+
+| perPage                             | query          | *(optional)* Number of items to display per page,      |
+|                                     |                | by default = 10                                        |
++-------------------------------------+----------------+--------------------------------------------------------+
+| sort                                | query          | *(optional)* Sort by column name                       |
++-------------------------------------+----------------+--------------------------------------------------------+
+| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],         |
+|                                     |                | by default = ASC                                       |
++-------------------------------------+----------------+--------------------------------------------------------+
+| format                              | query          | *(optional)* Format of descriptions [html].            |
+|                                     |                | Default is RAW.                                        |
++-------------------------------------+----------------+--------------------------------------------------------+
+| _locale                             | query          | *(optional)* Retrieves data in given locale            |
++-------------------------------------+----------------+--------------------------------------------------------+
 
-To see the first page of all campaigns categories use the method below:
+To see the first page of all campaigns categories, use the method below:
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/campaignCategory \
+    curl http://localhost:8181/api/DEFAULT/campaignCategory \
         -X "GET" \
 	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -116,7 +120,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -178,37 +182,39 @@ Example Response
 Update a campaign
 -----------------
 
-To fully update a campaign you need to call the ``/api/campaignCategory/<campaign>`` endpoint with the ``PUT`` method.
+To fully update a campaign, you need to call the ``/api/<storeCode>/campaignCategory/<campaign>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT /api/campaignCategory/<campaignCategory>
+    PUT /api/<storeCode>/campaignCategory/<campaignCategory>
 
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| Parameter                                         | Parameter type |  Description                                                                 |
-+===================================================+================+==============================================================================+
-| Authorization                                     | header         |  Token received during authentication                                        |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| <campaignCategory>                                | query          |  Id of the campaign category                                                 |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign_category[translations][en][name]         | request        |  Campaign category name in given locale.                                     |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign_category[active]                         | request        |  Set 1 if active, otherwise 0                                                |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
-| campaign_category[sortOrder]                      | request        |  Sort order key.                                                             |
-+---------------------------------------------------+----------------+------------------------------------------------------------------------------+
++-------------------------------------------+----------------+-------------------------------------------------------------+
+| Parameter                                 | Parameter type |  Description                                                |
++===========================================+================+=============================================================+
+| Authorization                             | header         |  Token received during authentication                       |
++-------------------------------------------+----------------+-------------------------------------------------------------+
+| <storeCode>                               | query          | Code of the store the updated campaign category belongs to. |
++-------------------------------------------+----------------+-------------------------------------------------------------+
+| <campaignCategory>                        | query          |  Id of the campaign category                                |
++-------------------------------------------+----------------+-------------------------------------------------------------+
+| campaign_category[translations][en][name] | request        |  Campaign category name in given locale.                    |
++-------------------------------------------+----------------+-------------------------------------------------------------+
+| campaign_category[active]                 | request        |  Set 1 if active, otherwise 0                               |
++-------------------------------------------+----------------+-------------------------------------------------------------+
+| campaign_category[sortOrder]              | request        |  Sort order key.                                            |
++-------------------------------------------+----------------+-------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
- To fully update a campaign category with ``id = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
+ To fully update a campaign category with ``id = 3062c881-93f3-496b-9669-4238c0a62be8``, use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/campaignCategory/3062c881-93f3-496b-9669-4238c0a62be8 \
+    curl http://localhost:8181/api/DEFAULT/campaignCategory/3062c881-93f3-496b-9669-4238c0a62be8 \
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -239,33 +245,35 @@ Example Response
 Get campaign category details
 -----------------------------
 
-To retrieve the details of a campaign category you need to call the ``/api/campaignCategory/{campaignCategory}`` endpoint with the ``GET`` method.
+To retrieve the details of a campaign category, you need to call the ``/api/<storeCode>/campaignCategory/<campaignCategory>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/campaignCategory/<campaignCategory>
+    GET /api/<storeCode>/campaignCategory/<campaignCategory>
 
-+-----------------------+----------------+----------------------------------------------------+
-| Parameter             | Parameter type | Description                                        |
-+=======================+================+====================================================+
-| Authorization         | header         | Token received during authentication               |
-+-----------------------+----------------+----------------------------------------------------+
-| <campaignCategory>    | query          | Id of the campaign category                        |
-+-----------------------+----------------+----------------------------------------------------+
-| _locale               | query          | *(optional)* Retrieves data in given locale        |
-+-----------------------+----------------+----------------------------------------------------+
++-----------------------+----------------+------------------------------------------------------+
+| Parameter             | Parameter type | Description                                          |
++=======================+================+======================================================+
+| Authorization         | header         | Token received during authentication                 |
++-----------------------+----------------+------------------------------------------------------+
+| <storeCode>           | query          | Code of the store to get the campaign category from. |
++-----------------------+----------------+------------------------------------------------------+
+| <campaignCategory>    | query          | Id of the campaign category                          |
++-----------------------+----------------+------------------------------------------------------+
+| _locale               | query          | *(optional)* Retrieves data in given locale          |
++-----------------------+----------------+------------------------------------------------------+
 
 Example
 ^^^^^^^
 
-To see the details of the campaign category with ``campaignCategory = 3062c881-93f3-496b-9669-4238c0a62be8`` use the method below:
+To see the details of the campaign category with ``campaignCategory = 3062c881-93f3-496b-9669-4238c0a62be8``, use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/campaignCategory/3062c881-93f3-496b-9669-4238c0a62be8 \
+    curl http://localhost:8181/api/DEFAULT/campaignCategory/3062c881-93f3-496b-9669-4238c0a62be8 \
         -X "GET" -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
@@ -273,7 +281,7 @@ To see the details of the campaign category with ``campaignCategory = 3062c881-9
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
@@ -312,27 +320,29 @@ Example Response
 Activate or deactivate campaign category
 ----------------------------------------
 
-To activate or deactivate campaign category you need to call the ``/api/campaignCategory/{campaignCategory}/active`` endpoint with the ``POST`` method.
+To activate or deactivate a campaign category, you need to call the ``/api/<storeCode>/campaignCategory/<campaignCategory>/active`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
-+-----------------------+----------------+----------------------------------------------------+
-| Parameter             | Parameter type | Description                                        |
-+=======================+================+====================================================+
-| Authorization         | header         | Token received during authentication               |
-+-----------------------+----------------+----------------------------------------------------+
-| <campaignCategory>    | query          | Id of the campaign category                        |
-+-----------------------+----------------+----------------------------------------------------+
-| active                | boolean        | True of False                                      |
-+-----------------------+----------------+----------------------------------------------------+
++-----------------------+----------------+-------------------------------------------------------------------+
+| Parameter             | Parameter type | Description                                                       |
++=======================+================+===================================================================+
+| Authorization         | header         | Token received during authentication                              |
++-----------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>           | query          | Code of the store the (de)activated campaign category belongs to. |
++-----------------------+----------------+-------------------------------------------------------------------+
+| <campaignCategory>    | query          | Id of the campaign category                                       |
++-----------------------+----------------+-------------------------------------------------------------------+
+| active                | boolean        | True of False                                                     |
++-----------------------+----------------+-------------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/campaignCategory/00ca7e90-6361-4465-e76f-727900000001/active \
+    curl http://localhost:8181/api/DEFAULT/campaignCategory/00ca7e90-6361-4465-e76f-727900000001/active \
         -X "POST" \
 	    -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -342,7 +352,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^

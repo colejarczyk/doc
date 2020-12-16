@@ -1,12 +1,12 @@
 ACL API
 =======
 
-These endpoints will allow you to easily manage ACL for administrator.
+These endpoints will allow you to easily manage ACL for the administrator.
 
-Creating an role
+Creating a role
 ----------------
 
-To create a new role you need to call the ``/api/admin/acl/role`` endpoint with the ``POST`` method.
+To create a new role, you need to call the ``/api/admin/acl/role`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
@@ -22,6 +22,8 @@ Definition
 +------------------------------------+----------------+-------------------------------------------------------------------+
 | role[name]                         | request        |  Name                                                             |
 +------------------------------------+----------------+-------------------------------------------------------------------+
+| role[default]                       | request       |  Mark as default role                                             |
++------------------------------------+----------------+-------------------------------------------------------------------+
 | role[permissions][][resource]      | request        |  Permission resource                                              |
 +------------------------------------+----------------+-------------------------------------------------------------------+
 | role[permissions][][access]        | request        |  Permission access type (MODIFY, VIEW)                            |
@@ -30,7 +32,7 @@ Definition
 Example
 ^^^^^^^
 
-To create a new role use the method below:
+To create a new role, use the method below:
 
 .. code-block:: bash
 
@@ -40,6 +42,7 @@ To create a new role use the method below:
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "role[name]=Super admin" \
+        -d "role[default]=true" \
         -d "role[permissions][0][resource]=LEVEL" \
         -d "role[permissions][0][access]=MODIFY" \
         -d "role[permissions][1][resource]=EARNING_RULE" \
@@ -48,7 +51,7 @@ To create a new role use the method below:
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -62,7 +65,7 @@ Example Response
 Getting a single role
 ---------------------
 
-To retrieve the details of a role you need to call the ``/api/admin/acl/role/{role}`` endpoint with the ``GET`` method.
+To retrieve the details of a role, you need to call the ``/api/admin/acl/role/{role}`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -82,7 +85,7 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the admin user with ``role = 37`` use the method below:
+To see the details of the admin user with ``role = 37``, use the method below:
 
 .. code-block:: bash
 
@@ -94,7 +97,7 @@ To see the details of the admin user with ``role = 37`` use the method below:
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -110,6 +113,7 @@ Example Response
         "name": "Reporter admin",
         "role": "ROLE_ADMIN",
         "master": false,
+        "default": false,
         "permissions": [
             {
                 "id": 57,
@@ -131,12 +135,12 @@ Example Response
 
 .. note::
 
-    The *37* id is an example value. Your value can be different.
+    The *37* id is an example value. Your value may be different.
 
 Collection of available roles
 -----------------------------
 
-To retrieve a list of roles you need to call the ``/api/admin/acl/role`` endpoint with the ``GET`` method.
+To retrieve a list of roles, you need to call the ``/api/admin/acl/role`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -151,7 +155,7 @@ Definition
 | Authorization                       | header         | Token received during authentication              |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the list of available roles use the method below:
+To see the list of available roles, use the method below:
 
 Example
 ^^^^^^^
@@ -166,7 +170,7 @@ Example
 .. note::
 
    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-   Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+   Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
     
 
 Example Response
@@ -185,6 +189,7 @@ Example Response
           "name": "Super admin",
           "role": "ROLE_ADMIN",
           "master": true,
+          "default": true,
           "permissions": []
         },
         {
@@ -192,6 +197,7 @@ Example Response
           "name": "Reporter admin",
           "role": "ROLE_ADMIN",
           "master": false,
+          "default": false,
           "permissions": [
             {
               "id": 57,
@@ -217,7 +223,7 @@ Example Response
 Updating a role
 ---------------
 
-To update a role you need to call the ``/api/admin/acl/role/<role>`` endpoint with the ``PUT`` method.
+To update a role, you need to call the ``/api/admin/acl/role/<role>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
@@ -233,6 +239,8 @@ Definition
 +------------------------------------+----------------+-------------------------------------------------------------------+
 | role[name]                         | request        |  Name                                                             |
 +------------------------------------+----------------+-------------------------------------------------------------------+
+| role[default]                      | request        |  Mark as default role                                             |
++------------------------------------+----------------+-------------------------------------------------------------------+
 | role[permissions][][resource]      | request        |  Permission resource                                              |
 +------------------------------------+----------------+-------------------------------------------------------------------+
 | role[permissions][][access]        | request        |  Permission access type (MODIFY, VIEW)                            |
@@ -241,7 +249,7 @@ Definition
 Example
 ^^^^^^^
 
- To update the role with ``id = 37`` use the method below:
+ To update the role with ``id = 37``, use the method below:
 
 .. code-block:: bash
 
@@ -251,6 +259,7 @@ Example
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -X "PUT" \
         -d "role[name]=Super admin" \
+        -d "role[default]=true" \
         -d "role[permissions][0][resource]=LEVEL" \
         -d "role[permissions][0][access]=MODIFY" \
         -d "role[permissions][1][resource]=EARNING_RULE" \
@@ -268,7 +277,7 @@ Example Response
 Collection of available resources
 ---------------------------------
 
-To retrieve a list of available resources you need to call the ``/api/admin/acl/resources`` endpoint with the ``GET`` method.
+To retrieve a list of available resources, you need to call the ``/api/admin/acl/resources`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -283,7 +292,7 @@ Definition
 | Authorization                       | header         | Token received during authentication              |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the list of available resources use the method below:
+To see the list of available resources, use the method below:
 
 Example
 ^^^^^^^
@@ -322,10 +331,10 @@ Example Response
       "total": 3
     }
 
-Collection of available accesses
---------------------------------
+Collection of available access types
+------------------------------------
 
-To retrieve a list of available accesses types you need to call the ``/api/admin/acl/accesses`` endpoint with the ``GET`` method.
+To retrieve a list of available access types, you need to call the ``/api/admin/acl/accesses`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -340,7 +349,7 @@ Definition
 | Authorization                       | header         | Token received during authentication              |
 +-------------------------------------+----------------+---------------------------------------------------+
 
-To see the list of available accesses use the method below:
+To see the list of available access types, use the method below:
 
 Example
 ^^^^^^^
@@ -379,7 +388,7 @@ Example Response
 Deleting a single role
 ----------------------
 
-To delete specific role you need to call the ``/api/admin/acl/role/{role}`` endpoint with the ``DELETE`` method.
+To delete specific role, you need to call the ``/api/admin/acl/role/{role}`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^

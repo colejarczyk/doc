@@ -4,5 +4,7 @@
 * :doc:`/userguide/getting_started/settings/Configuration/account_activation`
 * :doc:`/userguide/getting_started/settings/Configuration/marketing_automation`
 * :doc:`/userguide/getting_started/settings/Configuration/pushy`
+* :doc:`/userguide/getting_started/settings/Configuration/cashback`
 * :doc:`/userguide/getting_started/settings/Configuration/identification_factors`
 * :doc:`/userguide/getting_started/settings/Configuration/webhooks`
+* :doc:`/userguide/getting_started/settings/Configuration/information`

@@ -12,29 +12,31 @@ These endpoints allow you to easily manage customers.
 Activate a customer
 -------------------
 
-To activate a customer you need to call the ``/api/admin/customer/{customer}/activate`` endpoint with the ``POST`` method.
+To activate a customer, you need to call the ``/api/<storeCode>/admin/customer/<customer>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/customer/<customer>/activate
+    POST /api/<storeCode>/admin/customer/<customer>/activate
 
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                                                  |
-+====================================+================+===============================================================================================+
-| Authorization                      | header         |  Token received during authentication                                                         |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| <customer>                         | request        |  Customer's UUID                                                                              |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type | Description                                                    |
++====================================+================+================================================================+
+| Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the activated customer belongs to.           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <customer>                         | request        | Customer's UUID                                                |
++------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer/1bbafb37-b51b-47c5-b3e4-e0a2d028e655/activate \
+    curl http://localhost:8181/api/DEFAULT/admin/customer/1bbafb37-b51b-47c5-b3e4-e0a2d028e655/activate \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -43,11 +45,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value may be different.
     Check the list of all customers if you are not sure which id should be used.
 
 Example Response
@@ -66,29 +68,31 @@ Example Response
 Deactivate a customer
 ---------------------
 
-To deactivate a customer you need to call the ``/api/admin/customer/{customer}/deactivate`` endpoint with the ``POST`` method.
+To deactivate a customer, you need to call the ``/api/<storeCode>/admin/customer/<customer>/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/customer/<customer>/deactivate
+    POST /api/<storeCode>/admin/customer/<customer>/deactivate
 
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                                                  |
-+====================================+================+===============================================================================================+
-| Authorization                      | header         |  Token received during authentication                                                         |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| <customer>                         | request        |  Customer's UUID                                                                              |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type | Description                                                    |
++====================================+================+================================================================+
+| Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the deactivated customer belongs to.         |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <customer>                         | request        | Customer's UUID                                                |
++------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer/1bbafb37-b51b-47c5-b3e4-e0a2d028e655/deactivate \
+    curl http://localhost:8181/api/DEFAULT/admin/customer/1bbafb37-b51b-47c5-b3e4-e0a2d028e655/deactivate \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -97,11 +101,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value may be different.
     Check the list of all customers if you are not sure which id should be used.
 
 Example Response
@@ -120,29 +124,31 @@ Example Response
 Get customer status
 -------------------
 
-To get a customer status you need to call the ``/api/admin/customer/{customer}/status`` endpoint with the ``GET`` method.
+To get a customer status, you need to call the ``/api/<storeCode>/admin/customer/<customer>/status`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/admin/customer/<customer>/status
+    GET /api/<storeCode>/admin/customer/<customer>/status
 
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                                                  |
-+====================================+================+===============================================================================================+
-| Authorization                      | header         |  Token received during authentication                                                         |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| <customer>                         | request        |  Customer's UUID                                                                              |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type | Description                                                    |
++====================================+================+================================================================+
+| Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store to get the customer from.                    |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <customer>                         | request        | Customer's UUID                                                |
++------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer/1bbafb37-b51b-47c5-b3e4-e0a2d028e655/status \
+    curl http://localhost:8181/api/DEFAULT/admin/customer/1bbafb37-b51b-47c5-b3e4-e0a2d028e655/status \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -151,11 +157,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value can be different.
+    The *customer = 1bbafb37-b51b-47c5-b3e4-e0a2d028e655* id is an example value. Your value may be different.
     Check the list of all customers if you are not sure which id should be used.
 
 Example Response
@@ -205,70 +211,72 @@ Example Response
 Get customers
 -------------
 
-To get customers list you need to call the ``/api/customer/`` endpoint with the ``GET`` method.
+To get a list of customers, you need to call the ``/api/<storeCode>/customer/`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer
+    GET /api/<storeCode>/customer
 
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                           |
-+====================================+================+========================================================================+
-| Authorization                      | header         |  Token received during authentication                                  |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| firstName                          | request        | *(optional)* Customer's first name                                     |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| lastName                           | request        | *(optional)* Customer's last name                                      |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| phone                              | request        | *(optional)* Customer's phone                                          |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| email                              | request        | *(optional)* Customer's email address                                  |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| loyaltyCardNumber                  | request        | *(optional)* Customer's loyalty card number                            |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsAmountFrom             | request        | *(optional)* Customer's transactions amount lower limit                |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsAmountTo               | request        | *(optional)* Customer's transactions amount upper limit                |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| averageTransactionAmountFrom       | request        | *(optional)* Customer's average transaction amount lower limit         |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| averageTransactionAmountTo         | request        | *(optional)* Customer's average transaction amount upper limit         |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsCountFrom              | request        | *(optional)* Customer's transactions count lower limit                 |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsCountTo                | request        | *(optional)* Customer's transactions count upper limit                 |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| daysFromLastTransactionTo          | request        | *(optional)* Customers days from last transaction upper limit          |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| hoursFromLastUpdateTo              | request        | *(optional)* Customer's hours from last update upper limit             |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| strict                             | query          | *(optional)* If true, search for exact value, otherwise like value     |
-|                                    |                | For example ``1``, by default = 0                                      |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| page                               | query          | *(optional)* Start from page, by default 1                             |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| perPage                            | query          | *(optional)* Number of items to display per page,                      |
-|                                    |                | by default = 10                                                        |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| sort                               | query          | *(optional)* Sort by column name.                                      |
-|                                    |                | Note: column names corresponding to parameters ending in ``From`` or   |
-|                                    |                | ``To`` do not have this suffix, eg. ``transactionCount``,              |
-|                                    |                | ``averageTransactionAmount``.                                          |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| direction                          | query          | *(optional)* Direction of sorting [ASC, DESC]                          |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| _locale                            | query          | *(optional)* Retrieves data in given locale                            |
-+------------------------------------+----------------+------------------------------------------------------------------------+
++------------------------------+----------------+----------------------------------------------------------------------+
+| Parameter                    | Parameter type | Description                                                          |
++==============================+================+======================================================================+
+| Authorization                | header         | Token received during authentication                                 |
++------------------------------+----------------+----------------------------------------------------------------------+
+| <storeCode>                  | query          | Code of the store to get the customers from.                         |
++------------------------------+----------------+----------------------------------------------------------------------+
+| firstName                    | request        | *(optional)* Customer's first name                                   |
++------------------------------+----------------+----------------------------------------------------------------------+
+| lastName                     | request        | *(optional)* Customer's last name                                    |
++------------------------------+----------------+----------------------------------------------------------------------+
+| phone                        | request        | *(optional)* Customer's phone                                        |
++------------------------------+----------------+----------------------------------------------------------------------+
+| email                        | request        | *(optional)* Customer's email address                                |
++------------------------------+----------------+----------------------------------------------------------------------+
+| loyaltyCardNumber            | request        | *(optional)* Customer's loyalty card number                          |
++------------------------------+----------------+----------------------------------------------------------------------+
+| transactionsAmountFrom       | request        | *(optional)* Customer's transactions amount lower limit              |
++------------------------------+----------------+----------------------------------------------------------------------+
+| transactionsAmountTo         | request        | *(optional)* Customer's transactions amount upper limit              |
++------------------------------+----------------+----------------------------------------------------------------------+
+| averageTransactionAmountFrom | request        | *(optional)* Customer's average transaction amount lower limit       |
++------------------------------+----------------+----------------------------------------------------------------------+
+| averageTransactionAmountTo   | request        | *(optional)* Customer's average transaction amount upper limit       |
++------------------------------+----------------+----------------------------------------------------------------------+
+| transactionsCountFrom        | request        | *(optional)* Customer's transactions count lower limit               |
++------------------------------+----------------+----------------------------------------------------------------------+
+| transactionsCountTo          | request        | *(optional)* Customer's transactions count upper limit               |
++------------------------------+----------------+----------------------------------------------------------------------+
+| daysFromLastTransactionTo    | request        | *(optional)* Customers days from last transaction upper limit        |
++------------------------------+----------------+----------------------------------------------------------------------+
+| hoursFromLastUpdateTo        | request        | *(optional)* Customer's hours from last update upper limit           |
++------------------------------+----------------+----------------------------------------------------------------------+
+| strict                       | query          | *(optional)* If true, search for exact value, otherwise like value   |
+|                              |                | For example ``1``, by default = 0                                    |
++------------------------------+----------------+----------------------------------------------------------------------+
+| page                         | query          | *(optional)* Start from page, by default 1                           |
++------------------------------+----------------+----------------------------------------------------------------------+
+| perPage                      | query          | *(optional)* Number of items to display per page,                    |
+|                              |                | by default = 10                                                      |
++------------------------------+----------------+----------------------------------------------------------------------+
+| sort                         | query          | *(optional)* Sort by column name.                                    |
+|                              |                | Note: column names corresponding to parameters ending in ``From`` or |
+|                              |                | ``To`` do not have this suffix, eg. ``transactionCount``,            |
+|                              |                | ``averageTransactionAmount``.                                        |
++------------------------------+----------------+----------------------------------------------------------------------+
+| direction                    | query          | *(optional)* Direction of sorting [ASC, DESC]                        |
++------------------------------+----------------+----------------------------------------------------------------------+
+| _locale                      | query          | *(optional)* Retrieves data in given locale                          |
++------------------------------+----------------+----------------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer \
+    curl http://localhost:8181/api/DEFAULT/customer \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -277,7 +285,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -343,7 +351,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer \
+    curl http://localhost:8181/api/DEFAULT/customer \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -358,7 +366,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -439,7 +447,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer \
+    curl http://localhost:8181/api/DEFAULT/customer \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -454,7 +462,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -472,73 +480,75 @@ Example Response
 
 
 
-Get customers list as an admin
-------------------------------
+Get a customer list as an admin
+-------------------------------
 
-To get list of all customers you need to call the ``/api/admin/customer`` endpoint with the ``GET`` method.
+To get a list of all customers, you need to call the ``/api/<storeCode>/admin/customer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/admin/customer
+    GET /api/<storeCode>/admin/customer
 
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                           |
-+====================================+================+========================================================================+
-| Authorization                      | header         |  Token received during authentication                                  |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| firstName                          | request        | *(optional)* Customer's first name                                     |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| lastName                           | request        | *(optional)* Customer's last name                                      |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| phone                              | request        | *(optional)* Customer's phone                                          |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| email                              | request        | *(optional)* Customer's email address                                  |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| loyaltyCardNumber                  | request        | *(optional)* Customer's loyalty card number                            |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsAmountFrom             | request        | *(optional)* Customer's transactions amount lower limit                |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsAmountTo               | request        | *(optional)* Customer's transactions amount upper limit                |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| averageTransactionAmountFrom       | request        | *(optional)* Customer's average transaction amount lower limit         |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| averageTransactionAmountTo         | request        | *(optional)* Customer's average transaction amount upper limit         |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsCountFrom              | request        | *(optional)* Customer's transactions count lower limit                 |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| transactionsCountTo                | request        | *(optional)* Customer's transactions count upper limit                 |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| daysFromLastTransactionTo          | request        | *(optional)* Customers days from last transaction upper limit          |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| hoursFromLastUpdateTo              | request        | *(optional)* Customer's hours from last update upper limit             |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| strict                             | query          | *(optional)* If true, search for exact value, otherwise like value     |
-|                                    |                | For example ``1``, by default = 0                                      |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| page                               | query          | *(optional)* Start from page, by default 1                             |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| perPage                            | query          | *(optional)* Number of items to display per page,                      |
-|                                    |                | by default = 10                                                        |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| sort                               | query          | *(optional)* Sort by column name.                                      |
-|                                    |                | Note: column names corresponding to parameters ending in ``From`` or   |
-|                                    |                | ``To`` do not have this suffix, eg. ``transactionCount``,              |
-|                                    |                | ``averageTransactionAmount``.                                          |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| direction                          | query          | *(optional)* Direction of sorting [ASC, DESC]                          |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| _locale                            | query          | *(optional)* Retrieves data in given locale                            |
-+------------------------------------+----------------+------------------------------------------------------------------------+
++------------------------------+----------------+----------------------------------------------------------------------+
+| Parameter                    | Parameter type |  Description                                                         |
++====================================+================+================================================================+
+| Authorization                | header         |  Token received during authentication                                |
++------------------------------+----------------+----------------------------------------------------------------------+
+| <storeCode>                  | query          | Code of the store to get the customers from.                         |
++------------------------------+----------------+----------------------------------------------------------------------+
+| firstName                    | request        | *(optional)* Customer's first name                                   |
++------------------------------+----------------+----------------------------------------------------------------------+
+| lastName                     | request        | *(optional)* Customer's last name                                    |
++------------------------------+----------------+----------------------------------------------------------------------+
+| phone                        | request        | *(optional)* Customer's phone                                        |
++------------------------------+----------------+----------------------------------------------------------------------+
+| email                        | request        | *(optional)* Customer's email address                                |
++------------------------------+----------------+----------------------------------------------------------------------+
+| loyaltyCardNumber            | request        | *(optional)* Customer's loyalty card number                          |
++------------------------------+----------------+----------------------------------------------------------------------+
+| transactionsAmountFrom       | request        | *(optional)* Customer's transactions amount lower limit              |
++------------------------------+----------------+----------------------------------------------------------------------+
+| transactionsAmountTo         | request        | *(optional)* Customer's transactions amount upper limit              |
++------------------------------+----------------+----------------------------------------------------------------------+
+| averageTransactionAmountFrom | request        | *(optional)* Customer's average transaction amount lower limit       |
++------------------------------+----------------+----------------------------------------------------------------------+
+| averageTransactionAmountTo   | request        | *(optional)* Customer's average transaction amount upper limit       |
++------------------------------+----------------+----------------------------------------------------------------------+
+| transactionsCountFrom        | request        | *(optional)* Customer's transactions count lower limit               |
++------------------------------+----------------+----------------------------------------------------------------------+
+| transactionsCountTo          | request        | *(optional)* Customer's transactions count upper limit               |
++------------------------------+----------------+----------------------------------------------------------------------+
+| daysFromLastTransactionTo    | request        | *(optional)* Customers days from last transaction upper limit        |
++------------------------------+----------------+----------------------------------------------------------------------+
+| hoursFromLastUpdateTo        | request        | *(optional)* Customer's hours from last update upper limit           |
++------------------------------+----------------+----------------------------------------------------------------------+
+| strict                       | query          | *(optional)* If true, search for exact value, otherwise like value   |
+|                              |                | For example ``1``, by default = 0                                    |
++------------------------------+----------------+----------------------------------------------------------------------+
+| page                         | query          | *(optional)* Start from page, by default 1                           |
++------------------------------+----------------+----------------------------------------------------------------------+
+| perPage                      | query          | *(optional)* Number of items to display per page,                    |
+|                              |                | by default = 10                                                      |
++------------------------------+----------------+----------------------------------------------------------------------+
+| sort                         | query          | *(optional)* Sort by column name.                                    |
+|                              |                | Note: column names corresponding to parameters ending in ``From`` or |
+|                              |                | ``To`` do not have this suffix, eg. ``transactionCount``,            |
+|                              |                | ``averageTransactionAmount``.                                        |
++------------------------------+----------------+----------------------------------------------------------------------+
+| direction                    | query          | *(optional)* Direction of sorting [ASC, DESC]                        |
++------------------------------+----------------+----------------------------------------------------------------------+
+| _locale                      | query          | *(optional)* Retrieves data in given locale                          |
++------------------------------+----------------+----------------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer \
+    curl http://localhost:8181/api/DEFAULT/admin/customer \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -553,7 +563,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -619,21 +629,21 @@ Example Response
 Activate a customer using SMS activation token
 ----------------------------------------------
 
-To activate a customer using a token (sms code) you need to call the ``/api/customer/activate-sms/{token}`` endpoint with the ``POST`` method.
+To activate a customer using a token (sms code), you need to call the ``/api/<storeCode>/customer/activate-sms/<token>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/activate-sms/<token>
+    POST /api/<storeCode>/customer/activate-sms/<token>
 
 +------------------------------------+----------------+----------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                   |
+| Parameter                          | Parameter type | Description                                                    |
 +====================================+================+================================================================+
-| Authorization                      | header         |  Token received during authentication                          |
+| <storeCode>                        | query          | Code of the store the customer to be activated belongs to.     |
 +------------------------------------+----------------+----------------------------------------------------------------+
-| <token>                            | request        |  Customer's token, SMS activation code                         |
+| <token>                            | request        | Customer's token, SMS activation code                          |
 +------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
@@ -641,27 +651,21 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/activate-sms/954604\
+    curl http://localhost:8181/api/DEFAULT/customer/activate-sms/954604\
         -X "POST" \
         -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        -H "Content-type: application/x-www-form-urlencoded"
 
 .. note::
 
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-.. note::
-
-    The *token = 954604* is an example value. Your value can be different.
+    The *token = 954604* is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-    STATUS: 200 OK
+    STATUS: 204 No Content
 
 .. code-block:: json
 
@@ -672,21 +676,21 @@ Example Response
 Activate a customer using activation token
 ------------------------------------------
 
-To activate a customer using a token you need to call the ``/api/customer/activate/{token}`` endpoint with the ``POST`` method.
+To activate a customer using a token, you need to call the ``/api/<storeCode>/customer/activate/<token>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/activate/<token>
+    POST /api/<storeCode>/customer/activate/<token>
 
 +------------------------------------+----------------+----------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                   |
+| Parameter                          | Parameter type | Description                                                    |
 +====================================+================+================================================================+
-| Authorization                      | header         |  Token received during authentication                          |
+| <storeCode>                        | query          | Code of the store the customer to be activated belongs to.     |
 +------------------------------------+----------------+----------------------------------------------------------------+
-| <token>                            | request        |  Customer's token                                              |
+| <token>                            | request        | Customer's token                                               |
 +------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
@@ -694,7 +698,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/activate/abcde \
+    curl http://localhost:8181/api/DEFAULT/customer/activate/abcde \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -703,11 +707,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *token = abcde* is an example value. Your value can be different.
+    The *token = abcde* is an example value. Your value may be different.
     For testing, the value can be checked in the database, table ``ol_user``, field ``action_token``.
 
 Example Response
@@ -721,22 +725,26 @@ Example Response
 
     (no content)
 
+
+
 Anonymize customer
 ------------------
 
-To anonymize the customer you need to call the ``/api/admin/customer/{customer}/anonymize`` endpoint with the ``POST`` method.
+To anonymize the customer, you need to call the ``/api/<storeCode>/admin/customer/<customer>/anonymize`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/customer/{customer}/anonymize
+    POST /api/<storeCode>/admin/customer/<customer>/anonymize
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the customer belongs to.             |
 +----------------------+----------------+--------------------------------------------------------+
 | <customer>           | query          | Customer UUID                                          |
 +----------------------+----------------+--------------------------------------------------------+
@@ -746,7 +754,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer/c9be6a4e-9a21-414a-bbbd-f506d9ffad85/anonymize \
+    curl http://localhost:8181/api/DEFAULT/admin/customer/c9be6a4e-9a21-414a-bbbd-f506d9ffad85/anonymize \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -755,7 +763,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -772,29 +780,31 @@ Example Response
 Check if customer with given phone number or email exists
 ---------------------------------------------------------
 
-To check if customer with given phone number or email exists you need to call the ``/api/customer/check`` endpoint with the ``GET`` method.
+To check if a customer with a given phone number or email exists, you need to call the ``/api/<storeCode>/customer/check`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/check
+    GET /api/<storeCode>/customer/check
 
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                           |
-+====================================+================+========================================================================+
-| Authorization                      | header         |  Token received during authentication                                  |
-+------------------------------------+----------------+------------------------------------------------------------------------+
-| emailOrPhone                       | request        |  Customer's email or phone                                             |
-+------------------------------------+----------------+------------------------------------------------------------------------+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type | Description                                                    |
++====================================+================+================================================================+
+| Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store to check for customers.                      |
++------------------------------------+----------------+----------------------------------------------------------------+
+| emailOrPhone                       | request        | Customer's email or phone                                      |
++------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/check?emailOrPhone=899000333 \
+    curl http://localhost:8181/api/DEFAULT/customer/check?emailOrPhone=899000333 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -803,7 +813,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -823,79 +833,82 @@ Example Response
 Create a new customer
 ---------------------
 
-To create a new customer you need to call the ``/api/customer/register`` endpoint with the ``POST`` method.
+To create a new customer, you need to call the ``/api/<storeCode>/customer/register`` endpoint with the ``POST`` method.
 
 .. note::
 
-    This endpoint allows to set more customer parameters than ``/api/customer/self_register`` and is used when creating
-    a new customer in the admin cockpit or pos cockpit. Self register endpoint is used in the client cockpit for registration
-    and has some limitations.
+    This endpoint allows you to set more customer parameters than ``/api/<storeCode>/customer/self_register``
+    and is used when creating a new customer in the admin cockpit. The self register endpoint is used in the client
+    cockpit for registration and has some limitations.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/register
+    POST /api/<storeCode>/customer/register
 
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                                                  |
-+====================================+================+===============================================================================================+
-| Authorization                      | header         |  Token received during authentication                                                         |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[firstName]                | request        |  First name                                                                                   |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[lastName]                 | request        |  Last name                                                                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[gender]                   | request        |  *(optional)* Gender. Possible values ``male``, ``female``, ``not_disclosed``                 |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[email]                    | request        |  *(unique)* E-mail address                                                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[phone]                    | request        |  *(optional)* A phone number *(unique)*                                                       |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[birthDate]                | request        |  *(optional)* Birth date in format YYYY-MM-DD HH:mm, for example ``2017-10-05``               |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[createdAt]                | request        |  *(optional)* Created at in format YYYY-MM-DD HH:mm:ss, for example ``2017-01-01 14:15:16``.  |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][street]          | request        |  *(optional)* Street name                                                                     |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][address1]        | request        |  *(optional)* Building number                                                                 |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][address2]        | request        |  *(optional)* Flat/Unit name                                                                  |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][postal]          | request        |  *(optional)* Post code                                                                       |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][city]            | request        |  *(optional)* City name                                                                       |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][province]        | request        |  *(optional)* Province name                                                                   |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[address][country]         | request        |  *(optional)* Country name                                                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[company][name]            | request        |  *(optional)* Company name                                                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[company][nip]             | request        |  *(optional)* Tax ID                                                                          |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[loyaltyCardNumber]        | request        |  *(optional)* Loyalty card number *(unique)*                                                  |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                             |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[storeCode]                | request        |  *(optional)* Store code                                                                      |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[agreement1]               | request        |  First agreement. Set 1 if true, otherwise 0                                                  |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[agreement2]               | request        |  *(optional)* Second agreement. Set 1 if true, otherwise 0                                    |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[agreement3]               | request        |  *(optional)* Third agreement. Set 1 if true, otherwise 0                                     |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
-| customer[referral_customer_email]  | request        |  *(optional)* Referral customer e-mail address.                                               |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| Parameter                         | Parameter type | Description                                                     |
++===================================+================+=================================================================+
+| Authorization                     | header         | Token received during authentication                            |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| <storeCode>                       | query          | Code of the store to register the customer in.                  |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[firstName]               | request        | First name                                                      |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[lastName]                | request        | Last name                                                       |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[gender]                  | request        | *(optional)* Gender. Possible values ``male``, ``female``,      |
+|                                   |                | ``not_disclosed``                                               |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[email]                   | request        | E-mail address *(unique)*                                       |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[phone]                   | request        | *(optional)* A phone number *(unique)*                          |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[birthDate]               | request        | *(optional)* Birth date in format YYYY-MM-DD HH:mm,             |
+|                                   |                | for example ``2017-10-05``.                                     |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[createdAt]               | request        | *(optional)* Created at in format YYYY-MM-DD HH:mm:ss,          |
+|                                   |                | for example ``2017-01-01 14:15:16``.                            |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[address][street]         | request        | *(optional)* Street name                                        |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[address][address1]       | request        | *(optional)* Building number                                    |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[address][address2]       | request        | *(optional)* Flat/Unit name                                     |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[address][postal]         | request        | *(optional)* Post code                                          |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[address][city]           | request        | *(optional)* City name                                          |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[address][province]       | request        | *(optional)* Province name                                      |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[address][country]        | request        | *(optional)* Country name                                       |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[company][name]           | request        | *(optional)* Company name                                       |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[company][nip]            | request        | *(optional)* Tax ID                                             |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[loyaltyCardNumber]       | request        | *(optional)* Loyalty card number *(unique)*                     |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[labels]                  | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``|
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[agreement1]              | request        | First agreement. Set 1 if true, otherwise 0                     |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[agreement2]              | request        | *(optional)* Second agreement. Set 1 if true, otherwise 0       |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[agreement3]              | request        | *(optional)* Third agreement. Set 1 if true, otherwise 0        |
++-----------------------------------+----------------+-----------------------------------------------------------------+
+| customer[referral_customer_email] | request        | *(optional)* Referral customer e-mail address.                  |
++-----------------------------------+----------------+-----------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/register \
+    curl http://localhost:8181/api/DEFAULT/customer/register \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -909,7 +922,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -930,7 +943,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/register \
+    curl http://localhost:8181/api/DEFAULT/customer/register \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -955,7 +968,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -976,7 +989,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/register \
+    curl http://localhost:8181/api/DEFAULT/customer/register \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -985,7 +998,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1041,7 +1054,7 @@ Example Response
 Get customer details
 ---------------------
 
-To get details about a customer you need to call the ``/api/customer/<customer>`` endpoint with the ``GET`` method.
+To get details about a customer, you need to call the ``/api/<storeCode>/customer/<customer>`` endpoint with the ``GET`` method.
 
 
 Definition
@@ -1049,14 +1062,16 @@ Definition
 
 .. code-block:: text
 
-    GET /api/customer/<customer>
+    GET /api/<storeCode>/customer/<customer>
 
 +------------------------------------+----------------+----------------------------------------------------------------+
-| Parameter                          | Parameter type |  Description                                                   |
+| Parameter                          | Parameter type | Description                                                    |
 +====================================+================+================================================================+
-| Authorization                      | header         |  Token received during authentication                          |
+| Authorization                      | header         | Token received during authentication                           |
 +------------------------------------+----------------+----------------------------------------------------------------+
-| <customer>                         | query          |  Customer ID                                                   |
+| <storeCode>                        | query          | Code of the store to get the customer from.                    |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <customer>                         | query          | Customer ID                                                    |
 +------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
@@ -1064,7 +1079,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/00000000-0000-474c-b092-b0dd880c07e1 \
+    curl http://localhost:8181/api/DEFAULT/customer/00000000-0000-474c-b092-b0dd880c07e1 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1073,7 +1088,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1151,7 +1166,7 @@ Example Response
 Update a customer
 -----------------
 
-To update an existing customer you need to call the ``/api/customer/{customer}`` endpoint with the ``PUT`` method.
+To update an existing customer, you need to call the ``/api/<storeCode>/customer/<customer>`` endpoint with the ``PUT`` method.
 
 .. note::
 
@@ -1160,21 +1175,23 @@ To update an existing customer you need to call the ``/api/customer/{customer}``
 
 .. note::
 
-    All simple fields can be updated separately, but compound fields (address, company) must be updated whole.
-    Attempt to update only one of the address' fields will result in deleting other parts of the address.
-    Attempt to update only name or nip will result in error code 500.
+    All simple fields can be updated separately, but compound fields (address, company) must be updated as a whole.
+    Any attempt to update only one of the address fields will result in deleting other parts of the address.
+    Any attempt to update only the name or NIP will result in error code 500.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT /api/customer/<customer>
+    PUT /api/<storeCode>/customer/<customer>
 
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                                                |
 +====================================+================+=============================================================================================+
 | Authorization                      | header         | Token received during authentication                                                        |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the updated customer belongs to.                                          |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | <customer>                         | query          | Customer ID                                                                                 |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
@@ -1228,7 +1245,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/e0eb0355-8aaa-4fb1-8159-f58e81b7a25c \
+    curl http://localhost:8181/api/DEFAULT/customer/e0eb0355-8aaa-4fb1-8159-f58e81b7a25c \
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1240,7 +1257,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1267,7 +1284,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/e0eb0355-8aaa-4fb1-8159-f58e81b7a25c \
+    curl http://localhost:8181/api/DEFAULT/customer/e0eb0355-8aaa-4fb1-8159-f58e81b7a25c \
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1277,7 +1294,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1335,29 +1352,26 @@ Example Response
 
 
 
-Customer registrations
-----------------------
+Confirm a change of authentication credential
+---------------------------------------------
 
-To get information about customer registrations you need to call the
-``/api/customer/registrations`` endpoint with the ``GET`` method.
+To activate a change of phone number when it is used as a log in credential, you need to call ``/api/<storeCode>/customer/confirm-change/<token>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/registrations
+    POST /api/<storeCode>/customer/confirm-change/<token>
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
-| Authorization                      | header         | Token received during authentication                           |
+| Authorization                      | header         |  Token received during authentication                          |
 +------------------------------------+----------------+----------------------------------------------------------------+
-| <interval>                         | request        | Group result by (day|month|year)                               |
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
-| <lastDays>                         | request        | Display data in last days                                      |
-+------------------------------------+----------------+----------------------------------------------------------------+
-| <storeCode>                        | request        | Filter result by given store                                   |
+| <token>                            | request        |  Customer's token, SMS activation code                         |
 +------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
@@ -1365,8 +1379,8 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/registrations \
-        -X "GET" \
+    curl http://localhost:8181/api/DEFAULT/customer/confirm-change/153105\
+        -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
@@ -1375,6 +1389,63 @@ Example
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
     Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *token = 153105* is an example value. Your value can be different.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+
+.. code-block:: json
+
+    (no content)
+
+
+
+Customer registrations
+----------------------
+
+To get information about customer registrations, you need to call the ``/api/<storeCode>/customer/registrations`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/<storeCode>/customer/registrations
+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type |  Description                                                   |
++====================================+================+================================================================+
+| Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customers belong to.                     |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <interval>                         | request        | Group result by (day|month|year)                               |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <lastDays>                         | request        | Display data in last days                                      |
++------------------------------------+----------------+----------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/customer/registrations \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1423,19 +1494,21 @@ Example Response
 Remove customer's avatar
 ------------------------
 
-To remove the avatar of a customer using admin token you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``DELETE`` method.
+To remove the avatar of a customer using an admin token, you need to call the ``/api/<storeCode>/customer/<customer>/avatar`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/customer/<customer>/avatar
+    DELETE /api/<storeCode>/customer/<customer>/avatar
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer ID                                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1445,7 +1518,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/avatar \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/avatar \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1454,7 +1527,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1465,22 +1538,24 @@ Example Response
 
 
 
-Get customer's avatar
----------------------
+Get a customer's avatar
+-----------------------
 
-To get customer's avatar using admin token you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``GET`` method.
+To get a customer's avatar using an admin token, you need to call the ``/api/<storeCode>/customer/<customer>/avatar`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/<customer>/avatar
+    GET /api/<storeCode>/customer/<customer>/avatar
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer ID                                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1490,7 +1565,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/avatar \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/avatar \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1499,7 +1574,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1513,19 +1588,21 @@ Example Response
 Set customer's avatar
 ---------------------
 
-To set customer's avatar using admin token you need to call the ``/api/customer/{customer}/avatar`` endpoint with the ``POST`` method.
+To set a customer's avatar using an admin token, you need to call the ``/api/<storeCode>/customer/<customer>/avatar`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/<customer>/avatar
+    POST /api/<storeCode>/customer/<customer>/avatar
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer ID                                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1538,7 +1615,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/avatar \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/avatar \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1548,11 +1625,11 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *photo[file]=C:\fakepath\avatar.png* is an example value. Your value can be different.
+    The *photo[file]=C:\fakepath\avatar.png* is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1566,19 +1643,21 @@ Example Response
 Assign a customer to a level
 ----------------------------
 
-To assign a customer to a level using admin token you need to call the ``/api/customer/{customer}/level`` endpoint with the ``POST`` method.
+To assign a customer to a level using an admin token, you need to call the ``/api/<storeCode>/customer/<customer>/level`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/<customer>/level
+    POST /api/<storeCode>/customer/<customer>/level
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer ID                                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1590,7 +1669,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/level \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/level \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1600,7 +1679,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1618,19 +1697,21 @@ Example Response
 Assign a POS to a customer
 --------------------------
 
-To assign a POS to a customer using admin token you need to call the ``/api/customer/{customer}/pos`` endpoint with the ``POST`` method.
+To assign a POS to a customer using an admin token, you need to call the ``/api/<storeCode>/customer/<customer>/pos`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/<customer>/pos
+    POST /api/<storeCode>/customer/<customer>/pos
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer ID                                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1642,7 +1723,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/pos \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/pos \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1652,7 +1733,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1670,19 +1751,21 @@ Example Response
 List Pushy tokens
 -----------------
 
-To list pushy tokens using admin token you need to call the ``/api/customer/{customer}/pushy-token`` endpoint with the ``GET`` method.
+To list pushy tokens using an admin token, you need to call the ``/api/<storeCode>/customer/<customer>/pushy-token`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/<customer>/pushy-token
+    GET /api/<storeCode>/customer/<customer>/pushy-token
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer's ID                                                 |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1692,7 +1775,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/pushy-token \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/pushy-token \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1701,7 +1784,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1721,19 +1804,21 @@ Example Response
 Add a Pushy token
 -----------------
 
-To add a Pushy token to a customer using admin token you need to call the ``/api/customer/{customer}/pushy-token`` endpoint with the ``POST`` method.
+To add a Pushy token to a customer using an admin token, you need to call the ``/api/<storeCode>/customer/<customer>/pushy-token`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/<customer>/pushy-token
+    POST /api/<storeCode>/customer/<customer>/pushy-token
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer ID                                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1745,7 +1830,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/pushy-token \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/pushy-token \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1755,7 +1840,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1769,19 +1854,21 @@ Example Response
 Remove a Pushy token
 --------------------
 
-To remove a pushy token you need to call the ``/api/customer/{customer}/pushy-token/{tokenToRemove}`` endpoint with the ``DELETE`` method.
+To remove a pushy token, you need to call the ``/api/<storeCode>/customer/<customer>/pushy-token/<tokenToRemove>`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/customer/<customer>/pushy-token/<tokenToRemove>
+    DELETE /api/<storeCode>/customer/<customer>/pushy-token/<tokenToRemove>
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer ID                                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1793,7 +1880,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/pushy-token/pushy_token \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/pushy-token/pushy_token \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1802,7 +1889,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1816,19 +1903,21 @@ Example Response
 Remove a customer from a manually assigned level
 ------------------------------------------------
 
-To unassign customer from a manually assigned level using a token you need to call the ``/api/customer/{customer}/remove-manually-level`` endpoint with the ``POST`` method.
+To unassign a customer from a manually assigned level using a token, you need to call the ``/api/<storeCode>/customer/<customer>/remove-manually-level`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/<customer>/remove-manually-level
+    POST /api/<storeCode>/customer/<customer>/remove-manually-level
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <customer>                         | query          |  Customer ID                                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -1838,7 +1927,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/remove-manually-level \
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9/remove-manually-level \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1847,7 +1936,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -1861,19 +1950,21 @@ Example Response
 Customer status (customer)
 --------------------------
 
-To retrieve a status of a customer you need to call the ``/api/customer/customer/{customer}/status`` endpoint with the ``GET`` method.
+To retrieve the status of a customer, you need to call the ``/api/<storeCode>/customer/customer/<customer>/status`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/customer/<customer>/status
+    GET /api/<storeCode>/customer/customer/<customer>/status
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the customer belongs to.             |
 +----------------------+----------------+--------------------------------------------------------+
 | <customer>           | query          | Customer UUID                                          |
 +----------------------+----------------+--------------------------------------------------------+
@@ -1883,7 +1974,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/customer/00000000-0000-474c-b092-b0dd880c07e1/status \
+    curl http://localhost:8181/api/DEFAULT/customer/customer/00000000-0000-474c-b092-b0dd880c07e1/status \
         -X "GET" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -1893,7 +1984,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -1939,19 +2030,21 @@ Example Response
 Customer status (seller)
 ------------------------
 
-To retrieve a status of specific customer you need to call the ``/api/seller/customer/{customer}/status`` endpoint with the ``GET`` method.
+To retrieve the status of specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/status`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/seller/customer/<customer>/status
+    GET /api/<storeCode>/seller/customer/<customer>/status
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the customer belongs to.             |
 +----------------------+----------------+--------------------------------------------------------+
 | <customer>           | query          | Customer UUID                                          |
 +----------------------+----------------+--------------------------------------------------------+
@@ -1961,7 +2054,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/status \
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/status \
         -X "GET" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -1969,12 +2062,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2020,19 +2113,21 @@ Example Response
 Send an activation code to a customer as an admin
 -------------------------------------------------
 
-To send an SMS activation code to specific customer you need to call the ``/api/admin/customer/{customer}/send-sms-code`` endpoint with the ``POST`` method.
+To send an SMS activation code to specific customer, you need to call the ``/api/<storeCode>/admin/customer/<customer>/send-sms-code`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/customer/<customer>/send-sms-code
+    POST /api/<storeCode>/admin/customer/<customer>/send-sms-code
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type | Description                                        |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customer belongs to.         |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | <customer>                                     | query          | Customer UUID                                      |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -2042,7 +2137,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer/00000000-0000-474c-b092-b0dd880c07e1/send-sms-code \
+    curl http://localhost:8181/api/DEFAULT/admin/customer/00000000-0000-474c-b092-b0dd880c07e1/send-sms-code \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -2050,12 +2145,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/admin`` you need to authorize using admin account credentials.
+    When using endpoints starting with ``/api/<storeCode>/admin``, you need to authorize using admin account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2069,19 +2164,21 @@ Example Response
 Send an activation token as a customer
 --------------------------------------
 
-To send/resend sms activation code you need to call the ``/api/customer/customer-phone/send-sms-code`` endpoint with the ``POST`` method.
+To send/resend an sms activation code, you need to call the ``/api/<storeCode>/customer/customer-phone/send-sms-code`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/customer-phone/send-sms-code
+    POST /api/<storeCode>/customer/customer-phone/send-sms-code
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                       |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customer belongs to.         |
 +------------------------------------------------+----------------+----------------------------------------------------+
 
 Example
@@ -2089,7 +2186,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/customer-phone/send-sms-code \
+    curl http://localhost:8181/api/DEFAULT/customer/customer-phone/send-sms-code \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -2098,7 +2195,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2112,19 +2209,21 @@ Example Response
 Send SMS activation code as a seller
 ------------------------------------
 
-To send SMS activation code to a specific customer you need to call the ``/api/seller/customer/{customer}/send-sms-code`` endpoint with the ``POST`` method.
+To send an SMS activation code to a specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/send-sms-code`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/customer/<customer>/send-sms-code
+    POST /api/<storeCode>/seller/customer/<customer>/send-sms-code
 
 +---------------------------+----------------+-------------------------------------------------------------------------+
 | Parameter                 | Parameter type |  Description                                                            |
 +===========================+================+=========================================================================+
 | Authorization             | header         | Token received during authentication                                    |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| <storeCode>               | query          | Code of the store the customer belongs to.                              |
 +---------------------------+----------------+-------------------------------------------------------------------------+
 | <customer>                | query          |  Customer UUID                                                          |
 +---------------------------+----------------+-------------------------------------------------------------------------+
@@ -2134,7 +2233,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/send-sms-code \
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/send-sms-code \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -2142,12 +2241,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2165,19 +2264,21 @@ Example Response
 Assign a POS to a customer as a seller
 --------------------------------------
 
-To assign POS to specific customer you need to call the ``/api/seller/customer/{customer}/pos`` endpoint with the ``POST`` method.
+To assign a POS to specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/pos`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/customer/<customer>/pos
+    POST /api/<storeCode>/seller/customer/<customer>/pos
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                       |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customer belongs to.         |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | <customer>                                     | query          | Customer UUID                                      |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -2189,7 +2290,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/pos \
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/pos \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -2198,17 +2299,17 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
     The *posId = 00000000-0000-474c-1111-b0dd880c07e3* and *customer = 00000000-0000-474c-b092-b0dd880c07e1* are example values.
-    Your values can be different.
+    Your values may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2222,19 +2323,21 @@ Example Response
 Activate a customer as a seller
 -------------------------------
 
-To activate a specific customer you need to call the ``/api/seller/customer/{customer}/activate`` endpoint with the ``POST`` method.
+To activate a specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/customer/<customer>/activate
+    POST /api/<storeCode>/seller/customer/<customer>/activate
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                       |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customer belongs to.         |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | <customer>                                     | query          | Customer UUID                                      |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -2244,7 +2347,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/activate \
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/activate \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -2252,16 +2355,16 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2275,19 +2378,21 @@ Example Response
 Deactivate a customer as a seller
 ---------------------------------
 
-To deactivate a specific customer you need to call the ``/api/seller/customer/{customer}/deactivate`` endpoint with the ``POST`` method.
+To deactivate a specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/customer/<customer>/deactivate
+    POST /api/<storeCode>/seller/customer/<customer>/deactivate
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type | Description                                        |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customer belongs to.         |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | <customer>                                     | query          | Customer UUID                                      |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -2297,7 +2402,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/deactivate \
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/deactivate \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -2305,16 +2410,16 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value can be different.
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2328,25 +2433,27 @@ Example Response
 Register new customer as a seller
 ---------------------------------
 
-To register customer you need to call the ``/api/seller/customer/register`` endpoint with the ``POST`` method.
+To register a customer, you need to call the ``/api/<storeCode>/seller/customer/register`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/customer/register
+    POST /api/<storeCode>/seller/customer/register
 
 .. note::
 
-    This endpoint allows to set more customer parameters than ``/api/customer/self_register`` and is used when creating
-    a new customer in the admin cockpit or pos cockpit. Self register endpoint is used in the client cockpit for registration
+    This endpoint allows you to set more customer parameters than ``/api/<storeCode>/customer/self_register`` and is used when creating
+    a new customer in the admin cockpit or POS cockpit. The self register endpoint is used in the client cockpit for registration
     and has some limitations.
 
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | Parameter                          | Parameter type | Description                                                                                 |
 +====================================+================+=============================================================================================+
 | Authorization                      | header         | Token received during authentication                                                        |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer will belong to.                                              |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[firstName]                | request        | First name                                                                                  |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
@@ -2398,7 +2505,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/customer/register \
+    curl http://localhost:8181/api/DEFAULT/seller/customer/register \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -2411,12 +2518,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/seller`` you need to authorize using seller account credentials.
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -2434,22 +2541,24 @@ Example Response
 
 
 
-Search customers as a seller
-----------------------------
+Search for customers as a seller
+--------------------------------
 
-To search customer in POS you need to call the ``/api/pos/search/customer`` endpoint with the ``POST`` method.
+To search for a customer in POS, you need to call the ``/api/<storeCode>/pos/search/customer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/pos/search/customer
+    POST /api/<storeCode>/pos/search/customer
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type | Description                                                    |
 +====================================+================+================================================================+
 | Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customers belong to.                     |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | search[loyaltyCardNumber]          | query          | *(optional)* Loyalty card number                               |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -2471,7 +2580,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/pos/search/customer \
+    curl http://localhost:8181/api/DEFAULT/pos/search/customer \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -2481,12 +2590,12 @@ Example
 
 .. note::
 
-    When using this endpoint you need to authorize using seller account credentials.
+    When using this endpoint, you need to authorize using seller account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -2656,19 +2765,21 @@ Example Response
 Import customers
 ----------------
 
-To import customers you need to call the ``/api/admin/customer/import`` endpoint with the ``POST`` method.
+To import customers, you need to call the ``/api/<storeCode>/admin/customer/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/customer/import
+    POST /api/<storeCode>/admin/customer/import
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type | Description                                        |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customers will belong to.    |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | file[file]                                     | query          | XML file                                           |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -2678,7 +2789,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer/import \
+    curl http://localhost:8181/api/DEFAULT/admin/customer/import \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -2687,12 +2798,12 @@ Example
 
 .. note::
 
-    When using endpoints starting with ``/api/admin`` you need to authorize using admin account credentials.
+    When using endpoints starting with ``/api/<storeCode>/admin``, you need to authorize using admin account credentials.
 
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^^^
@@ -2785,12 +2896,12 @@ Example Response
 Register a new customer as an admin
 -----------------------------------
 
-To create a new customer you need to call the ``/api/admin/customer/register`` endpoint with the ``POST`` method.
+To create a new customer, you need to call the ``/api/<storeCode>/admin/customer/register`` endpoint with the ``POST`` method.
 
 .. note::
 
-    This endpoint allows to set more customer parameters than ``/api/customer/self_register`` and is used when creating
-    a new customer in the admin cockpit or pos cockpit. Self register endpoint is used in the client cockpit for registration
+    This endpoint allows you to set more customer parameters than ``/api/<storeCode>/customer/self_register`` and is used when creating
+    a new customer in the admin cockpit or POS cockpit. The self register endpoint is used in the client cockpit for registration
     and has some limitations.
 
 Definition
@@ -2798,12 +2909,14 @@ Definition
 
 .. code-block:: text
 
-    POST /api/admin/customer/register
+    POST /api/<storeCode>/admin/customer/register
 
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | Parameter                          | Parameter type | Description                                                                                 |
 +====================================+================+=============================================================================================+
 | Authorization                      | header         | Token received during authentication                                                        |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer will belong to.                                              |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[firstName]                | request        | First name                                                                                  |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
@@ -2841,8 +2954,6 @@ Definition
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                           |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
-| customer[storeCode]                | request        |  *(optional)* Store code                                                                      |
-+------------------------------------+----------------+-----------------------------------------------------------------------------------------------+
 | customer[agreement1]               | request        | First agreement. Set 1 if true, otherwise 0                                                 |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[agreement2]               | request        | *(optional)* Second agreement. Set 1 if true, otherwise 0                                   |
@@ -2857,7 +2968,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/customer/register \
+    curl http://localhost:8181/api/DEFAULT/admin/customer/register \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -2871,7 +2982,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -2886,3 +2997,51 @@ Example Response
       "customerId": "e0eb0355-8aaa-4fb1-8159-f58e81b7a25c",
       "email": "john@example.com"
     }
+
+
+
+Remove customer
+---------------
+
+To remove the customer using admin token you need to call the ``/api/<storeCode>/customer/<customer>`` endpoint with the ``DELETE`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    DELETE /api/<storeCode>/customer/<customer>
+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type |  Description                                                   |
++====================================+================+================================================================+
+| Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer belongs to.                     |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <customer>                         | query          |  Customer ID                                                   |
++------------------------------------+----------------+----------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/customer/1cb6d205-8b77-40e1-a801-052185ed52d9 \
+        -X "DELETE" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+

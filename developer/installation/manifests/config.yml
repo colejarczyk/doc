@@ -19,18 +19,26 @@ data:
     APP_SECRET=__REPLACE_IT__
     RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
     DATABASE_URL=pgsql://openloyalty:openloyalty@db:5432/openloyalty
-    DATABASE_VERSION='9'
+    DATABASE_VERSION='9.6'
     MAILER_URL=smtp://mail:1025
     GELF_SERVER=logstash
     GELF_PORT=12201
     ELK_HOST=elk:9200
     VARNISH_HOST=varnish
     VARNISH_CACHE_BASE_URL=localhost
-    VARNISH_TTL=0
+    VARNISH_TTL=30
     VARNISH_INVALIDATION=true
     VARNISH_DEBUG=false
     REDIS_HOST=redisserver
     REDIS_PORT=6379
+
+    api_url=http://openloyalty.localhost/api
+    admin_url=http://openloyalty.localhost:8182/
+    customer_url=http://openloyalty.localhost:8183/
+    merchant_url=http://openloyalty.localhost:8184/
+    reset_password_url="#!/password/reset"
+    frontend_activate_account_url="#!/customer/panel/customer/registration/activate"
+    frontend_invitation_url="#!/register/"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -59,8 +67,8 @@ data:
     import directors;
 
     backend default_server {
-      .host = "web";
-      .port = "8080";
+      .host = "api";
+      .port = "80";
       .max_connections = 300;
 
       .first_byte_timeout     = 300s;
@@ -74,7 +82,7 @@ data:
       "127.0.0.1";
       "::1";
       "php";
-      "web";
+      "api";
     }
 
     sub vcl_init {

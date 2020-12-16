@@ -19,6 +19,7 @@ Introduction
        how_to_work_with_queues
        how_to_add_new_field_to_entity
        how_to_add_new_tab_in_admin_panel
+       how_to_enable_ldap_authorization
        translatable_field
        FAQ
 

@@ -102,14 +102,14 @@ The above example strongly uses CQRS pattern and dispatches commands to the comm
 
 Below you may find a description on how to create both consumer and a producer for sending emails. This is also a real use case from the application.
 
-1. *First, create a consumer.* This class must implements OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface.
+1. *First, create a consumer.* This class must implement OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface.
 The consumer must be registered in container as simple service with injected dependencies.
 
 In this case
 
 .. code-block:: yaml
 
-    OpenLoyalty\Infrastructure\Email\Queue\RabbitMq\Consumer:
+    OpenLoyalty\Infrastructure\Messaging\Queue\RabbitMq\EmailConsumer:
         arguments:
             $logger: '@logger'
             $mailer: '@oloy.mailer'
@@ -126,7 +126,7 @@ looks like for sending emails.
         calls:
             - [setLogger, ['@logger']]
 
-    OpenLoyalty\Infrastructure\Email\Queue\RabbitMq\Producer:
+    OpenLoyalty\Infrastructure\Messaging\Queue\RabbitMq\EmailProducer:
         arguments:
             $mailer: '@oloy.mailer'
             $queueProducerConnection: '@oloy.email.rabbitmq.connection'
@@ -163,7 +163,7 @@ to dispatch commands to the command bus but rather our own implementation from t
                         arguments:
                             x-dead-letter-exchange:    ['S', 'email-dead-letters']
                             x-dead-letter-routing-key: ['S', 'email-dead-letters']
-                        callback: OpenLoyalty\Infrastructure\Email\Queue\RabbitMq\Consumer
+                        callback: OpenLoyalty\Infrastructure\Messaging\Queue\RabbitMq\EmailConsumer
                         routing_keys:
                             - email-queue
 

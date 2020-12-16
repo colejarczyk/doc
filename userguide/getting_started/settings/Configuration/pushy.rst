@@ -49,9 +49,9 @@ To set up integration with Pushy:
 
     **To display push notification, only API key is not enough** 
     
-    You have to put a code into your app or/and website application code. Documentations how to do this can be found on the official pushy website ``https://pushy.me/docs/web-push``
+    You have to put some code into your app or/and website application codebase. Documentation on how to do this can be found on the official pushy website ``https://pushy.me/docs/web-push``
 
-Below, you will find an example of code that can be paste to enable notification. 
+Below, you will find example code that can be used to test notifications.
 
 .. code-block:: json
 
@@ -84,5 +84,5 @@ Below, you will find an example of code that can be paste to enable notification
   
 .. tip::
 
-   **More information about PUSHY and push notification mechanism you will find on a official pushy website: ``https://pushy.me/docs/web-push``** 
+   **You can find more information about PUSHY and push notification mechanism on the official pushy website: ``https://pushy.me/docs/web-push``**
     

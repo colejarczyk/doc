@@ -1,12 +1,12 @@
-Run command inside docker container
+Run a command inside docker container
 ===================================
 
-Simplest way to run command inside container is to execute:
+The simplest way to run a command inside a container is to execute:
 
-  docker-compose exec open_loyalty_backend bash
+  docker-compose exec -it open_loyalty_backend bash
 
-This will bring you container bash shell where you will be able to execute any command needed.
+This will bring up a container bash shell where you will be able to execute any command needed.
 
-Just make sure that you are in correct directory (`/var/www/ol/backend`)
+Just make sure that you are in the correct directory (`/var/www/openloyalty`)
 
 and now feel free to execute composer install, phing setup or any other command.

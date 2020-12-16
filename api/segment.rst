@@ -8,19 +8,21 @@ These endpoints will allow you to retrieve information and manage the segments u
 Get segments list
 -----------------
 
-To retrieve a paginated list of segments you need to call the ``/api/segment`` endpoint with the ``GET`` method.
+To retrieve a paginated list of segments, you need to call the ``/api/<storeCode>/segment`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/segment
+    GET /api/<storeCode>/segment
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store to get the segments of.              |
 +----------------------+----------------+--------------------------------------------------------+
 | page                 | query          | *(optional)* Start from page, by default 1             |
 +----------------------+----------------+--------------------------------------------------------+
@@ -39,7 +41,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/segment \
+    curl http://localhost:8181/api/DEFAULT/segment \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -48,7 +50,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -133,19 +135,21 @@ Example Response
 Create new segment
 ------------------
 
-To create a new segment you need to call the ``/api/segment`` endpoint with the ``POST`` method.
+To create a new segment, you need to call the ``/api/<storeCode>/segment`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/segment
+    POST /api/<storeCode>/segment
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store to create the segment in.                                |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | segment[name]                                  | request        | Segment name                                                               |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -209,7 +213,7 @@ Definition
 |                                                |                | criterion types.                                                           |
 |                                                |                | *(forbidden)* for other criterion types.                                   |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| segment[parts][0][criteria][0][days]           | request        | Segment includes customers who shopped at least this days ago.             |
+| segment[parts][0][criteria][0][days]           | request        | Segment includes customers who shopped at least this many days ago.        |
 |                                                |                | 1 is yesterday.                                                            |
 |                                                |                | *(required)* for ``last_purchase_n_days_before`` criterion type.           |
 |                                                |                | *(forbidden)* for other criterion types.                                   |
@@ -241,7 +245,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/segment/00000000-0000-0000-0000-000000000002` \
+    curl http://localhost:8181/api/DEFAULT/segment/00000000-0000-0000-0000-000000000002` \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -256,12 +260,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    To create OR condition, add another ``SegmentPart`` element in ``segment[parts]`` array.
-    To create AND condition, add another ``Criterion`` element in ``segment[parts][<part_element>][criteria]`` array.
+    To create an OR condition, add another ``SegmentPart`` element in the ``segment[parts]`` array.
+    To create an AND condition, add another ``Criterion`` element in the ``segment[parts][<part_element>][criteria]`` array.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -281,19 +285,21 @@ Example Response
 Delete segment
 --------------
 
-To delete segment you need to call the ``/api/segment/<segment>`` endpoint with the ``DELETE`` method.
+To delete a segment, you need to call the ``/api/<storeCode>/segment/<segment>`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/segment/<segment>
+    DELETE /api/<storeCode>/segment/<segment>
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the segment belongs to.              |
 +----------------------+----------------+--------------------------------------------------------+
 | <segment>            | query          | Segment ID                                             |
 +----------------------+----------------+--------------------------------------------------------+
@@ -303,7 +309,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/segment/f9a64320-0e93-42b9-882c-43cd477156cf \
+    curl http://localhost:8181/api/DEFAULT/segment/f9a64320-0e93-42b9-882c-43cd477156cf \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -312,12 +318,12 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
     The *f9a64320-0e93-42b9-882c-43cd477156cf* segment ID is an example value.
-    Your value can be different. Check in the list of all segments if you are not sure which id should be used.
+    Your value may be different. Check the list of all segments if you are not sure which id should be used.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -331,19 +337,21 @@ Example Response
 Get segment details
 -------------------
 
-To retrieve segment details you need to call the ``/api/segment/<segment>`` endpoint with the ``GET`` method.
+To retrieve segment details, you need to call the ``/api/<storeCode>/segment/<segment>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/segment/<segment>
+    GET /api/<storeCode>/segment/<segment>
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the segment belongs to.              |
 +----------------------+----------------+--------------------------------------------------------+
 | <segment>            | query          | Segment ID                                             |
 +----------------------+----------------+--------------------------------------------------------+
@@ -351,11 +359,11 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the customer user with ``segment = 00000000-0000-0000-0000-000000000002`` use the method below:
+To see the details of the customer user with ``segment = 00000000-0000-0000-0000-000000000002``, use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/segment/00000000-0000-0000-0000-000000000002` \
+    curl http://localhost:8181/api/DEFAULT/segment/00000000-0000-0000-0000-000000000002` \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -364,7 +372,7 @@ To see the details of the customer user with ``segment = 00000000-0000-0000-0000
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -406,19 +414,21 @@ Example Response
 Update segment data
 -------------------
 
-To fully update segment data for user you need to call the ``/api/segment/<segment>`` endpoint with the ``PUT`` method.
+To fully update segment's configuration, you need to call the ``/api/<storeCode>/segment/<segment>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT /api/segment/<segment>
+    PUT /api/<storeCode>/segment/<segment>
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the segment belongs to.                                  |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | <segment>                                      | query          | Segment ID                                                                 |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -484,7 +494,7 @@ Definition
 |                                                |                | criterion types.                                                           |
 |                                                |                | *(forbidden)* for other criterion types.                                   |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| segment[parts][0][criteria][0][days]           | request        | Segment includes customers who shopped at least this days ago.             |
+| segment[parts][0][criteria][0][days]           | request        | Segment includes customers who shopped at least this many days ago.        |
 |                                                |                | 1 is yesterday.                                                            |
 |                                                |                | *(required)* for ``last_purchase_n_days_before`` criterion type.           |
 |                                                |                | *(forbidden)* for other criterion types.                                   |
@@ -512,11 +522,11 @@ Definition
 
 Example
 ^^^^^^^
-To update the details of a segment with ``segment = 17347292-0aaf-4c25-9118-17eb2c55b58b`` use the method below:
+To update the details of a segment with id ``segment = 17347292-0aaf-4c25-9118-17eb2c55b58b``, use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/segment/17347292-0aaf-4c25-9118-17eb2c55b58b \
+    curl http://localhost:8181/api/DEFAULT/segment/17347292-0aaf-4c25-9118-17eb2c55b58b \
         -X "PUT" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -531,12 +541,12 @@ To update the details of a segment with ``segment = 17347292-0aaf-4c25-9118-17eb
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 .. note::
 
-    To create OR condition, add another ``SegmentPart`` element in ``segment[parts]`` array.
-    To create AND condition, add another ``Criterion`` element in ``segment[parts][<part_element>][criteria]`` array.
+    To create an OR condition, add another ``SegmentPart`` element in the ``segment[parts]`` array.
+    To create an AND condition, add another ``Criterion`` element in the ``segment[parts][<part_element>][criteria]`` array.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -556,19 +566,21 @@ Example Response
 Activate segment
 --------------
 
-To activate segment you need to call the ``/api/segment/<segment>/activate`` endpoint with the ``POST`` method.
+To activate a segment, you need to call the ``/api/<storeCode>/segment/<segment>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/segment/<segment>/activate
+    POST /api/<storeCode>/segment/<segment>/activate
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the segment belongs to.                                  |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | <segment>                                      | query          | Segment ID                                                                 |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -578,7 +590,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/segment/63afec60-5e74-43fc-a5e1-81bbc03421ca/activate \
+    curl http://localhost:8181/api/DEFAULT/segment/63afec60-5e74-43fc-a5e1-81bbc03421ca/activate \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -587,7 +599,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -601,19 +613,21 @@ Example Response
 Get customers assigned to specific segment
 ------------------------------------------
 
-To retrieve a paginated list of customers assigned to specific segment you need to call the ``/api/segment/<segment>/customers`` endpoint with the ``GET`` method.
+To retrieve a paginated list of customers assigned to a specific segment, you need to call the ``/api/<storeCode>/segment/<segment>/customers`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/segment/<segment>/customers
+    GET /api/<storeCode>/segment/<segment>/customers
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the segment belongs to.              |
 +----------------------+----------------+--------------------------------------------------------+
 | <segment>            | query          | Segment ID                                             |
 +----------------------+----------------+--------------------------------------------------------+
@@ -642,7 +656,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/segment/63afec60-5e74-43fc-a5e1-81bbc03421ca/customers \
+    curl http://localhost:8181/api/DEFAULT/segment/63afec60-5e74-43fc-a5e1-81bbc03421ca/customers \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -651,7 +665,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -716,29 +730,31 @@ Example Response
 Deactivate segment
 ----------------
 
-To deactivate segment you need to call the ``/api/segment/<segment>/deactivate`` endpoint with the ``POST`` method.
+To deactivate a segment, you need to call the ``/api/<storeCode>/segment/<segment>/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/segment/<segment>/deactivate
+    POST /api/<storeCode>/segment/<segment>/deactivate
 
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| Parameter                                      | Parameter type |  Description                                                               |
-+================================================+================+============================================================================+
-| Authorization                                  | header         | Token received during authentication                                       |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| <segment>                                      | query          | Segment ID                                                                 |
-+------------------------------------------------+----------------+----------------------------------------------------------------------------+
++----------------------------------------+----------------+------------------------------------------------------------+
+| Parameter                              | Parameter type |  Description                                               |
++========================================+================+============================================================+
+| Authorization                          | header         | Token received during authentication                       |
++----------------------------------------+----------------+------------------------------------------------------------+
+| <storeCode>                            | query          | Code of the store the segment belongs to.                  |
++----------------------------------------+----------------+------------------------------------------------------------+
+| <segment>                              | query          | Segment ID                                                 |
++----------------------------------------+----------------+------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/segment/63afec60-5e74-43fc-a5e1-81bbc03421ca/deactivate \
+    curl http://localhost:8181/api/DEFAULT/segment/63afec60-5e74-43fc-a5e1-81bbc03421ca/deactivate \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -747,7 +763,7 @@ Example
 .. note::
 
     The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
 
 Example Response
 ^^^^^^^^^^^^^^^^

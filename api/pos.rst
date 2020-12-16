@@ -1,26 +1,28 @@
 POS API
 =======
 
-These endpoints will allow you to see the list of POS taken in the Open Loyalty.
+These endpoints will allow you to see the list of POS taken in Open Loyalty.
 
 
 
 Get the complete list of POS
 ----------------------------
 
-To retrieve a complete list of POS you need to call the ``/api/pos`` endpoint with the ``GET`` method.
+To retrieve a complete list of POS, you need to call the ``/api/<storeCode>/pos`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/pos
+    GET /api/<storeCode>/pos
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store to get POS from.                     |
 +----------------------+----------------+--------------------------------------------------------+
 | page                 | query          | *(optional)* Start from page, by default 1             |
 +----------------------+----------------+--------------------------------------------------------+
@@ -40,7 +42,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/pos \
+    curl http://localhost:8181/api/DEFAULT/pos \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -113,19 +115,21 @@ Example Response
 Create a new POS
 ----------------
 
-To create a new POS you need to call the ``/api/pos`` endpoint with the ``POST`` method.
+To create a new POS, you need to call the ``/api/<storeCode>/pos`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/pos
+    POST /api/<storeCode>/pos
 
 +----------------------------------------------+----------------+------------------------------------------------------+
 | Parameter                                    | Parameter type |  Description                                         |
 +==============================================+================+======================================================+
 | Authorization                                | header         |  Token received during authentication                |
++----------------------------------------------+----------------+------------------------------------------------------+
+| <storeCode>                                  | query          | Code of the store to create POS in.                  |
 +----------------------------------------------+----------------+------------------------------------------------------+
 | pos[name]                                    | request        |  POS name                                            |
 +----------------------------------------------+----------------+------------------------------------------------------+
@@ -157,7 +161,7 @@ Example
 
 .. code-block:: bash
 
-   curl http://localhost:8181/api/pos \
+   curl http://localhost:8181/api/DEFAULT/pos \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -198,19 +202,21 @@ Example Response
 Get POS details
 ---------------
 
-To retrieve the POS details you need to call the ``/api/pos/identifier/{pos}`` endpoint with the ``GET`` method.
+To retrieve the POS details, you need to call the ``/api/<storeCode>/pos/identifier/<pos>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/pos/identifier/<pos>
+    GET /api/<storeCode>/pos/identifier/<pos>
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
++---------------+----------------+--------------------------------------+
+| <storeCode>   | query          | Code of the store to get POS from.   |
 +---------------+----------------+--------------------------------------+
 | <pos>         | query          | POS identifier                       |
 +---------------+----------------+--------------------------------------+
@@ -218,11 +224,11 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the POS with id ``pos = testid9`` use the method below:
+To see the details of the POS with id ``pos = testid9``, use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/identifier/testid9 \
+    curl http://localhost:8181/api/DEFAULT/pos/identifier/testid9 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -266,19 +272,21 @@ Example Response
 Get POS details
 ---------------
 
-To retrieve the POS details you need to call the ``/api/pos/{pos}`` endpoint with the ``GET`` method.
+To retrieve the POS details, you need to call the ``/api/<storeCode>/pos/<pos>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/pos/<pos>
+    GET /api/<storeCode>/pos/<pos>
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
++---------------+----------------+--------------------------------------+
+| <storeCode>   | query          | Code of the store to get POS from.   |
 +---------------+----------------+--------------------------------------+
 | <pos>         | query          | POS identifier                       |
 +---------------+----------------+--------------------------------------+
@@ -286,11 +294,11 @@ Definition
 Example
 ^^^^^^^
 
-To see the details of the POS with ``pos = 00000000-0000-474c-1111-b0dd880c07e3`` use the method below:
+To see the details of the POS with id ``pos = 00000000-0000-474c-1111-b0dd880c07e3``, use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/pos/00000000-0000-474c-1111-b0dd880c07e3 \
+    curl http://localhost:8181/api/DEFAULT/pos/00000000-0000-474c-1111-b0dd880c07e3 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -337,19 +345,21 @@ Example Response
 Update POS data
 ---------------
 
-To update the POS data you need to call the ``/api/pos/<pos>`` endpoint with the ``PUT`` method.
+To update the POS data, you need to call the ``/api/<storeCode>/pos/<pos>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT /api/pos/<pos>
+    PUT /api/<storeCode>/pos/<pos>
 
 +----------------------------------------------+----------------+------------------------------------------------------+
 | Parameter                                    | Parameter type |  Description                                         |
 +==============================================+================+======================================================+
 | Authorization                                | header         |  Token received during authentication                |
++----------------------------------------------+----------------+------------------------------------------------------+
+| <storeCode>                                  | query          | Code of the store to update the POS in.              |
 +----------------------------------------------+----------------+------------------------------------------------------+
 | <pos>                                        | query          |  POS ID                                              |
 +----------------------------------------------+----------------+------------------------------------------------------+
@@ -381,11 +391,11 @@ Definition
 Example
 ^^^^^^^
 
-To fully update POS with ``id = 857b2a26-b490-4356-8828-e138deaf7912`` use the method below:
+To fully update the POS with ``id = 857b2a26-b490-4356-8828-e138deaf7912``, use the method below:
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/pos/857b2a26-b490-4356-8828-e138deaf7912 \
+    curl http://localhost:8181/api/DEFAULT/pos/857b2a26-b490-4356-8828-e138deaf7912 \
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -419,182 +429,4 @@ Example Response
 
     {
       "posId": "857b2a26-b490-4356-8828-e138deaf7912"
-    }
-
-
-
-Get a list of POS (seller)
---------------------------
-
-To retrieve a complete list of POS you need to call the ``/api/seller/pos`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET /api/seller/pos
-
-+----------------------+----------------+--------------------------------------------------------+
-| Parameter            | Parameter type |  Description                                           |
-+======================+================+========================================================+
-| Authorization        | header         | Token received during authentication                   |
-+----------------------+----------------+--------------------------------------------------------+
-| page                 | query          | *(optional)* Start from page, by default 1             |
-+----------------------+----------------+--------------------------------------------------------+
-| perPage              | query          | *(optional)* Number of items to display per page,      |
-|                      |                | by default = 10                                        |
-+----------------------+----------------+--------------------------------------------------------+
-| sort                 | query          | *(optional)* Sort by column name,                      |
-|                      |                | by default = name                                      |
-+----------------------+----------------+--------------------------------------------------------+
-| direction            | query          | *(optional)* Direction of sorting [ASC, DESC],         |
-|                      |                | by default = ASC                                       |
-+----------------------+----------------+--------------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/pos \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "pos": [
-        {
-          "posId": "857b2a26-b490-4356-8828-e138deaf7912",
-          "name": "test8",
-          "identifier": "testid8",
-          "description": "test8description",
-          "location": {
-            "street": "kwiatowa",
-            "address1": "66",
-            "address2": "33",
-            "province": "HonululuProvince",
-            "city": "Honolulu",
-            "postal": "666-333",
-            "country": "USA",
-            "geoPoint": {
-              "lat": "latitude8",
-              "long": "longitude8"
-            }
-          },
-          "transactionsAmount": 0,
-          "transactionsCount": 0,
-          "currency": "eur"
-        },
-        {
-          "posId": "f4441dc1-9788-4763-838e-f034afd51c31",
-          "name": "testname",
-          "identifier": "testid",
-          "description": "testdescription",
-          "location": {
-            "street": "polna",
-            "address1": "24",
-            "address2": "5",
-            "province": "WroclawProvince",
-            "city": "Wroclaw",
-            "postal": "98-765",
-            "country": "Poland",
-            "geoPoint": {
-              "lat": "latitude",
-              "long": "longitude"
-            }
-          },
-          "transactionsAmount": 0,
-          "transactionsCount": 0,
-          "currency": "eur"
-        }
-      ],
-      "total": 2
-    }
-
-
-
-Get POS details (seller)
-------------------------
-
-To retrieve POS details you need to call the ``/api/seller/pos/<pos>`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET /api/seller/pos/<pos>
-
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <pos>         | query          | POS Id                               |
-+---------------+----------------+--------------------------------------+
-
-Example
-^^^^^^^
-
-To see the details of the POS with id ``pos = 857b2a26-b490-4356-8828-e138deaf7912`` use the method below:
-
-.. code-block:: bash
-
- curl http://localhost:8181/api/seller/pos/857b2a26-b490-4356-8828-e138deaf7912 \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value can be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "posId": "857b2a26-b490-4356-8828-e138deaf7912",
-      "name": "test8",
-      "identifier": "testid8",
-      "description": "test8description",
-      "location": {
-        "street": "kwiatowa",
-        "address1": "66",
-        "address2": "33",
-        "province": "HonululuProvince",
-        "city": "Honolulu",
-        "postal": "666-333",
-        "country": "USA",
-        "geoPoint": {
-          "lat": "latitude8",
-          "long": "longitude8"
-        }
-      },
-      "transactionsAmount": 0,
-      "transactionsCount": 0,
-      "currency": "eur"
     }

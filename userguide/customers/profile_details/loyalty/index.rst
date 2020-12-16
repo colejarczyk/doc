@@ -7,9 +7,11 @@ CUSTOMER LOYALTY ACTIVITY
    introduction
    loyalty
    profitability
+   timeline
    transactions
    transfer
    available_rewards
+   referred_customers
    redeemed_rewards
   
    

@@ -10,7 +10,7 @@ The system updates the existing point transfers with new status *expired*. This 
 
 .. code-block:: bash
 
-    * * * * * /usr/local/bin/php /var/www/openloyalty/bin/console --env=prod ol:points:transfers:expire > /var/log/cron_ol_points_expire.log 2>&1
+    * * * * * /usr/local/bin/php /var/www/openloyalty/bin/console --env=prod oloy:points:transfers:expire > /var/log/cron_ol_points_expire.log 2>&1
 
 
 Scenario 2: From which transfer the system will subtract points if there is more than one active transfer for the customer

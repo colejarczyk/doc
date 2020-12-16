@@ -9,13 +9,13 @@ If you have a customer list that you want to add points within your Loyalty Prog
 .. image:: /userguide/_images/points_import.png
    :alt:   Import Points Transfers
 
-Importing a  XML file will create a points transfers for each customer:
+Importing a XML file will create a points transfer for each customer, identified by:
 
- - email address 
- - phone number 
- - ID 
- - Loyalty card number
- 
+ - ID
+ - email address
+ - loyalty card number
+ - phone number
+
 .. note:: 
 
     At least one, of the listed above value, must be provided to identify the customer and create points transfer for him. 
@@ -48,7 +48,7 @@ Mechanism of matching the customer with points transfer basing on priorities is 
     
     if XML file includes customer ID and email address, customer ID is used for matching before the email address. 
     
-    If there will be no clear result, email is verified. 
+    If there will be no clear result, email is checked, and so on.
 
 
 To import a points from a file:
