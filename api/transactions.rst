@@ -8,19 +8,21 @@ These endpoints will allow you to easily manage transactions.
 Import transactions
 -------------------
 
-To import an XML file with transactions, you need to call the ``/api/admin/transaction/import`` endpoint with the ``POST`` method.
+To import an XML file with transactions, you need to call the ``/api/<storeCode>/admin/transaction/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/transaction/import
+    POST /api/<storeCode>/admin/transaction/import
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to import transactions into.    |
 +-------------------------------------+----------------+---------------------------------------------------+
 | file[file]                          | query          | XML file with transactions                        |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -30,7 +32,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/transaction/import \
+    curl http://localhost:8181/api/DEFAULT/admin/transaction/import \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -76,19 +78,21 @@ Example Response
 Match transactions with the customers by importing a XML file
 -------------------------------------------------------------
 
-In order to match many transactions to many customers using an XML file, you need to call the ``/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
+In order to match many transactions to many customers using an XML file, you need to call the ``api/<storeCode>/admin/transaction/customer/assign/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /admin/transaction/customer/assign/import
+    POST api/<storeCode>/admin/transaction/customer/assign/import
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to match transactions in.       |
 +-------------------------------------+----------------+---------------------------------------------------+
 | file[file]                          | query          | XML file with transactions                        |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -98,7 +102,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/transaction/customer/assign/import \
+    curl http://localhost:8181/api/DEFAULT/admin/transaction/customer/assign/import \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -156,35 +160,37 @@ Example Response
 Assign a customer to a specific transaction (admin)
 ---------------------------------------------------
 
-To assign a customer to a specific transaction, you need to call the ``/api/admin/transaction/customer/assign`` endpoint with the ``POST`` method.
+To assign a customer to a specific transaction, you need to call the ``/api/<storeCode>/admin/transaction/customer/assign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/transaction/customer/assign
+    POST /api/<storeCode>/admin/transaction/customer/assign
 
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[transactionDocumentNumber]   | query          | Transaction Document Number                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerId]                  | query          | Customer ID                                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                           |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerPhoneNumber]         | query          | Customer Phone Number                             |
-+-------------------------------------+----------------+---------------------------------------------------+
++-------------------------------------+----------------+---------------------------------------------------------------+
+| Parameter                           | Parameter type | Description                                                   |
++=====================================+================+===============================================================+
+| Authorization                       | header         | Token received during authentication                          |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer and the transaction belong to. |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[transactionDocumentNumber]   | query          | Transaction Document Number                                   |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerId]                  | query          | Customer ID                                                   |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                                       |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerPhoneNumber]         | query          | Customer Phone Number                                         |
++-------------------------------------+----------------+---------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/transaction/customer/assign \
+    curl http://localhost:8181/api/DEFAULT/admin/transaction/customer/assign \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -242,28 +248,30 @@ Example Error Response
 Assign a customer to a specific transaction (customer)
 ------------------------------------------------------
 
-To assign a logged-in customer to a specific transaction, you need to call the ``/api/customer/transaction/customer/assign`` endpoint with the ``POST`` method.
+To assign a logged-in customer to a specific transaction, you need to call the ``/api/<storeCode>/customer/transaction/customer/assign`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/transaction/customer/assign
+    POST /api/<storeCode>/customer/transaction/customer/assign
 
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[transactionDocumentNumber]   | query          | Transaction Document Number                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerId]                  | query          | Customer ID                                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                           |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerPhoneNumber]         | query          | Customer Phone Number                             |
-+-------------------------------------+----------------+---------------------------------------------------+
++-------------------------------------+----------------+---------------------------------------------------------------+
+| Parameter                           | Parameter type | Description                                                   |
++=====================================+================+===============================================================+
+| Authorization                       | header         | Token received during authentication                          |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer and the transaction belong to. |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[transactionDocumentNumber]   | query          | Transaction Document Number                                   |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerId]                  | query          | Customer ID                                                   |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                                       |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerPhoneNumber]         | query          | Customer Phone Number                                         |
++-------------------------------------+----------------+---------------------------------------------------------------+
 
 .. note::
 
@@ -275,7 +283,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/transaction/customer/assign \
+    curl http://localhost:8181/api/DEFAULT/customer/transaction/customer/assign \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -300,85 +308,24 @@ Example Response
       "transactionId": "9f805211-9326-4b47-b5a6-8155d6ae9d2c"
     }
 
-
-
-Assign a customer to specific transaction (seller)
---------------------------------------------------
-
-To assign a customer to a specific transaction, you need to call the ``/api/pos/transaction/customer/assign`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/pos/transaction/customer/assign
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[transactionDocumentNumber]   | query          | Transaction Document Number                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerId]                  | query          | Customer ID                                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                           |
-+-------------------------------------+----------------+---------------------------------------------------+
-| assign[customerPhoneNumber]         | query          | Customer Phone Number                             |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/pos/transaction/customer/assign \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-        -d "assign[transactionDocumentNumber]=123" \
-        -d "assign[customerId]=57524216-c059-405a-b951-3ab5c49bae14" \
-        -d "assign[customerLoyaltyCardNumber]=333" \
-        -d "assign[customerPhoneNumber]=333333"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "transactionId": "00000000-0000-1111-0000-000000000005"
-    }
-
-
-
 Get a list of transactions (customer)
 -------------------------------------
 
-To retrieve a complete or filtered list of all transactions a customer has access to, you need to call the ``/api/customer/transaction`` endpoint with the ``GET`` method.
+To retrieve a complete or filtered list of all transactions a customer has access to, you need to call the ``/api/<storeCode>/customer/transaction`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/transaction
+    GET /api/<storeCode>/customer/transaction
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer belongs to.        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | documentType                        | query          | *(optional)* Document Type                        |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -409,7 +356,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/transaction \
+    curl http://localhost:8181/api/DEFAULT/customer/transaction \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -572,19 +519,21 @@ Example Response
 Get transaction details (customer)
 ----------------------------------
 
-To retrieve transaction details, you need to call the ``/api/customer/transaction/<transaction>`` endpoint with the ``GET`` method.
+To retrieve transaction details, you need to call the ``/api/<storeCode>/customer/transaction/<transaction>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/customer/transaction/<transaction>
+    GET /api/<storeCode>/customer/transaction/<transaction>
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the transaction belongs to.     |
 +-------------------------------------+----------------+---------------------------------------------------+
 | <transaction>                       | query          | Transaction ID                                    |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -594,7 +543,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/transaction/00000000-0000-1111-0000-000000000003 \
+    curl http://localhost:8181/api/DEFAULT/customer/transaction/00000000-0000-1111-0000-000000000003 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -681,467 +630,31 @@ Example Response
       "pointsEarned": 6.9
     }
 
-
-
-Get a list of transactions (seller)
------------------------------------
-
-To get a complete or filtered list of transactions
-you need to call the ``/api/seller/transaction`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET /api/seller/transaction
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerData_name                   | query          | *(optional)* Customer Name                        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerData_email                  | query          | *(optional)* Customer Email                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerData_phone                  | query          | *(optional)* Customer Phone                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerId                          | query          | *(optional)* Customer ID                          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| documentType                        | query          | *(optional)* Document Type                        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| documentNumber                      | query          | *(optional)* Document Number                      |
-+-------------------------------------+----------------+---------------------------------------------------+
-| posId                               | query          | *(optional)* POS ID                               |
-+-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDateFrom                    | query          | *(optional)* purchase date's lower limit          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDateTo                      | query          | *(optional)* purchase date's upper limit          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| grossValueFrom                      | query          | *(optional)* transaction gross value lower limit  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| grossValueTo                        | query          | *(optional)* transaction gross value upper limit  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| page                                | query          | *(optional)* Start from page, by default 1        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| perPage                             | query          | *(optional)* Number of items to display per page, |
-|                                     |                | by default = 10                                   |
-+-------------------------------------+----------------+---------------------------------------------------+
-| sort                                | query          | *(optional)* Sort by column name                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
-|                                     |                | by default = ASC                                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/transaction\
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "transactions": [
-         {
-      "grossValue": 3,
-      "transactionId": "00000000-0000-1111-0000-000000000004",
-      "documentNumber": "789",
-      "purchaseDate": "2018-02-20T09:45:04+0100",
-      "purchasePlace": "wroclaw",
-      "documentType": "sell",
-      "customerId": "00000000-0000-474c-b092-b0dd880c07e2",
-      "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
-      "customerData": {
-        "email": "user-temp@example.com",
-        "name": "Jan Nowak",
-        "nip": "aaa",
-        "phone": "123",
-        "loyaltyCardNumber": "sa2222",
-        "address": {
-          "street": "Bagno",
-          "address1": "12",
-          "province": "Mazowieckie",
-          "city": "Warszawa",
-          "postal": "00-800",
-          "country": "PL"
-        }
-      },
-      "labels": [
-        {
-          "key": "scan_id",
-          "value": "123"
-        }
-      ],
-      "items": [
-        {
-          "sku": {
-            "code": "SKU1"
-          },
-          "name": "item 1",
-          "quantity": 1,
-          "grossValue": 1,
-          "category": "aaa",
-          "maker": "sss",
-          "labels": [
-            {
-              "key": "test",
-              "value": "label"
-            },
-            {
-              "key": "test",
-              "value": "label2"
-            }
-          ]
-        },
-        {
-          "sku": {
-            "code": "SKU2"
-          },
-          "name": "item 2",
-          "quantity": 2,
-          "grossValue": 2,
-          "category": "bbb",
-          "maker": "ccc",
-          "labels": []
-        }
-      ],
-      "currency": "eur"
-    },
-    {
-      "grossValue": 3,
-      "transactionId": "00000000-0000-1111-0000-000000000002",
-      "documentNumber": "345",
-      "purchaseDate": "2018-02-20T09:45:04+0100",
-      "purchasePlace": "wroclaw",
-      "documentType": "sell",
-      "customerId": "57524216-c059-405a-b951-3ab5c49bae14",
-      "customerData": {
-        "email": "open@example.com",
-        "name": "Jan Nowak",
-        "nip": "aaa",
-        "phone": "123",
-        "loyaltyCardNumber": "sa2222",
-        "address": {
-          "street": "Bagno",
-          "address1": "12",
-          "province": "Mazowieckie",
-          "city": "Warszawa",
-          "postal": "00-800",
-          "country": "PL"
-        }
-      },
-      "labels": [
-        {
-          "key": "scan_id",
-          "value": "222"
-        }
-      ],
-      "items": [
-        {
-          "sku": {
-            "code": "SKU1"
-          },
-          "name": "item 1",
-          "quantity": 1,
-          "grossValue": 1,
-          "category": "aaa",
-          "maker": "sss",
-          "labels": [
-            {
-              "key": "test",
-              "value": "label"
-            },
-            {
-              "key": "test",
-              "value": "label2"
-            }
-          ]
-        },
-        {
-          "sku": {
-            "code": "SKU2"
-          },
-          "name": "item 2",
-          "quantity": 2,
-          "grossValue": 2,
-          "category": "bbb",
-          "maker": "ccc",
-          "labels": []
-        }
-      ],
-      "currency": "eur",
-      "pointsEarned": 6
-        }
-      ],
-      "total": 2
-    }
-
-
-
-Get customer's transactions (seller)
-------------------------------------
-
-To retrieve a list of customer transactions, you need to call the ``/api/seller/transaction/customer/<customer>`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-     GET  /api/seller/transaction/customer/<customer>
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| <customer>                          | query          | Customer ID                                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| documentNumber                      | query          | *(optional)* Filter by Document Number            |
-+-------------------------------------+----------------+---------------------------------------------------+
-| page                                | query          | *(optional)* Start from page, by default 1        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| perPage                             | query          | *(optional)* Number of items to display per page, |
-|                                     |                | by default = 10                                   |
-+-------------------------------------+----------------+---------------------------------------------------+
-| sort                                | query          | *(optional)* Sort by column name                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
-|                                     |                | by default = ASC                                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/transaction/customer/4b32a723-9923-46fc-a2bc-d09767e5e59b \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "transactions": [
-        {
-          "grossValue": 2200,
-          "transactionId": "c13e4e89-2e9a-482d-8ab0-41a8eb9927ed",
-          "documentNumber": "214124124130",
-          "purchaseDate": "2017-08-23T00:00:00+0200",
-          "documentType": "return",
-          "customerId": "4b32a723-9923-46fc-a2bc-d09767e5e59b",
-          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
-          "customerData": {
-            "email": "tomasztest8@wp.pl",
-            "name": "Firstname+Lastname",
-            "nip": "00000000000000",
-            "phone": "00000000000000",
-            "loyaltyCardNumber": "11111111111",
-            "address": {
-              "street": "Street+name",
-              "address1": "123",
-              "province": "Dolnoslaskie",
-              "city": "Wroclaw",
-              "postal": "00-000",
-              "country": "PL"
-            }
-          },
-          "labels": [
-            {
-              "key": "scan_id",
-              "value": "333"
-            }
-          ],
-          "items": [
-            {
-              "sku": {
-                "code": "test0101"
-              },
-              "name": "Product+name",
-              "quantity": 1,
-              "grossValue": 2200,
-              "category": "Category+Name",
-              "maker": "Marker+name",
-              "labels": [
-                {
-                  "key": "Label+key",
-                  "value": "Label+value"
-                }
-              ]
-            }
-          ],
-          "excludedLevelCategories": [
-            "category_excluded_from_level"
-          ],
-          "currency": "eur"
-        }
-      ],
-      "total": 1
-    }
-
-
-
-Get transactions with provided document number (seller)
--------------------------------------------------------
-
-To retrieve a list of transactions with provided document number, you need to call the ``/api/seller/transaction/<documentNumber>`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET /api/seller/transaction/<documentNumber>
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| <documentNumber>                    | query          | Document Number ID                                |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/transaction/214124124125 \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-.. note::
-
-    This endpoint uses *documentNumber*, your *internal* identifier of a transaction.
-    This is not the same as *transactionId* and should be easier to find for the merchant.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "transactions": [
-        {
-          "grossValue": 1500,
-          "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433",
-          "documentNumber": "214124124125",
-          "purchaseDate": "2017-08-22T00:00:00+0200",
-          "documentType": "sell",
-          "customerId": "4b32a723-9923-46fc-a2bc-d09767e5e59b",
-          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
-          "customerData": {
-            "email": "tomasztest8@wp.pl",
-            "name": "Firstname+Lastname",
-            "nip": "00000000000000",
-            "phone": "00000000000000",
-            "loyaltyCardNumber": "11111111111",
-            "address": {
-              "street": "Street+name",
-              "address1": "123",
-              "province": "Dolnoslaskie",
-              "city": "Wroclaw",
-              "postal": "00-000",
-              "country": "PL"
-            }
-          },
-          "labels": [
-            {
-              "key": "scan_id",
-              "value": "123"
-            }
-          ],
-          "items": [
-            {
-              "sku": {
-                "code": "test0101"
-              },
-              "name": "Product+name",
-              "quantity": 1,
-              "grossValue": 1500,
-              "category": "Category+Name",
-              "maker": "Marker+name",
-              "labels": [
-                {
-                  "key": "Label+key",
-                  "value": "Label+value"
-                }
-              ]
-            }
-          ],
-          "excludedLevelCategories": [
-            "category_excluded_from_level"
-          ],
-          "currency": "eur"
-        }
-      ],
-      "total": 1
-    }
-
-
-
 Get a list of transactions
 --------------------------
 
-To retrieve a complete or filtered list of transactions, you need to call the ``/api/transaction`` endpoint with the ``GET`` method.
+To retrieve a complete or filtered list of transactions, you need to call the ``/api/<storeCode>/transaction`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET  /api/transaction
+    GET  /api/<storeCode>/transaction
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to get transactions from.       |
++-------------------------------------+----------------+---------------------------------------------------+
+| _page                               | query          | *(optional)* Start from page, by default 1        |
++-------------------------------------+----------------+---------------------------------------------------+
+| _itemsOnPage                        | query          | *(optional)* Number of items to display per page, |
+|                                     |                | by default = 10                                   |
++-------------------------------------+----------------+---------------------------------------------------+
+| _orderBy                            | query          | *(optional)* Sort by column name                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -1159,28 +672,12 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | posId                               | query          | *(optional)* POS ID                               |
 +-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDateFrom                    | query          | *(optional)* purchase date's lower limit          |
+| purchaseDate                        | query          | *(optional)* purchase date's limit                |
 +-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDateTo                      | query          | *(optional)* purchase date's upper limit          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| grossValueFrom                      | query          | *(optional)* transaction gross value lower limit  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| grossValueTo                        | query          | *(optional)* transaction gross value upper limit  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| page                                | query          | *(optional)* Start from page, by default 1        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| perPage                             | query          | *(optional)* Number of items to display per page, |
-|                                     |                | by default = 10                                   |
-+-------------------------------------+----------------+---------------------------------------------------+
-| sort                                | query          | *(optional)* Sort by column name                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
-|                                     |                | by default = ASC                                  |
+| grossValue                          | query          | *(optional)* transaction gross value limit        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | labels                              | query          | *(optional)* Filter transactions by labels.       |
-|                                     |                | Format "labels[0][key]=label_key                  |
-|                                     |                | & labels[0][value]=first_value                    |
-|                                     |                | & labels[1][key]=another_key"                     |
+|                                     |                | Format "labels[eq]=(key1;value1),(key2;value2),"  |
 +-------------------------------------+----------------+---------------------------------------------------+
 
 Example
@@ -1188,7 +685,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/transaction \
+    curl http://localhost:8181/api/DEFAULT/transaction \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1350,21 +847,23 @@ Example Response
 Register a new transaction
 --------------------------
 
-To register a new transaction, you need to call the ``/api/transaction`` endpoint with the ``POST`` method.
+To register a new transaction, you need to call the ``/api/<storeCode>/transaction`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST  /api/transaction
+    POST  /api/<storeCode>/transaction
 
 +----------------------------------------------+----------------+---------------------------------------------------+
 | Parameter                                    | Parameter type | Description                                       |
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[transactionData][documentType]   | query          | Document type for Transaction Data, 2 possible    | 
+| <storeCode>                                  | query          | Code of the store to add transaction to.          |
++----------------------------------------------+----------------+---------------------------------------------------+
+| transaction[transactionData][documentType]   | query          | Document type for Transaction Data, 2 possible    |
 |                                              |                | values: return, sell                              |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[transactionData][documentNumber] | query          | Document number                                   |
@@ -1433,7 +932,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/transaction \
+    curl http://localhost:8181/api/DEFAULT/transaction \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1484,19 +983,21 @@ Example Response
 Update transaction labels
 -------------------------
 
-To update transaction labels, you need to log in as admin and call the ``/api/admin/transaction/labels`` endpoint with the ``POST`` method.
+To update transaction labels, you need to log in as admin and call the ``/api/<storeCode>/admin/transaction/labels`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST  /api/admin/transaction/labels
+    POST  /api/<storeCode>/admin/transaction/labels
 
 +----------------------------------------------+----------------+---------------------------------------------------+
 | Parameter                                    | Parameter type | Description                                       |
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
++----------------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                                  | query          | Code of the store the transaction belongs to.     |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction_labels[transactionId]            | query          | Transaction ID                                    |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1514,7 +1015,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/transaction/labels \
+    curl http://localhost:8181/api/DEFAULT/admin/transaction/labels \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1546,7 +1047,7 @@ Example Response
 Add new transaction labels as customer
 --------------------------------------
 
-To update transaction labels, you need to log in as a customer and call the ``/api/customer/transaction/labels/append`` endpoint with the ``PUT`` method.
+To update transaction labels, you need to log in as a customer and call the ``/api/<storeCode>/customer/transaction/labels/append`` endpoint with the ``PUT`` method.
 A customer can only add new labels to transactions which are assigned to them.
 
 Definition
@@ -1554,12 +1055,14 @@ Definition
 
 .. code-block:: text
 
-    PUT  /api/customer/transaction/labels/append
+    PUT  /api/<storeCode>/customer/transaction/labels/append
 
 +----------------------------------------------+----------------+---------------------------------------------------+
 | Parameter                                    | Parameter type | Description                                       |
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
++----------------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                                  | query          | Code of the store the customer belongs to.        |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | append[transactionDocumentNumber]            | query          | Transaction document number                       |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1577,7 +1080,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/transaction/labels/append \
+    curl http://localhost:8181/api/DEFAULT/customer/transaction/labels/append \
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1604,82 +1107,24 @@ Example Response
       "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433"
     }
 
-
-
-Get available item labels
--------------------------
-
-To retrieve available labels, you need to call the ``/api/transaction/item/labels`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET /api/transaction/item/labels
-
-+----------------------------------------------+----------------+---------------------------------------------------+
-| Parameter                                    | Parameter type | Description                                       |
-+==============================================+================+===================================================+
-| Authorization                                | header         | Token received during authentication              |
-+----------------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/transaction/item/labels \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-.. note::
-
-    The *label* and *label2* are example values. You can name labels as you wish.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "labels": {
-        "test": [
-          "label",
-          "label2"
-        ]
-      }
-    }
-
-
-
 Number of points which can be obtained after registering given transaction
 --------------------------------------------------------------------------
 
-To retrieve the number of points which can be obtained after registering a given transaction, you need to call the ``/api/transaction/simulate`` endpoint with the ``POST`` method.
+To retrieve the number of points which can be obtained after registering a given transaction, you need to call the ``/api/<storeCode>/transaction/simulate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/transaction/simulate
+    POST /api/<storeCode>/transaction/simulate
 
 +----------------------------------------------+----------------+---------------------------------------------------+
 | Parameter                                    | Parameter type | Description                                       |
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
++----------------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                                  | query          | Code of the store to simulate transaction in.     |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[items][][sku][code]              | query          | SKU code                                          |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1729,7 +1174,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/transaction/simulate \
+    curl http://localhost:8181/api/DEFAULT/transaction/simulate \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1768,19 +1213,21 @@ Example Response
 Get transaction details (admin)
 -------------------------------
 
-To get transaction details, you need to call the ``/api/transaction/<transaction>`` endpoint with the ``GET`` method.
+To get transaction details, you need to call the ``/api/<storeCode>/transaction/<transaction>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET  /api/transaction/<transaction>
+    GET  /api/<storeCode>/transaction/<transaction>
 
 +----------------------------------------------+----------------+---------------------------------------------------+
 | Parameter                                    | Parameter type | Description                                       |
 +==============================================+================+===================================================+
 | Authorization                                | header         | Token received during authentication              |
++----------------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                                  | query          | Code of the store the transaction belongs to.     |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | <transaction>                                | query          | Transaction ID                                    |
 +----------------------------------------------+----------------+---------------------------------------------------+
@@ -1792,7 +1239,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/transaction/00000000-0000-1111-0000-000000000005 \
+    curl http://localhost:8181/api/DEFAULT/transaction/00000000-0000-1111-0000-000000000005 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \

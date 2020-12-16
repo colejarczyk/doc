@@ -132,7 +132,6 @@ Defines access to the :doc:`Customers  </userguide/customers/index>` section and
     To enable full customer account edition & creation, and display all Customer profile details, you must have at least an **View access** to the following: 
      - *Levels* - to assign level and display in Profile details
      - *POS* - to assign POS and display in Profile details
-     - *Merchants* - to assign merchant and display in Profile details
      - *Segments* - to display segments to which customer belongs in Profile details 
      - *Transactions* - to display all customer registered transactions in Profile details 
      - *Points transfers* - to display all customer adding/spending points transfer in Profile details 
@@ -141,7 +140,7 @@ Defines access to the :doc:`Customers  </userguide/customers/index>` section and
     If there is no access to any of this section, then you can not see options or tabs. 
 
 .. image:: /userguide/_images/acl_customer.PNG
-   :alt:   No levels, merchants and pos access 
+   :alt:   No levels and pos access
 
 
 .. warning:: 
@@ -255,43 +254,7 @@ Defines access to the :doc:`Levels  </userguide/levels/index>` section and its i
 
 .. warning:: 
 
-    Remember, that granting *View* access for Customers section (to enable customer details preview), you give an access to the entire Customers menu section (in accordance with the permissions listed in the Customers table in *View* column) 
-
-
-Merchants
-^^^^^^^^^^^^^^
-
-Defines access to the :doc:`Merchants  </userguide/merchants/index>` section and its individual menu elements
-
-+----------------------------------------------+-----------------------------------------+
-| VIEW                                         | MODIFY**                                |
-+==============================================+=========================================+
-|- Merchants list preview*                     | All **View** permissions, and more:     |     
-|- Filter and sorting options of merchant list |                                         |
-|                                              | - Creating merchant account**           |
-|                                              | - Updating merchant account**           |
-|                                              | - Activate/Deactivate Merchant account**|
-|                                              | - Remove merchant account**             | 
-+----------------------------------------------+-----------------------------------------+
-
-.. tip:: 
-
-    **Merchants list preview***
-    
-    Even if User has no access to the POS sections, in *All merchants* grid information about assigne POS will be visible  
-
-.. note:: 
-
-    **Merchant Modify access**** 
-    
-    To enable all **Modify access** permissions you must have **POS Modify access**. 
-    
-    If there is no or only view POS access, then you have only Merchant *View* permissions. 
-
-.. warning:: 
-
-    Remember, that granting *Modify* access for POS section (to enable Merchant modify access), you give an access to the entire POS menu section (in accordance with the permissions listed in the POS table in *Modify* column) 
-
+    Remember, that granting *View* access for Customers section (to enable customer details preview), you give an access to the entire Customers menu section (in accordance with the permissions listed in the Customers table in *View* column)
     
 
 Points transfers

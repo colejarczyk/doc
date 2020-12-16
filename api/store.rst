@@ -7,7 +7,7 @@ These endpoints will allow you to see the list of stores in Open Loyalty.
 Get store details
 -----------------
 
-To retrieve the details of a store, you need to call the ``/api/store/{store}`` endpoint with the ``GET`` method.
+To retrieve the details of a store, you need to call the ``/api/store/<store>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -70,7 +70,7 @@ Example Response
 Update a store
 --------------
 
-To update a store, you need to call the ``/api/store/{store}`` endpoint with the ``PUT`` method.
+To update a store, you need to call the ``/api/store/<store>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^

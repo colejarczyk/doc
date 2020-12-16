@@ -63,8 +63,7 @@ Open Loyalty has context which is basically three different types of users.
 
 There is an admin context who is responsible for managing whole loyalty platform.
 
-Second context is a customer context, a person who registered to the loyalty program and the third last context is a
-seller. It’s usually a merchant with physical store that is handling customer.
+Second context is a customer context, a person who registered to the loyalty program.
 
 Each context, an therefore each user, has different permissions and can use different API endpoints.
 
@@ -72,7 +71,7 @@ API assumptions
 ---------------
 
 API and it’s naming follows convention from contexts by prefixing their names. So only the customer can
-use ``/api/customer`` and seller can use ``/api/seller``.
+use ``/api/customer``.
 
 If an endpoint is prefixed with ``/api/admin`` or is not prefixed with any context, by default is available only
 for an administrator.

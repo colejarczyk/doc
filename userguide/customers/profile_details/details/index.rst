@@ -9,7 +9,6 @@ Account
    segments
    level
    pos
-   merchant
   
    
 .. include:: /userguide/customers/profile_details/details/map.rst.inc

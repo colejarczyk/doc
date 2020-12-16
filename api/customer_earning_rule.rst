@@ -12,19 +12,21 @@ These endpoints will allow you to easily viewing active earning rules.
 Return all active earning rules
 -------------------------------
 
-To view active earning rules, you need to call the ``/api/customer/earningRule`` endpoint with the ``GET`` method.
+To view active earning rules, you need to call the ``/api/<storeCode>/customer/earningRule`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET  /api/customer/earningRule
+    GET  /api/<storeCode>/customer/earningRule
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store to get the earning rules from.               |
 +------------------------------------+----------------+----------------------------------------------------------------+
 
 Example
@@ -32,7 +34,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/earningRule \
+    curl http://localhost:8181/api/DEFAULT/customer/earningRule \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -132,7 +134,7 @@ Example Response
 Use a custom event earning rule
 -------------------------------
 
-To trigger custom event earning rules, you need to call the ``/api/customer/earningRule/<eventName>`` endpoint with the ``POST`` method.
+To trigger custom event earning rules, you need to call the ``/api/<storeCode>/customer/earningRule/<eventName>`` endpoint with the ``POST`` method.
 
 
 Definition
@@ -140,12 +142,14 @@ Definition
 
 .. code-block:: text
 
-    POST  /api/customer/earningRule/<eventName>
+    POST  /api/<storeCode>/customer/earningRule/<eventName>
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         |  Token received during authentication                          |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the earning rule belongs to.                 |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | eventName                          | string         |  Name of custom event                                          |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -156,7 +160,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/earningRule/customerAttendedEvent \
+    curl http://localhost:8181/api/DEFAULT/customer/earningRule/customerAttendedEvent \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \

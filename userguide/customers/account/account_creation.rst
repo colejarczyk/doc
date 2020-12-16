@@ -6,11 +6,11 @@ Creating Customer account from admin panel
 
 Customers usually create their own accounts from your e-commerce site or using Customer Cockpit.
 
-However, you can also create customer account directly from the Admin or POS Cockpit, which is useful when customers order by phone or at a merchant location.
+However, you can also create customer account directly from the Admin, which is useful when customers order by phone or at a merchant location.
 
 .. note::
 
-    **The customer account created from the Admin or POS Cockpit has an active status instantly, so there is no need to activate the account by them**
+    **The customer account created from the Admin has an active status instantly, so there is no need to activate the account by them**
 
 .. image:: /userguide/_images/add_customer.png
    :alt:   New Customer Account Information
@@ -47,7 +47,6 @@ To create a New Customer Account:
  - Loyalty card number
  - Select level
  - Select POS
- - Select merchant
  - Select store
 
 .. warning::
@@ -148,8 +147,6 @@ Field description
 | Select level       | | Starting level assigning to customer                                |
 +--------------------+-----------------------------------------------------------------------+
 | Select POS         | | POS which will be linked to the customer                            |
-+--------------------+-----------------------------------------------------------------------+
-| Select merchant    | | Merchant account, which will be linked to the customer              |
 +--------------------+-----------------------------------------------------------------------+
 | Select store       | | Store linked to the level                                           |
 +--------------------+-----------------------------------------------------------------------+

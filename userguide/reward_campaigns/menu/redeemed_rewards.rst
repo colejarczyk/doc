@@ -118,15 +118,6 @@ Field description
 |                           |   :doc:`Gift fulfillment </userguide/reward_campaigns/creation/fulfillment_tracking>`    |
 |                           |   tracking process section                                                               |
 +---------------------------+------------------------------------------------------------------------------------------+
-|   Cashback status         | | Redeemed cashback rewards statuses                                                     |
-|                           | | Rewards of types other than *Cashback* have a dash in this field.                      |
-|                           | | For **Cashback** reward with PayTM provider, the following statuses are possible:      |
-|                           |                                                                                          |
-|                           |   - 0: INIT: INIT                                                                        |
-|                           |   - 1: SUCCESS: SUCCESS                                                                  |
-|                           |   - 2: (failure code): (failure message)                                                 |
-|                           |   - 3: (code): (reason for pending)                                                      |
-+---------------------------+------------------------------------------------------------------------------------------+
 |   Unused / Used           | | Redeemed reward statuses.                                                              |
 |                           | | **Options include**:                                                                   |
 |                           |                                                                                          |

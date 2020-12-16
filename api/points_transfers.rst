@@ -7,19 +7,21 @@ These endpoints will allow you to easily manage Points transfers.
 Get a complete list of Points transfers
 ---------------------------------------
 
-To retrieve a paginated list of Points transfers, you need to call the ``/api/points/transfer`` endpoint with the ``GET`` method.
+To retrieve a paginated list of Points transfers, you need to call the ``/api/<storeCode>/points/transfer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET  /api/points/transfer
+    GET  /api/<storeCode>/points/transfer
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to get points transfers from.   |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerFirstName                   | query          | *(optional)* First Name                           |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -31,29 +33,40 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerId                          | query          | *(optional)* Customer ID                          |
 +-------------------------------------+----------------+---------------------------------------------------+
-| state[]                             | query          | *(optional)* Possible values: active, expired     |
+| customerLoyaltyCardNumber           | query          | *(optional)* Customer's loyalty card number       |
++-------------------------------------+----------------+---------------------------------------------------+
+| state                               | query          | *(optional)* Possible values: canceled, active,   |
+|                                     | query          | expired, pending                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | type                                | query          | *(optional)* Possible values: adding, spending,   |
-|                                     |                | p2p_adding, p2p_spending                          |
+|                                     |                | p2p_adding, p2p_spending, blocked                 |
 +-------------------------------------+----------------+---------------------------------------------------+
-| page                                | query          | *(optional)* Start from page, by default 1        |
+| value                               | query          | *(optional)*                                      |
 +-------------------------------------+----------------+---------------------------------------------------+
-| perPage                             | query          | *(optional)* Number of items to display per page, |
+| comment                             | query          | *(optional)*                                      |
++-------------------------------------+----------------+---------------------------------------------------+
+| issuer                              | query          | *(optional)*                                      |
++-------------------------------------+----------------+---------------------------------------------------+
+| createdAt                           | query          | *(optional)*                                      |
++-------------------------------------+----------------+---------------------------------------------------+
+| lockedUntil                         | query          | *(optional)*                                      |
++-------------------------------------+----------------+---------------------------------------------------+
+| expiresAt                           | query          | *(optional)*                                      |
++-------------------------------------+----------------+---------------------------------------------------+
+| _page                               | query          | *(optional)* Start from page, by default 1        |
++-------------------------------------+----------------+---------------------------------------------------+
+| _itemsOnPage                        | query          | *(optional)* Number of items to display per page, |
 |                                     |                | by default = 10                                   |
 +-------------------------------------+----------------+---------------------------------------------------+
-| sort                                | query          | *(optional)* Sort by column name                  |
+| _orderBy                            | query          | *(optional)* Sort by column name                  |
 +-------------------------------------+----------------+---------------------------------------------------+
-| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
-|                                     |                | by default = ASC                                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/points/transfer \
+    curl http://localhost:8181/api/DEFAULT/points/transfer \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -153,174 +166,24 @@ Example Response
         "total": 2
     }
 
-
-Get a complete list of Points transfers (seller)
-------------------------------------------------
-
-To retrieve a paginated list of Points transfers, you need to call the ``/api/seller/points/transfer`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET  /api/seller/points/transfer
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerFirstName                   | query          | *(optional)* First Name                           |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerLastName                    | query          | *(optional)* Last Name                            |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerPhone                       | query          | *(optional)* Customer Phone                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerEmail                       | query          | *(optional)* Customer Email                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| customerId                          | query          | *(optional)* Customer ID                          |
-+-------------------------------------+----------------+---------------------------------------------------+
-| state                               | query          | *(optional)* Possible values: active, expired,    |
-|                                     |                | pending                                           |
-+-------------------------------------+----------------+---------------------------------------------------+
-| type                                | query          | *(optional)* Possible values: adding, spending    |
-+-------------------------------------+----------------+---------------------------------------------------+
-| page                                | query          | *(optional)* Start from page, by default 1        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| perPage                             | query          | *(optional)* Number of items to display per page, |
-|                                     |                | by default = 10                                   |
-+-------------------------------------+----------------+---------------------------------------------------+
-| sort                                | query          | *(optional)* Sort by column name                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
-|                                     |                | by default = ASC                                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/points/transfer \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-        "transfers": [
-            {
-                "pointsTransferId": "cd470d77-a08e-4c62-9f47-da180524f683",
-                "accountId": "49a218ab-71ba-4f7f-8f4e-407df5f84b11",
-                "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
-                "customerFirstName": "John",
-                "customerLastName": "Doe",
-                "customerLoyaltyCardNumber": "47834433524",
-                "customerEmail": "user@example.com",
-                "customerPhone": "+48234234000",
-                "createdAt": "2018-09-13T16:37:33+0200",
-                "expiresAt": "2018-10-13T16:37:33+0200",
-                "value": 6.9,
-                "state": "active",
-                "type": "adding",
-                "transactionId": {
-                    "transactionId": "00000000-0000-1111-0000-000000000003"
-                },
-                "comment": "General spending rule - 2.3",
-                "issuer": "system",
-                "transactionDocumentNumber": "456",
-                "transaction": {
-                    "grossValue": 3,
-                    "items": [
-                        {
-                            "sku": {
-                                "code": "SKU1"
-                            },
-                            "name": "item 1",
-                            "quantity": 1,
-                            "grossValue": 1,
-                            "category": "aaa",
-                            "labels": [
-                                {
-                                    "key": "test",
-                                    "value": "label"
-                                },
-                                {
-                                    "key": "test",
-                                    "value": "label2"
-                                }
-                            ],
-                            "maker": "sss"
-                        },
-                        {
-                            "sku": {
-                                "code": "SKU2"
-                            },
-                            "name": "item 2",
-                            "quantity": 2,
-                            "grossValue": 2,
-                            "category": "bbb",
-                            "labels": [],
-                            "maker": "ccc"
-                        }
-                    ]
-                }
-            },
-            {
-                "pointsTransferId": "e82c96cf-32a3-43bd-9034-4df343e5f333",
-                "accountId": "cdcc55e9-cfab-4840-991d-0e0f25ba2141",
-                "customerId": "00000000-0000-474c-b092-b0dd880c07e2",
-                "customerFirstName": "Jane",
-                "customerLastName": "Doe",
-                "customerLoyaltyCardNumber": "0000",
-                "customerEmail": "user-temp@example.com",
-                "customerPhone": "+48345345000",
-                "createdAt": "2018-09-13T16:37:35+0200",
-                "expiresAt": "2018-09-13T16:37:35+0200",
-                "value": 100,
-                "state": "active",
-                "type": "spending",
-                "comment": "Example comment",
-                "issuer": "system"
-            }
-        ],
-        "total": 2
-    }
-
-
-
 Get a complete list of points transfers (customer)
 --------------------------------------------------
 
-To retrieve a paginated list of Points transfers, you need to call the ``/api/customer/points/transfer`` endpoint with the ``GET`` method.
+To retrieve a paginated list of Points transfers, you need to call the ``/api/<storeCode>/customer/points/transfer`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET  /api/customer/points/transfer
+    GET  /api/<storeCode>/customer/points/transfer
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer belongs to.        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | state                               | query          | *(optional)* Possible values: active, expired,    |
 |                                     |                | pending                                           |
@@ -343,7 +206,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/points/transfer \
+    curl http://localhost:8181/api/DEFAULT/customer/points/transfer \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -448,19 +311,21 @@ Example Response
 Add points to customer's account
 --------------------------------
 
-To add points, you need to call the ``/api/points/transfer/add`` endpoint with the ``POST`` method.
+To add points, you need to call the ``/api/<storeCode>/points/transfer/add`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/points/transfer/add
+    POST /api/<storeCode>/points/transfer/add
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer belongs to.        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[customer]                  | query          | Customer ID                                       |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -475,7 +340,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/points/transfer/add \
+    curl http://localhost:8181/api/DEFAULT/points/transfer/add \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -506,19 +371,21 @@ Example Response
 Spend customer's points
 -----------------------
 
-To spend a customer's points, you need to call the ``/api/points/transfer/spend`` endpoint with the ``POST`` method.
+To spend a customer's points, you need to call the ``/api/<storeCode>/points/transfer/spend`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/points/transfer/spend
+    POST /api/<storeCode>/points/transfer/spend
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer belongs to.        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[customer]                  | query          | Customer ID                                       |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -533,7 +400,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/points/transfer/spend \
+    curl http://localhost:8181/api/DEFAULT/points/transfer/spend \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -564,19 +431,21 @@ Example Response
 Transfer points between customers (admin)
 -----------------------------------------
 
-To transfer points between customers, you need to call the ``/api/admin/p2p-points-transfer`` endpoint with the ``POST`` method.
+To transfer points between customers, you need to call the ``/api/<storeCode>/admin/p2p-points-transfer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/p2p-points-transfer
+    POST /api/<storeCode>/admin/p2p-points-transfer
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store both customers belong to.       |
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[sender]                    | query          | email/phone or uuid of customer from whom points  |
 |                                     |                | will be transferred                               |
@@ -592,7 +461,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/p2p-points-transfer \
+    curl http://localhost:8181/api/DEFAULT/admin/p2p-points-transfer \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -628,19 +497,21 @@ Example Response
 Transfer points between customers (customer)
 --------------------------------------------
 
-To transfer points between a logged-in customer and another customer, you need to call the ``/api/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
+To transfer points between a logged-in customer and another customer, you need to call the ``/api/<storeCode>/customer/points/p2p-transfer`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/points/p2p-transfer
+    POST /api/<storeCode>/customer/points/p2p-transfer
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store both customers belong to.       |
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[receiver]                  | query          | email/phone or uuid of customer who will get      |
 |                                     |                | points                                            |
@@ -653,7 +524,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/points/p2p-transfer \
+    curl http://localhost:8181/api/DEFAULT/customer/points/p2p-transfer \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -688,19 +559,21 @@ Example Response
 Cancel specific points transfer
 -------------------------------
 
-To cancel a specific points transfer, you need to call the ``/api/points/transfer/<transfer>/cancel`` endpoint with the ``POST`` method.
+To cancel a specific points transfer, you need to call the ``/api/<storeCode>/points/transfer/<transfer>/cancel`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/points/transfer/<transfer>/cancel
+    POST /api/<storeCode>/points/transfer/<transfer>/cancel
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the point transfer was made in. |
 +-------------------------------------+----------------+---------------------------------------------------+
 | <transfer>                          | query          | Points transfer ID                                |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -710,7 +583,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/points/transfer/313cf0c1-5376-4f66-9de3-77943760423a/cancel \
+    curl http://localhost:8181/api/DEFAULT/points/transfer/313cf0c1-5376-4f66-9de3-77943760423a/cancel \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -737,19 +610,21 @@ Example Response
 Import point transfers
 ----------------------
 
-To import a file with points transfers, you need to call the ``/api/points/transfer/import`` endpoint with the ``POST`` method.
+To import a file with points transfers, you need to call the ``/api/<storeCode>/points/transfer/import`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/points/transfer/import
+    POST /api/<storeCode>/points/transfer/import
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the transfers will be made in.  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | file[file]                          | query          | XML file                                          |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -759,7 +634,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/points/transfer/import \
+    curl http://localhost:8181/api/DEFAULT/points/transfer/import \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -797,151 +672,30 @@ Example Response
       "totalFailed": 0
     }
 
-
-
-Add points to customer's account (seller)
------------------------------------------
-
-To add points to a customer's account as a seller, you need to call the ``/api/pos/points/transfer/add`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/pos/points/transfer/add
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer[customer]                  | query          | Customer ID                                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer[points]                    | query          | How many points customer can get                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer[comment]                   | query          | *(optional)* Comment                              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer[validityDuration]          | query          | *(optional)* Validity of points given in days     |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer                            | query          | *(optional)* Points transfer ID                   |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/pos/points/transfer/add \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "transfer[customer]=b9af6a8c-9cc5-4924-989c-e4af614ab2a3" \
-        -d "transfer[points]=10"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "pointsTransferId": "481b60c5-ccba-4ce9-9b40-2567513cb555"
-    }
-
-
-
-Spend customer points (seller)
-------------------------------
-
-To spend customer points as a seller, you need to call the ``/api/pos/points/transfer/spend`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/pos/points/transfer/spend
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer[customer]                  | query          | Customer ID                                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer[points]                    | query          | How many points customer can spend                |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer[comment]                   | query          | *(optional)* Comment                              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| transfer[validityDuration]          | query          | *(optional)* Validity of points given in days     |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/pos/points/transfer/spend \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "transfer[customer]=b9af6a8c-9cc5-4924-989c-e4af614ab2a3" \
-        -d "transfer[points]=1"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "pointsTransferId": "ff4698aa-5d3b-4b58-952e-90d08fe94e30"
-    }
-
 Points transfers histogram
 --------------------------
 
-To get information about points transfers histogram, you need to call the
-``/api/points/transfers`` endpoint with the ``GET`` method.
+To get information about points transfers histogram, you need to call the ``/api/<storeCode>/points/transfers`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/points/transfers
+    GET /api/<storeCode>/points/transfers
 
 +------------------------------------+----------------+----------------------------------------------------------------+
 | Parameter                          | Parameter type |  Description                                                   |
 +====================================+================+================================================================+
 | Authorization                      | header         | Token received during authentication                           |
 +------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | request        | Filter result by given store                                   |
++------------------------------------+----------------+----------------------------------------------------------------+
 | <interval>                         | request        | Group result by (day|month|year)                               |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <lastDays>                         | request        | Display data in last days                                      |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <futureDays>                       | request        | Display data to X future days                                  |
-+------------------------------------+----------------+----------------------------------------------------------------+
-| <storeCode>                        | request        | Filter result by given store                                   |
 +------------------------------------+----------------+----------------------------------------------------------------+
 | <pointType>                        | request        | Type of point (earned, spent, expired, pending)                |
 +------------------------------------+----------------+----------------------------------------------------------------+
@@ -951,7 +705,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/points/transfers \
+    curl http://localhost:8181/api/DEFAULT/points/transfers \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1010,20 +764,22 @@ Block points on customer's account
 ----------------------------------
 
 The administrator can block points on a customer's account in order to prevent them from spending them. To block points, you need to
-call the ``/api/points/transfer/block`` endpoint with the ``POST`` method. In order to unblock points, you need to
-use the ``/api/points/transfer/<transfer>/cancel`` endpoint.
+call the ``/api/<storeCode>/points/transfer/block`` endpoint with the ``POST`` method. In order to unblock points, you need to
+use the ``/api/<storeCode>/points/transfer/<transfer>/cancel`` endpoint.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/points/transfer/block
+    POST /api/<storeCode>/points/transfer/block
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer belongs to.        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | transfer[customer]                  | query          | Customer ID                                       |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -1038,7 +794,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/points/transfer/block \
+    curl http://localhost:8181/api/DEFAULT/points/transfer/block \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \

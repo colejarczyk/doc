@@ -8,19 +8,21 @@ These endpoints will allow you to see the CSVs in Open Loyalty.
 Get CSV of customers assigned to a specific level
 -------------------------------------------------
 
-To retrieve a CSV of customers assigned to a level,, you need to call the ``/api/csv/level/<level>`` endpoint with the ``GET`` method.
+To retrieve a CSV of customers assigned to a level, you need to call the ``/api/<storeCode>/csv/level/<level>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/csv/level/<level>
+    GET /api/<storeCode>/csv/level/<level>
 
 +----------------------------------+----------------+------------------------------------------------------------------+
 | Parameter                        | Parameter type |  Description                                                     |
 +==================================+================+==================================================================+
 | Authorization                    | header         | Token received during authentication                             |
++----------------------------------+----------------+------------------------------------------------------------------+
+| <storeCode>                      | query          | Code of the store to get CSV of customers.                       |
 +----------------------------------+----------------+------------------------------------------------------------------+
 | <level>                          | query          |  Level ID                                                        |
 +----------------------------------+----------------+------------------------------------------------------------------+
@@ -30,7 +32,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/csv/level/000096cf-32a3-43bd-9034-4df343e5fd93 \
+    curl http://localhost:8181/api/DEFAULT/csv/level/000096cf-32a3-43bd-9034-4df343e5fd93 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -62,19 +64,21 @@ Example Response
 Get CSV of customers assigned to a specific segment
 ---------------------------------------------------
 
-To retrieve a CSV of customers assigned to a segment, you need to call the ``/api/csv/segment/<segment>`` endpoint with the ``GET`` method.
+To retrieve a CSV of customers assigned to a segment, you need to call the ``/api/<storeCode>/csv/segment/<segment>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/csv/segment/<segment>
+    GET /api/<storeCode>/csv/segment/<segment>
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store to get CSV of customers.             |
 +----------------------+----------------+--------------------------------------------------------+
 | <segment>            | query          | Segment ID                                             |
 +----------------------+----------------+--------------------------------------------------------+
@@ -85,7 +89,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/csv/segment/63afec60-5e74-43fc-a5e1-81bbc03421ca \
+    curl http://localhost:8181/api/DEFAULT/csv/segment/63afec60-5e74-43fc-a5e1-81bbc03421ca \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \

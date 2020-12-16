@@ -9,19 +9,21 @@ Password reset request (customer)
 ---------------------------------
 
 Invoking this method will send a message to the user with a password reset URL.
-You need to call the ``/api/customer/password/reset/request`` endpoint with the ``POST`` method.
+You need to call the ``/api/<storeCode>/customer/password/reset/request`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/password/reset/request
+    POST /api/<storeCode>/customer/password/reset/request
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer belongs to.        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | username                            | string         | Customer's e-mail address                         |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -31,7 +33,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/password/reset/request \
+    curl http://localhost:8181/api/DEFAULT/customer/password/reset/request \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -123,19 +125,21 @@ Example Response
 Change logged-in customer's password
 ------------------------------------
 
-To change a logged-in customer's password, you need to call the ``/api/customer/password/change`` endpoint with the ``POST`` method.
+To change a logged-in customer's password, you need to call the ``/api/<storeCode>/customer/password/change`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/customer/password/change
+    POST /api/<storeCode>/customer/password/change
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer belongs to.        |
 +-------------------------------------+----------------+---------------------------------------------------+
 | currentPassword                     | query          | Current password                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -147,7 +151,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/customer/password/change \
+    curl http://localhost:8181/api/DEFAULT/customer/password/change \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -180,86 +184,24 @@ Example Response
       "success": true
     }
 
-
-
-Change logged-in seller's password
-----------------------------------
-
-To change a logged-in seller's password, you need to call the ``/api/seller/password/change`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/seller/password/change
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| currentPassword                     | query          | Current password                                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| plainPassword                       | query          | New password                                      |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/password/change \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "currentPassword=example123!@#" \
-        -d "plainPassword=example321!@#"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-.. note::
-
-     Your password must be at least 8 characters long.
-     Your password must include both upper and lower case letters.
-     Your password must include at least one number.
-     Your password must contain at least one special character.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "success": true
-    }
-
-
-
 Change logged-in admin's password
 ---------------------------------
 
-To change a logged-in admin's password, you need to call the ``/api/admin/password/change`` endpoint with the ``POST`` method.
+To change a logged-in admin's password, you need to call the ``/api/<storeCode>/admin/password/change`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/admin/password/change
+    POST /api/<storeCode>/admin/password/change
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to chance password.             |
 +-------------------------------------+----------------+---------------------------------------------------+
 | currentPassword                     | query          | Current password                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -271,7 +213,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/admin/password/change \
+    curl http://localhost:8181/api/DEFAULT/admin/password/change \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \

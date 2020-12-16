@@ -8,19 +8,21 @@ These endpoints will allow you to see the list of levels taken in Open Loyalty.
 Get the complete list of levels
 -------------------------------
 
-To retrieve a paginated list of levels, you need to call the ``/api/level`` endpoint with the ``GET`` method.
+To retrieve a paginated list of levels, you need to call the ``/api/<storeCode>/level`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/level
+    GET /api/<storeCode>/level
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store to get levels of.                    |
 +----------------------+----------------+--------------------------------------------------------+
 | page                 | query          | *(optional)* Start from page, by default 1             |
 +----------------------+----------------+--------------------------------------------------------+
@@ -39,7 +41,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level \
+    curl http://localhost:8181/api/DEFAULT/level \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -136,19 +138,21 @@ Example Response
 Create a new level
 ------------------
 
-To create a new level, you need to call the ``/api/level/create`` endpoint with the ``POST`` method.
+To create a new level, you need to call the ``/api/<storeCode>/level/create`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/level/create
+    POST /api/<storeCode>/level/create
 
 +--------------------------------------+----------------+--------------------------------------------------------------+
 | Parameter                            | Parameter type | Description                                                  |
 +======================================+================+==============================================================+
 | Authorization                        | header         | Token received during authentication                         |
++--------------------------------------+----------------+--------------------------------------------------------------+
+| <storeCode>                          | query          | Code of the store to create level in.                        |
 +--------------------------------------+----------------+--------------------------------------------------------------+
 | level[translations][en][name]        | request        | Level name in given locale.                                  |
 +--------------------------------------+----------------+--------------------------------------------------------------+
@@ -188,7 +192,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level/create \
+    curl http://localhost:8181/api/DEFAULT/level/create \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -237,19 +241,21 @@ Example Response
 Get level details
 -----------------
 
-To retrieve the details of a level, you need to call the ``/api/level/{level}`` endpoint with the ``GET`` method.
+To retrieve the details of a level, you need to call the ``/api/<storeCode>/level/<level>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/level/<level>
+    GET /api/<storeCode>/level/<level>
 
 +---------------+----------------+--------------------------------------+
 | Parameter     | Parameter type | Description                          |
 +===============+================+======================================+
 | Authorization | header         | Token received during authentication |
++---------------+----------------+--------------------------------------+
+| <storeCode>   | query          | Code of the store to get level from. |
 +---------------+----------------+--------------------------------------+
 | <level>       | query          | Level ID                             |
 +---------------+----------------+--------------------------------------+
@@ -261,7 +267,7 @@ To see the details of the level with id ``level = 000096cf-32a3-43bd-9034-4df343
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level/000096cf-32a3-43bd-9034-4df343e5fd93 \
+    curl http://localhost:8181/api/DEFAULT/level/000096cf-32a3-43bd-9034-4df343e5fd93 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -320,19 +326,21 @@ Example Response
 Edit existing level
 -------------------
 
-To edit an existing level, you need to call the ``/api/level/<level>`` endpoint with the ``PUT`` method.
+To edit an existing level, you need to call the ``/api/<storeCode>/level/<level>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT /api/level/<level>
+    PUT /api/<storeCode>/level/<level>
 
 +--------------------------------------+----------------+--------------------------------------------------------------+
 | Parameter                            | Parameter type | Description                                                  |
 +======================================+================+==============================================================+
 | Authorization                        | header         | Token received during authentication                         |
++--------------------------------------+----------------+--------------------------------------------------------------+
+| <storeCode>                          | query          | Code of the store the updated level belongs to.              |
 +--------------------------------------+----------------+--------------------------------------------------------------+
 | <level>                              | query          | Level ID                                                     |
 +--------------------------------------+----------------+--------------------------------------------------------------+
@@ -375,7 +383,7 @@ To change the level with id ``level = c343a12d-b4dd-4dee-b2cd-d6fe1b021115``, us
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level/c343a12d-b4dd-4dee-b2cd-d6fe1b021115 \
+    curl http://localhost:8181/api/DEFAULT/level/c343a12d-b4dd-4dee-b2cd-d6fe1b021115 \
         -X "PUT" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -424,19 +432,21 @@ Example Response
 Activate or deactivate level
 ----------------------------
 
-To activate or deactivate a level, you need to call the ``/api/level/<level>/activate`` endpoint with the ``POST`` method.
+To activate or deactivate a level, you need to call the ``/api/<storeCode>/level/<level>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/level/<level>/activate
+    POST /api/<storeCode>/level/<level>/activate
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the level belongs to.                                    |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | <level>                                        | query          |  Level ID                                                                  |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -449,7 +459,7 @@ To activate the level with id ``level = c343a12d-b4dd-4dee-b2cd-d6fe1b021115``, 
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level/c343a12d-b4dd-4dee-b2cd-d6fe1b021115/activate \
+    curl http://localhost:8181/api/DEFAULT/level/c343a12d-b4dd-4dee-b2cd-d6fe1b021115/activate \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -473,22 +483,24 @@ Example Response
 Delete a level
 --------------
 
-To remove a level from database, you need to call the ``/api/level/{level}`` endpoint with the ``DELETE`` method.
+To remove a level from database, you need to call the ``/api/<storeCode>/level/<level>`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/level/<level>
+    DELETE /api/<storeCode>/level/<level>
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <level>       | query          | Level ID                             |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+-----------------------------------------+
+| Parameter     | Parameter type | Description                             |
++===============+================+=========================================+
+| Authorization | header         | Token received during authentication    |
++---------------+----------------+-----------------------------------------+
+| <storeCode>   | query          | Code of the store the level belongs to. |
++---------------+----------------+-----------------------------------------+
+| <level>       | query          | Level ID                                |
++---------------+----------------+-----------------------------------------+
 
 Example
 ^^^^^^^
@@ -497,7 +509,7 @@ To remove the level with id ``level = 000096cf-32a3-43bd-9034-4df343e5fd93``, us
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level/000096cf-32a3-43bd-9034-4df343e5fd93 \
+    curl http://localhost:8181/api/DEFAULT/level/000096cf-32a3-43bd-9034-4df343e5fd93 \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -520,22 +532,24 @@ Example Response
 Get a list of customers assigned to specific level
 --------------------------------------------------
 
-To retrieve a list of customers assigned to a level, you need to call the ``/api/level/{level}/customers`` endpoint with the ``GET`` method.
+To retrieve a list of customers assigned to a level, you need to call the ``/api/<storeCode>/level/<level>/customers`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/level/<level>/customers
+    GET /api/<storeCode>/level/<level>/customers
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <level>       | query          | Level ID                             |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+-----------------------------------------+
+| Parameter     | Parameter type | Description                             |
++===============+================+=========================================+
+| Authorization | header         | Token received during authentication    |
++---------------+----------------+-----------------------------------------+
+| <storeCode>   | query          | Code of the store the level belongs to. |
++---------------+----------------+-----------------------------------------+
+| <level>       | query          | Level ID                                |
++---------------+----------------+-----------------------------------------+
 
 Example
 ^^^^^^^
@@ -544,7 +558,7 @@ To see the list of customers for the level with id ``level = 000096cf-32a3-43bd-
 
 .. code-block:: bash
     
-    curl http://localhost:8181/api/admin/level/000096cf-32a3-43bd-9034-4df343e5fd93/customers \
+    curl http://localhost:8181/api/DEFAULT/admin/level/000096cf-32a3-43bd-9034-4df343e5fd93/customers \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -594,275 +608,27 @@ Example Response
       "total": 4
     }
 
-
-Get complete list of levels (seller)
-------------------------------------
-
-To retrieve a complete list of levels, you need to call the ``/api/seller/level`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET /api/seller/level
-
-+----------------------+----------------+--------------------------------------------------------+
-| Parameter            | Parameter type |  Description                                           |
-+======================+================+========================================================+
-| Authorization        | header         | Token received during authentication                   |
-+----------------------+----------------+--------------------------------------------------------+
-| page                 | query          | *(optional)* Start from page, by default 1             |
-+----------------------+----------------+--------------------------------------------------------+
-| perPage              | query          | *(optional)* Number of items to display per page,      |
-|                      |                | by default = 10                                        |
-+----------------------+----------------+--------------------------------------------------------+
-| sort                 | query          | *(optional)* Sort by column name,                      |
-|                      |                | by default = name                                      |
-+----------------------+----------------+--------------------------------------------------------+
-| direction            | query          | *(optional)* Direction of sorting [ASC, DESC],         |
-|                      |                | by default = ASC                                       |
-+----------------------+----------------+--------------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/level \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "levels": [
-        {
-          "levelId": "000096cf-32a3-43bd-9034-4df343e5fd94",
-          "name": "Gold",
-          "description": "Gold level description",
-          "active": true,
-          "conditionValue": 200,
-          "hasPhoto": false,
-          "reward": {
-            "name": "test reward",
-            "value": 0.2,
-            "code": "abc"
-          },
-          "specialRewards": [
-            {
-              "name": "special reward 2",
-              "value": 0.11,
-              "code": "spec2",
-              "id": "e82c96cf-32a3-43bd-9034-4df343e50094",
-              "active": false,
-              "createdAt": "2018-02-19T09:45:00+0100",
-              "startAt": "2016-09-10T00:00:00+0200",
-              "endAt": "2016-11-10T00:00:00+0100"
-            },
-            {
-              "name": "special reward",
-              "value": 0.22,
-              "code": "spec",
-              "id": "e82c96cf-32a3-43bd-9034-4df343e5fd00",
-              "active": true,
-              "createdAt": "2018-02-19T09:45:00+0100",
-              "startAt": "2016-10-10T00:00:00+0200",
-              "endAt": "2016-11-10T00:00:00+0100"
-            }
-          ],
-          "translations": [
-            {
-              "name": "Gold",
-              "description": "Gold level description",
-              "id": 16,
-              "locale": "en"
-            },
-            {
-              "name": "Złoty",
-              "description": "Opis poziomu złotego",
-              "id": 17,
-              "locale": "pl"
-            }
-          ]
-        },
-        {
-          "levelId": "e82c96cf-32a3-43bd-9034-4df343e5fd94",
-          "name": "Silver",
-          "description": "Silver level description",
-          "active": true,
-          "conditionValue": 20,
-          "hasPhoto": false,
-          "reward": {
-            "name": "test reward",
-            "value": 0.15,
-            "code": "abc"
-          },
-          "specialRewards": [],
-          "translations": [
-            {
-              "name": "Silver",
-              "description": "Example silver level",
-              "id": 16,
-              "locale": "en"
-            },
-            {
-              "name": "Srebrny",
-              "description": "Przykładowy poziom srebrny",
-              "id": 17,
-              "locale": "pl"
-            }
-          ]
-        }
-      ],
-      "total": 2
-    }
-
-.. note::
-
-    There may be legacy key names in objects returned (``id``, ``customersCount``).
-    These are deprecated and may be removed without further notice. Please don't use them in new applications.
-
-
-
-Get level details (seller)
---------------------------
-
-To retrieve the level details, you need to call the ``/api/seller/level/<level>`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET /api/seller/level/<level>
-
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <level>       | query          | Level ID                             |
-+---------------+----------------+--------------------------------------+
-
-Example
-^^^^^^^
-
-To see the details of the level with id ``level = 000096cf-32a3-43bd-9034-4df343e5fd94``, use the method below:
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/level/000096cf-32a3-43bd-9034-4df343e5fd94 \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "levelId": "000096cf-32a3-43bd-9034-4df343e5fd94",
-      "name": "Gold",
-      "description": "Gold level description",
-      "active": true,
-      "conditionValue": 200,
-      "hasPhoto": false,
-      "reward": {
-        "name": "test reward",
-        "value": 0.2,
-        "code": "abc"
-      },
-      "specialRewards": [
-        {
-          "name": "special reward 2",
-          "value": 0.11,
-          "code": "spec2",
-          "id": "e82c96cf-32a3-43bd-9034-4df343e50094",
-          "active": false,
-          "createdAt": "2018-02-19T09:45:00+0100",
-          "startAt": "2016-09-10T00:00:00+0200",
-          "endAt": "2016-11-10T00:00:00+0100"
-        },
-        {
-          "name": "special reward",
-          "value": 0.22,
-          "code": "spec",
-          "id": "e82c96cf-32a3-43bd-9034-4df343e5fd00",
-          "active": true,
-          "createdAt": "2018-02-19T09:45:00+0100",
-          "startAt": "2016-10-10T00:00:00+0200",
-          "endAt": "2016-11-10T00:00:00+0100"
-        }
-      ],
-      "translations": [
-        {
-          "name": "Gold",
-          "description": "Gold level description",
-          "id": 16,
-          "locale": "en"
-        },
-        {
-          "name": "Złoty",
-          "description": "Opis poziomu złotego",
-          "id": 17,
-          "locale": "pl"
-        }
-      ]
-    }
-
-.. note::
-
-    There may be legacy key names in the object returned (``id``, ``customersCount``).
-    These are deprecated and may be removed without further notice. Please don't use them in new applications.
-
-
-
 Get level's photo
 -----------------
 
-To get a level's photo, you need to call the ``/api/level/<level>/photo`` endpoint with the ``GET`` method.
+To get a level's photo, you need to call the ``/api/<storeCode>/level/<level>/photo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/level/<level>/photo
+    GET /api/<storeCode>/level/<level>/photo
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <level>       | query          | Level ID                             |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+-----------------------------------------+
+| Parameter     | Parameter type | Description                             |
++===============+================+=========================================+
+| Authorization | header         | Token received during authentication    |
++---------------+----------------+-----------------------------------------+
+| <storeCode>   | query          | Code of the store the level belongs to. |
++---------------+----------------+-----------------------------------------+
+| <level>       | query          | Level ID                                |
++---------------+----------------+-----------------------------------------+
 
 Example
 ^^^^^^^
@@ -871,7 +637,7 @@ To get a photo of the level with id ``level = 00096cf-32a3-43bd-9034-4df343e5fd9
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level/00096cf-32a3-43bd-9034-4df343e5fd94/photo \
+    curl http://localhost:8181/api/DEFAULT/level/00096cf-32a3-43bd-9034-4df343e5fd94/photo \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -922,22 +688,24 @@ The level may not have a photo at all. In that case, you will receive the follow
 Remove level's photo
 -----------------------
 
-To remove a photo of a level, you need to call the ``/api/level/<level>/photo`` endpoint with the ``DELETE`` method.
+To remove a photo of a level, you need to call the ``/api/<storeCode>/level/<level>/photo`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/level/<level>/photo
+    DELETE /api/<storeCode>/level/<level>/photo
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <level>       | query          | Level ID                             |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+--------------------------------------------+
+| Parameter     | Parameter type | Description                                |
++===============+================+============================================+
+| Authorization | header         | Token received during authentication       |
++---------------+----------------+--------------------------------------------+
+| <storeCode>   | query          | Code of the store the level belongs to.    |
++---------------+----------------+--------------------------------------------+
+| <level>       | query          | Level ID                                   |
++---------------+----------------+--------------------------------------------+
 
 Example
 ^^^^^^^
@@ -946,7 +714,7 @@ To remove a photo for the level ``level = 00096cf-32a3-43bd-9034-4df343e5fd94``,
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level/00096cf-32a3-43bd-9034-4df343e5fd94/photo \
+    curl http://localhost:8181/api/DEFAULT/level/00096cf-32a3-43bd-9034-4df343e5fd94/photo \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -974,24 +742,26 @@ Example Response
 Add a photo to a level
 ----------------------
 
-To add a photo to a level, you need to call the ``/api/level/<level>/photo`` endpoint with the ``POST`` method.
+To add a photo to a level, you need to call the ``/api/<storeCode>/level/<level>/photo`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/level/<level>/photo
+    POST /api/<storeCode>/level/<level>/photo
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <level>       | query          | Level ID                             |
-+---------------+----------------+--------------------------------------+
-| photo[file]   | request        | Absolute path to the photo           |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+-----------------------------------------+
+| Parameter     | Parameter type | Description                             |
++===============+================+=========================================+
+| Authorization | header         | Token received during authentication    |
++---------------+----------------+-----------------------------------------+
+| <storeCode>   | query          | Code of the store the level belongs to. |
++---------------+----------------+-----------------------------------------+
+| <level>       | query          | Level ID                                |
++---------------+----------------+-----------------------------------------+
+| photo[file]   | request        | Absolute path to the photo              |
++---------------+----------------+-----------------------------------------+
 
 Example
 ^^^^^^^
@@ -1000,7 +770,7 @@ To get a photo for the level ``level = 00096cf-32a3-43bd-9034-4df343e5fd94``, us
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/level/00096cf-32a3-43bd-9034-4df343e5fd94/photo \
+    curl http://localhost:8181/api/DEFAULT/level/00096cf-32a3-43bd-9034-4df343e5fd94/photo \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \

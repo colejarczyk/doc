@@ -46,7 +46,7 @@ To reset your password:
 
 .. note::
 
-    OL can be configured not to send password recovery messages for Customers and Sellers, but Admin password recovery
+    OL can be configured not to send password recovery messages for Customers but Admin password recovery
     should work anyway. If the email does not arrive, please check your email configuration.
 
 

@@ -15,7 +15,6 @@
 * :doc:`/api/points_transfers`
 * :doc:`/api/pos`
 * :doc:`/api/security`
-* :doc:`/api/seller`
 * :doc:`/api/segment`
 * :doc:`/api/settings`
 * :doc:`/api/store`
@@ -23,3 +22,4 @@
 * :doc:`/api/utility`
 * :doc:`/api/campaign_category`
 * :doc:`/api/acl`
+* :doc:`/api/event`

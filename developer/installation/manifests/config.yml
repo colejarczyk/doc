@@ -35,10 +35,9 @@ data:
     api_url=http://openloyalty.localhost/api
     admin_url=http://openloyalty.localhost:8182/
     customer_url=http://openloyalty.localhost:8183/
-    merchant_url=http://openloyalty.localhost:8184/
-    reset_password_url=\#!/password/reset
-    frontend_activate_account_url=\#!/customer/panel/customer/registration/activate
-    frontend_invitation_url=\#!/register/
+    reset_password_url="#!/password/reset"
+    frontend_activate_account_url="#!/customer/panel/customer/registration/activate"
+    frontend_invitation_url="#!/register/"
 ---
 apiVersion: v1
 kind: ConfigMap

@@ -42,15 +42,15 @@ List of all events
 +------------------+------------------------------------+---------------------------------------+------------------------------------------------+
 |                  |  - ActivateCustomer                | - CustomerWasActivated                | - CustomerActivatedSystemEvent                 |
 |                  |  - AssignPosToCustomer             | - PosWasAssignedToCustomer            | - CustomerAgreementsUpdatedSystemEvent         |
-|  Customer        |  - AssignSellerToCustomer          | - SellerWasAssignedToCustomer         | - CustomerDeactivatedSystemEvent               |                        |
-|                  |  - BuyCampaign                     | - CampaignWasBoughtByCustomer         | - CustomerLevelChangedSystemEvent              |
-|                  |  - ChangeCampaignUsage             | - CampaignUsageWasChanged             | - CustomerLoggedInSystemEvent                  |
+|  Customer        |  - BuyCampaign                     | - CouponWasBought                     | - CustomerLevelChangedSystemEvent              |
+|                  |  - RedeemCoupon                    | - CouponWasRedeemed                   | - CustomerRemovedManuallyLevelSystemEvent      |
+|                  |  - ReissueCoupon                   | - CouponWasReissued                   | - CustomerLoggedInSystemEvent                  |
 |                  |  - CreateInvitation                | - InvitationWasCreated                | - CustomerRegisteredSystemEvent                |
-|                  |  - DeactivateCustomer              | - CustomerWasDeactivated              | - CustomerRemovedManuallyLevelSystemEvent      |
-|                  |  - UpdateCustomerLoyaltyCardNumber | - PurchaseWasMadeForThisInvitation    | - CustomerUpdatedSystemEvent                   |
+|                  |  - DeactivateCustomer              | - CustomerWasDeactivated              | - CustomerUpdatedSystemEvent                   |
+|                  |  - UpdateCustomerLoyaltyCardNumber | - PurchaseWasMadeForThisInvitation    | - CustomerDeactivatedSystemEvent               |
 |                  |  - MoveCustomerToLevel             | - CustomerWasMovedToLevel             | - NewsletterSubscriptionSystemEvent            |
-|                  |  - NewsletterSubscription          | - CustomerWasRegistered               |                                                |
-|                  |  - RegisterCustomer                | - CustomerAddressWasUpdated           |                                                |
+|                  |  - NewsletterSubscription          | - CustomerWasRegistered               | - CouponWasRedeemedSystemEvent                 |
+|                  |  - RegisterCustomer                | - CustomerAddressWasUpdated           | - CouponWasReissuedSystemEvent                 |
 |                  |  - RemoveManuallyAssignedLevel     | - CustomerDetailsWereUpdated          |                                                |
 |                  |  - UpdateCustomerAddress           | - CustomerLoyaltyCardNumberWasUpdated |                                                |
 |                  |  - UpdateCustomerCompanyDetails    |                                       |                                                |
@@ -84,12 +84,6 @@ List of all events
 |  Segment         |  - DeactivateSegment               |                                       |  - SegmentChangedSystemEvent                   |
 |                  |  - DeleteSegment                   |                                       |                                                |
 |                  |  - UpdateSegment                   |                                       |                                                |
-+------------------+------------------------------------+---------------------------------------+------------------------------------------------+
-|                  |  - ActivateSeller                  | - SellerWasActivated                  |                                                |
-|                  |  - DeactivateSeller                | - SellerWasDeactivated                |                                                |
-|  Seller          |  - DeleteSeller                    | - SellerWasDeleted                    |                                                |
-|                  |  - RegisterSeller                  | - SellerWasRegistered                 |                                                |
-|                  |  - UpdateSeller                    | - SellerWasUpdated                    |                                                |
 +------------------+------------------------------------+---------------------------------------+------------------------------------------------+
 |  Transaction     |  - AssignCustomerToTransaction     | - CustomerWasAssignedToTransaction    | - CustomerAssignedToTransactionSystemEvent     |
 |                  |  - RegisterTransaction             | - TransactionWasRegistered            | - CustomerFirstTransactionSystemEvent          |

@@ -84,8 +84,7 @@ onCustomerRegistered
              "agreement3": false,
              "referral_customer_email": null,
              "levelId": "e82c96cf-32a3-43bd-9034-4df343e50000",
-             "posId": "00000000-0000-474c-1111-b0dd880c07e3",
-             "sellerId": "00000000-0000-474c-b092-b0dd880c07e4"
+             "posId": "00000000-0000-474c-1111-b0dd880c07e3"
          }
      }
   }

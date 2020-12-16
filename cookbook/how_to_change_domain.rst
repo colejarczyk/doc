@@ -22,7 +22,6 @@ To change the domain, just add bellow environments to your php container in dock
           - api_url=http://openloyalty.dev/api
           - admin_url=http://openloyalty.dev:8182/
           - customer_url=http://openloyalty.dev:8183/
-          - merchant_url=http://openloyalty.dev:8184/
 
 Then change "openloyalty.dev" with your custom domain or public IP address. The next step is to restart containers
 defined in  docker-compose.
@@ -118,7 +117,6 @@ This content will be used in the deployment file to replace existing files with 
         api_url=http://openloyalty.localhost/api
         admin_url=http://openloyalty.localhost:8182/
         customer_url=http://openloyalty.localhost:8183/
-        merchant_url=http://openloyalty.localhost:8184/
         ---
 
 Now we can create a deployment for PHP container. Most of the configuration is related to run image as a container and k8s

@@ -67,7 +67,6 @@ There is list of all available index names:
 
     customer_details
     invitation_details
-    seller_details
     account_details
     point_transfer_details
     transaction_details

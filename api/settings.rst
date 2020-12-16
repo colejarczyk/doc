@@ -278,19 +278,21 @@ Example Response
 Get all system settings
 -----------------------
 
-To retrieve a list of all system settings, you need to call the ``/api/settings`` endpoint with the ``GET`` method.
+To retrieve a list of all system settings, you need to call the ``/api/<storeCode>/settings`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings
+    GET /api/<storeCode>/settings
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to get settings of.                             |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
@@ -298,7 +300,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings \
+    curl http://localhost:8181/api/DEFAULT/settings \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -394,7 +396,6 @@ Example Response
         "accountActivationRequired": true,
         "marketingVendorsValue": "none",
         "pushySecretKey": "",
-        "maxPointsRedeemed": "500",
         "programConditionsUrl": "",
         "programFaqUrl": "",
         "programUrl": "",
@@ -412,19 +413,21 @@ Example Response
 Update system settings
 ----------------------
 
-To update system settings, you need to call the ``/api/settings`` endpoint with the ``POST`` method.
+To update system settings, you need to call the ``/api/<storeCode>/settings`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/settings
+    POST /api/<storeCode>/settings
 
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                             | Parameter type | Description                                                                |
 +=======================================================+================+============================================================================+
 | Authorization                                         | header         | Token received during authentication                                       |
++-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                           | query          | Code of the store to update settings of.                                   |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[currency]                                    | request        | Currency: {"PLN":"pln","USD":"usd","EUR":"eur","HKD":"hkd","PESO":"cop",   |
 |                                                       |                |     "INR": "inr","VND":"vnd"}                                              |
@@ -433,17 +436,11 @@ Definition
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[programName]                                 | request        | Program name                                                               |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[programConditionsUrl]                        | request        | *(optional)*    Program conditions URL                                     |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[programFaqUrl]                               | request        | *(optional)*    Program FAQ URL                                            |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[programUrl]                                  | request        | *(optional)*    Program URL                                                |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[programPointsSingular]                       | request        | Points singular                                                            |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[programPointsPlural]                         | request        | Points plural                                                              |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[helpEmailAddress]                            | request        | *(optional)*    Help e-mail                                                |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[returns]                                     | request        | *(optional)*    Returns                                                    |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -471,13 +468,7 @@ Definition
 | settings[levelResetPointsOnDowngrade]                 | request        | *(optional)* Reset points option in the case of level downgrade based on   | 
 |                                                       |                | the active points. Possible values : true/false                            |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[accentColor]                                 | request        | Accent color                                                               |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[cssTemplate]                                 | request        | Css template                                                               |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[pushySecretKey]                              | request        | Pushy API secret key                                                       |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[maxPointsRedeemed]                           | request        | Cashback limit in points per day per customer                              |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[customersIdentificationPriority][][priority] | request        | Priority to define matching transaction with customer                      |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -500,19 +491,6 @@ Definition
 | settings[preferredCommunicationMethod]                | request        | Choose preferred method of communication with the customers.               |
 |                                                       |                | Possible values 'email' or 'sms'.                                          |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[marketingVendorsValue]                       | request        | *(optional)* Choose marketing automation integration.                      |
-|                                                       |                | Possible values 'none' or 'sales_manago'                                   |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[sales_manago][api_url]                       | request        | *(optional)* Required if Sales Manago integration enabled.                 |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[sales_manago][api_key]                       | request        | *(optional)* Required if Sales Manago integration enabled.                 |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[sales_manago][api_secret]                    | request        | *(optional)* Required if Sales Manago integration enabled.                 |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[sales_manago][customer_id]                   | request        | *(optional)* Required if Sales Manago integration enabled.                 |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
-| settings[sales_manago][email]                         | request        | *(optional)* Required if Sales Manago integration enabled.                 |
-+-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[webhooks]                                    | request        | *(optional)* To enable/disable webhooks. Possible values : true/false      |
 +-------------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | settings[uriWebhooks]                                 | request        | *(optional)* URL where the webhooks will be sent                           |
@@ -528,7 +506,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings \
+    curl http://localhost:8181/api/DEFAULT/settings \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -565,7 +543,7 @@ Example Response
 Get lists of choices for specific select fields
 -----------------------------------------------
 
-To return a list of available choices for some specific fields, you need to call the ``/api/settings/choices/<type>`` endpoint with the ``GET`` method.
+To return a list of available choices for some specific fields, you need to call the ``/api/<storeCode>/settings/choices/<type>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
@@ -574,12 +552,14 @@ Definition
 
 .. code-block:: text
 
-    GET /api/settings/choices/<type>
+    GET /api/<storeCode>/settings/choices/<type>
 
 +------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter              | Parameter type | Description                                                                |
 +========================+================+============================================================================+
 | Authorization          | header         | Token received during authentication                                       |
++------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>            | query          | Code of the store to get settings of.                                      |
 +------------------------+----------------+----------------------------------------------------------------------------+
 | <type>                 | query          | Allowed types: timezone, language, country, availableFrontendTranslations, |
 |                        |                | earningRuleLimitPeriod                                                     |
@@ -592,7 +572,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/choices/language \
+    curl http://localhost:8181/api/DEFAULT/settings/choices/language \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -645,19 +625,21 @@ Example Response
 Get a list of available message templates
 -----------------------------------------
 
-To retrieve a complete list of available message templates, you need to call the ``/api/message`` endpoint with the ``GET`` method.
+To retrieve a complete list of available message templates, you need to call the ``/api/<storeCode>/message`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/message
+    GET /api/<storeCode>/message
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to get message templates of.                    |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | page                            | query          | *(optional)* Start from page, by default 1                        |
 +---------------------------------+----------------+-------------------------------------------------------------------+
@@ -675,7 +657,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/message \
+    curl http://localhost:8181/api/DEFAULT/message \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -761,19 +743,21 @@ Example Response
 Get details of a message template
 ---------------------------------
 
-To retrieve details of a particular message template, you need to call the ``/api/message/<messageId>`` endpoint with the ``GET`` method.
+To retrieve details of a particular message template, you need to call the ``/api/<storeCode>/message/<messageId>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/message/<messageId>
+    GET /api/<storeCode>/message/<messageId>
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store the message template belongs to.                |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | <messageId>                     | query          | Message template's ID                                             |
 +---------------------------------+----------------+-------------------------------------------------------------------+
@@ -785,7 +769,7 @@ Example
  
 .. code-block:: bash
 
-    curl http://localhost:8181/api/message/c60f1033-b1d0-4033-b9fe-7a3c230c4479 \
+    curl http://localhost:8181/api/DEFAULT/message/c60f1033-b1d0-4033-b9fe-7a3c230c4479 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -818,19 +802,21 @@ Example Response
 Update message template's details
 ---------------------------------
 
-To update details of a message template, you need to call the ``/api/message/<messageId>`` endpoint with the ``PUT`` method.
+To update details of a message template, you need to call the ``/api/<storeCode>/message/<messageId>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT /api/message/<messageId>
+    PUT /api/<storeCode>/message/<messageId>
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type | Description                                        |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the message template belongs to. |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | <messageId>                                    | query          | Message template's ID                              |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -854,7 +840,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/message/f4f0e1f9-3677-4bdb-9685-416a961bc319 \
+    curl http://localhost:8181/api/DEFAULT/message/f4f0e1f9-3677-4bdb-9685-416a961bc319 \
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -884,19 +870,21 @@ Example Response
 Activate a message
 ------------------
 
-To enable sending a message, you need to call the ``/api/message/<messageId>/activate`` endpoint with the ``POST`` method.
+To enable sending a message, you need to call the ``/api/<storeCode>/message/<messageId>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/message/<messageId>/activate
+    POST /api/<storeCode>/message/<messageId>/activate
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type | Description                                        |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the message template belongs to. |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | <messageId>                                    | query          | Message template's ID                              |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -906,7 +894,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/message/f4f0e1f9-3677-4bdb-9685-416a961bc319/activate \
+    curl http://localhost:8181/api/DEFAULT/message/f4f0e1f9-3677-4bdb-9685-416a961bc319/activate \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -930,19 +918,21 @@ Example Response
 Deactivate a message
 --------------------
 
-To disable sending a message, you need to call the ``/api/message/<messageId>/deactivate`` endpoint with the ``POST`` method.
+To disable sending a message, you need to call the ``/api/<storeCode>/message/<messageId>/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/message/<messageId>/deactivate
+    POST /api/<storeCode>/message/<messageId>/deactivate
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type | Description                                        |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the message template belongs to. |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | <messageId>                                    | query          | Message template's ID                              |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -952,7 +942,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/message/f4f0e1f9-3677-4bdb-9685-416a961bc319/deactivate \
+    curl http://localhost:8181/api/DEFAULT/message/f4f0e1f9-3677-4bdb-9685-416a961bc319/deactivate \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -976,7 +966,7 @@ Example Response
 Create a new message template
 -----------------------------
 
-To create a message template, you need to call the ``/api/message`` endpoint with the ``POST`` method.
+To create a message template, you need to call the ``/api/<storeCode>/message`` endpoint with the ``POST`` method.
 
 You can create only one message template addressed to a given target, for a given event, per channel.
 
@@ -985,12 +975,14 @@ Definition
 
 .. code-block:: text
 
-    POST /api/message
+    POST /api/<storeCode>/message
 
 +------------------------------------------------+----------------+----------------------------------------------------+
 | Parameter                                      | Parameter type | Description                                        |
 +================================================+================+====================================================+
 | Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store to create message template in.   |
 +------------------------------------------------+----------------+----------------------------------------------------+
 | message[channel]                               | request        | Channel: sms, email or push                        |
 +------------------------------------------------+----------------+----------------------------------------------------+
@@ -1012,7 +1004,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/message \
+    curl http://localhost:8181/api/DEFAULT/message \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1118,27 +1110,30 @@ Example Response
 Return all public system settings
 ---------------------------------
 
-To retrieve a list of all public system settings, you need to call the ``/api/settings/public`` endpoint with the ``GET`` method.
+To retrieve a list of all public system settings, you need to call the ``/api/<storeCode>/settings/public`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/public
+    GET /api/<storeCode>/settings/public
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
 +---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to get settings of.                             |
++---------------------------------+----------------+-------------------------------------------------------------------+
+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/public \
+    curl http://localhost:8181/api/DEFAULT/settings/public \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1164,19 +1159,21 @@ Example Response
 Remove logo
 -----------
 
-To remove the site logo, you need to call the ``/api/settings/logo`` endpoint with the ``DELETE`` method.
+To remove the site logo, you need to call the ``/api/<storeCode>/settings/logo`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/settings/logo
+    DELETE /api/<storeCode>/settings/logo
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to delete logo of.                              |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
@@ -1184,7 +1181,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/logo \
+    curl http://localhost:8181/api/DEFAULT/settings/logo \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1206,19 +1203,21 @@ Example Response
 Get logo
 --------
 
-To retrieve the logo, you need to call the ``/api/settings/logo`` endpoint with the ``GET`` method.
+To retrieve the logo, you need to call the ``/api/<storeCode>/settings/logo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/logo
+    GET /api/<storeCode>/settings/logo
 
 +----------------------------+----------------+------------------------------------------------------------------------+
 | Parameter                  | Parameter type | Description                                                            |
 +============================+================+========================================================================+
 | Authorization              | header         | Token received during authentication                                   |
++----------------------------+----------------+------------------------------------------------------------------------+
+| <storeCode>                | query          | Code of the store to get logo of.                                      |
 +----------------------------+----------------+------------------------------------------------------------------------+
 
 Example
@@ -1226,7 +1225,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/logo \
+    curl http://localhost:8181/api/DEFAULT/settings/logo \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1248,19 +1247,21 @@ Example Response
 Add logo
 --------
 
-To add the site logo, you need to call the ``/api/settings/logo`` endpoint with the ``POST`` method.
+To add the site logo, you need to call the ``/api/<storeCode>/settings/logo`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/settings/logo
+    POST /api/<storeCode>/settings/logo
 
 +----------------------------+----------------+------------------------------------------------------------------------+
 | Parameter                  | Parameter type | Description                                                            |
 +============================+================+========================================================================+
 | Authorization              | header         | Token received during authentication                                   |
++----------------------------+----------------+------------------------------------------------------------------------+
+| <storeCode>                | query          | Code of the store to add logo to.                                      |
 +----------------------------+----------------+------------------------------------------------------------------------+
 | photo[file]                | request        | Path of logo file                                                      |
 +----------------------------+----------------+------------------------------------------------------------------------+
@@ -1270,7 +1271,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/logo \
+    curl http://localhost:8181/api/DEFAULT/settings/logo \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1293,19 +1294,21 @@ Example Response
 Get a small logo
 ----------------
 
-To retrieve a small logo, you need to call the ``/api/settings/small-logo`` endpoint with the ``GET`` method.
+To retrieve a small logo, you need to call the ``/api/<storeCode>/settings/small-logo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/small-logo
+    GET /api/<storeCode>/settings/small-logo
 
 +---------------------------+----------------+-------------------------------------------------------------------------+
 | Parameter                 | Parameter type | Description                                                             |
 +===========================+================+=========================================================================+
 | Authorization             | header         |  Token received during authentication                                   |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| <storeCode>               | query          | Code of the store to get small logo of.                                 |
 +---------------------------+----------------+-------------------------------------------------------------------------+
 
 Example
@@ -1313,7 +1316,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/small-logo \
+    curl http://localhost:8181/api/DEFAULT/settings/small-logo \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1331,31 +1334,36 @@ Example Response
 	<svg version="1.1" id="openLoyaltyLogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 70" style="enable-background:new 0 0 200 70;" xml:space="preserve"><style type="text/css">	.st0{fill:#FFFFFF;}	.st1{opacity:0.7;}</style><g>	<path class="st0" d="M109.2,27.4c3.9,0,7,3.2,7,7c0,3.9-3.2,7-7,7c-3.9,0-7-3.2-7-7S105.3,27.4,109.2,27.4 M109.2,26.4		c-4.5,0-8.1,3.6-8.1,8.1s3.6,8.1,8.1,8.1s8.1-3.6,8.1-8.1C117.3,30,113.6,26.4,109.2,26.4"></path>	<path class="st0" d="M55.4,31.2c0,1.7-0.6,3-1.7,3.9C52.6,36,51,36.4,49,36.4h-1.7v6h-2.6v-16h4.6c2,0,3.5,0.4,4.5,1.2		C54.9,28.4,55.4,29.6,55.4,31.2 M47.4,34.2h1.4c1.4,0,2.3-0.2,3-0.7c0.6-0.5,0.9-1.2,0.9-2.2c0-0.9-0.3-1.6-0.8-2.1		c-0.6-0.5-1.4-0.7-2.6-0.7h-1.8v5.7C47.5,34.2,47.4,34.2,47.4,34.2z"></path>	<polygon class="st0" points="67.8,42.5 58.7,42.5 58.7,26.4 67.8,26.4 67.8,28.6 61.3,28.6 61.3,33 67.4,33 67.4,35.2 61.3,35.2 		61.3,40.2 67.8,40.2 	"></polygon>	<path class="st0" d="M85.4,42.5h-3.2l-7.9-12.9h-0.1l0.1,0.7c0.1,1.4,0.2,2.6,0.2,3.8v8.4h-2.4V26.4h3.2l7.9,12.8h0.1		c0-0.2,0-0.8-0.1-1.8c0-1.1-0.1-1.9-0.1-2.5v-8.5h2.4L85.4,42.5L85.4,42.5z"></path>	<polygon class="st0" points="92,42.5 92,26.4 93.1,26.4 93.1,41.4 100.8,41.4 100.8,42.5 	"></polygon>	<polygon class="st0" points="124.5,35.2 129.2,26.4 130.5,26.4 125.1,36.3 125.1,42.5 123.9,42.5 123.9,36.4 118.5,26.4 		119.8,26.4 	"></polygon>	<path class="st0" d="M140.5,36.8H134l-2.3,5.7h-1.2l6.5-16.2h0.7l6.4,16.2h-1.3L140.5,36.8z M134.4,35.8h5.8L138,30		c-0.2-0.5-0.4-1.1-0.7-1.9c-0.2,0.7-0.4,1.3-0.7,1.9L134.4,35.8z"></path>	<polygon class="st0" points="147.6,42.5 147.6,26.4 148.8,26.4 148.8,41.4 156.5,41.4 156.5,42.5 	"></polygon>	<polygon class="st0" points="162.1,42.5 161,42.5 161,27.4 155.7,27.4 155.7,26.4 167.3,26.4 167.3,27.4 162.1,27.4 	"></polygon>	<polygon class="st0" points="174.8,35.2 179.5,26.4 180.7,26.4 175.3,36.3 175.3,42.5 174.2,42.5 174.2,36.4 168.8,26.4 		170.1,26.4 	"></polygon>	<g class="st1">		<circle class="st0" cx="30.3" cy="33" r="1.7"></circle>	</g>	<g class="st1">		<path class="st0" d="M22.6,42.2l1.3-2.2c-1.3-1.5-2.1-3.5-2.1-5.6c0-4.7,3.9-8.6,8.6-8.6s8.6,3.9,8.6,8.6c0,2.2-0.8,4.1-2.1,5.6			l1.3,2.2c2-2,3.3-4.8,3.3-7.8c0-6.1-4.9-11-11-11s-11,4.9-11,11C19.3,37.4,20.5,40.2,22.6,42.2z"></path>	</g>	<g class="st1">		<polygon class="st0" points="35.6,46.6 30.8,38.2 29.8,38.2 25,46.6 22.9,45.4 28.4,35.8 32.2,35.8 37.7,45.4 		"></polygon>	</g></g></svg>
 
 
+
 Get a named photo
 -----------------
 
-To retrieve a named photo, you need to call the ``/api/settings/photo/{name}`` endpoint with the ``GET`` method.
+To retrieve a named photo, you need to call the ``/api/<storeCode>/settings/photo/<name>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/photo/{name}
+    GET /api/<storeCode>/settings/photo/<name>
 
-+-------------+----------------+---------------------------------------------------------------------------------------+
-| Parameter   | Parameter type | Description                                                                           |
-+=============+================+=======================================================================================+
-| <name>      | path           | *(required)* photo name  (logo, small-logo, hero-image, admin-cockpit-logo,           |
-|             |                | client-cockpit-logo-big, client-cockpit-logo-small, client-cockpit-hero-image)        |
-+-------------+----------------+---------------------------------------------------------------------------------------+
++----------------+----------------+---------------------------------------------------------------------------------------+
+| Parameter      | Parameter type | Description                                                                           |
++================+================+=======================================================================================+
+| Authorization  | header         | Token received during authentication                                                  |
++----------------+----------------+---------------------------------------------------------------------------------------+
+| <storeCode>    | query          | Code of the store to get photo of.                                                    |
++----------------+----------------+---------------------------------------------------------------------------------------+
+| <name>         | path           | *(required)* photo name  (logo, small-logo, hero-image, admin-cockpit-logo,           |
+|                |                | client-cockpit-logo-big, client-cockpit-logo-small, client-cockpit-hero-image)        |
++----------------+----------------+---------------------------------------------------------------------------------------+
 
 Example
 ^^^^^^^
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/photo/small-logo \
+    curl http://localhost:8181/api/DEFAULT/settings/photo/small-logo \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1377,19 +1385,21 @@ Example Response
 Add a named photo
 -----------------
 
-To add a named photo, you need to call the ``/api/settings/photo/{name}`` endpoint with the ``POST`` method.
+To add a named photo, you need to call the ``/api/<storeCode>/settings/photo/<name>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/settings/photo/{name}
+    POST /api/<storeCode>/settings/photo/<name>
 
 +----------------+----------------+------------------------------------------------------------------------------------+
 | Parameter      | Parameter type | Description                                                                        |
 +================+================+====================================================================================+
 | Authorization  | header         | Token received during authentication                                               |
++----------------+----------------+------------------------------------------------------------------------------------+
+| <storeCode>    | query          | Code of the store to add photo to.                                                 |
 +----------------+----------------+------------------------------------------------------------------------------------+
 | photo[file]    | request        | Path of logo file                                                                  |
 +----------------+----------------+------------------------------------------------------------------------------------+
@@ -1402,7 +1412,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/photo/small-logo \
+    curl http://localhost:8181/api/DEFAULT/settings/photo/small-logo \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1425,19 +1435,21 @@ Example Response
 Remove a named photo
 --------------------
 
-To remove a named photo, you need to call the ``/api/settings/photo/{name}`` endpoint with the ``DELETE`` method.
+To remove a named photo, you need to call the ``/api/<storeCode>/settings/photo/<name>`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/settings/photo/{name}
+    DELETE /api/<storeCode>/settings/photo/<name>
 
 +--------------------+----------------+--------------------------------------------------------------------------------+
 | Parameter          | Parameter type | Description                                                                    |
 +====================+================+================================================================================+
 | Authorization      | header         | Token received during authentication                                           |
++--------------------+----------------+--------------------------------------------------------------------------------+
+| <storeCode>        | query          | Code of the store to delete photo of.                                          |
 +--------------------+----------------+--------------------------------------------------------------------------------+
 | <name>             | path           | *(required)* photo name  (logo, small-logo, hero-image, admin-cockpit-logo,    |
 |                    |                | client-cockpit-logo-big, client-cockpit-logo-small, client-cockpit-hero-image) |
@@ -1448,7 +1460,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/photo/small-logo \
+    curl http://localhost:8181/api/DEFAULT/settings/photo/small-logo \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1470,19 +1482,21 @@ Example Response
 Get the hero image
 ------------------
 
-To retrieve the client cockpit hero image, you need to call the ``/api/settings/hero-image`` endpoint with the ``GET`` method.
+To retrieve the client cockpit hero image, you need to call the ``/api/<storeCode>/settings/hero-image`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/hero-image
+    GET /api/<storeCode>/settings/hero-image
 
 +---------------------------+----------------+-------------------------------------------------------------------------+
 | Parameter                 | Parameter type | Description                                                             |
 +===========================+================+=========================================================================+
 | Authorization             | header         | Token received during authentication                                    |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| <storeCode>               | query          | Code of the store to get hero image of.                                 |
 +---------------------------+----------------+-------------------------------------------------------------------------+
 
 Example
@@ -1490,7 +1504,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/hero-image \
+    curl http://localhost:8181/api/DEFAULT/settings/hero-image \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1512,19 +1526,21 @@ Example Response
 Remove the hero image
 ---------------------
 
-To remove the client cockpit hero image, you need to call the ``/api/settings/hero-image`` endpoint with the ``DELETE`` method.
+To remove the client cockpit hero image, you need to call the ``/api/<storeCode>/settings/hero-image`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/settings/hero-image
+    DELETE /api/<storeCode>/settings/hero-image
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to delete hero image of.                        |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
@@ -1532,7 +1548,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/hero-image \
+    curl http://localhost:8181/api/DEFAULT/settings/hero-image \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1590,19 +1606,21 @@ Example Response
 Add terms and conditions file
 -----------------------------
 
-To add a terms and conditions file, you need to call the ``/api/settings/conditions-file`` endpoint with the ``POST`` method.
+To add a terms and conditions file, you need to call the ``/api/<storeCode>/settings/conditions-file`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/settings/conditions-file
+    POST /api/<storeCode>/settings/conditions-file
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to add terms and conditions file to.            |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | conditions[file]                | request        | Path of logo file                                                 |
 +---------------------------------+----------------+-------------------------------------------------------------------+
@@ -1612,7 +1630,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/conditions-file \
+    curl http://localhost:8181/api/DEFAULT/settings/conditions-file \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1635,19 +1653,21 @@ Example Response
 Remove a conditions file
 ------------------------
 
-To remove a terms and conditions file, you need to call the ``/api/settings/conditions-file`` endpoint with the ``DELETE`` method.
+To remove a terms and conditions file, you need to call the ``/api/<storeCode>/settings/conditions-file`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/settings/conditions-file
+    DELETE /api/<storeCode>/settings/conditions-file
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to delete terms and conditions of.              |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
@@ -1655,7 +1675,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/conditions-file \
+    curl http://localhost:8181/api/DEFAULT/settings/conditions-file \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1746,12 +1766,14 @@ Definition
 
 .. code-block:: text
 
-    GET /api/settings/css
+    GET /api/<storeCode>/settings/css
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to edit custom css.                             |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
@@ -1759,7 +1781,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/css \
+    curl http://localhost:8181/api/DEFAULT/settings/css \
         -X "GET" \
         -H "Accept: text/css"
 
@@ -1779,7 +1801,7 @@ Example Response
 Return activation configuration and method
 ------------------------------------------
 
-To check activation method, you need to call the ``/api/settings/activation`` endpoint with the ``GET`` method.
+To check activation method, you need to call the ``/api/<storeCode>/settings/activation`` endpoint with the ``GET`` method.
 
 
 Definition
@@ -1787,12 +1809,14 @@ Definition
 
 .. code-block:: text
 
-    GET /api/settings/activation
+    GET /api/<storeCode>/settings/activation
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to get activation method of.                    |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
@@ -1800,7 +1824,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/activation \
+    curl http://localhost:8181/api/DEFAULT/settings/activation \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -1825,19 +1849,21 @@ Example Response
 Get the manifest file
 ---------------------
 
-To get the manifest file, you need to call the ``/api/settings/manifest`` endpoint with the ``GET`` method.
+To get the manifest file, you need to call the ``/api/<storeCode>/settings/manifest`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/settings/manifest
+    GET /api/<storeCode>/settings/manifest
 
 +---------------------------------+----------------+-------------------------------------------------------------------+
 | Parameter                       | Parameter type | Description                                                       |
 +=================================+================+===================================================================+
 | Authorization                   | header         | Token received during authentication                              |
++---------------------------------+----------------+-------------------------------------------------------------------+
+| <storeCode>                     | query          | Code of the store to get the manifest file.                       |
 +---------------------------------+----------------+-------------------------------------------------------------------+
 
 Example
@@ -1845,7 +1871,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/settings/manifest \
+    curl http://localhost:8181/api/DEFAULT/settings/manifest \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \

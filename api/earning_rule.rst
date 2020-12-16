@@ -8,19 +8,21 @@ These endpoints will allow you to easily manage Earning Rules.
 Get a complete list of earning rules
 ------------------------------------
 
-To retrieve a paginated list of earning rules, you need to call the ``/api/earningRule`` endpoint with the ``GET`` method.
+To retrieve a paginated list of earning rules, you need to call the ``/api/<storeCode>/earningRule`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET  /api/earningRule
+    GET  /api/<storeCode>/earningRule
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to get the earning rules of.    |
 +-------------------------------------+----------------+---------------------------------------------------+
 | active                              | query          | *(optional)* Possible values: active, inactive    |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -42,7 +44,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule \
+    curl http://localhost:8181/api/DEFAULT/earningRule \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -120,19 +122,21 @@ Example Response
 Get earning rule details
 ------------------------
 
-To retrieve a specific earning rule's details, you need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``GET`` method.
+To retrieve a specific earning rule's details, you need to call the ``/api/<storeCode>/earningRule/<earningRule>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET  /api/earningRule/<earningRule>
+    GET  /api/<storeCode>/earningRule/<earningRule>
 
 +-------------------------------------+----------------+---------------------------------------------------+
 | Parameter                           | Parameter type | Description                                       |
 +=====================================+================+===================================================+
 | Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to get the earning rule from.   |
 +-------------------------------------+----------------+---------------------------------------------------+
 | <earningRule>                       | query          | earningRule ID                                    |
 +-------------------------------------+----------------+---------------------------------------------------+
@@ -144,7 +148,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/00000000-0000-474c-b092-b0dd880c0121 \
+    curl http://localhost:8181/api/DEFAULT/earningRule/00000000-0000-474c-b092-b0dd880c0121 \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -194,213 +198,24 @@ Example Response
       }
     }
 
-
-
-Get a complete list of earning rules (seller)
----------------------------------------------
-
-To retrieve a paginated list of earning rules, you need to call the ``/api/seller/earningRule`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET  /api/seller/earningRule
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| active                              | query          | *(optional)* Possible values: active, inactive    |
-+-------------------------------------+----------------+---------------------------------------------------+
-| page                                | query          | *(optional)* Start from page, by default 1        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| perPage                             | query          | *(optional)* Number of items to display per page, |
-|                                     |                | by default = 10                                   |
-+-------------------------------------+----------------+---------------------------------------------------+
-| sort                                | query          | *(optional)* Sort by column name                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
-|                                     |                | by default = ASC                                  |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-To see the first page of all earning rules, use the method below:
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/earningRule \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    When using endpoints starting with ``/api/seller``, you need to authorize using seller account credentials.
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "earningRules": [
-        {
-          "levels": [
-            "000096cf-32a3-43bd-9034-4df343e5fd93"
-          ],
-          "segments": [],
-          "earningRuleId": "00000000-0000-474c-b092-b0dd880c0121",
-          "name": "Facebook like test rule",
-          "description": "sth",
-          "active": true,
-          "startAt": "2018-01-19T09:45:00+0100",
-          "endAt": "2018-03-19T09:45:00+0100",
-          "allTimeActive": false,
-          "usages": [],
-          "eventName": "facebook_like",
-          "pointsAmount": 100,
-          "limit": {},
-          "type": "custom_event",
-          "hasPhoto": false,
-          "usageUrl": "http://backend.openloyalty.test.openloyalty.io/api/v1/earnRule/facebook_like/customer/:customerId",
-          "segmentNames": [],
-          "levelNames": {
-            "000096cf-32a3-43bd-9034-4df343e5fd93": "level0"
-          }
-        },
-        {
-          "levels": [
-            "000096cf-32a3-43bd-9034-4df343e5fd93"
-          ],
-          "segments": [],
-          "earningRuleId": "00000000-0000-474c-b092-b0dd880c07e3",
-          "name": "test",
-          "description": "sth",
-          "active": false,
-          "startAt": "2018-01-19T09:45:00+0100",
-          "endAt": "2018-03-19T09:45:00+0100",
-          "allTimeActive": false,
-          "usages": [],
-          "eventName": "test event",
-          "pointsAmount": 100,
-          "type": "event",
-          "hasPhoto": false,
-          "segmentNames": [],
-          "levelNames": {
-            "000096cf-32a3-43bd-9034-4df343e5fd93": "level0"
-          }
-        }
-      ],
-      "total": 2
-
-
-Get earning rule details (seller)
----------------------------------
-
-To retrieve a page of earning rule details, you need to call the ``/api/seller/earningRule/<earningRule>`` endpoint with the ``GET`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    GET  /api/seller/earningRule/<earningRule>
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| <earningRule>                       | query          | earningRule ID                                    |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
- To see the earning rule with id ``earningRule = 00000000-0000-474c-b092-b0dd880c0725``, use the method below:
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/seller/earningRule/00000000-0000-474c-b092-b0dd880c0725 \
-        -X "GET" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-.. note::
-
-    The *earningRule = 00000000-0000-474c-b092-b0dd880c0725* id is an example value. Your value may be different.
-    Check the list of all earning rules if you are not sure which id should be used.
-
-Example Response
-^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "levels": [
-        "000096cf-32a3-43bd-9034-4df343e5fd93"
-      ],
-      "segments": [],
-      "earningRuleId": "00000000-0000-474c-b092-b0dd880c0725",
-      "name": "Newsletter subscription test rule",
-      "description": "sth",
-      "active": false,
-      "startAt": "2018-01-19T09:45:00+0100",
-      "endAt": "2018-03-19T09:45:00+0100",
-      "allTimeActive": false,
-      "usages": [],
-      "eventName": "oloy.customer.newsletter_subscription",
-      "pointsAmount": 85,
-      "type": "event",
-      "hasPhoto": false,
-      "segmentNames": [],
-      "levelNames": {
-        "000096cf-32a3-43bd-9034-4df343e5fd93": "level0"
-      }
-    }
-
-
 Create a new earning rule
 -------------------------
 
-To create a new earning rule, you need to call the ``/api/earningRule`` endpoint with the ``POST`` method.
+To create a new earning rule, you need to call the ``/api/<storeCode>/earningRule`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/earningRule
+    POST /api/<storeCode>/earningRule
 
 +----------------------------------+----------------+--------------------------------------------------------------------------+
 | Parameter                        | Parameter type | Description                                                              |
 +==================================+================+==========================================================================+
 | Authorization                    | header         | Token received during authentication                                     |
++----------------------------------+----------------+--------------------------------------------------------------------------+
+| <storeCode>                      | query          | Code of the store to create the earning rule in.                         |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
 | earningRule[type]                | request        | The type of earning points. Possible types: Custom event rule, Customer  |
 |                                  |                | Referral, Event Rule, General spending rule, Multiple earned points,     |
@@ -471,7 +286,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule \
+    curl http://localhost:8181/api/DEFAULT/earningRule \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -522,22 +337,26 @@ Example Response
       "earningRuleId": "3e3d8a3a-2efb-4283-87c4-20b286bde19c"
     }
 
+
+
 Edit an existing earning rule
 -----------------------------
 
-To edit an existing earning rule, you need to call the ``/api/earningRule/<earningRule>`` endpoint with the ``PUT`` method.
+To edit an existing earning rule, you need to call the ``/api/<storeCode>/earningRule/<earningRule>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT  /api/earningRule/<earningRule>
+    PUT  /api/<storeCode>/earningRule/<earningRule>
 
 +----------------------------------+----------------+--------------------------------------------------------------------------+
 | Parameter                        | Parameter type | Description                                                              |
 +==================================+================+==========================================================================+
 | Authorization                    | header         | Token received during authentication                                     |
++----------------------------------+----------------+--------------------------------------------------------------------------+
+| <storeCode>                      | query          | Code of the store the updated earning rule belongs to.                   |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
 | <earningRule>                    | query          | EarningRule ID                                                           |
 +----------------------------------+----------------+--------------------------------------------------------------------------+
@@ -611,7 +430,7 @@ To fully update an earning rule with id ``earningRule = 00000000-0000-474c-b092-
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/00000000-0000-474c-b092-b0dd880c0121 \
+    curl http://localhost:8181/api/DEFAULT/earningRule/00000000-0000-474c-b092-b0dd880c0121 \
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -673,24 +492,26 @@ Example Response
 Change earning rule status
 --------------------------
 
-To make an earning rule active or inactive, you need to call the ``/api/earningRule/<earningRule>/activate`` endpoint with the ``POST`` method.
+To make an earning rule active or inactive, you need to call the ``/api/<storeCode>/earningRule/<earningRule>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST  /api/earningRule/<earningRule>/activate
+    POST  /api/<storeCode>/earningRule/<earningRule>/activate
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <earningRule> | query          | earningRule ID                       |
-+---------------+----------------+--------------------------------------+
-| active        | request        | Possible values: active, inactive    |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+--------------------------------------------------------+
+| Parameter     | Parameter type | Description                                            |
++===============+================+========================================================+
+| Authorization | header         | Token received during authentication                   |
++---------------+----------------+--------------------------------------------------------+
+| <storeCode>   | query          | Code of the store the updated earning rule belongs to. |
++---------------+----------------+--------------------------------------------------------+
+| <earningRule> | query          | earningRule ID                                         |
++---------------+----------------+--------------------------------------------------------+
+| active        | request        | Possible values: active, inactive                      |
++---------------+----------------+--------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -699,7 +520,7 @@ To make the earning rule ``earningRule = 7d482776-318a-48dd-90cd-6b3f06a3f4e8`` 
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/7d482776-318a-48dd-90cd-6b3f06a3f4e8/active \
+    curl http://localhost:8181/api/DEFAULT/earningRule/7d482776-318a-48dd-90cd-6b3f06a3f4e8/active \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
@@ -724,86 +545,27 @@ Example Response
 
 
 
-Use a custom event earning rule
--------------------------------
-
-To use a custom event earning rule for a specific customer, you need to call the ``/api/<version>/earnRule/<eventName>/customer/<customer>`` endpoint with the ``POST`` method.
-
-Definition
-^^^^^^^^^^
-
-.. code-block:: text
-
-    POST /api/<version>/earnRule/<eventName>/customer/<customer>
-
-+-------------------------------------+----------------+---------------------------------------------------+
-| Parameter                           | Parameter type | Description                                       |
-+=====================================+================+===================================================+
-| Authorization                       | header         | Token received during authentication              |
-+-------------------------------------+----------------+---------------------------------------------------+
-| <customer>                          | query          | Customer ID                                       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| <eventName>                         | query          | Custom Event name                                 |
-+-------------------------------------+----------------+---------------------------------------------------+
-| <version>                           | query          | api version, v1 required                          |
-+-------------------------------------+----------------+---------------------------------------------------+
-
-Example
-^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/v1/earnRule/test/customer/57524216-c059-405a-b951-3ab5c49bae14 \
-        -X "POST" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "event_name=event"
-
-.. note::
-
-    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
-    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
-
-.. note::
-
-    The *57524216-c059-405a-b951-3ab5c49bae14* id is an example value. Your value may be different.
-    Check the list of all customers if you are not sure which id should be used.
-
-Example Response
-^^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-    STATUS: 200 OK
-
-.. code-block:: json
-
-    {
-      "points": 1
-    }
-
-
-
 Get an earning rule's photo
 ---------------------------
 
-To get an earning rule's photo, you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``GET`` method.
+To get an earning rule's photo, you need to call the ``/api/<storeCode>/earningRule/<earningRule>/photo`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/earningRule/<earningRule>/photo
+    GET /api/<storeCode>/earningRule/<earningRule>/photo
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <earningRule> | query          | Earning rule ID                      |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+--------------------------------------------------------+
+| Parameter     | Parameter type | Description                                            |
++===============+================+========================================================+
+| Authorization | header         | Token received during authentication                   |
++---------------+----------------+--------------------------------------------------------+
+| <storeCode>   | query          | Code of the store the earning rule belongs to.         |
++---------------+----------------+--------------------------------------------------------+
+| <earningRule> | query          | Earning rule ID                                        |
++---------------+----------------+--------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -812,7 +574,7 @@ To get the photo for earning rule ``earningRule = 000096cf-32a3-43bd-9034-4df343
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/000096cf-32a3-43bd-9034-4df343e5fd93/photo \
+    curl http://localhost:8181/api/DEFAULT/earningRule/000096cf-32a3-43bd-9034-4df343e5fd93/photo \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -863,22 +625,24 @@ The earning rule may not have a photo at all and you will receive the following 
 Remove an earning rule's photo
 ------------------------------
 
-To remove an earning rule's photo, you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``DELETE`` method.
+To remove an earning rule's photo, you need to call the ``/api/<storeCode>/earningRule/<earningRule>/photo`` endpoint with the ``DELETE`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    DELETE /api/earningRule/<earningRule>/photo
+    DELETE /api/<storeCode>/earningRule/<earningRule>/photo
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <earningRule> | query          | Earning rule ID                      |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+-----------------------------------------------+
+| Parameter     | Parameter type | Description                                   |
++===============+================+===============================================+
+| Authorization | header         | Token received during authentication          |
++---------------+----------------+-----------------------------------------------+
+| <storeCode>   | query          | Code of the store the earning rule belongs to.|
++---------------+----------------+-----------------------------------------------+
+| <earningRule> | query          | Earning rule ID                               |
++---------------+----------------+-----------------------------------------------+
 
 Example
 ^^^^^^^
@@ -887,7 +651,7 @@ To remove the photo for earning rule ``earningRule = 000096cf-32a3-43bd-9034-4df
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/000096cf-32a3-43bd-9034-4df343e5fd93/photo \
+    curl http://localhost:8181/api/DEFAULT/earningRule/000096cf-32a3-43bd-9034-4df343e5fd93/photo \
         -X "DELETE" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -915,24 +679,26 @@ Example Response
 Add a photo to an earning rule
 ------------------------------
 
-To add a photo to an earning rule, you need to call the ``/api/earningRule/<earningRule>/photo`` endpoint with the ``POST`` method.
+To add a photo to an earning rule, you need to call the ``/api/<storeCode>/earningRule/<earningRule>/photo`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/earningRule/<earningRule>/photo
+    POST /api/<storeCode>/earningRule/<earningRule>/photo
 
-+---------------+----------------+--------------------------------------+
-| Parameter     | Parameter type | Description                          |
-+===============+================+======================================+
-| Authorization | header         | Token received during authentication |
-+---------------+----------------+--------------------------------------+
-| <earningRule> | query          | Earning rule ID                      |
-+---------------+----------------+--------------------------------------+
-| photo[file]   | request        | Absolute path to the photo           |
-+---------------+----------------+--------------------------------------+
++---------------+----------------+-----------------------------------------------+
+| Parameter     | Parameter type | Description                                   |
++===============+================+===============================================+
+| Authorization | header         | Token received during authentication          |
++---------------+----------------+-----------------------------------------------+
+| <storeCode>   | query          | Code of the store the earning rule belongs to.|
++---------------+----------------+-----------------------------------------------+
+| <earningRule> | query          | Earning rule ID                               |
++---------------+----------------+-----------------------------------------------+
+| photo[file]   | request        | Absolute path to the photo                    |
++---------------+----------------+-----------------------------------------------+
 
 Example
 ^^^^^^^
@@ -941,7 +707,7 @@ To add a photo to earning rule ``earningRule = 000096cf-32a3-43bd-9034-4df343e5f
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/000096cf-32a3-43bd-9034-4df343e5fd93/photo \
+    curl http://localhost:8181/api/DEFAULT/earningRule/000096cf-32a3-43bd-9034-4df343e5fd93/photo \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
@@ -974,19 +740,21 @@ QR code
 --------
 
 This method allows calculating points using QR codes.
-You need to call the ``/api/earningRule/qrcode/customer/<customer>`` endpoint with the ``POST`` method.
+You need to call the ``/api/<storeCode>/earningRule/qrcode/customer/<customer>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/earningRule/qrcode/customer/<customer>
+    POST /api/<storeCode>/earningRule/qrcode/customer/<customer>
 
 +----------------------------+----------------+------------------------------------------------------------------------+
 | Parameter                  | Parameter type | Description                                                            |
 +============================+================+========================================================================+
 | Authorization              | header         | Token received during authentication                                   |
++----------------------------+----------------+------------------------------------------------------------------------+
+| <storeCode>                | query          | Code of the store the earning rule and customer belong to.             |
 +----------------------------+----------------+------------------------------------------------------------------------+
 | <customer>                 | query          | Customer ID                                                            |
 +----------------------------+----------------+------------------------------------------------------------------------+
@@ -1001,7 +769,7 @@ Example Response
 ^^^^^^^^^^^^^^^^^^
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/qrcode/customer/00000000-0000-474c-b092-b0dd880c07e1 \
+    curl http://localhost:8181/api/DEFAULT/earningRule/qrcode/customer/00000000-0000-474c-b092-b0dd880c07e1 \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
@@ -1032,19 +800,21 @@ Example Response
 Geolocation
 -----------
 
-To calculate points using geolocation, you need to call the ``/api/earningRule/geolocation/customer/<customer>`` endpoint with the ``POST`` method.
+To calculate points using geolocation, you need to call the ``/api/<storeCode>/earningRule/geolocation/customer/<customer>`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/earningRule/geolocation/customer/<customer>
+    POST /api/<storeCode>/earningRule/geolocation/customer/<customer>
 
 +----------------------------+----------------+------------------------------------------------------------------------+
 | Parameter                  | Parameter type | Description                                                            |
 +============================+================+========================================================================+
 | Authorization              | header         | Token received during authentication                                   |
++----------------------------+----------------+------------------------------------------------------------------------+
+| <storeCode>                | query          | Code of the store the earning rule and the customer belong to.         |
 +----------------------------+----------------+------------------------------------------------------------------------+
 | <customer>                 | query          | Customer ID                                                            |
 +----------------------------+----------------+------------------------------------------------------------------------+
@@ -1062,7 +832,7 @@ Example Response
 ^^^^^^^^^^^^^^^^^^
 .. code-block:: bash
 
-    curl http://localhost:8181/api/earningRule/geolocation/customer/00000000-0000-474c-b092-b0dd880c07e1 \
+    curl http://localhost:8181/api/DEFAULT/earningRule/geolocation/customer/00000000-0000-474c-b092-b0dd880c07e1 \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
