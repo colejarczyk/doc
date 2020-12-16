@@ -837,9 +837,9 @@ To create a new customer, you need to call the ``/api/<storeCode>/customer/regis
 
 .. note::
 
-    This endpoint allows you to set more customer parameters than ``/api/<storeCode>/customer/self-register`` and is used when creating
-    a new customer in the admin cockpit or POS cockpit. The The self register endpoint is used in the client cockpit for registration
-    and has some limitations.
+    This endpoint allows you to set more customer parameters than ``/api/<storeCode>/customer/self_register``
+    and is used when creating a new customer in the admin cockpit. The self register endpoint is used in the client
+    cockpit for registration and has some limitations.
 
 Definition
 ^^^^^^^^^^
@@ -1042,7 +1042,8 @@ Example Response
           "agreement3": {},
           "referral_customer_email": {},
           "levelId": {},
-          "posId": {}
+          "posId": {},
+          "sellerId": {}
         }
       },
       "errors": []
@@ -1342,7 +1343,8 @@ Example Response
                 "agreement3": {},
                 "referral_customer_email": {},
                 "levelId": {},
-                "posId": {}
+                "posId": {},
+                "sellerId": {}
             }
         },
         "errors": []
@@ -2023,6 +2025,91 @@ Example Response
         }
     }
 
+
+
+Customer status (seller)
+------------------------
+
+To retrieve the status of specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/status`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/<storeCode>/seller/customer/<customer>/status
+
++----------------------+----------------+--------------------------------------------------------+
+| Parameter            | Parameter type |  Description                                           |
++======================+================+========================================================+
+| Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the customer belongs to.             |
++----------------------+----------------+--------------------------------------------------------+
+| <customer>           | query          | Customer UUID                                          |
++----------------------+----------------+--------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/status \
+        -X "GET" \
+        -H "Accept:\ application/json" \
+        -H "Content-type:\ application/x-www-form-urlencoded" \
+        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
+        "points": 161.9,
+        "p2pPoints": 0,
+        "totalEarnedPoints": 274.9,
+        "usedPoints": 25,
+        "expiredPoints": 88,
+        "lockedPoints": 0,
+        "level": "0.00%",
+        "levelName": "level0",
+        "levelConditionValue": 0,
+        "nextLevel": "5.00%",
+        "nextLevelName": "level1",
+        "nextLevelConditionValue": 20,
+        "transactionsAmountWithoutDeliveryCosts": 3,
+        "transactionsAmountToNextLevel": 17,
+        "averageTransactionsAmount": "1.50",
+        "transactionsCount": 2,
+        "transactionsAmount": 3,
+        "currency": "eur",
+        "pointsExpiringNextMonth": 161.9,
+        "pointsExpiringBreakdown": {
+            "2019-04-14": 33,
+            "2019-04-15": 116.9,
+            "2019-04-17": 12
+        }
+    }
+
+
+
 Send an activation code to a customer as an admin
 -------------------------------------------------
 
@@ -2117,6 +2204,564 @@ Example Response
 
     STATUS: 200 OK
 
+
+
+Send SMS activation code as a seller
+------------------------------------
+
+To send an SMS activation code to a specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/send-sms-code`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/seller/customer/<customer>/send-sms-code
+
++---------------------------+----------------+-------------------------------------------------------------------------+
+| Parameter                 | Parameter type |  Description                                                            |
++===========================+================+=========================================================================+
+| Authorization             | header         | Token received during authentication                                    |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| <storeCode>               | query          | Code of the store the customer belongs to.                              |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| <customer>                | query          |  Customer UUID                                                          |
++---------------------------+----------------+-------------------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/send-sms-code \
+        -X "POST" \
+        -H "Accept:\ application/json" \
+        -H "Content-type:\ application/x-www-form-urlencoded" \
+        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    (no content)
+
+
+
+Assign a POS to a customer as a seller
+--------------------------------------
+
+To assign a POS to specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/pos`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/seller/customer/<customer>/pos
+
++------------------------------------------------+----------------+----------------------------------------------------+
+| Parameter                                      | Parameter type |  Description                                       |
++================================================+================+====================================================+
+| Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customer belongs to.         |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <customer>                                     | query          | Customer UUID                                      |
++------------------------------------------------+----------------+----------------------------------------------------+
+| posId                                          | query          | POS UUID                                           |
++------------------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/pos \
+        -X "POST" \
+        -H "Accept:\ application/json" \
+        -H "Content-type:\ application/x-www-form-urlencoded" \
+        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "posId=00000000-0000-474c-1111-b0dd880c07e3"
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *posId = 00000000-0000-474c-1111-b0dd880c07e3* and *customer = 00000000-0000-474c-b092-b0dd880c07e1* are example values.
+    Your values may be different.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+
+
+Activate a customer as a seller
+-------------------------------
+
+To activate a specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/activate`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/seller/customer/<customer>/activate
+
++------------------------------------------------+----------------+----------------------------------------------------+
+| Parameter                                      | Parameter type |  Description                                       |
++================================================+================+====================================================+
+| Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customer belongs to.         |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <customer>                                     | query          | Customer UUID                                      |
++------------------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/activate \
+        -X "POST" \
+        -H "Accept:\ application/json" \
+        -H "Content-type:\ application/x-www-form-urlencoded" \
+        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+
+
+Deactivate a customer as a seller
+---------------------------------
+
+To deactivate a specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/deactivate`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/seller/customer/<customer>/deactivate
+
++------------------------------------------------+----------------+----------------------------------------------------+
+| Parameter                                      | Parameter type | Description                                        |
++================================================+================+====================================================+
+| Authorization                                  | header         | Token received during authentication               |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the customer belongs to.         |
++------------------------------------------------+----------------+----------------------------------------------------+
+| <customer>                                     | query          | Customer UUID                                      |
++------------------------------------------------+----------------+----------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/deactivate \
+        -X "POST" \
+        -H "Accept:\ application/json" \
+        -H "Content-type:\ application/x-www-form-urlencoded" \
+        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+
+
+Register new customer as a seller
+---------------------------------
+
+To register a customer, you need to call the ``/api/<storeCode>/seller/customer/register`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/seller/customer/register
+
+.. note::
+
+    This endpoint allows you to set more customer parameters than ``/api/<storeCode>/customer/self_register`` and is used when creating
+    a new customer in the admin cockpit or POS cockpit. The self register endpoint is used in the client cockpit for registration
+    and has some limitations.
+
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| Parameter                          | Parameter type | Description                                                                                 |
++====================================+================+=============================================================================================+
+| Authorization                      | header         | Token received during authentication                                                        |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customer will belong to.                                              |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[firstName]                | request        | First name                                                                                  |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[lastName]                 | request        | Last name                                                                                   |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[gender]                   | request        | *(optional)* Gender. Possible values ``male``, ``female``, ``not_disclosed``                |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[email]                    | request        | *(unique)* E-mail address                                                                   |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[phone]                    | request        | *(optional)* A phone number *(unique)*                                                      |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[birthDate]                | request        | *(optional)* Birth date in format YYYY-MM-DD HH:mm, for example ``2017-10-05``              |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[createdAt]                | request        | *(optional)* Created at in format YYYY-MM-DD HH:mm:ss, for example ``2017-01-01 14:15:16``. |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[address][street]          | request        | *(optional)* Street name                                                                    |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[address][address1]        | request        | *(optional)* Building number                                                                |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[address][address2]        | request        | *(optional)* Flat/Unit name                                                                 |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[address][postal]          | request        | *(optional)* Post code                                                                      |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[address][city]            | request        | *(optional)* City name                                                                      |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[address][province]        | request        | *(optional)* Province name                                                                  |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[address][country]         | request        | *(optional)* Country name                                                                   |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[company][name]            | request        | *(optional)* Company name                                                                   |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[company][nip]             | request        | *(optional)* Tax ID                                                                         |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[loyaltyCardNumber]        | request        | *(optional)* Loyalty card number *(unique)*                                                 |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[labels]                   | request        | *(optional)* String of labels in form of ``key1:val1;key2:val2``.                           |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[agreement1]               | request        | First agreement. Set 1 if true, otherwise 0                                                 |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[agreement2]               | request        | *(optional)* Second agreement. Set 1 if true, otherwise 0                                   |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[agreement3]               | request        | *(optional)* Third agreement. Set 1 if true, otherwise 0                                    |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+| customer[referral_customer_email]  | request        | *(optional)* Referral customer e-mail address.                                              |
++------------------------------------+----------------+---------------------------------------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/register \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "customer[firstName]=Lady" \
+        -d "customer[lastName]=Mini" \
+        -d "customer[email]=test@openloyalty.com" \
+        -d "customer[gender]=female" \
+        -d "customer[agreement1]=1"
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "customerId": "53c16b8e-db1e-42f9-af71-3bb76f5c3aca",
+      "email": "test@openloyalty.com"
+    }
+
+
+
+Search for customers as a seller
+--------------------------------
+
+To search for a customer in POS, you need to call the ``/api/<storeCode>/pos/search/customer`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/pos/search/customer
+
++------------------------------------+----------------+----------------------------------------------------------------+
+| Parameter                          | Parameter type | Description                                                    |
++====================================+================+================================================================+
+| Authorization                      | header         | Token received during authentication                           |
++------------------------------------+----------------+----------------------------------------------------------------+
+| <storeCode>                        | query          | Code of the store the customers belong to.                     |
++------------------------------------+----------------+----------------------------------------------------------------+
+| search[loyaltyCardNumber]          | query          | *(optional)* Loyalty card number                               |
++------------------------------------+----------------+----------------------------------------------------------------+
+| search[phone]                      | request        | *(optional)* A phone number                                    |
++------------------------------------+----------------+----------------------------------------------------------------+
+| search[email]                      | request        | *(optional)* Email address                                     |
++------------------------------------+----------------+----------------------------------------------------------------+
+| search[firstName]                  | request        | *(optional)* Fisrt name                                        |
++------------------------------------+----------------+----------------------------------------------------------------+
+| search[lastName]                   | request        | *(optional)* Last name                                         |
++------------------------------------+----------------+----------------------------------------------------------------+
+| search[city]                       | request        | *(optional)* City name                                         |
++------------------------------------+----------------+----------------------------------------------------------------+
+| search[postcode]                   | request        | *(optional)* Post code                                         |
++------------------------------------+----------------+----------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/pos/search/customer \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "search[firstName]=John" \
+        -d "search[lastName]=Doe"
+
+.. note::
+
+    When using this endpoint, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "customers": [
+        {
+          "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
+          "active": false,
+          "posId": "00000000-0000-474c-1111-b0dd880c07e3",
+          "firstName": "John",
+          "lastName": "Doe",
+          "gender": "male",
+          "email": "user@example.com",
+          "phone": "+48234234000",
+          "birthDate": "1990-09-11T02:00:00+0200",
+          "lastLevelRecalculation": "2019-03-15T13:00:05+0100",
+          "loyaltyCardNumber": "47834433524",
+          "createdAt": "2016-08-08T10:53:14+0200",
+          "levelId": "e82c96cf-32a3-43bd-9034-4df343e50000",
+          "agreement1": true,
+          "agreement2": false,
+          "agreement3": false,
+          "status": {
+            "availableTypes": [
+              "new",
+              "active",
+              "blocked",
+              "deleted"
+            ],
+            "availableStates": [
+              "no-card",
+              "card-sent",
+              "with-card"
+            ],
+            "type": "blocked"
+          },
+          "updatedAt": "2019-03-18T14:44:49+0100",
+          "campaignPurchases": [
+            {
+              "canBeUsed": false,
+              "purchaseAt": "2019-03-18T13:45:39+0100",
+              "costInPoints": 1,
+              "campaignId": "f1eddc46-e985-43e8-bc2a-8007dca3df95",
+              "used": true,
+              "coupon": {
+                "id": "83d6a65e-d237-4049-84aa-bb107cd6f9a4",
+                "code": "test1"
+              },
+              "status": "active",
+              "activeTo": "2019-06-16T13:45:39+0200",
+              "deliveryStatus": "ordered",
+              "usageDate": "2019-03-18T13:51:10+0100"
+            },
+            {
+              "canBeUsed": false,
+              "purchaseAt": "2019-03-18T13:45:39+0100",
+              "costInPoints": 1,
+              "campaignId": "f1eddc46-e985-43e8-bc2a-8007dca3df95",
+              "used": true,
+              "coupon": {
+                "id": "6a2456ec-49b3-4970-9ac4-75ca01eab0ee",
+                "code": "test2"
+              },
+              "status": "active",
+              "activeTo": "2019-06-16T13:45:39+0200",
+              "deliveryStatus": "ordered",
+              "usageDate": "2019-03-18T13:51:10+0100"
+            }
+          ],
+          "transactionsCount": 2,
+          "transactionsAmount": 3,
+          "transactionsAmountWithoutDeliveryCosts": 3,
+          "amountExcludedForLevel": 0,
+          "averageTransactionAmount": 1.5,
+          "lastTransactionDate": "2019-03-16T12:53:23+0100",
+          "labels": [],
+          "level": {
+            "levelId": {
+              "id": "e82c96cf-32a3-43bd-9034-4df343e50000"
+            },
+            "name": "level0",
+            "translations": {
+              "en": {
+                "name": "level0"
+              },
+              "pl": {
+                "name": "poziom0"
+              }
+            }
+          },
+          "currency": "eur",
+          "levelPercent": "0.00%",
+          "posIdentifier": "pos2"
+        },
+        {
+          "customerId": "11111111-0000-474c-b092-b0dd880c07e1",
+          "active": true,
+          "firstName": "John1",
+          "lastName": "Doe1",
+          "gender": "male",
+          "email": "user-1@example.com",
+          "phone": "+48456456000",
+          "birthDate": "1990-09-11T02:00:00+0200",
+          "lastLevelRecalculation": "2019-03-15T13:00:05+0100",
+          "createdAt": "2016-08-08T10:53:14+0200",
+          "levelId": "e82c96cf-32a3-43bd-9034-4df343e50000",
+          "agreement1": false,
+          "agreement2": false,
+          "agreement3": false,
+          "status": {
+            "availableTypes": [
+              "new",
+              "active",
+              "blocked",
+              "deleted"
+            ],
+            "availableStates": [
+              "no-card",
+              "card-sent",
+              "with-card"
+            ],
+            "type": "active",
+            "state": "no-card"
+          },
+          "updatedAt": "2019-03-15T12:53:18+0100",
+          "campaignPurchases": [],
+          "transactionsCount": 0,
+          "transactionsAmount": 0,
+          "transactionsAmountWithoutDeliveryCosts": 0,
+          "amountExcludedForLevel": 0,
+          "averageTransactionAmount": 0,
+          "labels": [
+            {
+              "key": "test",
+              "value": "test"
+            }
+          ],
+          "level": {
+            "levelId": {
+              "id": "e82c96cf-32a3-43bd-9034-4df343e50000"
+            },
+            "name": "level0",
+            "translations": {
+              "en": {
+                "name": "level0"
+              },
+              "pl": {
+                "name": "poziom0"
+              }
+            }
+          },
+          "currency": "eur",
+          "levelPercent": "0.00%"
+        }
+      ]
+    }
+
+
+
 Import customers
 ----------------
 
@@ -2139,8 +2784,8 @@ Definition
 | file[file]                                     | query          | XML file                                           |
 +------------------------------------------------+----------------+----------------------------------------------------+
 
-Example Windows
-^^^^^^^^^^^^^^^
+Example
+^^^^^^^
 
 .. code-block:: bash
 
@@ -2150,24 +2795,6 @@ Example Windows
         -H "Content-type:\ application/x-www-form-urlencoded" \
         -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "file[file]=C:\\fakepath\\customers.xml"
-
-Example Unix
-^^^^^^^^^^^^
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/DEFAULT/admin/customer/import \
-        -X "POST" \
-        -H "Accept:\ application/json" \
-        -H "Content-type:\ application/x-www-form-urlencoded" \
-        -H "Authorization:\ Bearer\ eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "file[file]=@/path/to/file/customers.xml"
-
-.. warning::
-
-    If you choose in setting a preferred communication method:
-     - SMS - then the user identifier is ``phone number``. It is required data in the imported file.
-     - email - it's default value - then the user identifier is ``email address``.  It is a required data in the imported file.
 
 .. note::
 

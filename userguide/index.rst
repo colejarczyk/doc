@@ -86,6 +86,15 @@ In :doc:`the POS </userguide/pos/index>` section of the guide, you’ll learn ho
 
    userguide/pos/index
 
+Merchants
+---------
+:doc:`The Merchants </userguide/merchants/index>` section of the guide provides an overview of the all merchants working in yours stores and involve with Loyalty Program. You’ll learn how to add and manage merchant data, including assigning to particular store.
+
+.. toctree::
+   :hidden:
+
+   userguide/merchants/index
+
 Segments
 --------
 In :doc:`the Segments </userguide/segments/index>` section of the guide, you’ll become familiar with the customer segmentation feature, and learn to configure customer segments according to your preference. You will also learn how to create and assigned customers to segments, that can be referenced in rewards, earning rules, levels etc.

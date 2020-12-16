@@ -42,8 +42,11 @@ Client cockpit
 A frontend application for end customers. It allows customers to check their profile, points, transactions history
 and redeem reward.
 
+POS Cockpit
+POS stands for Point-of-sale. It’s a physical store where you can buy stuff. This cockpit is a user interface for
+merchants to register a customer in loyalty program or spend points to reduce purchase amount.
+
 3rd party software
-------------------
 Thanks to the separation between frontend and backend any third party software can integrate with Open Loyalty and
 benefit from it. You can even replace existing cockpits with your own solution like mobile application for end customers.
 

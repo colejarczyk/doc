@@ -184,6 +184,8 @@ Example Response
       "success": true
     }
 
+
+
 Change logged-in admin's password
 ---------------------------------
 

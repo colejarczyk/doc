@@ -33,33 +33,22 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerId                          | query          | *(optional)* Customer ID                          |
 +-------------------------------------+----------------+---------------------------------------------------+
-| customerLoyaltyCardNumber           | query          | *(optional)* Customer's loyalty card number       |
-+-------------------------------------+----------------+---------------------------------------------------+
-| state                               | query          | *(optional)* Possible values: canceled, active,   |
-|                                     | query          | expired, pending                                  |
+| state[]                             | query          | *(optional)* Possible values: active, expired     |
 +-------------------------------------+----------------+---------------------------------------------------+
 | type                                | query          | *(optional)* Possible values: adding, spending,   |
-|                                     |                | p2p_adding, p2p_spending, blocked                 |
+|                                     |                | p2p_adding, p2p_spending                          |
 +-------------------------------------+----------------+---------------------------------------------------+
-| value                               | query          | *(optional)*                                      |
+| page                                | query          | *(optional)* Start from page, by default 1        |
 +-------------------------------------+----------------+---------------------------------------------------+
-| comment                             | query          | *(optional)*                                      |
-+-------------------------------------+----------------+---------------------------------------------------+
-| issuer                              | query          | *(optional)*                                      |
-+-------------------------------------+----------------+---------------------------------------------------+
-| createdAt                           | query          | *(optional)*                                      |
-+-------------------------------------+----------------+---------------------------------------------------+
-| lockedUntil                         | query          | *(optional)*                                      |
-+-------------------------------------+----------------+---------------------------------------------------+
-| expiresAt                           | query          | *(optional)*                                      |
-+-------------------------------------+----------------+---------------------------------------------------+
-| _page                               | query          | *(optional)* Start from page, by default 1        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| _itemsOnPage                        | query          | *(optional)* Number of items to display per page, |
+| perPage                             | query          | *(optional)* Number of items to display per page, |
 |                                     |                | by default = 10                                   |
 +-------------------------------------+----------------+---------------------------------------------------+
-| _orderBy                            | query          | *(optional)* Sort by column name                  |
+| sort                                | query          | *(optional)* Sort by column name                  |
 +-------------------------------------+----------------+---------------------------------------------------+
+| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
+|                                     |                | by default = ASC                                  |
++-------------------------------------+----------------+---------------------------------------------------+
+
 
 Example
 ^^^^^^^
@@ -127,6 +116,16 @@ Example Response
                 "transactionDocumentNumber": "456",
                 "transaction": {
                     "grossValue": 3,
+                    "labels": [
+                        {
+                            "key": "first label",
+                            "value": "first test"
+                        },
+                        {
+                            "key": "second label",
+                            "value": "second test"
+                        }
+                    ],
                     "items": [
                         {
                             "sku": {
@@ -165,6 +164,8 @@ Example Response
         ],
         "total": 2
     }
+
+
 
 Get a complete list of points transfers (customer)
 --------------------------------------------------
@@ -267,6 +268,16 @@ Example Response
                 "transactionDocumentNumber": "456",
                 "transaction": {
                     "grossValue": 3,
+                    "labels": [
+                        {
+                            "key": "first label",
+                            "value": "first test"
+                        },
+                        {
+                            "key": "second label",
+                            "value": "second test"
+                        }
+                    ],
                     "items": [
                         {
                             "sku": {
@@ -671,6 +682,8 @@ Example Response
       "totalSuccess": 1,
       "totalFailed": 0
     }
+
+
 
 Points transfers histogram
 --------------------------

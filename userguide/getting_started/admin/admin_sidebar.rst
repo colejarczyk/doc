@@ -69,6 +69,16 @@ POS
 .. image:: /userguide/_images/all_pos.png
    :alt:   POS
 
+
+Merchants
+'''''''''
+
+*The Merchants menu is where you can manage merchants and assigned them to particular POS*
+
+.. image:: /userguide/_images/merchant.png
+   :alt:   Merchants
+
+
 Segments
 ''''''''
 

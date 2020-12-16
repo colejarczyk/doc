@@ -8,19 +8,21 @@ These endpoints will allow you to see the list of sellers in Open Loyalty.
 Get list of sellers
 -------------------
 
-To retrieve a paginated list of sellers, you need to call the ``/api/seller`` endpoint with the ``GET`` method.
+To retrieve a paginated list of sellers, you need to call the ``/api/<storeCode>/seller`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/seller
+    GET /api/<storeCode>/seller
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store to get sellers from.                 |
 +----------------------+----------------+--------------------------------------------------------+
 | firstName            | query          | *(optional)* First Name                                |
 +----------------------+----------------+--------------------------------------------------------+
@@ -47,7 +49,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller \
+    curl http://localhost:8181/api/DEFAULT/seller \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -104,19 +106,21 @@ Example Response
 Register new seller
 -------------------
 
-To register a new seller, you need to call the ``/api/seller/register`` endpoint with the ``POST`` method.
+To register a new seller, you need to call the ``/api/<storeCode>/seller/register`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/register
+    POST /api/<storeCode>/seller/register
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store to register new seller in.                               |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | seller[firstName]                              | request        |  First name                                                                |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -138,7 +142,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/register \
+    curl http://localhost:8181/api/DEFAULT/seller/register \
         -X "POST" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -176,20 +180,22 @@ Example Response
 Get seller details
 ------------------
 
-To retrieve seller details, you need to call the ``/api/seller/<seller>`` endpoint with the ``GET`` method.
+To retrieve seller details, you need to call the ``/api/<storeCode>/seller/<seller>`` endpoint with the ``GET`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    GET /api/seller/<seller>
+    GET /api/<storeCode>/seller/<seller>
 
 
 +----------------------+----------------+--------------------------------------------------------+
 | Parameter            | Parameter type |  Description                                           |
 +======================+================+========================================================+
 | Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store to get seller from.                  |
 +----------------------+----------------+--------------------------------------------------------+
 | <seller>             | query          | Seller ID                                              |
 +----------------------+----------------+--------------------------------------------------------+
@@ -201,7 +207,7 @@ To see the details of the seller user with id ``seller = 00000000-0000-474c-b092
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/00000000-0000-474c-b092-b0dd880c07e4` \
+    curl http://localhost:8181/api/DEFAULT/seller/00000000-0000-474c-b092-b0dd880c07e4` \
         -X "GET" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
@@ -241,19 +247,21 @@ Example Response
 Update seller details
 ---------------------
 
-To fully update seller details for a user, you need to call the ``/api/seller/<seller>`` endpoint with the ``PUT`` method.
+To fully update seller details for a user, you need to call the ``/api/<storeCode>/seller/<seller>`` endpoint with the ``PUT`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    PUT /api/seller/<seller>
+    PUT /api/<storeCode>/seller/<seller>
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the updated seller belongs to.                           |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | <seller>                                       | query          |  Seller ID                                                                 |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -277,7 +285,7 @@ Example
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/00000000-0000-474c-b092-b0dd880c07e4 \
+    curl http://localhost:8181/api/DEFAULT/seller/00000000-0000-474c-b092-b0dd880c07e4 \
         -X "PUT" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -313,19 +321,21 @@ Example Response
 Activate seller
 ---------------
 
-To activate a seller, you need to call the ``/api/seller/<seller>/activate`` endpoint with the ``POST`` method.
+To activate a seller, you need to call the ``/api/<storeCode>/seller/<seller>/activate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/<seller>/activate
+    POST /api/<storeCode>/seller/<seller>/activate
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store to activate the seller in.                               |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | <seller>                                       | query          |  Seller ID                                                                 |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -338,7 +348,7 @@ To activate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/00000000-0000-474c-b092-b0dd880c07e4/activate \
+    curl http://localhost:8181/api/DEFAULT/seller/00000000-0000-474c-b092-b0dd880c07e4/activate \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -365,19 +375,21 @@ Example Response
 Deactivate seller
 -----------------
 
-To deactivate a seller, you need to call the ``/api/seller/<seller>/deactivate`` endpoint with the ``POST`` method.
+To deactivate a seller, you need to call the ``/api/<storeCode>/seller/<seller>/deactivate`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/<seller>/deactivate
+    POST /api/<storeCode>/seller/<seller>/deactivate
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store to deactivate seller in.                                 |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | <seller>                                       | query          |  Seller ID                                                                 |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -390,7 +402,7 @@ To deactivate a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c0
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/00000000-0000-474c-b092-b0dd880c07e4/deactivate \
+    curl http://localhost:8181/api/DEFAULT/seller/00000000-0000-474c-b092-b0dd880c07e4/deactivate \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \
@@ -416,19 +428,21 @@ Example Response
 Delete seller
 -------------
 
-To delete a seller, you need to call the ``/api/seller/<seller>/delete`` endpoint with the ``POST`` method.
+To delete a seller, you need to call the ``/api/<storeCode>/seller/<seller>/delete`` endpoint with the ``POST`` method.
 
 Definition
 ^^^^^^^^^^
 
 .. code-block:: text
 
-    POST /api/seller/<seller>/delete
+    POST /api/<storeCode>/seller/<seller>/delete
 
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | Parameter                                      | Parameter type |  Description                                                               |
 +================================================+================+============================================================================+
 | Authorization                                  | header         | Token received during authentication                                       |
++------------------------------------------------+----------------+----------------------------------------------------------------------------+
+| <storeCode>                                    | query          | Code of the store the seller belongs to.                                   |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
 | <seller>                                       | query          |  Seller ID                                                                 |
 +------------------------------------------------+----------------+----------------------------------------------------------------------------+
@@ -440,7 +454,7 @@ To delete a seller user with id ``seller = 00000000-0000-474c-b092-b0dd880c07e4`
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/seller/00000000-0000-474c-b092-b0dd880c07e4/delete \
+    curl http://localhost:8181/api/DEFAULT/seller/00000000-0000-474c-b092-b0dd880c07e4/delete \
         -X "POST" \
         -H "Accept:\ application/json" \
         -H "Content-type:\ application/x-www-form-urlencoded" \

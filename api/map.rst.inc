@@ -15,6 +15,7 @@
 * :doc:`/api/points_transfers`
 * :doc:`/api/pos`
 * :doc:`/api/security`
+* :doc:`/api/seller`
 * :doc:`/api/segment`
 * :doc:`/api/settings`
 * :doc:`/api/store`

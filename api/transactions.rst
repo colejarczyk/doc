@@ -308,6 +308,71 @@ Example Response
       "transactionId": "9f805211-9326-4b47-b5a6-8155d6ae9d2c"
     }
 
+
+
+Assign a customer to specific transaction (seller)
+--------------------------------------------------
+
+To assign a customer to a specific transaction, you need to call the ``/api/<storeCode>/pos/transaction/customer/assign`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/pos/transaction/customer/assign
+
++-------------------------------------+----------------+---------------------------------------------------------------+
+| Parameter                           | Parameter type | Description                                                   |
++=====================================+================+===============================================================+
+| Authorization                       | header         | Token received during authentication                          |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer and the transaction belong to. |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[transactionDocumentNumber]   | query          | Transaction Document Number                                   |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerId]                  | query          | Customer ID                                                   |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerLoyaltyCardNumber]   | query          | Customer Loyalty Number                                       |
++-------------------------------------+----------------+---------------------------------------------------------------+
+| assign[customerPhoneNumber]         | query          | Customer Phone Number                                         |
++-------------------------------------+----------------+---------------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/pos/transaction/customer/assign \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+        -d "assign[transactionDocumentNumber]=123" \
+        -d "assign[customerId]=57524216-c059-405a-b951-3ab5c49bae14" \
+        -d "assign[customerLoyaltyCardNumber]=333" \
+        -d "assign[customerPhoneNumber]=333333"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "transactionId": "00000000-0000-1111-0000-000000000005"
+    }
+
+
+
 Get a list of transactions (customer)
 -------------------------------------
 
@@ -630,6 +695,239 @@ Example Response
       "pointsEarned": 6.9
     }
 
+
+
+Get customer's transactions (seller)
+------------------------------------
+
+To retrieve a list of customer transactions, you need to call the ``/api/<storeCode>/seller/transaction/customer/<customer>`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+     GET  /api/<storeCode>/seller/transaction/customer/<customer>
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the customer belongs to.        |
++-------------------------------------+----------------+---------------------------------------------------+
+| <customer>                          | query          | Customer ID                                       |
++-------------------------------------+----------------+---------------------------------------------------+
+| documentNumber                      | query          | *(optional)* Filter by Document Number            |
++-------------------------------------+----------------+---------------------------------------------------+
+| page                                | query          | *(optional)* Start from page, by default 1        |
++-------------------------------------+----------------+---------------------------------------------------+
+| perPage                             | query          | *(optional)* Number of items to display per page, |
+|                                     |                | by default = 10                                   |
++-------------------------------------+----------------+---------------------------------------------------+
+| sort                                | query          | *(optional)* Sort by column name                  |
++-------------------------------------+----------------+---------------------------------------------------+
+| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
+|                                     |                | by default = ASC                                  |
++-------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/transaction/customer/4b32a723-9923-46fc-a2bc-d09767e5e59b \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "transactions": [
+        {
+          "grossValue": 2200,
+          "transactionId": "c13e4e89-2e9a-482d-8ab0-41a8eb9927ed",
+          "documentNumber": "214124124130",
+          "purchaseDate": "2017-08-23T00:00:00+0200",
+          "documentType": "return",
+          "customerId": "4b32a723-9923-46fc-a2bc-d09767e5e59b",
+          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
+          "customerData": {
+            "email": "tomasztest8@wp.pl",
+            "name": "Firstname+Lastname",
+            "nip": "00000000000000",
+            "phone": "00000000000000",
+            "loyaltyCardNumber": "11111111111",
+            "address": {
+              "street": "Street+name",
+              "address1": "123",
+              "province": "Dolnoslaskie",
+              "city": "Wroclaw",
+              "postal": "00-000",
+              "country": "PL"
+            }
+          },
+          "labels": [
+            {
+              "key": "scan_id",
+              "value": "333"
+            }
+          ],
+          "items": [
+            {
+              "sku": {
+                "code": "test0101"
+              },
+              "name": "Product+name",
+              "quantity": 1,
+              "grossValue": 2200,
+              "category": "Category+Name",
+              "maker": "Marker+name",
+              "labels": [
+                {
+                  "key": "Label+key",
+                  "value": "Label+value"
+                }
+              ]
+            }
+          ],
+          "excludedLevelCategories": [
+            "category_excluded_from_level"
+          ],
+          "currency": "eur"
+        }
+      ],
+      "total": 1
+    }
+
+
+
+Get transactions with provided document number (seller)
+-------------------------------------------------------
+
+To retrieve a list of transactions with provided document number, you need to call the ``/api/<storeCode>/seller/transaction/<documentNumber>`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/<storeCode>/seller/transaction/<documentNumber>
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the transaction belongs to.     |
++-------------------------------------+----------------+---------------------------------------------------+
+| <documentNumber>                    | query          | Document Number ID                                |
++-------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/transaction/214124124125 \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    This endpoint uses *documentNumber*, your *internal* identifier of a transaction.
+    This is not the same as *transactionId* and should be easier to find for the merchant.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "transactions": [
+        {
+          "grossValue": 1500,
+          "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433",
+          "documentNumber": "214124124125",
+          "purchaseDate": "2017-08-22T00:00:00+0200",
+          "documentType": "sell",
+          "customerId": "4b32a723-9923-46fc-a2bc-d09767e5e59b",
+          "assignedToCustomerDate": "1970-01-01T01:00:00+01:00",
+          "customerData": {
+            "email": "tomasztest8@wp.pl",
+            "name": "Firstname+Lastname",
+            "nip": "00000000000000",
+            "phone": "00000000000000",
+            "loyaltyCardNumber": "11111111111",
+            "address": {
+              "street": "Street+name",
+              "address1": "123",
+              "province": "Dolnoslaskie",
+              "city": "Wroclaw",
+              "postal": "00-000",
+              "country": "PL"
+            }
+          },
+          "labels": [
+            {
+              "key": "scan_id",
+              "value": "123"
+            }
+          ],
+          "items": [
+            {
+              "sku": {
+                "code": "test0101"
+              },
+              "name": "Product+name",
+              "quantity": 1,
+              "grossValue": 1500,
+              "category": "Category+Name",
+              "maker": "Marker+name",
+              "labels": [
+                {
+                  "key": "Label+key",
+                  "value": "Label+value"
+                }
+              ]
+            }
+          ],
+          "excludedLevelCategories": [
+            "category_excluded_from_level"
+          ],
+          "currency": "eur"
+        }
+      ],
+      "total": 1
+    }
+
+
+
 Get a list of transactions
 --------------------------
 
@@ -649,13 +947,6 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | <storeCode>                         | query          | Code of the store to get transactions from.       |
 +-------------------------------------+----------------+---------------------------------------------------+
-| _page                               | query          | *(optional)* Start from page, by default 1        |
-+-------------------------------------+----------------+---------------------------------------------------+
-| _itemsOnPage                        | query          | *(optional)* Number of items to display per page, |
-|                                     |                | by default = 10                                   |
-+-------------------------------------+----------------+---------------------------------------------------+
-| _orderBy                            | query          | *(optional)* Sort by column name                  |
-+-------------------------------------+----------------+---------------------------------------------------+
 | customerData_loyaltyCardNumber      | query          | *(optional)* Loyalty Card Number                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | customerData_name                   | query          | *(optional)* Customer Name                        |
@@ -672,12 +963,28 @@ Definition
 +-------------------------------------+----------------+---------------------------------------------------+
 | posId                               | query          | *(optional)* POS ID                               |
 +-------------------------------------+----------------+---------------------------------------------------+
-| purchaseDate                        | query          | *(optional)* purchase date's limit                |
+| purchaseDateFrom                    | query          | *(optional)* purchase date's lower limit          |
 +-------------------------------------+----------------+---------------------------------------------------+
-| grossValue                          | query          | *(optional)* transaction gross value limit        |
+| purchaseDateTo                      | query          | *(optional)* purchase date's upper limit          |
++-------------------------------------+----------------+---------------------------------------------------+
+| grossValueFrom                      | query          | *(optional)* transaction gross value lower limit  |
++-------------------------------------+----------------+---------------------------------------------------+
+| grossValueTo                        | query          | *(optional)* transaction gross value upper limit  |
++-------------------------------------+----------------+---------------------------------------------------+
+| page                                | query          | *(optional)* Start from page, by default 1        |
++-------------------------------------+----------------+---------------------------------------------------+
+| perPage                             | query          | *(optional)* Number of items to display per page, |
+|                                     |                | by default = 10                                   |
++-------------------------------------+----------------+---------------------------------------------------+
+| sort                                | query          | *(optional)* Sort by column name                  |
++-------------------------------------+----------------+---------------------------------------------------+
+| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
+|                                     |                | by default = ASC                                  |
 +-------------------------------------+----------------+---------------------------------------------------+
 | labels                              | query          | *(optional)* Filter transactions by labels.       |
-|                                     |                | Format "labels[eq]=(key1;value1),(key2;value2),"  |
+|                                     |                | Format "labels[0][key]=label_key                  |
+|                                     |                | & labels[0][value]=first_value                    |
+|                                     |                | & labels[1][key]=another_key"                     |
 +-------------------------------------+----------------+---------------------------------------------------+
 
 Example
@@ -863,7 +1170,7 @@ Definition
 +----------------------------------------------+----------------+---------------------------------------------------+
 | <storeCode>                                  | query          | Code of the store to add transaction to.          |
 +----------------------------------------------+----------------+---------------------------------------------------+
-| transaction[transactionData][documentType]   | query          | Document type for Transaction Data, 2 possible    |
+| transaction[transactionData][documentType]   | query          | Document type for Transaction Data, 2 possible    | 
 |                                              |                | values: return, sell                              |
 +----------------------------------------------+----------------+---------------------------------------------------+
 | transaction[transactionData][documentNumber] | query          | Document number                                   |
@@ -1106,6 +1413,68 @@ Example Response
     {
       "transactionId": "d5b1119a-698b-40b4-9ac4-8ef704fa4433"
     }
+
+
+
+Get available item labels
+-------------------------
+
+To retrieve available labels, you need to call the ``/api/<storeCode>/transaction/item/labels`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/<storeCode>/transaction/item/labels
+
++----------------------------------------------+----------------+---------------------------------------------------+
+| Parameter                                    | Parameter type | Description                                       |
++==============================================+================+===================================================+
+| Authorization                                | header         | Token received during authentication              |
++----------------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                                  | query          | Code of the store to get available labels of.     |
++----------------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/transaction/item/labels \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *label* and *label2* are example values. You can name labels as you wish.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "labels": {
+        "test": [
+          "label",
+          "label2"
+        ]
+      }
+    }
+
+
 
 Number of points which can be obtained after registering given transaction
 --------------------------------------------------------------------------

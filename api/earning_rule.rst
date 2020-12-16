@@ -198,6 +198,86 @@ Example Response
       }
     }
 
+
+
+Get earning rule details (seller)
+---------------------------------
+
+To retrieve a page of earning rule details, you need to call the ``/api/<storeCode>/seller/earningRule/<earningRule>`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET  /api/<storeCode>/seller/earningRule/<earningRule>
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to get the earning rule from.   |
++-------------------------------------+----------------+---------------------------------------------------+
+| <earningRule>                       | query          | earningRule ID                                    |
++-------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+ To see the earning rule with id ``earningRule = 00000000-0000-474c-b092-b0dd880c0725``, use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/earningRule/00000000-0000-474c-b092-b0dd880c0725 \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *earningRule = 00000000-0000-474c-b092-b0dd880c0725* id is an example value. Your value may be different.
+    Check the list of all earning rules if you are not sure which id should be used.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "levels": [
+        "000096cf-32a3-43bd-9034-4df343e5fd93"
+      ],
+      "segments": [],
+      "earningRuleId": "00000000-0000-474c-b092-b0dd880c0725",
+      "name": "Newsletter subscription test rule",
+      "description": "sth",
+      "active": false,
+      "startAt": "2018-01-19T09:45:00+0100",
+      "endAt": "2018-03-19T09:45:00+0100",
+      "allTimeActive": false,
+      "usages": [],
+      "eventName": "oloy.customer.newsletter_subscription",
+      "pointsAmount": 85,
+      "type": "event",
+      "hasPhoto": false,
+      "segmentNames": [],
+      "levelNames": {
+        "000096cf-32a3-43bd-9034-4df343e5fd93": "level0"
+      }
+    }
+
+
 Create a new earning rule
 -------------------------
 

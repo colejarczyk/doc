@@ -61,5 +61,6 @@ Example of completed Customer XML file structure below
             <phone>+48231231233</phone>
             <levelID>000096cf-32a3-43bd-9034-4df343e5fd93</levelID>
             <posId>00000000-0000-474c-1111-b0dd880c07e2</posId>
+            <sellerId>00000000-0000-474c-b092-b0dd880c07e4</sellerId>
          </customer>
       </customers>

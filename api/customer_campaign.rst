@@ -88,7 +88,7 @@ Example Response
     {
       "campaigns": [
         {
-          "purchasedAt": "2018-01-30T18:23:24+0100",
+          "purchaseAt": "2018-01-30T18:23:24+0100",
           "costInPoints": 20,
           "campaignId": {
             "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93"
@@ -138,7 +138,7 @@ Example Response
     {
       "campaigns": [
         {
-          "purchasedAt": "2018-01-30T18:23:24+0100",
+          "purchaseAt": "2018-01-30T18:23:24+0100",
           "costInPoints": 20,
           "campaignId": {
             "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93"
@@ -367,7 +367,7 @@ Example Response
     {
       "campaigns": [
         {
-          "purchasedAt": "2018-01-30T18:23:24+0100",
+          "purchaseAt": "2018-01-30T18:23:24+0100",
           "costInPoints": 20,
           "campaignId": {
             "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93"
@@ -415,7 +415,7 @@ Example Response
     {
       "campaigns": [
         {
-          "purchasedAt": "2018-01-30T18:23:24+0100",
+          "purchaseAt": "2018-01-30T18:23:24+0100",
           "costInPoints": 20,
           "campaignId": {
             "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93"
@@ -479,6 +479,8 @@ Definition
 +---------------------------+----------------+-------------------------------------------------------------+
 | coupons[][campaignId]     | request        | Campaign UUID                                               |
 +---------------------------+----------------+-------------------------------------------------------------+
+| coupons[][couponId]       | request        | Coupon UUID                                                 |
++---------------------------+----------------+-------------------------------------------------------------+
 | coupons[][code]           | request        | Coupon code                                                 |
 +---------------------------+----------------+-------------------------------------------------------------+
 | coupons[][used]           | request        | Is coupon used, 1 if true, 0 if not used                    |
@@ -498,13 +500,15 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "coupons[0][campaignId]=f1eddc46-e985-43e8-bc2a-8007dca3df95" \
+        -d "coupons[0][couponId]=83d6a65e-d237-4049-84aa-bb107cd6f9a4" \
         -d "coupons[0][code]=test1" \
         -d "coupons[0][used]=1" \
         -d "coupons[0][customerId]=00000000-0000-474c-b092-b0dd880c07e1" \
-        -d "coupons[1][campaignId]=f1eddc46-e985-43e8-bc2a-8007dca3df95" \
-        -d "coupons[1][code]=test2" \
-        -d "coupons[1][used]=1" \
-        -d "coupons[1][customerId]=00000000-0000-474c-b092-b0dd880c07e1"
+        -d "coupons[0][campaignId]=f1eddc46-e985-43e8-bc2a-8007dca3df95" \
+        -d "coupons[0][couponId]=6a2456ec-49b3-4970-9ac4-75ca01eab0ee" \
+        -d "coupons[0][code]=test2" \
+        -d "coupons[0][used]=1" \
+        -d "coupons[0][customerId]=00000000-0000-474c-b092-b0dd880c07e1"
 
 .. note::
 
@@ -513,7 +517,15 @@ Example
 
 .. note::
 
-    The *campaignId*, *code*, *customerId* values are an example. Your values may be different.
+    The *campaignId = f1eddc46-e985-43e8-bc2a-8007dca3df95* id is an example value. Your value may be different.
+
+.. note::
+
+    The *couponId = 6a2456ec-49b3-4970-9ac4-75ca01eab0ee* id is an example value. Your value may be different.
+
+.. note::
+
+    The *customerId = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
 
 Example Response
 ^^^^^^^^^^^^^^^^
@@ -564,6 +576,8 @@ Definition
 +---------------------------+----------------+-------------------------------------------------------------+
 | coupons[][campaignId]     | request        | Campaign UUID                                               |
 +---------------------------+----------------+-------------------------------------------------------------+
+| coupons[][couponId]       | request        | Coupon UUID                                                 |
++---------------------------+----------------+-------------------------------------------------------------+
 | coupons[][code]           | request        | Coupon code                                                 |
 +---------------------------+----------------+-------------------------------------------------------------+
 | coupons[][used]           | request        | Is coupon used, 1 if true, 0 if not used                    |
@@ -582,6 +596,7 @@ Example
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "coupons[0][campaignId]=00000000-0000-0000-0000-000000000001" \
+        -d "coupons[0][couponId]=00000000-0000-0000-0000-000000000002" \
         -d "coupons[0][code]=WINTER" \
         -d "coupons[0][used]=1" \
         -d "coupons[0][transactionId]=00000000-0000-0000-0000-000000000003"
@@ -593,7 +608,7 @@ Example
 
 .. note::
 
-    The *campaignId = 00000000-0000-0000-0000-000000000001*, *code = WINTER*,
+    The *campaignId = 00000000-0000-0000-0000-000000000001*, *couponId = 00000000-0000-0000-0000-000000000002*,
     *transactionId = 00000000-0000-0000-0000-000000000003* are example values. Your values can be different.
 
 Example Response
@@ -727,4 +742,207 @@ If you don't have enough points to buy a reward, you will receive following resp
 
     {
       "error": "Not enough points"
+    }
+
+
+
+Get all campaigns bought by a customer (seller)
+-----------------------------------------------
+
+To retrieve a list of rewards bought by a specific customer, use the ``/api/<storeCode>/seller/customer/{customer}/campaign/bought`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/<storeCode>/seller/customer/<customer>/campaign/bought
+
++----------------------+----------------+--------------------------------------------------------+
+| Parameter            | Parameter type |  Description                                           |
++======================+================+========================================================+
+| Authorization        | header         | Token received during authentication                   |
++----------------------+----------------+--------------------------------------------------------+
+| <storeCode>          | query          | Code of the store the customer belongs to.             |
++----------------------+----------------+--------------------------------------------------------+
+| <customer>           | request        | Customer UUID                                          |
++----------------------+----------------+--------------------------------------------------------+
+| includeDetails       | query          | *(optional)* Include details about bought campaign     |
+|                      |                | For example ``1``                                      |
++----------------------+----------------+--------------------------------------------------------+
+| page                 | query          | *(optional)* Start from page, by default 1             |
++----------------------+----------------+--------------------------------------------------------+
+| perPage              | query          | *(optional)* Number of items to display per page,      |
+|                      |                | by default = 10                                        |
++----------------------+----------------+--------------------------------------------------------+
+| sort                 | query          | *(optional)* Sort by column name,                      |
+|                      |                | by default = firstName                                 |
++----------------------+----------------+--------------------------------------------------------+
+| direction            | query          | *(optional)* Direction of sorting [ASC, DESC],         |
+|                      |                | by default = ASC                                       |
++----------------------+----------------+--------------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/campaign/bought \
+        -X "GET" \
+        -H "Accept:application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization:\ Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    As a seller, you will receive less information about campaigns than an administrator.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "campaigns": [],
+      "total": 0
+    }
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "campaigns": [
+        {
+          "purchaseAt": "2018-01-30T18:23:24+0100",
+          "costInPoints": 20,
+          "campaignId": {
+            "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93"
+          },
+          "used": false,
+          "coupon": {
+            "code": "123"
+          }
+        }
+      ],
+      "total": 1
+    }
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e1/campaign/bought \
+        -X "GET" -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
+        -d "includeDetails=1" \
+        -d "page=1" \
+        -d "perPage=1" \
+        -d "sort=used" \
+        -d "direction=DESC"
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *customer = 00000000-0000-474c-b092-b0dd880c07e1* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    As a seller, you will receive less information about campaigns than an administrator.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "campaigns": [
+        {
+          "purchaseAt": "2018-01-30T18:23:24+0100",
+          "costInPoints": 20,
+          "campaignId": {
+            "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93"
+          },
+          "campaign": {
+            "levels": [
+              "000096cf-32a3-43bd-9034-4df343e5fd93",
+              "e82c96cf-32a3-43bd-9034-4df343e5fd94",
+              "000096cf-32a3-43bd-9034-4df343e5fd94",
+              "0f0d346e-9fd0-492a-84aa-2a2b61419c97"
+            ],
+            "segments": [],
+            "coupons": [
+              "123"
+            ],
+            "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93",
+            "reward": "discount_code",
+            "name": "tests",
+            "active": true,
+            "costInPoints": 20,
+            "singleCoupon": false,
+            "unlimited": false,
+            "limit": 10,
+            "limitPerUser": 2,
+            "campaignActivity": {
+              "allTimeActive": true
+            },
+            "campaignVisibility": {
+              "allTimeVisible": true
+            },
+            "segmentNames": [],
+            "levelNames": {
+              "000096cf-32a3-43bd-9034-4df343e5fd93": "level0",
+              "e82c96cf-32a3-43bd-9034-4df343e5fd94": "level1",
+              "000096cf-32a3-43bd-9034-4df343e5fd94": "level2",
+              "0f0d346e-9fd0-492a-84aa-2a2b61419c97": "level3"
+            },
+            "usageLeft": 0,
+            "visibleForCustomersCount": 6,
+            "usersWhoUsedThisCampaignCount": 1
+          },
+          "used": false,
+          "coupon": {
+            "code": "123"
+          }
+        }
+      ],
+      "total": 1
     }

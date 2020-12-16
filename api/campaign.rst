@@ -196,6 +196,70 @@ Example Response
 
 
 
+Cashback provider callback
+--------------------------
+
+To run a cashback provider callback, you need to call the ``/api/<storeCode>/campaign/cashback/callback/<provider>`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/campaign/cashback/callback/<provider>
+	
++----------------------+----------------+------------------------------------------------------------------------------+
+| Parameter            | Parameter type |  Description                                                                 |
++======================+================+==============================================================================+
+| Authorization        | header         | Token received during authentication                                         |
++----------------------+----------------+------------------------------------------------------------------------------+
+| <storeCode>          | query          | Code of the store to perform cashback on.                                    |
++----------------------+----------------+------------------------------------------------------------------------------+
+| <provider>           | request        | Provider, possible value: paytm                                              |
++----------------------+----------------+------------------------------------------------------------------------------+
+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/campaign/cashback/callback/paytm \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+		-H "Content: {"type":null,"requestGuid":null,"orderId":"f0b9914e-cd54-4a85-bc3f-d36e0c37edaa_1c50ef53-ab5b-4d24-9d03-f93c7ec042fe","status":null,"statusCode":"ACCEPTED","statusMessage":"ACCEPTED","response":null,"metadata":null}" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." 
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The data in the Content is an example value and depends on the [Cashback][PayTM] Requested PayTM cashback message after redeeming cashback.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+        "couponId": "1c50ef53-ab5b-4d24-9d03-f93c7ec042fe",
+        "id": "f0b9914e-cd54-4a85-bc3f-d36e0c37edaa_1c50ef53-ab5b-4d24-9d03-f93c7ec042fe",
+        "customerId": "f0b9914e-cd54-4a85-bc3f-d36e0c37edaa",
+        "code": "ACCEPTED",
+        "message": "ACCEPTED",
+        "provider": "paytm",
+        "failed": false
+    }
+
+
 Create a new campaign
 ---------------------
 
@@ -236,6 +300,8 @@ Definition
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[pointValue]                              | request        | Each point will be exchanged for provided value (in current currency) for    |
 |                                                   |                | cashback                                                                     |
++---------------------------------------------------+----------------+------------------------------------------------------------------------------+
+| campaign[cashbackProvider]                        | request        | Cashback campaigns can automatically send funds using the listed APIs.       |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
 | campaign[costInPoints]                            | request        |  How many points it costs                                                    |
 +---------------------------------------------------+----------------+------------------------------------------------------------------------------+
@@ -2037,7 +2103,7 @@ Example Response
           "updatedAt": "2017-10-02T11:49:25+0200",
           "campaignPurchases": [
             {
-              "purchasedAt": "2017-10-02T12:03:34+0200",
+              "purchaseAt": "2017-10-02T12:03:34+0200",
               "costInPoints": 10,
               "campaignId": {
                 "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93"
@@ -2368,6 +2434,483 @@ Example Not Found Response
       }
     }
 
+
+
+Get a campaign collection (seller)
+--------------------------------
+
+To retrieve a paginated list of campaigns, you need to call the ``/api/<storeCode>/seller/campaign`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/<storeCode>/seller/campaign
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to get the campaigns from.      |
++-------------------------------------+----------------+---------------------------------------------------+
+| page                                | query          | *(optional)* Start from page, by default 1        |
++-------------------------------------+----------------+---------------------------------------------------+
+| perPage                             | query          | *(optional)* Number of items to display per page, |
+|                                     |                | by default = 10                                   |
++-------------------------------------+----------------+---------------------------------------------------+
+| sort                                | query          | *(optional)* Sort by column name                  |
++-------------------------------------+----------------+---------------------------------------------------+
+| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
+|                                     |                | by default = ASC                                  |
++-------------------------------------+----------------+---------------------------------------------------+
+
+To see the first page of all campaigns, use the method below:
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/campaign \
+        -X "GET" -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    As a seller, you will receive less information about a campaign than an administrator.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "campaigns": [
+        {
+          "levels": [
+            "000096cf-32a3-43bd-9034-4df343e5fd93",
+            "e82c96cf-32a3-43bd-9034-4df343e5fd94",
+            "000096cf-32a3-43bd-9034-4df343e5fd94"
+          ],
+          "segments": [],
+          "coupons": [
+            "123"
+          ],
+          "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93",
+          "reward": "discount_code",
+          "name": "tests",
+          "active": true,
+          "costInPoints": 10,
+          "singleCoupon": false,
+          "unlimited": false,
+          "limit": 10,
+          "limitPerUser": 2,
+          "campaignActivity": {
+            "allTimeActive": false,
+            "activeFrom": "2016-01-01T00:00:00+0100",
+            "activeTo": "2018-01-01T00:00:00+0100"
+          },
+          "campaignVisibility": {
+            "allTimeVisible": false,
+            "visibleFrom": "2016-01-01T00:00:00+0100",
+            "visibleTo": "2018-01-01T00:00:00+0100"
+          },
+          "segmentNames": [],
+          "levelNames": {
+            "000096cf-32a3-43bd-9034-4df343e5fd93": "level0",
+            "e82c96cf-32a3-43bd-9034-4df343e5fd94": "level1",
+            "000096cf-32a3-43bd-9034-4df343e5fd94": "level2"
+          },
+          "labels": [
+            {
+              "key": "type",
+              "value": "promotion"
+            }
+          ],
+          "usageLeft": 0,
+          "visibleForCustomersCount": 2,
+          "usersWhoUsedThisCampaignCount": 1
+        },
+        {
+          "levels": [
+            "000096cf-32a3-43bd-9034-4df343e5fd94"
+          ],
+          "segments": [
+            "00000000-0000-0000-0000-000000000002"
+          ],
+          "coupons": [
+            "123"
+          ],
+          "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd92",
+          "reward": "discount_code",
+          "name": "for test",
+          "active": true,
+          "costInPoints": 10,
+          "singleCoupon": false,
+          "unlimited": false,
+          "limit": 10,
+          "limitPerUser": 2,
+          "campaignActivity": {
+            "allTimeActive": false,
+            "activeFrom": "2016-01-01T00:00:00+0100",
+            "activeTo": "2018-01-01T00:00:00+0100"
+          },
+          "campaignVisibility": {
+            "allTimeVisible": false,
+            "visibleFrom": "2016-01-01T00:00:00+0100",
+            "visibleTo": "2018-01-01T00:00:00+0100"
+          },
+          "segmentNames": {
+            "00000000-0000-0000-0000-000000000002": "anniversary"
+          },
+          "levelNames": {
+            "000096cf-32a3-43bd-9034-4df343e5fd94": "level2"
+          },
+          "usageLeft": 1,
+          "visibleForCustomersCount": 0,
+          "usersWhoUsedThisCampaignCount": 0
+        }
+      ],
+      "total": 2
+    }
+
+
+
+Get campaign details (seller)
+-----------------------------
+
+To retrieve the details of a campaign, you need to call the ``/api/<storeCode>/seller/campaign/<campaign>`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/<storeCode>/seller/campaign/<campaign>
+
++---------------+----------------+---------------------------------------------+
+| Parameter     | Parameter type | Description                                 |
++===============+================+=============================================+
+| Authorization | header         | Token received during authentication        |
++---------------+----------------+---------------------------------------------+
+| <storeCode>   | query          | Code of the store to get the campaign from. |
++---------------+----------------+---------------------------------------------+
+| <campaign>    | query          | Campaign ID                                 |
++---------------+----------------+---------------------------------------------+
+
+Example
+^^^^^^^
+
+To see the details of the admin user with ``campaign = 3062c881-93f3-496b-9669-4238c0a62be8``, use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/campaign/3062c881-93f3-496b-9669-4238c0a62be8 \
+        -X "GET" \
+	    -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *3062c881-93f3-496b-9669-4238c0a62be8* id is an example value. Your value may be different.
+    Check the list of all admin users if you are not sure which id should be used.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "levels": [
+        "e82c96cf-32a3-43bd-9034-4df343e5fd94",
+        "000096cf-32a3-43bd-9034-4df343e5fd94"
+      ],
+      "segments": [],
+      "coupons": [
+        "testCoupon",
+        "DiscountCoupon"
+      ],
+      "campaignId": "3062c881-93f3-496b-9669-4238c0a62be8",
+      "reward": "discount_code",
+      "name": "Discount Code Campaign 1",
+      "shortDescription": "A short description of discount code campaign",
+      "conditionsDescription": "Discount code for registration",
+      "active": true,
+      "costInPoints": 100,
+      "singleCoupon": false,
+      "unlimited": false,
+      "limit": 10,
+      "limitPerUser": 1,
+      "labels": [
+        {
+          "key": "type",
+          "value": "promotion"
+        }
+      ],
+      "campaignActivity": {
+        "allTimeActive": false,
+        "activeFrom": "2017-09-05T10:59:00+0200",
+        "activeTo": "2017-12-05T10:59:00+0100"
+      },
+      "campaignVisibility": {
+        "allTimeVisible": false,
+        "visibleFrom": "2017-10-05T10:59:00+0200",
+        "visibleTo": "2018-10-05T10:59:00+0200"
+      },
+      "usageInstruction": "Use discount code as you like",
+      "segmentNames": [],
+      "levelNames": {
+        "e82c96cf-32a3-43bd-9034-4df343e5fd94": "level1",
+        "000096cf-32a3-43bd-9034-4df343e5fd94": "level2"
+      },
+      "usageLeft": 2,
+      "visibleForCustomersCount": 0,
+      "usersWhoUsedThisCampaignCount": 0
+    }
+
+
+
+Get available campaigns for a customer (seller)
+-----------------------------------------------
+
+To check which campaigns are available for a specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/campaign/available`` endpoint with the ``GET`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    GET /api/<storeCode>/seller/customer/<customer>/campaign/available
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store to get the campaigns from.      |
++-------------------------------------+----------------+---------------------------------------------------+
+| <customer>                          | query          | Customer ID                                       |
++-------------------------------------+----------------+---------------------------------------------------+
+| isFeatured                          | query          | *(optional)* Filter by featured tag               |
++-------------------------------------+----------------+---------------------------------------------------+
+| hasSegment                          | query          | *(optional)* 1 to return only campaigns offered   |
+|                                     |                | exclusively to some segments, 0 for campaigns     |
+|                                     |                | offered only to all segments; omit to return all  |
+|                                     |                | campaigns                                         |
++-------------------------------------+----------------+---------------------------------------------------+
+| page                                | query          | *(optional)* Start from page, by default 1        |
++-------------------------------------+----------------+---------------------------------------------------+
+| perPage                             | query          | *(optional)* Number of items to display per page, |
+|                                     |                | by default = 10                                   |
++-------------------------------------+----------------+---------------------------------------------------+
+| sort                                | query          | *(optional)* Sort by column name. Also available  |
+|                                     |                | to sort by child fields like                      |
+|                                     |                | `campaignVisibility.visibleFrom`                  |
++-------------------------------------+----------------+---------------------------------------------------+
+| direction                           | query          | *(optional)* Direction of sorting [ASC, DESC],    |
+|                                     |                | by default = ASC                                  |
++-------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+To see the list of campaigns for a customer with the ID ``customer = 00000000-0000-474c-b092-b0dd880c07e2``, use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e2/campaign/available \
+        -X "GET" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "campaigns": [
+        {
+          "levels": [
+            "000096cf-32a3-43bd-9034-4df343e5fd93",
+            "e82c96cf-32a3-43bd-9034-4df343e5fd94",
+            "000096cf-32a3-43bd-9034-4df343e5fd94"
+          ],
+          "segments": [],
+          "coupons": [
+            "123"
+          ],
+          "campaignId": "000096cf-32a3-43bd-9034-4df343e5fd93",
+          "reward": "discount_code",
+          "name": "tests",
+          "active": true,
+          "costInPoints": 10,
+          "singleCoupon": false,
+          "unlimited": false,
+          "limit": 10,
+          "limitPerUser": 2,
+          "campaignActivity": {
+            "allTimeActive": false,
+            "activeFrom": "2016-01-01T00:00:00+0100",
+            "activeTo": "2018-01-01T00:00:00+0100"
+          },
+          "campaignVisibility": {
+            "allTimeVisible": false,
+            "visibleFrom": "2016-01-01T00:00:00+0100",
+            "visibleTo": "2018-01-01T00:00:00+0100"
+          },
+          "labels": [
+            {
+              "key": "type",
+              "value": "promotion"
+            }
+          ],
+          "segmentNames": [],
+          "levelNames": {
+            "000096cf-32a3-43bd-9034-4df343e5fd93": "level0",
+            "e82c96cf-32a3-43bd-9034-4df343e5fd94": "level1",
+            "000096cf-32a3-43bd-9034-4df343e5fd94": "level2"
+          },
+          "usageLeft": 1,
+          "usageLeftForCustomer": 1,
+          "canBeBoughtByCustomer": true,
+          "visibleForCustomersCount": 2,
+          "usersWhoUsedThisCampaignCount": 0
+        }
+      ],
+      "total": 1
+    }
+
+
+
+Buy a reward campaign for a specific customer (seller)
+----------------------------------------------------
+
+To buy a reward campaign for a specific customer, you need to call the ``/api/<storeCode>/seller/customer/<customer>/campaign/<campaign>/buy`` endpoint with the ``POST`` method.
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/seller/customer/<customer>/campaign/<campaign>/buy
+
++---------------+----------------+--------------------------------------------+
+| Parameter     | Parameter type | Description                                |
++===============+================+============================================+
+| Authorization | header         | Token received during authentication       |
++---------------+----------------+--------------------------------------------+
+| <storeCode>   | query          | Code of the store the campaign belongs to. |
++---------------+----------------+--------------------------------------------+
+| <customer>    | query          | Customer ID                                |
++---------------+----------------+--------------------------------------------+
+| <campaign>    | query          | Campaign ID                                |
++---------------+----------------+--------------------------------------------+
+| quantity      | query          | *(optional)* default 1 - number            |
+|               |                | of coupons to buy (not valid for           |
+|               |                | cashback and percentage_discount_code)     |
++---------------+----------------+--------------------------------------------+
+
+Example
+^^^^^^^
+
+To buy the reward campaign ``campaign = 000096cf-32a3-43bd-9034-4df343e5fd93`` for the customer ``customer = 00000000-0000-474c-b092-b0dd880c07e2``
+use the method below:
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/seller/customer/00000000-0000-474c-b092-b0dd880c07e2/campaign/000096cf-32a3-43bd-9034-4df343e5fd93/buy
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    When using endpoints starting with ``/api/<storeCode>/seller``, you need to authorize using seller account credentials.
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+.. note::
+
+    The *000096cf-32a3-43bd-9034-4df343e5fd93* id is an example value. Your value may be different.
+    Check the list of all campaigns if you are not sure which id should be used.
+
+.. note::
+
+    The *00000000-0000-474c-b092-b0dd880c07e2* id is an example value. Your value may be different.
+    Check the list of all customers if you are not sure which id should be used.
+
+Example Response
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 200 OK
+
+.. code-block:: json
+
+    {
+      "coupons": [{
+        "code": "123",
+        "id": "ceb169c7-4fe2-4b49-9f2a-5a18634d7236"
+      }]
+    }
+
+
+
 Get all campaigns available for a logged-in customer
 --------------------------------------------------
 
@@ -2434,26 +2977,22 @@ Definition
 
 .. code-block:: text
 
-    PUT /api/<storeCode>/admin/customer/<customer>/campaign/bought/deliveryStatus
+    PUT /api/<storeCode>/admin/customer/<customer>/bought/coupon/<coupon>/changeDeliveryStatus
 
-+-------------------------------+----------------+---------------------------------------------------------------------+
-| Parameter                     | Parameter type | Description                                                         |
-+===============================+================+=====================================================================+
-| Authorization                 | header         | Token received during authentication                                |
-+-------------------------------+----------------+---------------------------------------------------------------------+
-| <storeCode>                   | query          | Code of the store the updated campaign belongs to.                  |
-+-------------------------------+----------------+---------------------------------------------------------------------+
-| <customer>                    | query          | Customer ID                                                         |
-+-------------------------------+----------------+---------------------------------------------------------------------+
-| deliveryStatus[status]        | query          | Available statuses: ["canceled", "delivered", "ordered", "shipped"] |
-|                               |                | (required)                                                          |
-+-------------------------------+----------------+---------------------------------------------------------------------+
-| deliveryStatus[couponId]      | query          | *(optional)* Coupon ID                                              |
-+-------------------------------+----------------+---------------------------------------------------------------------+
-| deliveryStatus[coupon]        | query          | *(optional)* Coupon code, best used along with *currentStatus*      |
-+-------------------------------+----------------+---------------------------------------------------------------------+
-| deliveryStatus[currentStatus] | query          | *(optional)* Coupon's current status                                |
-+-------------------------------+----------------+---------------------------------------------------------------------+
++---------------------------+----------------+-------------------------------------------------------------------------+
+| Parameter                 | Parameter type | Description                                                             |
++===========================+================+=========================================================================+
+| Authorization             | header         | Token received during authentication                                    |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| <storeCode>               | query          | Code of the store the updated campaign belongs to.                      |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| <customer>                | query          | Customer ID                                                             |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| <coupon>                  | query          | Coupon ID                                                               |
++---------------------------+----------------+-------------------------------------------------------------------------+
+| deliveryStatus[status]    | query          | Available statuses: ["canceled", "delivered", "ordered", "shipped"]     |
+|                           |                | (required)                                                              |
++---------------------------+----------------+-------------------------------------------------------------------------+
 
 
 Example
@@ -2463,42 +3002,12 @@ To change delivery status for a customer with ``id = 5bdab759-5b31-48d6-a38b-ba4
 
 .. code-block:: bash
 
-    curl http://localhost:8181/api/DEFAULT/admin/customer/5bdab759-5b31-48d6-a38b-ba4628ca1a91/campaign/bought/coupon/deliveryStatus
+    curl http://localhost:8181/api/DEFAULT/admin/customer/5bdab759-5b31-48d6-a38b-ba4628ca1a91/bought/coupon/42d74422-ca0b-46f4-8871-be26f5a0497e/changeDeliveryStatus
         -X "PUT" \
         -H "Accept: application/json" \
         -H "Content-type: application/x-www-form-urlencoded" \
         -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
         -d "deliveryStatus[status]=canceled"
-        -d "deliveryStatus[couponId]=42d74422-ca0b-46f4-8871-be26f5a0497e"
-
-
-Alternatively, to change delivery status for the same customer, but without couponId, specify coupon's code and its current status,
-for example ``code = WINTER2021`` and ``currentStatus = ordered``:
-
-.. code-block:: bash
-
-    curl http://localhost:8181/api/DEFAULT/admin/customer/5bdab759-5b31-48d6-a38b-ba4628ca1a91/campaign/bought/coupon/deliveryStatus
-        -X "PUT" \
-        -H "Accept: application/json" \
-        -H "Content-type: application/x-www-form-urlencoded" \
-        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..." \
-        -d "deliveryStatus[status]=canceled"
-        -d "deliveryStatus[coupon]=WINTER2021"
-        -d "deliveryStatus[currentStatus]=ordered"
-
-
-.. note::
-
-    Every time this method is used, at most one coupon will change status. This means that if the customer has placed
-    two orders with the same coupon code, only one will change its status. If no criteria are specified, status will
-    not be updated in any purchase.
-
-.. note::
-
-    While the use of ``currentStatus`` is optional, it is highly encouraged and required if you use single-coupon
-    campaigns. If there are two coupons with the same coupon code and no currentStatus is provided, system will return
-    an error. If there are two coupons with the same coupon code and currentStatus, system will pick one of them and
-    change the status.
 
 .. note::
 
@@ -2506,7 +3015,7 @@ for example ``code = WINTER2021`` and ``currentStatus = ordered``:
 
 .. note::
 
-    When using endpoints starting with ``/api/<storeCode>/admin/...``, you need to authorize using admin account credentials.
+    When using endpoints starting with ``/api/<storeCode>/admin/customer/<customer>/bought/coupon/<couponId>/changeDeliveryStatus``, you need to authorize using admin account credentials.
 
 .. note::
 

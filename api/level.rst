@@ -608,6 +608,8 @@ Example Response
       "total": 4
     }
 
+
+
 Get level's photo
 -----------------
 

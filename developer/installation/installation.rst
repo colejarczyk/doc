@@ -71,9 +71,10 @@ and run containers:
 
   docker-compose -f docker/docker-compose.dev.yml --project-name=PROJECT_NAME up
 
-Application should be available under URL:
+Application should be available under slightly different URLs:
 
  * http://openloyalty.localhost:8081/admin - the administration panel
+ * http://openloyalty.localhost:8081/pos - the merchant panel
 
 Preparing docker images
 -----------------------
