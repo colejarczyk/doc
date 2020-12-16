@@ -23,6 +23,5 @@ The REST API Reference
    store
    transactions
    acl
-   event
 
 .. include:: map.rst.inc

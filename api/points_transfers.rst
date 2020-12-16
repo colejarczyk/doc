@@ -116,16 +116,6 @@ Example Response
                 "transactionDocumentNumber": "456",
                 "transaction": {
                     "grossValue": 3,
-                    "labels": [
-                        {
-                            "key": "first label",
-                            "value": "first test"
-                        },
-                        {
-                            "key": "second label",
-                            "value": "second test"
-                        }
-                    ],
                     "items": [
                         {
                             "sku": {
@@ -268,16 +258,6 @@ Example Response
                 "transactionDocumentNumber": "456",
                 "transaction": {
                     "grossValue": 3,
-                    "labels": [
-                        {
-                            "key": "first label",
-                            "value": "first test"
-                        },
-                        {
-                            "key": "second label",
-                            "value": "second test"
-                        }
-                    ],
                     "items": [
                         {
                             "sku": {
