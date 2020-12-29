@@ -204,3 +204,19 @@ onAccountAvailablePointsAmountChanged
      }
   }
 
+onCampaignBought
+
+.. code-block:: json
+
+  {
+     "type": "customer.bought_campaign",
+     "createdAt": "2020-09-24T14:09:13+02:00",
+     "data": {
+         "storeCode": "DEFAULT",
+         "customerId": "00000000-0000-474c-b092-b0dd880c07e1",
+         "campaignId": "38e45c26-7c57-3962-9516-3704fa3eb776",
+         "costInPoints": 1.0,
+         "couponCode": "655"
+     }
+  }
+
