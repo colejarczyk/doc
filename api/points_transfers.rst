@@ -618,6 +618,120 @@ Example Response
 
 
 
+Activate specific points transfer
+-------------------------------
+
+To activate a specific points transfer, you need to call the ``/api/<storeCode>/points/transfer/<transfer>/activate`` endpoint with the ``POST`` method.
+
+Requirements:
+ - transfer MUST HAVE state ``PENDING``;
+
+Results:
+ - transfer will have state ``ACTIVE`` and points will be unlocked;
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/points/transfer/<transfer>/activate
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the point transfer was made in. |
++-------------------------------------+----------------+---------------------------------------------------+
+| <transfer>                          | query          | Points transfer ID                                |
++-------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/points/transfer/313cf0c1-5376-4f66-9de3-77943760423a/activate \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+
+.. code-block:: json
+
+    (no content)
+
+
+
+Expire specific points transfer
+-------------------------------
+
+To expire a specific points transfer, you need to call the ``/api/<storeCode>/points/transfer/<transfer>/expire`` endpoint with the ``POST`` method.
+
+Requirements:
+ - transfer MUST HAVE state ``ACTIVE``;
+
+Results:
+ - transfer will have state ``EXPIRED`` and current date in ``expiredAt``;
+
+Definition
+^^^^^^^^^^
+
+.. code-block:: text
+
+    POST /api/<storeCode>/points/transfer/<transfer>/expire
+
++-------------------------------------+----------------+---------------------------------------------------+
+| Parameter                           | Parameter type | Description                                       |
++=====================================+================+===================================================+
+| Authorization                       | header         | Token received during authentication              |
++-------------------------------------+----------------+---------------------------------------------------+
+| <storeCode>                         | query          | Code of the store the point transfer was made in. |
++-------------------------------------+----------------+---------------------------------------------------+
+| <transfer>                          | query          | Points transfer ID                                |
++-------------------------------------+----------------+---------------------------------------------------+
+
+Example
+^^^^^^^
+
+.. code-block:: bash
+
+    curl http://localhost:8181/api/DEFAULT/points/transfer/313cf0c1-5376-4f66-9de3-77943760423a/expire \
+        -X "POST" \
+        -H "Accept: application/json" \
+        -H "Content-type: application/x-www-form-urlencoded" \
+        -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6..."
+
+.. note::
+
+    The *eyJhbGciOiJSUzI1NiIsInR5cCI6...* authorization token is an example value.
+    Your value may be different. Read more about Authorization :doc:`here </api/authorization>`.
+
+Example Response
+^^^^^^^^^^^^^^^^
+
+.. code-block:: text
+
+    STATUS: 204 No Content
+
+.. code-block:: json
+
+    (no content)
+
+
+
 Import point transfers
 ----------------------
 

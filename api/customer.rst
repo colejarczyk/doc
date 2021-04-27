@@ -900,7 +900,7 @@ Definition
 +-----------------------------------+----------------+-----------------------------------------------------------------+
 | customer[agreement3]              | request        | *(optional)* Third agreement. Set 1 if true, otherwise 0        |
 +-----------------------------------+----------------+-----------------------------------------------------------------+
-| customer[referral_customer_email] | request        | *(optional)* Referral customer e-mail address.                  |
+| customer[invitationToken]         | request        | *(optional)* Invitation token                                   |
 +-----------------------------------+----------------+-----------------------------------------------------------------+
 
 Example
@@ -1040,7 +1040,6 @@ Example Response
           "agreement1": {},
           "agreement2": {},
           "agreement3": {},
-          "referral_customer_email": {},
           "levelId": {},
           "posId": {},
           "sellerId": {}
@@ -1237,8 +1236,6 @@ Definition
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[agreement3]               | request        | *(optional)* Third agreement. Set 1 if true, otherwise 0                                    |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
-| customer[referral_customer_email]  | request        | *(optional)* Referral customer e-mail address.                                              |
-+------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -1341,7 +1338,6 @@ Example Response
                 "agreement1": {},
                 "agreement2": {},
                 "agreement3": {},
-                "referral_customer_email": {},
                 "levelId": {},
                 "posId": {},
                 "sellerId": {}
@@ -2497,8 +2493,6 @@ Definition
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[agreement3]               | request        | *(optional)* Third agreement. Set 1 if true, otherwise 0                                    |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
-| customer[referral_customer_email]  | request        | *(optional)* Referral customer e-mail address.                                              |
-+------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 
 Example
 ^^^^^^^
@@ -2959,8 +2953,6 @@ Definition
 | customer[agreement2]               | request        | *(optional)* Second agreement. Set 1 if true, otherwise 0                                   |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 | customer[agreement3]               | request        | *(optional)* Third agreement. Set 1 if true, otherwise 0                                    |
-+------------------------------------+----------------+---------------------------------------------------------------------------------------------+
-| customer[referral_customer_email]  | request        | *(optional)* Referral customer e-mail address.                                              |
 +------------------------------------+----------------+---------------------------------------------------------------------------------------------+
 
 Example

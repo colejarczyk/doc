@@ -15,7 +15,7 @@ executing a command.
 
 System events
 -------------
-Additional type of events that are thrown during execuing a command by command handler and may be used to trigger
+Additional type of events that are thrown during executing a command by command handler and may be used to trigger
 another commands. They’re also useful to separate concerns.
 
 List of all events
